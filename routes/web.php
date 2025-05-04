@@ -32,7 +32,7 @@ Route::get('/tentang', function () {
 
 // Dashboard Siswa (tanpa login dulu)
 Route::get('dashboard-siswa', function () {
-    return view('dashboard-siswa.index', ["name" => "Ferzy"]);
+    return view('dashboard-siswa.sifat-cahaya', ["name" => "Ferzy"]);
 });
 Route::get('dashboard-siswa/evaluasi', function () {
     return view('dashboard-siswa.evaluasi.index');
