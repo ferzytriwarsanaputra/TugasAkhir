@@ -23,4 +23,10 @@
         <img src="/img/Materi3/optik5.png" alt="Pembentukan Bayangan pada Mikroskop" class="img-fluid d-block mx-auto" style="max-width: 60%;">
     </div>
 </div>
+
+<!-- Navigasi Halaman -->
+<div class="navigation">
+    <a class="nav-btn" href="/materi3/lup">Sebelumnya</a>
+    <a class="nav-btn" href="/materi3/teleskop">Selanjutnya</a>
+</div>
 @endsection

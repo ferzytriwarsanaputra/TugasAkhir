@@ -19,4 +19,10 @@
         <img src="/img/Materi2/mata6.png" alt="Mata Majemuk pada Mata Lalat" class="img-fluid d-block mx-auto" style="max-width: 50%;">
     </div>
 </div>
+
+<!-- Navigasi Halaman -->
+<div class="navigation">
+    <a class="nav-btn" href="/materi2/penglihatan-manusia">Sebelumnya</a>
+    <a class="nav-btn" href="/petunjuk/2">Selanjutnya</a>
+</div>
 @endsection

@@ -176,12 +176,12 @@
             <p id="hasil5"></p>
         </div>
     </div>
+</div>
 
-    <!-- Navigasi Soal -->
-    <div class="navigation">
-        <button class="nav-btn" onclick="prevSoal()">Sebelumnya</button>
-        <button class="nav-btn" onclick="nextSoal()">Berikutnya</button>
-    </div>
+<!-- Navigasi Halaman -->
+<div class="navigation">
+    <a class="nav-btn" href="/materi1/sifat-cahaya">Sebelumnya</a>
+    <a class="nav-btn" href="/materi1/lensa">Selanjutnya</a>
 </div>
 
 <script>

@@ -21,8 +21,17 @@
             </p>
 
             <div class="mt-4">
-                <a href="{{ route('dashboard-siswa') }}" class="btn btn-primary">Selesai Kuis</a>
+                @if ($kuis_id == 1)
+                    <a href="/materi2/penglihatan-manusia" class="btn btn-primary">Selesai Kuis</a>
+                @elseif ($kuis_id == 2)
+                    <a href="/materi3/kamera" class="btn btn-primary">Selesai Kuis</a>
+                @elseif ($kuis_id == 3)
+                    <a href="/petunjuk-evaluasi/4" class="btn btn-primary">Selesai Kuis</a>
+                @else
+                    <a href="/" class="btn btn-primary">Kembali ke Dashboard</a>
+                @endif
             </div>
+            
         </div>
     </div>
 </main>

@@ -36,4 +36,10 @@
         <img src="/img/Materi3/optik1.png" alt="Pembentukan Bayangan pada Kamera Analog" class="img-fluid d-block mx-auto" style="max-width: 60%;">
     </div>
 </div>
+
+<!-- Navigasi Halaman -->
+<div class="navigation">
+    <a class="nav-btn" href="/materi2/penglihatan-serangga">Sebelumnya</a>
+    <a class="nav-btn" href="/materi3/lup">Selanjutnya</a>
+</div>
 @endsection

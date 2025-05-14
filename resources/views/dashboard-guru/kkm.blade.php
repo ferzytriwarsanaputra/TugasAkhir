@@ -13,7 +13,6 @@
 
     <div class="d-flex justify-content-between mb-3">
         <a href="{{ route('dashboard-guru.hasil-belajar') }}" class="btn btn-secondary">← Kembali</a>
-        <!-- Jika Anda ingin menambah tombol untuk menambah kuis -->
     </div>
 
     <table class="table table-bordered table-striped align-middle">
@@ -26,17 +25,22 @@
             </tr>
         </thead>
         <tbody>
-            @php $no = 1; @endphp
-            @foreach ($kkmList as $item)
-            <tr>
-                <th scope="row" class="text-center">{{ $no++ }}</th>
-                <td>{{ $item->kuis_id }}</td> <!-- Tampilkan nama kuis -->
-                <td>{{ $item->nilai_kkm }}</td> <!-- Tampilkan nilai KKM -->
-                <td class="text-center">
-                    <!-- Tombol untuk mengatur KKM -->
-                    <a href="{{ route('dashboard-guru.kkm.edit', $item->id) }}" class="btn btn-primary btn-sm">Atur KKM</a>
-                </td>
-            </tr>
+            @php
+                $kuis = [1, 2, 3];
+                $kkmMap = $kkmList->keyBy('kuis_id');
+            @endphp
+
+            @foreach ($kuis as $index => $id)
+                <tr>
+                    <td class="text-center">{{ $index + 1 }}</td>
+                    <td>Kuis {{ $id }}</td>
+                    <td class="text-center">
+                        {{ $kkmMap[$id]->nilai_kkm ?? 'Belum diatur' }}
+                    </td>
+                    <td class="text-center">
+                        <a href="{{ route('dashboard-guru.kkm.edit', $kkmMap[$id]->id ?? 0) }}" class="btn btn-primary btn-sm">Atur KKM</a>
+                    </td>
+                </tr>
             @endforeach
         </tbody>
     </table>

@@ -96,6 +96,11 @@ Route::get('/petunjuk/{kuis}', function ($id) {
     return view('dashboard-siswa.petunjuk', compact('kuis'));
 })->name('petunjuk');
 
+Route::get('/petunjuk-evaluasi/{id}', function ($id) {
+    $evaluasi = Kuis::with('soals')->findOrFail($id); // diasumsikan evaluasi disimpan di tabel kuis
+    return view('dashboard-siswa.evaluasi.petunjuk', compact('evaluasi'));
+})->name('petunjuk-evaluasi');
+
 // Halaman pengerjaan kuis
 Route::get('/kuis/{kuis}', function ($id) {
     $kuis = Kuis::with('soals')->findOrFail($id);

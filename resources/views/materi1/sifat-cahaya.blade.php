@@ -88,7 +88,7 @@
                 <li onclick="pilihJawaban(this, 'q1')">Dapat dibiaskan</li>
                 <li onclick="pilihJawaban(this, 'q1')">Sebagai gelombang elektromagnetik</li>
             </ul>
-            <button class="cekJawaban" onclick="cekJawaban('q1', 'Merambat lurus', 'hasil1')">Cek Jawaban</button>
+            <button class="cekJawaban lanjut-btn disabled" onclick="nextSoal()" disabled>Lanjut</button>
             <p id="hasil1"></p>
         </div>
 
@@ -103,15 +103,26 @@
             <div class="drop-zone" id="drop1" ondrop="drop(event, 'drop1')" ondragover="allowDrop(event)"></div>
             <p>Pemantulan Baur:</p>
             <div class="drop-zone" id="drop2" ondrop="drop(event, 'drop2')" ondragover="allowDrop(event)"></div>
-            <button class="cekJawaban" onclick="cekDragDrop()">Cek Jawaban</button>
+            
+            <!-- Tombol Periksa dan Lanjut -->
+            <div style="display: flex; gap: 10px; align-items: center; margin-top: 10px;">
+                <button class="cekJawaban" onclick="cekDragDrop()">Periksa</button>
+                <button class="cekJawaban lanjut-btn disabled" onclick="nextSoal()" disabled>Lanjut</button>
+            </div>
             <p id="hasil2"></p>
         </div>
 
         <!-- Soal 3 -->
         <div class="question" id="soal3" style="display: none;">
             <p>3. Jika sudut datang cahaya ke sebuah cermin adalah 30°, maka berapakah sudut pantulnya berdasarkan hukum pemantulan?</p>
-            <input type="text" id="jawaban3">
-            <button class="cekJawaban" onclick="cekEssay()">Cek Jawaban</button>
+            
+            <!-- Input + Tombol Periksa -->
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <input type="text" id="jawaban3">
+                <button class="cekJawaban" onclick="cekEssay()">Periksa</button>
+            </div>
+
+            <button class="cekJawaban lanjut-btn disabled" onclick="nextSoal()" disabled>Lanjut</button>
             <p id="hasil3"></p>
         </div>
 
@@ -124,7 +135,7 @@
                 <li onclick="pilihJawaban(this, 'q4')">Cahaya merambat lurus dalam air</li>
                 <li onclick="pilihJawaban(this, 'q4')">Cahaya merupakan gelombang elektronik</li>
             </ul>
-            <button class="cekJawaban" onclick="cekJawaban('q4', 'Cahaya dibiaskan saat berpindah dari air ke udara', 'hasil4')">Cek Jawaban</button>
+            <button class="cekJawaban lanjut-btn disabled" onclick="nextSoal()" disabled>Lanjut</button>
             <p id="hasil4"></p>
         </div>
 
@@ -137,40 +148,48 @@
                 <li onclick="pilihJawaban(this, 'q5')">Refleksi cahaya</li>
                 <li onclick="pilihJawaban(this, 'q5')">Difraksi cahaya</li>
             </ul>
-            <button class="cekJawaban" onclick="cekJawaban('q5', 'Dispersi cahaya', 'hasil5')">Cek Jawaban</button>
+            <button class="cekJawaban lanjut-btn disabled" onclick="nextSoal()" disabled>Lanjut</button>
             <p id="hasil5"></p>
         </div>
     </div>
 
-    <!-- Navigasi Soal -->
-    <div class="navigation">
-        <button class="nav-btn" onclick="prevSoal()">Sebelumnya</button>
-        <button class="nav-btn" onclick="nextSoal()">Berikutnya</button>
-    </div>
+</div>
+
+<!-- Navigasi Halaman -->
+<div class="navigation">
+    <a class="nav-btn" href="">Sebelumnya</a>
+    <a class="nav-btn" href="/materi1/bayangan-cermin">Selanjutnya</a>
 </div>
 
 <script>
+    let currentSoal = 1;
+
     function pilihJawaban(element, questionId) {
         let options = document.querySelectorAll(`#${questionId} li`);
         options.forEach(option => option.classList.remove("selected"));
         element.classList.add("selected");
-    }
 
-    function cekJawaban(questionId, correctAnswer, resultId) {
-        let selectedOption = document.querySelector(`#${questionId} .selected`);
+        let correctAnswer = {
+            q1: "Merambat lurus",
+            q4: "Cahaya dibiaskan saat berpindah dari air ke udara",
+            q5: "Dispersi cahaya"
+        }[questionId];
+
+        let resultId = {
+            q1: "hasil1",
+            q4: "hasil4",
+            q5: "hasil5"
+        }[questionId];
+
         let resultElement = document.getElementById(resultId);
-        
-        if (selectedOption) {
-            let userAnswer = selectedOption.textContent;
-            if (userAnswer === correctAnswer) {
-                resultElement.innerHTML = "Jawaban Benar!";
-                resultElement.style.color = "green";
-            } else {
-                resultElement.innerHTML = "Jawaban Salah! Jawaban yang benar: " + correctAnswer;
-                resultElement.style.color = "red";
-            }
+        let userAnswer = element.textContent;
+
+        if (userAnswer === correctAnswer) {
+            resultElement.innerHTML = "Jawaban Benar!";
+            resultElement.style.color = "green";
+            enableLanjut();  // ✅ hanya diaktifkan jika benar
         } else {
-            resultElement.innerHTML = "Pilih salah satu jawaban!";
+            resultElement.innerHTML = "Jawaban Salah! Jawaban yang benar: " + correctAnswer;
             resultElement.style.color = "red";
         }
     }
@@ -179,21 +198,24 @@
         let userAnswer = document.getElementById("jawaban3").value;
         let resultElement = document.getElementById("hasil3");
 
-        if (userAnswer == 30) {
+        if (userAnswer.trim() === "30") {
             resultElement.innerHTML = "Jawaban Benar!";
             resultElement.style.color = "green";
+            enableLanjut();  // ✅ hanya diaktifkan jika benar
         } else {
             resultElement.innerHTML = "Jawaban Salah! Jawaban yang benar: 30°";
             resultElement.style.color = "red";
         }
     }
 
-    function allowDrop(event) {
-        event.preventDefault();
+        // Fungsi untuk mengizinkan item di-drag ke dalam drop zone
+        function allowDrop(event) {
+        event.preventDefault();  // Menghindari perilaku default browser
     }
 
+    // Fungsi drag event handler
     function drag(event) {
-        event.dataTransfer.setData("text", event.target.id);
+        event.dataTransfer.setData("text", event.target.id);  // Set data ID item yang di-drag
     }
 
     function drop(event, dropZoneId) {
@@ -201,63 +223,72 @@
         let data = event.dataTransfer.getData("text");
         let draggedElement = document.getElementById(data);
         let dropZone = document.getElementById(dropZoneId);
-        
+
+        // Jika sudah ada item di zona drop, kembalikan ke kontainer drag
         if (dropZone.children.length > 0) {
             let existingItem = dropZone.children[0];
             document.getElementById("dragContainer").appendChild(existingItem);
         }
 
+        // Pindahkan elemen ke zona drop
         dropZone.innerHTML = "";
         dropZone.appendChild(draggedElement);
 
-        updateDragContainer();
+        // ⛔ JANGAN panggil cekDragDrop() di sini
     }
 
-    function updateDragContainer() {
-        let dragContainer = document.getElementById("dragContainer");
-        let remainingItems = Array.from(dragContainer.children);
-
-        dragContainer.style.display = remainingItems.length === 0 ? "none" : "block";
-    }
-
+    // Fungsi untuk memeriksa apakah drag-drop sudah benar
     function cekDragDrop() {
         let drop1 = document.getElementById("drop1").children[0]?.id;
         let drop2 = document.getElementById("drop2").children[0]?.id;
         let resultElement = document.getElementById("hasil2");
 
-        let benar = drop1 === "cermin" && drop2 === "tembok";
-        if (benar) {
+        if (drop1 === "cermin" && drop2 === "tembok") {
             resultElement.innerHTML = "Jawaban Benar!";
             resultElement.style.color = "green";
+            enableLanjut();  // Pindahkan ke sini agar hanya dipanggil jika sudah dijawab
+        } else if (drop1 || drop2) {
+            resultElement.innerHTML = "Jawaban Salah! ...";
+            resultElement.style.color = "red";
         } else {
-            resultElement.innerHTML = "Jawaban Salah! Pemantulan Teratur: Cermin datar, Pemantulan Baur: Tembok kasar.";
+            resultElement.innerHTML = "Lengkapi semua kolom terlebih dahulu!";
             resultElement.style.color = "red";
         }
     }
 
-    let currentSoal = 1;
-    const totalSoal = 5;
 
-    function showSoal(index) {
-        for (let i = 1; i <= totalSoal; i++) {
-            document.getElementById(`soal${i}`).style.display = i === index ? "block" : "none";
-        }
-    }
-
-    function prevSoal() {
-        if (currentSoal > 1) {
-            currentSoal--;
-            showSoal(currentSoal);
+    function enableLanjut() {
+        let btn = document.querySelector(`#soal${currentSoal} .lanjut-btn`);
+        if (btn) {
+            btn.disabled = false;
+            btn.classList.remove("disabled");
         }
     }
 
     function nextSoal() {
-        if (currentSoal < totalSoal) {
-            currentSoal++;
-            showSoal(currentSoal);
+        // Jika soal ke-5 (soal terakhir), langsung redirect tanpa menambah currentSoal
+        if (currentSoal === 5) {
+            window.location.href = "/materi1/bayangan-cermin"; 
+            return; // Penting agar tidak melanjutkan ke baris di bawah
+        }
+
+        // Sembunyikan soal saat ini
+        document.getElementById(`soal${currentSoal}`).style.display = "none";
+
+        // Tambah nomor soal
+        currentSoal++;
+
+        // Tampilkan soal berikutnya
+        if (document.getElementById(`soal${currentSoal}`)) {
+            document.getElementById(`soal${currentSoal}`).style.display = "block";
+        }
+
+        // Reset tombol lanjut di soal baru
+        let currentBtn = document.querySelector(`#soal${currentSoal} .lanjut-btn`);
+        if (currentBtn) {
+            currentBtn.disabled = true;
+            currentBtn.classList.add("disabled");
         }
     }
-
-    showSoal(currentSoal);
 </script>
 @endsection

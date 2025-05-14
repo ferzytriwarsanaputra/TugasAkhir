@@ -90,4 +90,10 @@
         </p>
     </div>
 </div>
+
+<!-- Navigasi Halaman -->
+<div class="navigation">
+    <a class="nav-btn" href="/materi1/lensa">Sebelumnya</a>
+    <a class="nav-btn" href="/materi2/penglihatan-serangga">Selanjutnya</a>
+</div>
 @endsection

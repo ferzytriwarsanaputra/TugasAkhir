@@ -25,4 +25,3 @@ class CreateSoalsTable extends Migration
         Schema::dropIfExists('soals');
     }
 }
-

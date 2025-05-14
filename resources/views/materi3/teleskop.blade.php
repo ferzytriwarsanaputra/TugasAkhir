@@ -43,4 +43,10 @@
         <img src="/img/Materi3/teleskop pantul.png" alt="Cara Kerja Teleskop Pantul dalam menangkap cahaya" class="img-fluid d-block mx-auto" style="max-width: 50%;">
     </div>
 </div>
+
+<!-- Navigasi Halaman -->
+<div class="navigation">
+    <a class="nav-btn" href="/materi3/mikroskop">Sebelumnya</a>
+    <a class="nav-btn" href="/petunjuk/3">Selanjutnya</a>
+</div>
 @endsection

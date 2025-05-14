@@ -23,4 +23,10 @@
         </p>
     </div>
 </div>
+
+<!-- Navigasi Halaman -->
+<div class="navigation">
+    <a class="nav-btn" href="/materi3/kamera">Sebelumnya</a>
+    <a class="nav-btn" href="/materi3/mikroskop">Selanjutnya</a>
+</div>
 @endsection

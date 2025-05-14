@@ -54,9 +54,21 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       @yield('container')
+      @if (isset($prevUrl) || isset($nextUrl))
+        <div class="d-flex justify-content-between mt-4">
+          @if (isset($prevUrl))
+            <a href="{{ $prevUrl }}" class="btn btn-secondary">Sebelumnya</a>
+          @else
+            <span></span>
+          @endif
 
-      {{-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> --}}
+          @if (isset($nextUrl))
+            <a href="{{ $nextUrl }}" class="btn btn-primary">Berikutnya</a>
+          @endif
+        </div>
+      @endif
     </main>
+    @include('partials.footer')
   </div>
 </div>
 

@@ -13,7 +13,7 @@
 
         <div class="d-flex align-items-center mt-4">
             @if(Auth::check())
-                <a href="{{ url('/dashboard-siswa') }}" class="btn btn-primary">Mulai Belajar</a>
+                <a href="{{ url(  '/dashboard-siswa') }}" class="btn btn-primary">Mulai Belajar</a>
                 <a href="{{ url('/dashboard-guru') }}" class="btn btn-secondary ms-2">Halaman Guru</a>
             @else
                 <a href="{{ url('/login-siswa') }}" class="btn btn-primary">Mulai Belajar</a>

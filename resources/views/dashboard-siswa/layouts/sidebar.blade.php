@@ -131,7 +131,7 @@
                     <a class="nav-link {{ Request::is('materi2/penglihatan-serangga') ? 'active' : '' }}" href="/materi2/penglihatan-serangga">Indra Penglihatan Serangga</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {{ Request::is('materi2/kuis') ? 'active' : '' }}" href="/materi2/kuis">Kuis 2</a>
+                    <a class="nav-link {{ Request::is('kuis/2') ? 'active' : '' }}" href="/petunjuk/2">Kuis 2</a>
                   </li>
               </ul>
           </li>
@@ -155,12 +155,12 @@
                     <a class="nav-link {{ Request::is('materi3/teleskop') ? 'active' : '' }}" href="/materi3/teleskop">Teleskop</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {{ Request::is('materi3/kuis') ? 'active' : '' }}" href="/materi3/kuis">Kuis 3</a>
+                    <a class="nav-link {{ Request::is('kuis/3') ? 'active' : '' }}" href="/petunjuk/3">Kuis 3</a>
                   </li>
               </ul>
           </li>
           <li class="nav-item">
-              <a class="nav-link {{ Request::is('dashboard-siswa/evaluasi') ? 'active' : '' }}" href="/dashboard-siswa/evaluasi">
+              <a class="nav-link {{ Request::is('dashboard-siswa/evaluasi') ? 'active' : '' }}" href="/petunjuk-evaluasi/4">
                   <span data-feather="clipboard"></span> Evaluasi
               </a>
           </li>

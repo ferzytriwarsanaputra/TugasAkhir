@@ -1,85 +1,75 @@
 @extends('dashboard-siswa.layouts.main')
 
 @section('container')
-<div class="quiz-wrapper">
-    <div class="question-nav-card">
-        <h4>Nomor Soal</h4>
-        <div id="question-nav">
-            <button class="unanswered">1</button>
-            <button class="unanswered">2</button>
-            <button class="answered">3</button>
-        </div>
-        <div class="question-legend">
-            <h6>Keterangan:</h6>
-            <div class="legend-text">
-                <div class="legend-box unanswered-box">Putih</div> = Belum Dijawab
-            </div>
-            <div class="legend-text">
-                <div class="legend-box answered-box">Hijau</div> = Sudah Dijawab
-            </div>
-        </div>        
-    </div>
-    <div class="question-card">
-        <div class="top-bar">
-            <h2>EVALUASI</h2>
-            <div class="legend">
-                <div id="timer">10:00</div>
-                <button class="submit-button" onclick="submitQuiz()">Selesai</button>
-            </div>
-        </div>
-        <div id="question-container" class="question-box">
-            <p>Apa warna langit pada siang hari?</p>
-            <ul class="options">
-                <li>Merah</li>
-                <li>Biru</li>
-                <li>Hijau</li>
-                <li>Kuning</li>
-            </ul>
-        </div>
-        <div class="nav-buttons">
-            <button class="prev-button" onclick="prevQuestion()">&laquo; Sebelumnya</button>
-            <button class="next-button" onclick="nextQuestion()">Selanjutnya &raquo;</button>
-        </div>
-    </div>
-</div>
-<script>
-    const questions = [
-        { question: "Apa wujud benda?", options: ["Padat", "Cair", "Gas", "Semua benar"], answer: 3 },
-        { question: "Contoh benda gas?", options: ["Air", "Es", "Udara", "Kayu"], answer: 2 },
-        { question: "Siapa penemu bola lampu?", options: ["Edison", "Newton", "Einstein", "Tesla"], answer: 0 },
-        { question: "Apa wujud benda?", options: ["Padat", "Cair", "Gas", "Semua benar"], answer: 3 },
-        { question: "Contoh benda gas?", options: ["Air", "Es", "Udara", "Kayu"], answer: 2 },
-        { question: "Siapa penemu bola lampu?", options: ["Edison", "Newton", "Einstein", "Tesla"], answer: 0 },
-        { question: "Apa wujud benda?", options: ["Padat", "Cair", "Gas", "Semua benar"], answer: 3 },
-        { question: "Contoh benda gas?", options: ["Air", "Es", "Udara", "Kayu"], answer: 2 },
-        { question: "Siapa penemu bola lampu?", options: ["Edison", "Newton", "Einstein", "Tesla"], answer: 0 },
-        { question: "Apa wujud benda?", options: ["Padat", "Cair", "Gas", "Semua benar"], answer: 3 },
-        { question: "Contoh benda gas?", options: ["Air", "Es", "Udara", "Kayu"], answer: 2 },
-        { question: "Siapa penemu bola lampu?", options: ["Edison", "Newton", "Einstein", "Tesla"], answer: 0 },
-        { question: "Apa wujud benda?", options: ["Padat", "Cair", "Gas", "Semua benar"], answer: 3 },
-        { question: "Contoh benda gas?", options: ["Air", "Es", "Udara", "Kayu"], answer: 2 },
-        { question: "Siapa penemu bola lampu?", options: ["Edison", "Newton", "Einstein", "Tesla"], answer: 0 },
-        { question: "Apa wujud benda?", options: ["Padat", "Cair", "Gas", "Semua benar"], answer: 3 },
-        { question: "Contoh benda gas?", options: ["Air", "Es", "Udara", "Kayu"], answer: 2 },
-        { question: "Siapa penemu bola lampu?", options: ["Edison", "Newton", "Einstein", "Tesla"], answer: 0 },
-        { question: "Apa wujud benda?", options: ["Padat", "Cair", "Gas", "Semua benar"], answer: 3 },
-        { question: "Contoh benda gas?", options: ["Air", "Es", "Udara", "Kayu"], answer: 2 },
-    ];
+<form id="quizForm" method="POST" action="{{ route('siswa.submitKuis') }}">
+    @csrf
+    <input type="hidden" name="kuis_id" value="{{ $kuis->id }}">
+    <input type="hidden" name="skor" id="skorInput">
+    <input type="hidden" name="waktu" id="waktuInput">
 
+    <div class="quiz-wrapper">
+        <div class="question-card">
+            <div class="top-bar">
+                <h2>{{ $kuis->judul }}</h2>
+                <div class="legend">
+                    <div id="timer">10:00</div>
+                    <button type="button" class="submit-button" onclick="submitQuiz()">Selesai</button>
+                </div>
+            </div>
+            <div id="question-container" class="question-box">
+                <!-- Soal akan dimuat lewat JS -->
+            </div>
+            <div class="nav-buttons">
+                <button class="prev-button" type="button" onclick="prevQuestion()">&laquo; Sebelumnya</button>
+                <button class="next-button" type="button" onclick="nextQuestion()">Selanjutnya &raquo;</button>
+            </div>
+        </div>
+        <div class="question-nav-card">
+            <h4>Nomor Soal</h4>
+            <div id="question-nav">
+                @foreach($kuis->soals as $index => $soal)
+                    <button class="unanswered" type="button" onclick="jumpToQuestion({{ $index }})">{{ $index + 1 }}</button>
+                @endforeach
+            </div>
+            <div class="question-legend">
+                <h6>Keterangan:</h6>
+                <div class="legend-text">
+                    <div class="legend-box unanswered-box">Putih</div> = Belum Dijawab
+                </div>
+                <div class="legend-text">
+                    <div class="legend-box answered-box">Hijau</div> = Sudah Dijawab
+                </div>
+            </div>        
+        </div>
+    </div>
+</form>
+
+<script>
+    const questions = @json($kuis->soals);
     let currentQuestion = 0;
     let userAnswers = new Array(questions.length).fill(null);
 
     function loadQuestion() {
         const qContainer = document.getElementById("question-container");
-        qContainer.innerHTML = `<p><strong>Nomor ${currentQuestion + 1}</strong></p>
-            <p>${questions[currentQuestion].question}</p>
-            <ul class='options'>` + 
-            questions[currentQuestion].options.map((opt, i) => 
-            `<li onclick='selectAnswer(${i})' class='${userAnswers[currentQuestion] === i ? "answered" : ""}'>${opt}</li>`).join("") + 
-            `</ul>`;
-        
-        document.getElementById("question-nav").innerHTML = questions.map((_, i) => 
-            `<button class='${userAnswers[i] !== null ? "answered" : "unanswered"}' onclick='jumpToQuestion(${i})'>${i + 1}</button>`).join("");
+        const opts = JSON.parse(questions[currentQuestion].options);
+
+        // Cek apakah soal adalah soal evaluasi
+        const isEvaluasi = questions[currentQuestion].is_evaluasi; // pastikan ada properti 'is_evaluasi' pada soal
+
+        qContainer.innerHTML = `
+            <p><strong>Nomor ${currentQuestion + 1}</strong> ${isEvaluasi ? '<span class="evaluasi-tag">Evaluasi</span>' : ''}</p>
+            <p>${questions[currentQuestion].soal}</p>
+            <ul class="options">
+                ${opts.map((opt, i) => `
+                    <li onclick="selectAnswer(${i})" class="${userAnswers[currentQuestion] === i ? 'answered' : ''}">${opt}</li>
+                `).join("")}
+            </ul>
+        `;
+
+        const nav = document.getElementById("question-nav");
+        nav.innerHTML = questions.map((_, i) => `
+            <button class="${userAnswers[i] !== null ? 'answered' : 'unanswered'}" type="button" onclick="jumpToQuestion(${i})">${i + 1}</button>
+        `).join("");
     }
 
     function selectAnswer(index) {
@@ -103,25 +93,55 @@
     }
 
     function submitQuiz() {
-        alert("Evaluasi selesai! Jawaban Anda telah dikumpulkan.");
+        const skor = hitungSkor();
+        document.getElementById("skorInput").value = skor;
+
+        // Hitung durasi pengerjaan
+        const elapsed = Math.floor((Date.now() - startTime) / 1000); // dalam detik
+        const menit = Math.floor(elapsed / 60);
+        const detik = elapsed % 60;
+
+        // Mengubah waktu ke format HH:MM:SS
+        const waktuPengerjaan = `${menit < 10 ? '0' : ''}${menit}:${detik < 10 ? '0' : ''}${detik}`;
+
+        document.getElementById("waktuInput").value = waktuPengerjaan; // Kirim ke form sebagai 'waktu'
+
+        document.getElementById("quizForm").submit();
+    }
+
+    function hitungSkor() {
+        let skor = 0;
+        questions.forEach((q, i) => {
+            if (userAnswers[i] === q.jawaban_benar) {
+                skor++;
+            }
+        });
+        return Math.round((skor / questions.length) * 100);
+    }
+
+    let totalTime = 600; // Total waktu dalam detik (misal 10 menit)
+    let startTime = Date.now(); // Waktu mulai (dalam milidetik)
+
+    function startTimer() {
+        const timerEl = document.getElementById("timer");
+        const interval = setInterval(() => {
+            let elapsed = Math.floor((Date.now() - startTime) / 1000); // Berapa detik berlalu
+            let timeLeft = totalTime - elapsed; // Sisa waktu
+
+            if (timeLeft <= 0) {
+                timerEl.textContent = "00:00";
+                clearInterval(interval);
+                submitQuiz();
+                return;
+            }
+
+            let min = Math.floor(timeLeft / 60);
+            let sec = timeLeft % 60;
+            timerEl.textContent = `${min}:${sec < 10 ? '0' : ''}${sec}`;
+        }, 1000);
     }
 
     loadQuestion();
-
-    // let timeLeft = 600; // 10 minutes in seconds
-    // function startTimer() {
-    //     const timerElement = document.getElementById("timer");
-    //     const timerInterval = setInterval(() => {
-    //         let minutes = Math.floor(timeLeft / 60);
-    //         let seconds = timeLeft % 60;
-    //         timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-    //         if (timeLeft <= 0) {
-    //             clearInterval(timerInterval);
-    //             submitQuiz();
-    //         }
-    //         timeLeft--;
-    //     }, 1000);
-    // }
-    // startTimer();
+    startTimer();
 </script>
 @endsection
