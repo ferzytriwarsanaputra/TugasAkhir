@@ -91,13 +91,13 @@
         <div class="question" id="soal1">
             <p>1. Lensa cekung digunakan dalam kacamata untuk membantu penderita rabun jauh. Hal ini karena lensa cekung memiliki sifat...</p>
             <ul class="options" id="q1">
-                <li onclick="pilihJawaban(this, 'q1')">Mengumpulkan cahaya ke satu titik</li>
-                <li onclick="pilihJawaban(this, 'q1')">Menyebarkan cahaya yang melewatinya</li>
-                <li onclick="pilihJawaban(this, 'q1')">Membalik bayangan agar terlihat lebih besar</li>
-                <li onclick="pilihJawaban(this, 'q1')">Mengurangi pembiasan cahaya</li>
+                <li onclick="pilihJawaban(this, 'q1', 'Menyebarkan cahaya yang melewatinya', 'hasil1')">Mengumpulkan cahaya ke satu titik</li>
+                <li onclick="pilihJawaban(this, 'q1', 'Menyebarkan cahaya yang melewatinya', 'hasil1')">Menyebarkan cahaya yang melewatinya</li>
+                <li onclick="pilihJawaban(this, 'q1', 'Menyebarkan cahaya yang melewatinya', 'hasil1')">Membalik bayangan agar terlihat lebih besar</li>
+                <li onclick="pilihJawaban(this, 'q1', 'Menyebarkan cahaya yang melewatinya', 'hasil1')">Mengurangi pembiasan cahaya</li>
             </ul>
-            <button class="cekJawaban" onclick="cekJawaban('q1', 'Menyebarkan cahaya yang melewatinya', 'hasil1')">Cek Jawaban</button>
             <p id="hasil1"></p>
+            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
         </div>
 
         <!-- Soal 2 -->
@@ -109,61 +109,53 @@
                 <div class="drag-item" draggable="true" id="cembung2" ondragstart="drag(event)">Digunakan pada mikroskop untuk memperbesar objek</div>
                 <div class="drag-item" draggable="true" id="cekung2" ondragstart="drag(event)">Digunakan pada lubang intip pintu</div>
             </div>
-            <p>Lensa Cembung</p>
-            <div class="drop-zone" id="drop1" ondrop="drop(event, 'drop1')" ondragover="allowDrop(event)"></div>
-            <p>Lensa Cekung</p>
-            <div class="drop-zone" id="drop2" ondrop="drop(event, 'drop2')" ondragover="allowDrop(event)"></div>
-            <p>Lensa Cembung</p>
-            <div class="drop-zone" id="drop3" ondrop="drop(event, 'drop3')" ondragover="allowDrop(event)"></div>
-            <p>Lensa Cekung</p>
-            <div class="drop-zone" id="drop4" ondrop="drop(event, 'drop4')" ondragover="allowDrop(event)"></div>
-            <button class="cekJawaban" onclick="cekDragDrop()">Cek Jawaban</button>
+            <p>Lensa Cembung</p><div class="drop-zone" id="drop1" ondrop="drop(event, 'drop1')" ondragover="allowDrop(event)"></div>
+            <p>Lensa Cekung</p><div class="drop-zone" id="drop2" ondrop="drop(event, 'drop2')" ondragover="allowDrop(event)"></div>
+            <p>Lensa Cembung</p><div class="drop-zone" id="drop3" ondrop="drop(event, 'drop3')" ondragover="allowDrop(event)"></div>
+            <p>Lensa Cekung</p><div class="drop-zone" id="drop4" ondrop="drop(event, 'drop4')" ondragover="allowDrop(event)"></div>
             <p id="hasil2"></p>
+            <button class="cekJawaban nav-btn" onclick="cekDragDrop()">Periksa</button>
+            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
         </div>
 
         <!-- Soal 3 -->
         <div class="question" id="soal3" style="display: none;">
             <p>3. Pada cermin cekung, jika benda berada di antara titik fokus (F) dan cermin, maka bayangan yang terbentuk akan...</p>
             <input type="text" id="jawaban3">
-            <button class="cekJawaban" onclick="cekEssay()">Cek Jawaban</button>
             <p id="hasil3"></p>
+            <button class="cekJawaban nav-btn" onclick="cekJawaban3()">Periksa</button>
+            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
         </div>
 
         <!-- Soal 4 -->
         <div class="question" id="soal4" style="display: none;">
             <p>4. Perhatikan pernyataan berikut:</p>
             <p>"Lensa cekung dapat menghasilkan bayangan nyata jika benda diletakkan cukup dekat dengan lensa."</p>
-            <p>Apakah pernyataan ini benar atau salah?</p>
             <ul id="q4" class="list-unstyled">
-                <li>
-                    <input type="radio" name="q4" id="q4_benar" value="Benar">
-                    <label for="q4_benar">Benar</label>
-                </li>
-                <li>
-                    <input type="radio" name="q4" id="q4_salah" value="Salah">
-                    <label for="q4_salah">Salah</label>
-                </li>
+                <li><input type="radio" name="q4" value="Benar" onclick="cekPernyataan('q4', 'Salah', 'hasil4')"> Benar</li>
+                <li><input type="radio" name="q4" value="Salah" onclick="cekPernyataan('q4', 'Salah', 'hasil4')"> Salah</li>
             </ul>
-            <button class="cekJawaban" onclick="cekPernyataan('q4', 'Salah', 'hasil4')">Cek Jawaban</button>
             <p id="hasil4"></p>
+            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
         </div>
 
         <!-- Soal 5 -->
         <div class="question" id="soal5" style="display: none;">
-            <p>5. Urutkan langkah-langkah melukis bayangan pada lensa cembung menggunakan sinar istimewa dari yang benar!</p>
+            <p>5. Urutkan langkah-langkah melukis bayangan pada lensa cembung dari yang benar:</p>
             <ul id="sortable" class="sortable-list">
-                <li class="sortable-item" draggable="true" id="step1">
-                    <span class="step-number">1</span> Sinar datang melalui titik fokus pasif → dibiaskan sejajar sumbu utama
+                <li class="sortable-item" draggable="true" id="step1" ondragstart="drag(event)">
+                    Sinar datang melalui titik fokus pasif → dibiaskan sejajar sumbu utama
                 </li>
-                <li class="sortable-item" draggable="true" id="step2">
-                    <span class="step-number">2</span> Sinar datang sejajar sumbu utama → dibiaskan menuju titik fokus aktif
+                <li class="sortable-item" draggable="true" id="step2" ondragstart="drag(event)">
+                    Sinar datang sejajar sumbu utama → dibiaskan menuju titik fokus aktif
                 </li>
-                <li class="sortable-item" draggable="true" id="step3">
-                    <span class="step-number">3</span> Sinar datang melalui pusat optik → diteruskan tanpa pembiasan
+                <li class="sortable-item" draggable="true" id="step3" ondragstart="drag(event)">
+                    Sinar datang melalui pusat optik → diteruskan tanpa pembiasan
                 </li>
-            </ul>
-            <button class="cekJawaban" onclick="cekUrutan()">Cek Jawaban</button>
+            </ul>            
             <p id="hasil5"></p>
+            <button class="cekJawaban nav-btn" onclick="cekUrutan()">Periksa</button>
+            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
         </div>
     </div>
 </div>
@@ -175,180 +167,141 @@
 </div>
 
 <script>
-    function pilihJawaban(element, questionId) {
-        let options = document.querySelectorAll(`#${questionId} li`);
-        options.forEach(option => option.classList.remove("selected"));
-        element.classList.add("selected");
-    }
+    function pilihJawaban(el, qid, kunci, hasilId) {
+        const container = document.querySelector(`#${qid}`);
+        const hasil = document.getElementById(hasilId);
+        const btn = hasil.nextElementSibling;
 
-    function cekJawaban(questionId, correctAnswer, resultId) {
-        let selectedOption = document.querySelector(`#${questionId} .selected`);
-        let resultElement = document.getElementById(resultId);
-        
-        if (selectedOption) {
-            let userAnswer = selectedOption.textContent;
-            if (userAnswer === correctAnswer) {
-                resultElement.innerHTML = "Jawaban Benar!";
-                resultElement.style.color = "green";
-            } else {
-                resultElement.innerHTML = "Jawaban Salah! Jawaban yang benar: " + correctAnswer;
-                resultElement.style.color = "red";
-            }
+        // Jika sudah benar, tidak bisa klik lagi
+        if (hasil.dataset.answered === "true") return;
+
+        document.querySelectorAll(`#${qid} li`).forEach(li => li.classList.remove("selected"));
+        el.classList.add("selected");
+
+        const userJawaban = el.textContent.trim();
+        if (userJawaban === kunci) {
+            hasil.innerHTML = "Jawaban Benar!";
+            hasil.style.color = "green";
+            btn.classList.remove("disabled");
+
+            // Tandai sebagai sudah dijawab benar
+            hasil.dataset.answered = "true";
+
+            // Nonaktifkan semua opsi
+            document.querySelectorAll(`#${qid} li`).forEach(li => {
+                li.style.pointerEvents = "none";
+            });
         } else {
-            resultElement.innerHTML = "Pilih salah satu jawaban!";
-            resultElement.style.color = "red";
+            hasil.innerHTML = `Jawaban Salah! Jawaban yang benar: ${kunci}`;
+            hasil.style.color = "red";
         }
     }
 
-    function cekEssay() {
-        let userAnswer = document.getElementById("jawaban3").value;
-        let resultElement = document.getElementById("hasil3");
+    function cekPernyataan(qid, kunci, hasilId) {
+        const jawab = document.querySelector(`input[name="${qid}"]:checked`);
+        const hasil = document.getElementById(hasilId);
+        const btn = hasil.nextElementSibling;
 
-        if (userAnswer == "Nyata, terbalik, diperkecil") {
-            resultElement.innerHTML = "Jawaban Benar!";
-            resultElement.style.color = "green";
-        } else {
-            resultElement.innerHTML = "Jawaban Salah! Jawaban yang benar: Nyata, terbalik, diperkecil";
-            resultElement.style.color = "red";
-        }
-    }
-
-    function allowDrop(event) {
-        event.preventDefault();
-    }
-
-    function drag(event) {
-        event.dataTransfer.setData("text", event.target.id);
-    }
-
-    function drop(event, dropZoneId) {
-        event.preventDefault();
-        let data = event.dataTransfer.getData("text");
-        let draggedElement = document.getElementById(data);
-        let dropZone = document.getElementById(dropZoneId);
-        
-        if (dropZone.children.length > 0) {
-            let existingItem = dropZone.children[0];
-            document.getElementById("dragContainer").appendChild(existingItem);
-        }
-
-        dropZone.innerHTML = "";
-        dropZone.appendChild(draggedElement);
-
-        updateDragContainer();
-    }
-
-    function updateDragContainer() {
-        let dragContainer = document.getElementById("dragContainer");
-        let remainingItems = Array.from(dragContainer.children);
-
-        dragContainer.style.display = remainingItems.length === 0 ? "none" : "block";
-    }
-
-    function cekDragDrop() {
-        let drop1 = document.getElementById("drop1").children[0]?.id;
-        let drop2 = document.getElementById("drop2").children[0]?.id;
-        let drop3 = document.getElementById("drop3").children[0]?.id;
-        let drop4 = document.getElementById("drop4").children[0]?.id;
-        let resultElement = document.getElementById("hasil2");
-
-        let benar = drop1 === "cembung1" && drop2 === "cekung1" && drop3 === "cembung2" && drop4 === "cekung2";
-        if (benar) {
-            resultElement.innerHTML = "Jawaban Benar!";
-            resultElement.style.color = "green";
-        } else {
-            resultElement.innerHTML = "Jawaban Salah! Lensa Cembung: Digunakan pada kacamata untuk rabun jauh. Lensa Cekung: Digunakan pada kamera untuk memfokuskan cahaya. Lensa Cekung: Digunakan pada mikroskop untuk memperbesar objek. Lensa Cekung: Digunakan pada lubang intip pintu";
-            resultElement.style.color = "red";
-        }
-    }
-
-    function cekPernyataan(questionId, correctAnswer, resultId) {
-        let options = document.querySelectorAll(`input[name="${questionId}"]:checked`);
-        let resultElement = document.getElementById(resultId);
-
-        if (options.length === 0) {
-            resultElement.innerHTML = "Pilih salah satu jawaban!";
-            resultElement.style.color = "orange";
+        if (!jawab) {
+            hasil.textContent = "Pilih salah satu jawaban!";
+            hasil.style.color = "orange";
             return;
         }
 
-        let userAnswer = options[0].value;
-        if (userAnswer === correctAnswer) {
-            resultElement.innerHTML = "Jawaban Benar!";
-            resultElement.style.color = "green";
+        if (jawab.value === kunci) {
+            hasil.innerHTML = "Jawaban Benar!";
+            hasil.style.color = "green";
+            btn.classList.remove("disabled");
         } else {
-            resultElement.innerHTML = "Jawaban Salah! Jawaban yang benar: " + correctAnswer + ", Lensa cekung selalu menghasilkan bayangan maya, tegak, dan diperkecil, tidak peduli seberapa dekat benda diletakkan.";
-            resultElement.style.color = "red";
+            hasil.innerHTML = `Jawaban Salah! Jawaban yang benar: ${kunci}. Lensa cekung selalu menghasilkan bayangan maya.`;
+            hasil.style.color = "red";
         }
     }
 
-    document.addEventListener("DOMContentLoaded", function () {
-        let sortableList = document.getElementById("sortable");
-        let items = sortableList.querySelectorAll(".sortable-item");
+    function cekJawaban3() {
+        const jawaban = document.getElementById("jawaban3").value.trim().toLowerCase();
+        const hasil = document.getElementById("hasil3");
+        const btnLanjut = hasil.nextElementSibling.nextElementSibling; // karena ada 2 tombol sekarang
 
-        items.forEach(item => {
-            item.addEventListener("dragstart", dragStart);
-            item.addEventListener("dragover", dragOver);
-            item.addEventListener("drop", drop);
-        });
+        if (jawaban === "nyata, terbalik, diperkecil") {
+            hasil.innerHTML = "Jawaban Benar!";
+            hasil.style.color = "green";
+            btnLanjut.classList.remove("disabled");
+        } else {
+            hasil.innerHTML = "Jawaban Salah! Jawaban yang benar: Nyata, terbalik, diperkecil";
+            hasil.style.color = "red";
+        }
+    }
 
-        function dragStart(event) {
-            event.dataTransfer.setData("text/plain", event.target.id);
-            event.target.classList.add("dragging");
+    function allowDrop(e) { e.preventDefault(); }
+
+    function drag(e) {
+        e.dataTransfer.setData("text", e.target.id);
+    }
+
+    function drop(e, targetId) {
+        e.preventDefault();
+        const id = e.dataTransfer.getData("text");
+        const target = document.getElementById(targetId);
+        const item = document.getElementById(id);
+        if (target.children.length > 0) {
+            document.getElementById("dragContainer").appendChild(target.firstChild);
+        }
+        target.innerHTML = "";
+        target.appendChild(item);
+    }
+
+    function cekDragDrop() {
+        const benar = document.getElementById("drop1").children[0]?.id === "cembung1" &&
+                    document.getElementById("drop2").children[0]?.id === "cekung1" &&
+                    document.getElementById("drop3").children[0]?.id === "cembung2" &&
+                    document.getElementById("drop4").children[0]?.id === "cekung2";
+
+        const hasil = document.getElementById("hasil2");
+        const btnLanjut = hasil.nextElementSibling.nextElementSibling;
+
+        if (benar) {
+            hasil.innerHTML = "Jawaban Benar!";
+            hasil.style.color = "green";
+            hasil.dataset.answered = "true";
+
+            // Nonaktifkan drag
+            document.querySelectorAll(".drag-item").forEach(item => item.setAttribute("draggable", false));
+        } else {
+            hasil.innerHTML = "Jawaban Salah! Pastikan semua pasangan sesuai jenis lensanya.";
+            hasil.style.color = "red";
         }
 
-        function dragOver(event) {
-            event.preventDefault();
-            let draggingItem = document.querySelector(".dragging");
-            let items = Array.from(sortableList.children);
-            let afterElement = items.find(item => {
-                let rect = item.getBoundingClientRect();
-                return event.clientY < rect.bottom;
-            });
-
-            if (afterElement) {
-                sortableList.insertBefore(draggingItem, afterElement);
-            } else {
-                sortableList.appendChild(draggingItem);
-            }
-        }
-
-        function drop(event) {
-            event.preventDefault();
-            let id = event.dataTransfer.getData("text");
-            let draggedElement = document.getElementById(id);
-            draggedElement.classList.remove("dragging");
-        }
-    });
+        // Aktifkan tombol Lanjut setelah diperiksa
+        btnLanjut.classList.remove("disabled");
+    }
 
     function cekUrutan() {
-        let listItems = document.querySelectorAll("#sortable .sortable-item");
-        let correctOrder = ["step1", "step2", "step3"];
-        let userOrder = Array.from(listItems).map(item => item.id);
-        let resultElement = document.getElementById("hasil5");
+        const urutan = [...document.querySelectorAll("#sortable .sortable-item")].map(i => i.id);
+        const hasil = document.getElementById("hasil5");
+        const btnLanjut = hasil.nextElementSibling.nextElementSibling;
 
-        if (JSON.stringify(userOrder) === JSON.stringify(correctOrder)) {
-            resultElement.innerHTML = "Jawaban Benar!";
-            resultElement.style.color = "green";
+        if (JSON.stringify(urutan) === JSON.stringify(["step1", "step2", "step3"])) {
+            hasil.innerHTML = "Jawaban Benar!";
+            hasil.style.color = "green";
+            hasil.dataset.answered = "true";
+
+            // Nonaktifkan drag
+            document.querySelectorAll(".sortable-item").forEach(item => item.setAttribute("draggable", false));
         } else {
-            resultElement.innerHTML = "Jawaban Salah! Urutan yang benar adalah:<br>1) Sinar datang melalui titik fokus pasif → dibiaskan sejajar sumbu utama<br>2) Sinar datang sejajar sumbu utama → dibiaskan menuju titik fokus aktif<br>3) Sinar datang melalui pusat optik → diteruskan tanpa pembiasan.";
-            resultElement.style.color = "red";
+            hasil.innerHTML = "Jawaban Salah! Urutan yang benar adalah:<br>1) Fokus pasif → sejajar<br>2) Sejajar → fokus aktif<br>3) Pusat optik → lurus";
+            hasil.style.color = "red";
         }
+
+        btnLanjut.classList.remove("disabled");
     }
 
     let currentSoal = 1;
     const totalSoal = 5;
 
-    function showSoal(index) {
+    function showSoal(n) {
         for (let i = 1; i <= totalSoal; i++) {
-            document.getElementById(`soal${i}`).style.display = i === index ? "block" : "none";
-        }
-    }
-
-    function prevSoal() {
-        if (currentSoal > 1) {
-            currentSoal--;
-            showSoal(currentSoal);
+            document.getElementById(`soal${i}`).style.display = i === n ? "block" : "none";
         }
     }
 
@@ -356,9 +309,27 @@
         if (currentSoal < totalSoal) {
             currentSoal++;
             showSoal(currentSoal);
+        } else {
+            window.location.href = "/petunjuk/1"
         }
     }
 
+    document.addEventListener("DOMContentLoaded", () => {
     showSoal(currentSoal);
+
+    // Inisialisasi SortableJS
+    Sortable.create(document.getElementById("sortable"), {
+        animation: 150
+    });
+
+    // Acak urutan soal no 5
+    const sortableList = document.getElementById("sortable");
+    const items = Array.from(sortableList.children);
+    for (let i = items.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        sortableList.appendChild(items[j]);
+        items.splice(j, 1);
+    }
+});
 </script>
 @endsection

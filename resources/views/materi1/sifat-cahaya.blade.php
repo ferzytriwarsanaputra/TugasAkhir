@@ -88,7 +88,7 @@
                 <li onclick="pilihJawaban(this, 'q1')">Dapat dibiaskan</li>
                 <li onclick="pilihJawaban(this, 'q1')">Sebagai gelombang elektromagnetik</li>
             </ul>
-            <button class="cekJawaban lanjut-btn disabled" onclick="nextSoal()" disabled>Lanjut</button>
+            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()" disabled>Lanjut</button>
             <p id="hasil1"></p>
         </div>
 
@@ -106,8 +106,8 @@
             
             <!-- Tombol Periksa dan Lanjut -->
             <div style="display: flex; gap: 10px; align-items: center; margin-top: 10px;">
-                <button class="cekJawaban" onclick="cekDragDrop()">Periksa</button>
-                <button class="cekJawaban lanjut-btn disabled" onclick="nextSoal()" disabled>Lanjut</button>
+                <button class="cekJawaban nav-btn" onclick="cekDragDrop()">Periksa</button>
+                <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()" disabled>Lanjut</button>
             </div>
             <p id="hasil2"></p>
         </div>
@@ -117,12 +117,12 @@
             <p>3. Jika sudut datang cahaya ke sebuah cermin adalah 30°, maka berapakah sudut pantulnya berdasarkan hukum pemantulan?</p>
             
             <!-- Input + Tombol Periksa -->
-            <div style="display: flex; gap: 10px; align-items: center;">
+            <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 10px;">
                 <input type="text" id="jawaban3">
-                <button class="cekJawaban" onclick="cekEssay()">Periksa</button>
+                <button class="cekJawaban nav-btn" id="cekEssayBtn" onclick="cekEssay()">Periksa</button>
             </div>
 
-            <button class="cekJawaban lanjut-btn disabled" onclick="nextSoal()" disabled>Lanjut</button>
+            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()" disabled id="lanjutEssayBtn">Lanjut</button>
             <p id="hasil3"></p>
         </div>
 
@@ -135,7 +135,7 @@
                 <li onclick="pilihJawaban(this, 'q4')">Cahaya merambat lurus dalam air</li>
                 <li onclick="pilihJawaban(this, 'q4')">Cahaya merupakan gelombang elektronik</li>
             </ul>
-            <button class="cekJawaban lanjut-btn disabled" onclick="nextSoal()" disabled>Lanjut</button>
+            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()" disabled>Lanjut</button>
             <p id="hasil4"></p>
         </div>
 
@@ -148,7 +148,7 @@
                 <li onclick="pilihJawaban(this, 'q5')">Refleksi cahaya</li>
                 <li onclick="pilihJawaban(this, 'q5')">Difraksi cahaya</li>
             </ul>
-            <button class="cekJawaban lanjut-btn disabled" onclick="nextSoal()" disabled>Lanjut</button>
+            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()" disabled>Lanjut</button>
             <p id="hasil5"></p>
         </div>
     </div>
@@ -188,6 +188,10 @@
             resultElement.innerHTML = "Jawaban Benar!";
             resultElement.style.color = "green";
             enableLanjut();  // ✅ hanya diaktifkan jika benar
+            options.forEach(option => {
+                option.onclick = null; // Matikan event klik
+                option.style.pointerEvents = "none"; // Opsional: hindari interaksi
+            });
         } else {
             resultElement.innerHTML = "Jawaban Salah! Jawaban yang benar: " + correctAnswer;
             resultElement.style.color = "red";
@@ -195,13 +199,21 @@
     }
 
     function cekEssay() {
-        let userAnswer = document.getElementById("jawaban3").value;
+        let userAnswer = document.getElementById("jawaban3").value.trim();
         let resultElement = document.getElementById("hasil3");
+        let lanjutBtn = document.getElementById("lanjutEssayBtn");
+        let periksaBtn = document.getElementById("cekEssayBtn");
 
-        if (userAnswer.trim() === "30") {
+        if (userAnswer === "30") {
             resultElement.innerHTML = "Jawaban Benar!";
             resultElement.style.color = "green";
-            enableLanjut();  // ✅ hanya diaktifkan jika benar
+            lanjutBtn.disabled = false;
+            lanjutBtn.classList.remove("disabled");
+
+            // Nonaktifkan input dan tombol periksa
+            document.getElementById("jawaban3").setAttribute("disabled", "true");
+            periksaBtn.disabled = true;
+            periksaBtn.classList.add("disabled");
         } else {
             resultElement.innerHTML = "Jawaban Salah! Jawaban yang benar: 30°";
             resultElement.style.color = "red";
@@ -234,7 +246,6 @@
         dropZone.innerHTML = "";
         dropZone.appendChild(draggedElement);
 
-        // ⛔ JANGAN panggil cekDragDrop() di sini
     }
 
     // Fungsi untuk memeriksa apakah drag-drop sudah benar
@@ -247,8 +258,17 @@
             resultElement.innerHTML = "Jawaban Benar!";
             resultElement.style.color = "green";
             enableLanjut();  // Pindahkan ke sini agar hanya dipanggil jika sudah dijawab
+            // Nonaktifkan drag & drop setelah benar
+            document.querySelectorAll(".drag-item").forEach(item => {
+                item.setAttribute("draggable", "false");
+                item.style.cursor = "default";
+            });
+            document.querySelectorAll(".drop-zone").forEach(zone => {
+                zone.ondrop = null;
+                zone.ondragover = null;
+            });
         } else if (drop1 || drop2) {
-            resultElement.innerHTML = "Jawaban Salah! ...";
+            resultElement.innerHTML = "Jawaban Salah! Pemantulan teratur terjadi pada cermin, dan pemantulan baur terjadi pada tembok kasar.";
             resultElement.style.color = "red";
         } else {
             resultElement.innerHTML = "Lengkapi semua kolom terlebih dahulu!";

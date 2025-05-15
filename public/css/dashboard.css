@@ -589,8 +589,18 @@ a.sidebar-link:hover {
   background-color: #0056b3;
 }
 
-
 button.disabled {
   opacity: 0.5;
   pointer-events: none;
+}
+
+.lanjut-btn.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.options li[style*="pointer-events: none"] {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
