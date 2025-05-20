@@ -13,13 +13,15 @@
 
         <div class="d-flex align-items-center mt-4">
             @if(Auth::check())
-                <a href="{{ url('/dashboard-siswa') }}" class="btn btn-primary">Mulai Belajar</a>
-                <a href="{{ url('/dashboard-guru') }}" class="btn btn-secondary ms-2">Halaman Guru</a>
+                @if(Auth::user()->role == 'guru')
+                    <a href="{{ url('/dashboard-guru') }}" class="btn btn-secondary">Halaman Guru</a>
+                @elseif(Auth::user()->role == 'siswa')
+                    <a href="{{ url('/dashboard-siswa') }}" class="btn btn-primary">Mulai Belajar</a>
+                @endif
             @else
                 <a href="{{ url('/login') }}" class="btn btn-primary">Mulai Belajar</a>
-                <a href="{{ url('/login') }}" class="btn btn-secondary ms-2">Halaman Guru</a>
             @endif
-        </div>
+        </div>        
     </div>
     
     <div class="col-md-6 text-center">
