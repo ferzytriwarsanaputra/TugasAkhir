@@ -29,9 +29,12 @@
             {{ Auth::user()->nama }}
           </span>
           {{-- Tombol logout --}}
-          <a href="{{ route('login.logout') }}" class="btn btn-danger btn-sm me-3">
-            <span data-feather="log-out"></span> Logout
-          </a>
+          <form action="{{ route('login.logout') }}" method="POST" class="d-inline">
+            @csrf
+            <button type="submit" class="btn btn-danger btn-sm me-3">
+                <span data-feather="log-out"></span> Logout
+            </button>
+        </form>        
         </li>
       @endauth
   

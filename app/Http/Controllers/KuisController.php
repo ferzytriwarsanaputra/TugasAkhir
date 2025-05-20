@@ -108,4 +108,10 @@ class KuisController extends Controller
             'status' => $status, // Tambahkan status ke view
         ]);
     }
+
+    public function evaluasi($id)
+    {
+        $kuis = Kuis::findOrFail($id);
+        return view('dashboard-siswa.evaluasi.index', compact('kuis'));
+    }
 }

@@ -9,13 +9,13 @@
             </div>
 
             <div class="col-md-6 p-4">
-                <h2 class="text-center fw-bold text-dark mb-4">Login Siswa</h2>
+                <h2 class="text-center fw-bold text-dark mb-4">Login</h2>
                 <form method="POST" action="{{ route('login.auth') }}">
                     @csrf
                     <div class="mb-3">
-                        <label for="nisn" class="form-label fw-semibold">NISN</label>
-                        <input type="text" name="nisn" id="nisn" class="form-control @error('nisn') is-invalid @enderror" placeholder="Masukkan NISN" autofocus value="{{ old('nisn') }}">
-                        @error('nisn')
+                        <label for="identifier" class="form-label fw-semibold">NISN / NIP</label>
+                        <input type="text" name="identifier" id="identifier" class="form-control @error('identifier') is-invalid @enderror" placeholder="Masukkan NISN atau NIP" autofocus value="{{ old('identifier') }}">
+                        @error('identifier')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -32,12 +32,6 @@
                     </div>
                     <div class="d-grid">
                         <button class="btn btn-primary text-light text-decoration-none" type="submit">Login</button>
-                    </div>
-                    <div class="text-center mt-3">
-                        <p class="text-muted">
-                            Bukan Siswa? Beralih ke Halaman 
-                            <a href="/login-guru" class="text-primary text-decoration-none">Guru</a>
-                        </p>
                     </div>
                 </form>
             </div>

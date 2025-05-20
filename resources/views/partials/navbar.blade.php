@@ -35,7 +35,7 @@
           </li>
         @else
           <li class="nav-item">
-            <a href="{{ route('login-siswa') }}" class="nav-link">
+            <a href="{{ route('login') }}" class="nav-link">
               <button class="btn btn-primary">
                 <i class="bi bi-box-arrow-in-right"></i> Login
               </button>

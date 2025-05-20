@@ -10,6 +10,7 @@ use App\Http\Controllers\AkunSiswaController;
 use App\Http\Controllers\KuisController;
 use App\Http\Controllers\KKMController;
 use App\Http\Controllers\HasilKuisController;
+use App\Http\Controllers\LatihanController;
 use App\Models\Kuis;
 use Illuminate\Http\Request;
 
@@ -32,7 +33,7 @@ Route::get('/tentang', function () {
 
 // Dashboard Siswa (tanpa login dulu)
 Route::get('dashboard-siswa', function () {
-    return view('dashboard-siswa.sifat-cahaya', ["name" => "Ferzy"]);
+    return view('dashboard-siswa.index');
 });
 Route::get('dashboard-siswa/evaluasi', function () {
     return view('dashboard-siswa.evaluasi.index');
@@ -44,8 +45,8 @@ Route::get('/materi2/{halaman}', [Materi2Controller::class, 'show']);
 Route::get('/materi3/{halaman}', [Materi3Controller::class, 'show']);
 
 // Login Siswa
-Route::get('/login-siswa', [LoginController::class, 'show'])->name('login-siswa');
-Route::post('/login-siswa', [LoginController::class, 'auth'])->name('login.auth');
+Route::get('/login', [LoginController::class, 'show'])->name('login');
+Route::post('/login', [LoginController::class, 'auth'])->name('login.auth');
 
 // Login Guru + halaman yang dilindungi
 Route::group(['middleware' => ['auth']], function () {
@@ -101,6 +102,13 @@ Route::get('/petunjuk-evaluasi/{id}', function ($id) {
     return view('dashboard-siswa.evaluasi.petunjuk', compact('evaluasi'));
 })->name('petunjuk-evaluasi');
 
+Route::get('/evaluasi/mulai/{id}', [KuisController::class, 'evaluasi'])->name('mulai-evaluasi');
+// Submit hasil kuis (POST)
+Route::post('/dashboard-siswa/submit-kuis', [KuisController::class, 'submitKuis'])->name('evaluasi.submit');
+
+// Tampilkan halaman nilai (GET)
+Route::get('/dashboard-siswa/nilai', [KuisController::class, 'nilai'])->name('dashboard-siswa.nilai');
+
 // Halaman pengerjaan kuis
 Route::get('/kuis/{kuis}', function ($id) {
     $kuis = Kuis::with('soals')->findOrFail($id);
@@ -130,4 +138,6 @@ Route::put('/dashboard-guru/kkm/{kkm}', [KKMController::class, 'update'])->name(
 
 Route::get('/dashboard-guru/hasil-kuis', [HasilKuisController::class, 'hasilKuis'])->name('dashboard-guru.hasil-kuis');
 
+Route::post('/simpan-hasil-latihan', [LatihanController::class, 'simpanHasil'])->middleware('auth');
 
+Route::get('/dashboard-guru/progres', [DashboardGuruController::class, 'progresBelajar'])->name('dashboard-guru.progres');

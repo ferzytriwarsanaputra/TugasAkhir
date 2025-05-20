@@ -143,15 +143,9 @@
         <div class="question" id="soal5" style="display: none;">
             <p>5. Urutkan langkah-langkah melukis bayangan pada lensa cembung dari yang benar:</p>
             <ul id="sortable" class="sortable-list">
-                <li class="sortable-item" draggable="true" id="step1" ondragstart="drag(event)">
-                    Sinar datang melalui titik fokus pasif → dibiaskan sejajar sumbu utama
-                </li>
-                <li class="sortable-item" draggable="true" id="step2" ondragstart="drag(event)">
-                    Sinar datang sejajar sumbu utama → dibiaskan menuju titik fokus aktif
-                </li>
-                <li class="sortable-item" draggable="true" id="step3" ondragstart="drag(event)">
-                    Sinar datang melalui pusat optik → diteruskan tanpa pembiasan
-                </li>
+                <li class="sortable-item" draggable="true" id="step1">Sinar datang melalui titik fokus pasif → dibiaskan sejajar sumbu utama</li>
+                <li class="sortable-item" draggable="true" id="step3">Sinar datang melalui pusat optik → diteruskan tanpa pembiasan</li>
+                <li class="sortable-item" draggable="true" id="step2">Sinar datang sejajar sumbu utama → dibiaskan menuju titik fokus aktif</li>
             </ul>            
             <p id="hasil5"></p>
             <button class="cekJawaban nav-btn" onclick="cekUrutan()">Periksa</button>
@@ -160,19 +154,53 @@
     </div>
 </div>
 
-<!-- Navigasi Halaman -->
 <div class="navigation">
     <a class="nav-btn" href="/materi1/bayangan-cermin">Sebelumnya</a>
     <a class="nav-btn" href="/petunjuk/1">Selanjutnya</a>
 </div>
 
 <script>
+    let currentSoal = 1;
+    const totalSoal = 5;
+    let sortableInstance;
+
+    function showSoal(n) {
+        for (let i = 1; i <= totalSoal; i++) {
+            document.getElementById(`soal${i}`).style.display = i === n ? "block" : "none";
+        }
+    }
+
+    function nextSoal() {
+        if (currentSoal < totalSoal) {
+            currentSoal++;
+            showSoal(currentSoal);
+        } else {
+            // HANYA SIMPAN SAAT SOAL TERAKHIR SAJA (latihan ke-3)
+            fetch('/simpan-hasil-latihan', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                },
+                body: JSON.stringify({ latihan_ke: 3 }) // ← latihan ke-3
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data.message);
+                window.location.href = "/petunjuk/1"; // ← redirect setelah selesai
+            })
+            .catch(err => {
+                console.error('Gagal simpan hasil latihan:', err);
+                alert('Gagal menyimpan hasil latihan. Silakan coba lagi.');
+            });
+        }
+    }
+
     function pilihJawaban(el, qid, kunci, hasilId) {
         const container = document.querySelector(`#${qid}`);
         const hasil = document.getElementById(hasilId);
         const btn = hasil.nextElementSibling;
 
-        // Jika sudah benar, tidak bisa klik lagi
         if (hasil.dataset.answered === "true") return;
 
         document.querySelectorAll(`#${qid} li`).forEach(li => li.classList.remove("selected"));
@@ -182,15 +210,9 @@
         if (userJawaban === kunci) {
             hasil.innerHTML = "Jawaban Benar!";
             hasil.style.color = "green";
-            btn.classList.remove("disabled");
-
-            // Tandai sebagai sudah dijawab benar
             hasil.dataset.answered = "true";
-
-            // Nonaktifkan semua opsi
-            document.querySelectorAll(`#${qid} li`).forEach(li => {
-                li.style.pointerEvents = "none";
-            });
+            btn.classList.remove("disabled");
+            container.querySelectorAll("li").forEach(li => li.style.pointerEvents = "none");
         } else {
             hasil.innerHTML = `Jawaban Salah! Jawaban yang benar: ${kunci}`;
             hasil.style.color = "red";
@@ -198,10 +220,11 @@
     }
 
     function cekPernyataan(qid, kunci, hasilId) {
-        const jawab = document.querySelector(`input[name="${qid}"]:checked`);
         const hasil = document.getElementById(hasilId);
         const btn = hasil.nextElementSibling;
+        if (hasil.dataset.answered === "true") return;
 
+        const jawab = document.querySelector(`input[name="${qid}"]:checked`);
         if (!jawab) {
             hasil.textContent = "Pilih salah satu jawaban!";
             hasil.style.color = "orange";
@@ -211,7 +234,9 @@
         if (jawab.value === kunci) {
             hasil.innerHTML = "Jawaban Benar!";
             hasil.style.color = "green";
+            hasil.dataset.answered = "true";
             btn.classList.remove("disabled");
+            document.querySelectorAll(`input[name="${qid}"]`).forEach(i => i.disabled = true);
         } else {
             hasil.innerHTML = `Jawaban Salah! Jawaban yang benar: ${kunci}. Lensa cekung selalu menghasilkan bayangan maya.`;
             hasil.style.color = "red";
@@ -219,14 +244,18 @@
     }
 
     function cekJawaban3() {
-        const jawaban = document.getElementById("jawaban3").value.trim().toLowerCase();
         const hasil = document.getElementById("hasil3");
-        const btnLanjut = hasil.nextElementSibling.nextElementSibling; // karena ada 2 tombol sekarang
+        if (hasil.dataset.answered === "true") return;
+
+        const jawaban = document.getElementById("jawaban3").value.trim().toLowerCase();
+        const btnLanjut = hasil.nextElementSibling.nextElementSibling;
 
         if (jawaban === "nyata, terbalik, diperkecil") {
             hasil.innerHTML = "Jawaban Benar!";
             hasil.style.color = "green";
+            hasil.dataset.answered = "true";
             btnLanjut.classList.remove("disabled");
+            document.getElementById("jawaban3").setAttribute("disabled", true);
         } else {
             hasil.innerHTML = "Jawaban Salah! Jawaban yang benar: Nyata, terbalik, diperkecil";
             hasil.style.color = "red";
@@ -234,10 +263,7 @@
     }
 
     function allowDrop(e) { e.preventDefault(); }
-
-    function drag(e) {
-        e.dataTransfer.setData("text", e.target.id);
-    }
+    function drag(e) { e.dataTransfer.setData("text", e.target.id); }
 
     function drop(e, targetId) {
         e.preventDefault();
@@ -252,10 +278,11 @@
     }
 
     function cekDragDrop() {
-        const benar = document.getElementById("drop1").children[0]?.id === "cembung1" &&
-                    document.getElementById("drop2").children[0]?.id === "cekung1" &&
-                    document.getElementById("drop3").children[0]?.id === "cembung2" &&
-                    document.getElementById("drop4").children[0]?.id === "cekung2";
+        const benar =
+            document.getElementById("drop1").children[0]?.id === "cembung1" &&
+            document.getElementById("drop2").children[0]?.id === "cekung1" &&
+            document.getElementById("drop3").children[0]?.id === "cembung2" &&
+            document.getElementById("drop4").children[0]?.id === "cekung2";
 
         const hasil = document.getElementById("hasil2");
         const btnLanjut = hasil.nextElementSibling.nextElementSibling;
@@ -264,72 +291,47 @@
             hasil.innerHTML = "Jawaban Benar!";
             hasil.style.color = "green";
             hasil.dataset.answered = "true";
-
-            // Nonaktifkan drag
-            document.querySelectorAll(".drag-item").forEach(item => item.setAttribute("draggable", false));
+            document.querySelectorAll(".drag-item").forEach(i => i.setAttribute("draggable", false));
         } else {
             hasil.innerHTML = "Jawaban Salah! Pastikan semua pasangan sesuai jenis lensanya.";
             hasil.style.color = "red";
         }
 
-        // Aktifkan tombol Lanjut setelah diperiksa
         btnLanjut.classList.remove("disabled");
     }
 
     function cekUrutan() {
-        const urutan = [...document.querySelectorAll("#sortable .sortable-item")].map(i => i.id);
         const hasil = document.getElementById("hasil5");
+        if (hasil.dataset.answered === "true") return;
+
+        const urutan = [...document.querySelectorAll("#sortable .sortable-item")].map(i => i.id);
         const btnLanjut = hasil.nextElementSibling.nextElementSibling;
 
         if (JSON.stringify(urutan) === JSON.stringify(["step1", "step2", "step3"])) {
             hasil.innerHTML = "Jawaban Benar!";
             hasil.style.color = "green";
             hasil.dataset.answered = "true";
-
-            // Nonaktifkan drag
-            document.querySelectorAll(".sortable-item").forEach(item => item.setAttribute("draggable", false));
+            btnLanjut.classList.remove("disabled");
+            sortableInstance.option("disabled", true);
         } else {
             hasil.innerHTML = "Jawaban Salah! Urutan yang benar adalah:<br>1) Fokus pasif → sejajar<br>2) Sejajar → fokus aktif<br>3) Pusat optik → lurus";
             hasil.style.color = "red";
         }
-
-        btnLanjut.classList.remove("disabled");
-    }
-
-    let currentSoal = 1;
-    const totalSoal = 5;
-
-    function showSoal(n) {
-        for (let i = 1; i <= totalSoal; i++) {
-            document.getElementById(`soal${i}`).style.display = i === n ? "block" : "none";
-        }
-    }
-
-    function nextSoal() {
-        if (currentSoal < totalSoal) {
-            currentSoal++;
-            showSoal(currentSoal);
-        } else {
-            window.location.href = "/petunjuk/1"
-        }
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-    showSoal(currentSoal);
+        showSoal(currentSoal);
 
-    // Inisialisasi SortableJS
-    Sortable.create(document.getElementById("sortable"), {
-        animation: 150
+        const sortableList = document.getElementById("sortable");
+        sortableInstance = Sortable.create(sortableList, { animation: 150 });
+
+        // Acak urutan
+        const items = Array.from(sortableList.children);
+        for (let i = items.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            sortableList.appendChild(items[j]);
+            items.splice(j, 1);
+        }
     });
-
-    // Acak urutan soal no 5
-    const sortableList = document.getElementById("sortable");
-    const items = Array.from(sortableList.children);
-    for (let i = items.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        sortableList.appendChild(items[j]);
-        items.splice(j, 1);
-    }
-});
 </script>
 @endsection

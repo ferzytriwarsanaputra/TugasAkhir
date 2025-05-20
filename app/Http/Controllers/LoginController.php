@@ -3,34 +3,55 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 
 class LoginController extends Controller
 {
     public function show()
     {
-        return view('login-siswa.index', [
-            "title" => "Hasil Belajar"
+        return view('login.index', [
+            "title" => "Login"
         ]);
     }
 
     public function auth(Request $request): RedirectResponse
     {
         $credentials = $request->validate([
-            'nisn' => 'required',
-            'password' => 'required'
+            'identifier' => 'required|string',
+            'password' => 'required|string',
         ]);
 
-        if (Auth::attempt($credentials, $request->checkRemember)) {
+        // Cari user berdasarkan nisn, nip, atau nama
+        $user = User::where('nisn', $credentials['identifier'])
+            ->orWhere('nip', $credentials['identifier'])
+            ->orWhere('nama', $credentials['identifier'])
+            ->first();
+
+        if ($user && Hash::check($credentials['password'], $user->password)) {
+            Auth::login($user);
+
             $request->session()->regenerate();
-            return redirect()->intended('/');
+
+            // Redirect berdasarkan role
+            if ($user->role === 'guru') {
+                return redirect()->route('beranda');
+            } elseif ($user->role === 'siswa') {
+                return redirect()->route('beranda');
+            }
+
+            // Jika role tidak terdeteksi
+            Auth::logout();
+            return back()->withErrors([
+                'identifier' => 'Role pengguna tidak valid.'
+            ])->onlyInput('identifier');
         }
 
         return back()->withErrors([
-            'nisn' => 'Tidak ada akun yang cocok dengan inputan anda'
-        ])->onlyInput('nisn');
+            'identifier' => 'Login gagal, periksa kembali identifier dan password Anda.'
+        ])->onlyInput('identifier');
     }
 
     public function logout(Request $request): RedirectResponse
@@ -41,5 +62,4 @@ class LoginController extends Controller
 
         return redirect()->route('beranda');
     }
-
 }

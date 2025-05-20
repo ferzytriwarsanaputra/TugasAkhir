@@ -286,10 +286,30 @@
     }
 
     function nextSoal() {
-        // Jika soal ke-5 (soal terakhir), langsung redirect tanpa menambah currentSoal
+        // Jika soal ke-5 (soal terakhir), simpan ke server dulu
         if (currentSoal === 5) {
-            window.location.href = "/materi1/bayangan-cermin"; 
-            return; // Penting agar tidak melanjutkan ke baris di bawah
+            // Kirim data latihan ke server
+            fetch('/simpan-hasil-latihan', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({
+                latihan_ke: 1
+            })
+            })
+            .then(response => response.json())
+            .then(data => {
+            console.log(data.message);
+            window.location.href = "/materi1/bayangan-cermin";
+            })
+            .catch(error => {
+            console.error("Gagal menyimpan hasil latihan:", error);
+            alert("Terjadi kesalahan. Coba lagi.");
+            });
+
+            return; // Stop agar tidak lanjut ke baris bawah
         }
 
         // Sembunyikan soal saat ini

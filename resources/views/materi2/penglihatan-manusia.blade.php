@@ -91,9 +91,274 @@
     </div>
 </div>
 
+<div class="card-custom">
+    <h5>Latihan</h5>
+    <div class="question-container">
+        <!-- Soal 1 -->
+        <div class="question" id="soal1">
+            <p>1. Bagian mata manakah yang berfungsi mengatur jumlah cahaya yang masuk dengan mengubah ukuran pupil?</p>
+            <ul class="options" id="q1">
+                <li onclick="pilihJawaban(this, 'q1', 'Iris', 'hasil1')">Kornea</li>
+                <li onclick="pilihJawaban(this, 'q1', 'Iris', 'hasil1')">Retina</li>
+                <li onclick="pilihJawaban(this, 'q1', 'Iris', 'hasil1')">Iris</li>
+                <li onclick="pilihJawaban(this, 'q1', 'Iris', 'hasil1')">Lensa</li>
+            </ul>
+            <p id="hasil1"></p>
+            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
+        </div>
+
+        <!-- Soal 2 -->
+        <div class="question" id="soal2" style="display: none;">
+            <p>2. Urutkan jalannya cahaya saat masuk ke mata hingga membentuk bayangan yang dapat kita lihat!</p>
+            <ul id="sortable" class="sortable-list">
+                <li class="sortable-item" draggable="true" id="step1">Lensa</li>
+                <li class="sortable-item" draggable="true" id="step2">Retina</li>
+                <li class="sortable-item" draggable="true" id="step3">Kornea</li>
+                <li class="sortable-item" draggable="true" id="step4">Pupil</li>
+            </ul>            
+            <p id="hasil2"></p>
+            <button class="cekJawaban nav-btn" onclick="cekUrutan()">Periksa</button>
+            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
+        </div>
+
+        <!-- Soal 3 -->
+        <div class="question" id="soal3" style="display: none;">
+            <p>3. Perhatikan pernyataan berikut:</p>
+            <p>"Penderita rabun jauh menggunakan kacamata dengan lensa cembung."</p>
+            <ul id="q3" class="list-unstyled">
+                <li><input type="radio" name="q3" value="Benar" onclick="cekPernyataan('q3', 'Salah', 'hasil3')"> Benar</li>
+                <li><input type="radio" name="q3" value="Salah" onclick="cekPernyataan('q3', 'Salah', 'hasil3')"> Salah</li>
+            </ul>
+            <p id="hasil3"></p>
+            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
+        </div>
+
+        <!-- Soal 4 -->
+        <div class="question" id="soal4" style="display: none;">
+            <p>4. Cocokkan jenis gangguan mata dengan keterangan yang benar!</p>
+            <div id="dragContainer" class="drag-container">
+                <div class="drag-item" draggable="true" id="rabunDekat" ondragstart="drag(event)">Bayangan jatuh di belakang retina</div>
+                <div class="drag-item" draggable="true" id="rabunJauh" ondragstart="drag(event)">Bayangan jatuh di depan retina</div>
+                <div class="drag-item" draggable="true" id="astigmatisma" ondragstart="drag(event)">Kelainan bentuk lensa menyebabkan penglihatan kabur</div>
+                <div class="drag-item" draggable="true" id="butaWarna" ondragstart="drag(event)">Kesulitan membedakan warna tertentu</div>
+            </div>
+            <p>Rabun dekat</p><div class="drop-zone" id="drop1" ondrop="drop(event, 'drop1')" ondragover="allowDrop(event)"></div>
+            <p>Rabun jauh</p><div class="drop-zone" id="drop2" ondrop="drop(event, 'drop2')" ondragover="allowDrop(event)"></div>
+            <p>Astigmatisma</p><div class="drop-zone" id="drop3" ondrop="drop(event, 'drop3')" ondragover="allowDrop(event)"></div>
+            <p>Buta warna</p><div class="drop-zone" id="drop4" ondrop="drop(event, 'drop4')" ondragover="allowDrop(event)"></div>
+            <p id="hasil4"></p>
+            <button class="cekJawaban nav-btn" onclick="cekDragDrop()">Periksa</button>
+            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
+        </div>
+
+        <!-- Soal 5 -->
+        <div class="question" id="soal5" style="display: none;">
+            <p>5. Lengkapi pernyataan berikut dengan kata yang tepat!</p>
+            <p>Saat melihat benda yang sangat dekat, lensa mata akan menjadi lebih <input type="text" id="jawaban5"> agar cahaya dapat difokuskan ke retina.</p>
+            <p id="hasil5"></p>
+            <button class="cekJawaban nav-btn" onclick="cekJawaban5()">Periksa</button>
+            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
+        </div>
+    </div>
+</div>
+
 <!-- Navigasi Halaman -->
 <div class="navigation">
     <a class="nav-btn" href="/materi1/lensa">Sebelumnya</a>
     <a class="nav-btn" href="/materi2/penglihatan-serangga">Selanjutnya</a>
 </div>
+
+<script>
+    let currentSoal = 1;
+    const totalSoal = 5;
+    let sortableInstance;
+
+    function showSoal(n) {
+        for (let i = 1; i <= totalSoal; i++) {
+            document.getElementById(`soal${i}`).style.display = i === n ? "block" : "none";
+        }
+    }
+
+    function nextSoal() {
+        if (currentSoal < totalSoal) {
+            currentSoal++;
+            showSoal(currentSoal);
+        } else {
+            // HANYA SIMPAN SAAT SOAL TERAKHIR SAJA (latihan ke-4)
+            fetch('/simpan-hasil-latihan', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                },
+                body: JSON.stringify({ latihan_ke: 4 }) // ← latihan ke-4
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data.message);
+                window.location.href = "/materi2/penglihatan-serangga"; // ← redirect setelah selesai
+            })
+            .catch(err => {
+                console.error('Gagal simpan hasil latihan:', err);
+                alert('Gagal menyimpan hasil latihan. Silakan coba lagi.');
+            });
+        }
+    }
+
+    function pilihJawaban(el, qid, kunci, hasilId) {
+        const container = document.querySelector(`#${qid}`);
+        const hasil = document.getElementById(hasilId);
+        const btn = hasil.nextElementSibling;
+
+        if (hasil.dataset.answered === "true") return;
+
+        document.querySelectorAll(`#${qid} li`).forEach(li => li.classList.remove("selected"));
+        el.classList.add("selected");
+
+        const userJawaban = el.textContent.trim();
+        if (userJawaban === "Iris") {
+            hasil.innerHTML = "Jawaban Benar!";
+            hasil.style.color = "green";
+            hasil.dataset.answered = "true";
+            btn.classList.remove("disabled");
+            container.querySelectorAll("li").forEach(li => li.style.pointerEvents = "none");
+        } else {
+            hasil.innerHTML = `Jawaban Salah! Jawaban yang benar: Iris`;
+            hasil.style.color = "red";
+        }
+    }
+
+    function cekPernyataan(qid, kunci, hasilId) {
+        const hasil = document.getElementById(hasilId);
+        const btn = hasil.nextElementSibling;
+        if (hasil.dataset.answered === "true") return;
+
+        const jawab = document.querySelector(`input[name="${qid}"]:checked`);
+        if (!jawab) {
+            hasil.textContent = "Pilih salah satu jawaban!";
+            hasil.style.color = "orange";
+            return;
+        }
+
+        if (jawab.value === kunci) {
+            hasil.innerHTML = "Jawaban Benar!";
+            hasil.style.color = "green";
+            hasil.dataset.answered = "true";
+            btn.classList.remove("disabled");
+            document.querySelectorAll(`input[name="${qid}"]`).forEach(i => i.disabled = true);
+        } else {
+            hasil.innerHTML = `Jawaban Salah! Jawaban yang benar: ${kunci}, Penderita rabun jauh menggunakan lensa cekung, bukan cembung`;
+            hasil.style.color = "red";
+        }
+    }
+
+    function allowDrop(e) { e.preventDefault(); }
+
+    function drag(e) {
+        e.dataTransfer.setData("text", e.target.id);
+    }
+
+    function drop(e, targetId) {
+        e.preventDefault();
+        const id = e.dataTransfer.getData("text");
+        const target = document.getElementById(targetId);
+        const item = document.getElementById(id);
+        if (target.children.length > 0) {
+            document.getElementById("dragContainer").appendChild(target.firstChild);
+        }
+        target.innerHTML = "";
+        target.appendChild(item);
+    }
+
+    function cekDragDrop() {
+        const hasil = document.getElementById("hasil4");
+        const btnLanjut = hasil.nextElementSibling.nextElementSibling;
+
+        const jawabanBenar = {
+            drop1: "rabunDekat",    // Bayangan jatuh di belakang retina
+            drop2: "rabunJauh",     // Bayangan jatuh di depan retina
+            drop3: "astigmatisma",  // Kelainan bentuk lensa menyebabkan penglihatan kabur
+            drop4: "butaWarna"      // Kesulitan membedakan warna
+        };
+
+        let benar = true;
+        for (let key in jawabanBenar) {
+            const child = document.getElementById(key).children[0];
+            if (!child || child.id !== jawabanBenar[key]) {
+                benar = false;
+                break;
+            }
+        }
+
+        if (benar) {
+            hasil.innerHTML = "Jawaban Benar!";
+            hasil.style.color = "green";
+            hasil.dataset.answered = "true";
+            btnLanjut.classList.remove("disabled"); // Hanya aktif jika benar
+            document.querySelectorAll(".drag-item").forEach(i => i.setAttribute("draggable", false));
+        } else {
+            hasil.innerHTML = "Jawaban Salah! Pastikan semua pasangan sesuai.";
+            hasil.style.color = "red";
+        }
+    }
+
+    function cekUrutan() {
+        const hasil = document.getElementById("hasil2");
+        if (hasil.dataset.answered === "true") return;
+
+        const urutan = [...document.querySelectorAll("#sortable .sortable-item")].map(i => i.id);
+        const btnLanjut = hasil.nextElementSibling.nextElementSibling;
+
+        const jawabanBenar = ["step3", "step4", "step1", "step2"]; // Kornea → Pupil → Lensa → Retina
+
+        if (JSON.stringify(urutan) === JSON.stringify(jawabanBenar)) {
+            hasil.innerHTML = "Jawaban Benar!";
+            hasil.style.color = "green";
+            hasil.dataset.answered = "true";
+            btnLanjut.classList.remove("disabled");
+            sortableInstance.option("disabled", true);
+        } else {
+            hasil.innerHTML = "Jawaban Salah! Urutan yang benar adalah: Kornea → Pupil → Lensa → Retina";
+            hasil.style.color = "red";
+        }
+    }
+
+    function cekJawaban5() {
+        const hasil = document.getElementById("hasil5");
+        const input = document.getElementById("jawaban5");
+        const btnLanjut = hasil.nextElementSibling.nextElementSibling;
+
+        if (hasil.dataset.answered === "true") return;
+
+        const jawaban = input.value.trim().toLowerCase();
+
+        if (jawaban === "cembung") {
+            hasil.innerHTML = "Jawaban Benar!";
+            hasil.style.color = "green";
+            hasil.dataset.answered = "true";
+            input.disabled = true;
+            btnLanjut.classList.remove("disabled");
+        } else {
+            hasil.innerHTML = "Jawaban Salah! Jawaban yang benar: cembung";
+            hasil.style.color = "red";
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        showSoal(currentSoal);
+
+        const sortableList = document.getElementById("sortable");
+        if (sortableList) {
+            sortableInstance = Sortable.create(sortableList, { animation: 150 });
+
+            // Acak urutan
+            const items = Array.from(sortableList.children);
+            for (let i = items.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                sortableList.appendChild(items[j]);
+                items.splice(j, 1);
+            }
+        }
+    });
+</script>
 @endsection

@@ -36,10 +36,10 @@
                         <p><strong>Kelas:</strong> {{ auth()->user()->kelas }}</p>
                         <p><strong>Sekolah:</strong> {{ auth()->user()->sekolah }}</p>
                     @endauth
-                    <p><strong>Materi:</strong> {{ $evaluasi->judul }}</p>
+                    <p><strong>Materi:</strong> Evaluasi Akhir</p>
                     <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
                         <a href="{{ url()->previous() }}" class="btn btn-secondary">Kembali ke Materi</a>
-                        <a href="{{ route('mulai-kuis', ['kuis' => $evaluasi->id]) }}" class="btn btn-primary">Mulai Evaluasi</a>
+                        <a href="{{ route('mulai-evaluasi', ['id' => 4]) }}" class="btn btn-primary">Mulai Evaluasi</a>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,8 @@
 @extends('dashboard-siswa.layouts.main')
 
 @section('container')
-<form id="quizForm" method="POST" action="{{ route('siswa.submitKuis') }}">
+@php $isEvaluasi = (int) $kuis->id === 4; @endphp
+<form id="quizForm" method="POST" action="{{ route('evaluasi.submit') }}">
     @csrf
     <input type="hidden" name="kuis_id" value="{{ $kuis->id }}">
     <input type="hidden" name="skor" id="skorInput">

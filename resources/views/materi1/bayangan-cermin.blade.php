@@ -232,73 +232,40 @@
         }
     }
 
-    function allowDrop(event) {
-        event.preventDefault();
-    }
+    function allowDrop(e) { e.preventDefault(); }
+    function drag(e) { e.dataTransfer.setData("text", e.target.id); }
 
-    function drag(event) {
-        event.dataTransfer.setData("text", event.target.id);
-    }
-
-    function drop(event, dropZoneId) {
-        event.preventDefault();
-        let data = event.dataTransfer.getData("text");
-        let draggedElement = document.getElementById(data);
-        let dropZone = document.getElementById(dropZoneId);
-        
-        if (dropZone.children.length > 0) {
-            let existingItem = dropZone.children[0];
-            document.getElementById("dragContainer").appendChild(existingItem);
+    function drop(e, targetId) {
+        e.preventDefault();
+        const id = e.dataTransfer.getData("text");
+        const target = document.getElementById(targetId);
+        const item = document.getElementById(id);
+        if (target.children.length > 0) {
+            document.getElementById("dragContainer").appendChild(target.firstChild);
         }
-
-        dropZone.innerHTML = "";
-        dropZone.appendChild(draggedElement);
-
-        updateDragContainer();
-    }
-
-    function updateDragContainer() {
-        let dragContainer = document.getElementById("dragContainer");
-        let remainingItems = Array.from(dragContainer.children);
-
-        dragContainer.style.display = remainingItems.length === 0 ? "none" : "block";
+        target.innerHTML = "";
+        target.appendChild(item);
     }
 
     function cekDragDropLangsung() {
-        let drop1 = document.getElementById("drop1").children[0]?.id;
-        let drop2 = document.getElementById("drop2").children[0]?.id;
-        let drop3 = document.getElementById("drop3").children[0]?.id;
-        let drop4 = document.getElementById("drop4").children[0]?.id;
-        let resultElement = document.getElementById("hasil4");
-        let lanjutButton = document.getElementById("lanjut4");
+        const benar =
+            document.getElementById("drop1").children[0]?.id === "datar" &&
+            document.getElementById("drop2").children[0]?.id === "cekungluar" &&
+            document.getElementById("drop3").children[0]?.id === "cekungdalam" &&
+            document.getElementById("drop4").children[0]?.id === "cembung";
 
-        if (drop1 && drop2 && drop3 && drop4) {
-            let benar = drop1 === "datar" && drop2 === "cekungluar" && drop3 === "cekungdalam" && drop4 === "cembung";
+        const hasil = document.getElementById("hasil4");
+        const btnLanjut = document.getElementById("lanjut4");
 
-            if (benar) {
-                resultElement.innerHTML = "Jawaban Benar!";
-                resultElement.style.color = "green";
-                lanjutButton.classList.remove("disabled");
-
-                // Kunci jawaban (tidak bisa drag lagi)
-                disableDragDrop();
-            } else {
-                resultElement.innerHTML = "Jawaban Salah! Cermin Datar: Maya, tegak, sama besar. Cermin Cekung (diluar F): Nyata, terbalik, diperkecil. Cermin Cekung (didalam F): Maya, tegak, diperbesar. Cermin Cembung: Maya, tegak, diperkecil";
-                resultElement.style.color = "red";
-                lanjutButton.classList.add("disabled");
-            }
+        if (benar) {
+            hasil.innerHTML = "Jawaban Benar!";
+            hasil.style.color = "green";
+            document.querySelectorAll(".drag-item").forEach(i => i.setAttribute("draggable", false));
+            btnLanjut.classList.remove("disabled");
         } else {
-            resultElement.innerHTML = "";
-            lanjutButton.classList.add("disabled");
+            hasil.innerHTML = "Jawaban Salah! Coba periksa kembali kecocokan antara jenis cermin dan sifat bayangannya.";
+            hasil.style.color = "red";
         }
-    }
-
-    function disableDragDrop() {
-        let draggables = document.querySelectorAll(".drag-item");
-        draggables.forEach(item => {
-            item.setAttribute("draggable", "false");
-            item.style.cursor = "default";
-        });
     }
 
     function cekPernyataanLangsung(questionId, correctAnswer, resultId, buttonId) {
@@ -332,6 +299,8 @@
 
     let currentSoal = 1;
     const totalSoal = 5;
+    const latihanKe = 2; // ← ini kunci: latihan ke berapa
+    let sedangMemproses = false;
 
     function showSoal(index) {
         for (let i = 1; i <= totalSoal; i++) {
@@ -340,12 +309,42 @@
     }
 
     function nextSoal() {
-        if (currentSoal < totalSoal) {
+        if (sedangMemproses) return;
+        sedangMemproses = true;
+
+        const btn = document.getElementById(`lanjut${currentSoal}`);
+        btn.classList.add("disabled");
+        btn.disabled = true;
+
+        if (currentSoal === totalSoal) {
+            // Hanya simpan ke database jika soal terakhir
+            fetch('/simpan-hasil-latihan', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                },
+                body: JSON.stringify({ latihan_ke: latihanKe }) // Kirim latihan ke-2
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data.message);
+                window.location.href = "/materi1/lensa"; // Redirect setelah berhasil
+            })
+            .catch(err => {
+                console.error('Gagal simpan hasil latihan:', err);
+                alert('Gagal menyimpan hasil latihan. Silakan coba lagi.');
+                btn.disabled = false;
+                btn.classList.remove("disabled");
+            })
+            .finally(() => {
+                sedangMemproses = false;
+            });
+        } else {
+            // Kalau belum soal terakhir, hanya lanjutkan soal
             currentSoal++;
             showSoal(currentSoal);
-        } else {
-            // Soal terakhir, arahkan ke halaman berikutnya
-            window.location.href = "/materi1/lensa";
+            sedangMemproses = false;
         }
     }
 

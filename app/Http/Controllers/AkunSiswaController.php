@@ -13,7 +13,7 @@ class AkunSiswaController extends Controller
     {
         return view('dashboard-guru.akunSiswa', [
             'title' => 'Akun Siswa',
-            'users' => User::all()
+            'users' => User::where('role', 'siswa')->get()
         ]);
     }
 
