@@ -1,15 +1,3 @@
-{{-- <nav class="navbar navbar-expand d-flex justify-content-between align-items-center">
-    <button class="toggler-btn" type="button">
-        <i class="lni lni-text-align-left"></i>
-    </button>
-    <div class="sidebar-footer ms-auto">
-        <a href="/" class="sidebar-link d-flex align-items-center">
-            <i class="lni lni-exit"></i>
-            <span class="ms-2">Logout</span>
-        </a>
-    </div>
-</nav> --}}
-
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap shadow py-2">
     <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">LightLensEdu</a>
   

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 
@@ -30,17 +31,18 @@ class LoginController extends Controller
             ->orWhere('nama', $credentials['identifier'])
             ->first();
 
-        if ($user && Hash::check($credentials['password'], $user->password)) {
-            Auth::login($user);
-
-            $request->session()->regenerate();
-
-            // Redirect berdasarkan role
-            if ($user->role === 'guru') {
-                return redirect()->route('beranda');
-            } elseif ($user->role === 'siswa') {
-                return redirect()->route('beranda');
-            }
+            if ($user && Hash::check($credentials['password'], $user->password)) {
+                Auth::login($user);
+                $request->session()->regenerate();
+            
+                Alert::success('Berhasil Login', 'Selamat datang, ' . $user->nama . '!');
+            
+                // Redirect berdasarkan role
+                if ($user->role === 'guru') {
+                    return redirect()->route('beranda');
+                } elseif ($user->role === 'siswa') {
+                    return redirect()->route('beranda');
+                }            
 
             // Jika role tidak terdeteksi
             Auth::logout();
@@ -60,6 +62,7 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
+        Alert::success('Logout Berhasil', 'Anda telah keluar dari sistem.');
         return redirect()->route('beranda');
     }
 }

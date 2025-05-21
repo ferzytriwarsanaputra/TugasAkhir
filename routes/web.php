@@ -47,11 +47,10 @@ Route::get('/materi3/{halaman}', [Materi3Controller::class, 'show']);
 // Login Siswa
 Route::get('/login', [LoginController::class, 'show'])->name('login');
 Route::post('/login', [LoginController::class, 'auth'])->name('login.auth');
+Route::post('/logout', [LoginController::class, 'logout'])->name('login.logout');
 
 // Login Guru + halaman yang dilindungi
 Route::group(['middleware' => ['auth', 'guru']], function () {
-    Route::post('/logout', [LoginController::class, 'logout'])->name('login.logout');
-    
     // Halaman utama guru
     Route::get('/dashboard-guru', [DashboardGuruController::class, 'index'])->name('dashboard-guru.index');
     Route::get('/data-pengguna',[DashboardController::class,'showDataPengguna'])->name('dashboard-guru.showDataPengguna');

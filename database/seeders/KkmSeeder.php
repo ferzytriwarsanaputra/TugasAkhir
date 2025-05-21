@@ -36,6 +36,12 @@ class KkmSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'kuis_id' => 4,
+                'nilai_kkm' => 70,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }

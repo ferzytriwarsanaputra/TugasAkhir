@@ -1,12 +1,7 @@
 @extends('dashboard-guru.layouts.main')
 
 @section('container')
-@if (session('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('success') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-@endif
+@include('sweetalert::alert')
 
 <main class="container mt-5 px-4">
     <h1 class="text-center fw-bold mb-4">Atur KKM untuk Kuis</h1>
@@ -26,14 +21,14 @@
         </thead>
         <tbody>
             @php
-                $kuis = [1, 2, 3];
+                $kuis = [1, 2, 3, 4];
                 $kkmMap = $kkmList->keyBy('kuis_id');
             @endphp
 
             @foreach ($kuis as $index => $id)
                 <tr>
                     <td class="text-center">{{ $index + 1 }}</td>
-                    <td>Kuis {{ $id }}</td>
+                    <td>{{ $id == 4 ? 'Evaluasi' : 'Kuis ' . $id }}</td>
                     <td class="text-center">
                         {{ $kkmMap[$id]->nilai_kkm ?? 'Belum diatur' }}
                     </td>

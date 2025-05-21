@@ -26,10 +26,13 @@
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="/">Beranda</a></li>
               <li>
-                <form action="{{ route('login.logout') }}" method="POST" class="d-inline">
+                <a href="#" id="logout-btn" class="dropdown-item text-danger">
+                  <i class="bi bi-box-arrow-right"></i> Logout
+                </a>
+                
+                <form id="logout-form" action="{{ route('login.logout') }}" method="POST" style="display: none;">
                   @csrf
-                  <button type="submit" class="dropdown-item">Logout</button>
-                </form>
+                </form>                
               </li>
             </ul>
           </li>

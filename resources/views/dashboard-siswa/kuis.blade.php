@@ -89,21 +89,30 @@
     }
 
     function submitQuiz() {
-        const skor = hitungSkor();
-        document.getElementById("skorInput").value = skor;
+        Swal.fire({
+            title: 'Selesai mengerjakan kuis?',
+            text: "Jawaban kamu akan langsung dikirim dan tidak bisa diubah.",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Selesai',
+            cancelButtonText: 'Belum'
+        }).then((result) => {
+            if (result.isConfirmed) {
+            const skor = hitungSkor();
+            document.getElementById("skorInput").value = skor;
 
-        // Hitung durasi pengerjaan
-        const elapsed = Math.floor((Date.now() - startTime) / 1000); // dalam detik
-        const menit = Math.floor(elapsed / 60);
-        const detik = elapsed % 60;
+            const elapsed = Math.floor((Date.now() - startTime) / 1000);
+            const menit = Math.floor(elapsed / 60);
+            const detik = elapsed % 60;
+            const waktuPengerjaan = `${menit < 10 ? '0' : ''}${menit}:${detik < 10 ? '0' : ''}${detik}`;
+            document.getElementById("waktuInput").value = waktuPengerjaan;
 
-        // Mengubah waktu ke format HH:MM:SS
-        const waktuPengerjaan = `${menit < 10 ? '0' : ''}${menit}:${detik < 10 ? '0' : ''}${detik}`;
-
-        document.getElementById("waktuInput").value = waktuPengerjaan; // Kirim ke form sebagai 'waktu'
-
-        document.getElementById("quizForm").submit();
-    }
+            document.getElementById("quizForm").submit();
+            }
+        });
+        }
 
     function hitungSkor() {
         let skor = 0;

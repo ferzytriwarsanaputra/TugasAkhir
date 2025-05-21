@@ -94,20 +94,27 @@
     }
 
     function submitQuiz() {
+    Swal.fire({
+        title: 'Evaluasi Selesai',
+        text: 'Ini adalah evaluasi terakhir. Pastikan semua jawaban sudah benar sebelum dikirim.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Ya, kirim!',
+        cancelButtonText: 'Batal',
+    }).then((result) => {
+        if (result.isConfirmed) {
         const skor = hitungSkor();
         document.getElementById("skorInput").value = skor;
 
-        // Hitung durasi pengerjaan
-        const elapsed = Math.floor((Date.now() - startTime) / 1000); // dalam detik
+        const elapsed = Math.floor((Date.now() - startTime) / 1000);
         const menit = Math.floor(elapsed / 60);
         const detik = elapsed % 60;
-
-        // Mengubah waktu ke format HH:MM:SS
         const waktuPengerjaan = `${menit < 10 ? '0' : ''}${menit}:${detik < 10 ? '0' : ''}${detik}`;
 
-        document.getElementById("waktuInput").value = waktuPengerjaan; // Kirim ke form sebagai 'waktu'
-
+        document.getElementById("waktuInput").value = waktuPengerjaan;
         document.getElementById("quizForm").submit();
+        }
+    });
     }
 
     function hitungSkor() {
