@@ -49,7 +49,7 @@ Route::get('/login', [LoginController::class, 'show'])->name('login');
 Route::post('/login', [LoginController::class, 'auth'])->name('login.auth');
 
 // Login Guru + halaman yang dilindungi
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth', 'guru']], function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('login.logout');
     
     // Halaman utama guru
@@ -83,6 +83,19 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard-guru/tambahSiswa', function () {
         return view('dashboard-guru.tambahSiswa', ["title" => "Tambah Siswa"]);
     })->name('dashboard-guru.tambahSiswa');
+
+    Route::get('/dashboard-guru/progres', [DashboardGuruController::class, 'progresBelajar'])->name('dashboard-guru.progres');
+
+    // Route untuk menampilkan KKM
+    Route::get('/dashboard-guru/kkm', [KKMController::class, 'index'])->name('dashboard-guru.kkm');
+
+    // Route untuk halaman form edit KKM
+    Route::get('/dashboard-guru/kkm/{kkm}/edit', [KKMController::class, 'edit'])->name('dashboard-guru.kkm.edit');
+
+    // Route untuk update KKM
+    Route::put('/dashboard-guru/kkm/{kkm}', [KKMController::class, 'update'])->name('dashboard-guru.kkm.update');
+
+    Route::get('/dashboard-guru/hasil-kuis', [HasilKuisController::class, 'hasilKuis'])->name('dashboard-guru.hasil-kuis');
 });
 
 // Halaman utama dashboard siswa - dengan daftar kuis
@@ -127,17 +140,4 @@ Route::post('/siswa/submit-kuis', [KuisController::class, 'submitKuis'])->name('
 
 Route::get('/siswa/nilai/{id}', [KuisController::class, 'tampilkanNilai'])->name('siswa.nilai');
 
-// Route untuk menampilkan KKM
-Route::get('/dashboard-guru/kkm', [KKMController::class, 'index'])->name('dashboard-guru.kkm');
-
-// Route untuk halaman form edit KKM
-Route::get('/dashboard-guru/kkm/{kkm}/edit', [KKMController::class, 'edit'])->name('dashboard-guru.kkm.edit');
-
-// Route untuk update KKM
-Route::put('/dashboard-guru/kkm/{kkm}', [KKMController::class, 'update'])->name('dashboard-guru.kkm.update');
-
-Route::get('/dashboard-guru/hasil-kuis', [HasilKuisController::class, 'hasilKuis'])->name('dashboard-guru.hasil-kuis');
-
 Route::post('/simpan-hasil-latihan', [LatihanController::class, 'simpanHasil'])->middleware('auth');
-
-Route::get('/dashboard-guru/progres', [DashboardGuruController::class, 'progresBelajar'])->name('dashboard-guru.progres');

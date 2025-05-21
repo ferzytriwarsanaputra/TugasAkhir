@@ -40,7 +40,7 @@
   
       @guest
         <li class="nav-item">
-          <a class="nav-link text-white me-3" href="{{ route('login-siswa') }}">
+          <a class="nav-link text-white me-3" href="{{ route('login') }}">
             <i class="bi bi-box-arrow-in-right"></i> Login
           </a>
         </li>
