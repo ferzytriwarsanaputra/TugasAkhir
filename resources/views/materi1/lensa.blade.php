@@ -3,7 +3,7 @@
 @section('container')
 <div class="card-custom">
     <div class="title-box">
-        <span><h5>1.3 Lensa</h5></span>
+        <span>1.3 Lensa</span>
     </div>
     <div class="reading-box">
         <img src="https://cdn-icons-png.flaticon.com/512/2232/2232688.png" alt="Buku">
@@ -85,7 +85,7 @@
     </div>
 </div>
 <div class="card-custom">
-    <h5>Latihan</h5>
+    <h5>Aktivitas 1.3</h5>
     <div class="question-container">
         <!-- Soal 1 -->
         <div class="question" id="soal1">
@@ -154,9 +154,9 @@
     </div>
 </div>
 
-<div class="navigation">
-    <a class="nav-btn" href="/materi1/bayangan-cermin">Sebelumnya</a>
-    <a class="nav-btn" href="/petunjuk/1">Selanjutnya</a>
+<div class="navigation d-flex justify-content-between">
+    <a class="nav-btn btn btn-primary" href="/materi1/bayangan-cermin">Sebelumnya</a>
+    <a class="nav-btn btn btn-primary" href="/petunjuk/1">Selanjutnya</a>
 </div>
 
 <script>

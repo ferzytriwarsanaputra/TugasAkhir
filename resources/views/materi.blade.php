@@ -2,7 +2,7 @@
 
 @section('container')
 <main class="container mt-5 px-4">
-    <h1 class="text-center fw-bold mb-4">Cahaya dan Alat Optik</h1>
+    <h1 class="text-center fw-bold mb-4">Materi Cahaya dan Alat Optik</h1>
     <div class="row g-4 py-5">
         <div class="col-md-6 col-lg-4">
             <div class="card shadow-lg border-0 h-100 bg-white text-center rounded-4">

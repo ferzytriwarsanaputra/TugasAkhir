@@ -43,7 +43,17 @@ class Materi1Controller extends Controller
             abort(404); // Jika halaman tidak valid, tampilkan error 404
         }
 
-        return view('materi1.' . $halaman);
+        // Buat judul berdasarkan halaman
+        $titles = [
+            'sifat-cahaya' => 'Sifat-sifat Cahaya',
+            'bayangan-cermin' => 'Pembentukan Bayangan pada Cermin',
+            'lensa' => 'Lensa',
+            'kuis' => 'Kuis 1'
+        ];
+
+        return view('materi1.' . $halaman, [
+            'title' => $titles[$halaman] ?? 'Materi'
+        ]);
     }
 
     /**

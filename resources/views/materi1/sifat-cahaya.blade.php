@@ -3,11 +3,7 @@
 @section('container')
 <div class="card-custom">
     <div class="title-box">
-        <span>1</span> <span>Sifat Cahaya dan Proses Pembentukan Bayangan</span>
-    </div>
-    <div class="reading-box">
-        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Tujuan Pembelajaran">
-        <strong>Tujuan Pembelajaran</strong>
+        <span>1</span><span>Sifat Cahaya dan Proses Pembentukan Bayangan</span>
     </div>
     <div class="content">
         <h3>Tujuan Pembelajaran</h3>
@@ -20,7 +16,7 @@
 </div>
 <div class="card-custom">
     <div class="title-box">
-        <span><h5>1.1 Sifat-Sifat Cahaya</h5></span>
+        <span>1.1 Sifat-Sifat Cahaya</span>
     </div>
     <div class="reading-box">
         <img src="https://cdn-icons-png.flaticon.com/512/2232/2232688.png" alt="Buku">
@@ -48,8 +44,12 @@
             1. Sinar datang, sinar pantul dan garis normal terletak pada satu bidang datar.<br>
             2. Sudut pantul (θ) sama dengan sudut datang (α)        
         </p>
-        <img src="/img/Materi1/pemantulan cahaya.png" alt="Proses Pemantulan Cahaya pada Cermin Datar" class="img-fluid d-block mx-auto" style="max-width: 40%;">
-        <img src="/img/Materi1/2.png" alt="Ilustrasi Proses Pemantulan Cahaya pada Cermin Datar" class="img-fluid d-block mx-auto" style="max-width: 40%;">
+        <div class="d-flex justify-content-center gap-4 flex-wrap">
+            <img src="/img/Materi1/pemantulan cahaya.png" alt="Proses Pemantulan Cahaya pada Cermin Datar"
+                 class="img-fluid" style="max-width: 40%;">
+            <img src="/img/Materi1/2.png" alt="Ilustrasi Proses Pemantulan Cahaya pada Cermin Datar"
+                 class="img-fluid" style="max-width: 40%;">
+        </div>        
         <h6>c. Cahaya dapat dibiaskan</h6>
         <p>
             Apabila cahaya datang dari medium satu ke medium lain yang berbeda massa jenisnya (kerapatannya) maka akan dibelokan atau dibiaskan.
@@ -57,8 +57,12 @@
         <p>
             Perhatikan Gambar 1.4 Cahaya di dalam gelas terisi air dan sendok tersebut mengalami pembelokkan. Pembelokkan ini disebut dengan pembiasan. Pembiasan cahaya adalah pembelokan gelombang cahaya yang disebabkan oleh suatu perubahan dalam kelajuan gelombang cahaya pada saat gelombang cahaya tersebut merabat dari suatu zat ke zat lainnya.
         </p>
-        <img src="/img/Materi1/pembiasan.png" alt="Set Percobaan Pembiasan" class="img-fluid d-block mx-auto" style="max-width: 40%;">
-        <img src="/img/Materi1/3.png" alt="Ilustrasi Pembelokkan Gelombang Cahaya" class="img-fluid d-block mx-auto" style="max-width: 40%;">
+        <div class="d-flex justify-content-center gap-4 flex-wrap">
+            <img src="/img/Materi1/pembiasan.png" alt="Set Percobaan Pembiasan" 
+                 class="img-fluid" style="max-width: 40%;">
+            <img src="/img/Materi1/3.png" alt="Ilustrasi Pembelokkan Gelombang Cahaya" 
+                 class="img-fluid" style="max-width: 40%;">
+        </div>        
         <h6>Hukum Pemantulan</h6>
         <p>
             1.	Cahaya datang dari medium yang renggang ke yang lebih rapat dapat dibiaskan mendekati garis normal<br>
@@ -77,7 +81,7 @@
     </div>
 </div>
 <div class="card-custom">
-    <h5>Latihan</h5>
+    <h5>Aktivitas 1.1</h5>
     <div class="question-container">
         <!-- Soal 1 -->
         <div class="question" id="soal1">
@@ -156,9 +160,9 @@
 </div>
 
 <!-- Navigasi Halaman -->
-<div class="navigation">
-    <a class="nav-btn" href="">Sebelumnya</a>
-    <a class="nav-btn" href="/materi1/bayangan-cermin">Selanjutnya</a>
+<div class="navigation d-flex justify-content-between">
+    <a class="nav-btn btn btn-primary" href="dashboard-siswa">Sebelumnya</a>
+    <a class="nav-btn btn btn-primary" href="/materi1/bayangan-cermin">Selanjutnya</a>
 </div>
 
 <script>

@@ -3,7 +3,7 @@
 @section('container')
 <div class="card-custom">
     <div class="title-box">
-        <span><h5>1.2 Pembentukan Bayangan Pada Cermin</h5></span>
+        <span>1.2 Pembentukan Bayangan Pada Cermin</span>
     </div>
     <div class="reading-box">
         <img src="https://cdn-icons-png.flaticon.com/512/2232/2232688.png" alt="Buku">
@@ -102,7 +102,7 @@
     </div>
 </div>
 <div class="card-custom">
-    <h5>Latihan</h5>
+    <h5>Aktivitas 1.2</h5>
     <div class="question-container">
         <!-- Soal 1 -->
         <div class="question" id="soal1">
@@ -184,9 +184,9 @@
 </div>
 
 <!-- Navigasi Halaman -->
-<div class="navigation">
-    <a class="nav-btn" href="/materi1/sifat-cahaya">Sebelumnya</a>
-    <a class="nav-btn" href="/materi1/lensa">Selanjutnya</a>
+<div class="navigation d-flex justify-content-between">
+    <a class="nav-btn btn btn-primary" href="/materi1/sifat-cahaya">Sebelumnya</a>
+    <a class="nav-btn btn btn-primary" href="/materi1/lensa">Selanjutnya</a>
 </div>
 
 <script>

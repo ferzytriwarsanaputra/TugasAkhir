@@ -5,10 +5,6 @@
     <div class="title-box">
         <span>3</span> <span>Alat Optik dalam Kehidupan Sehari-hari</span>
     </div>
-    <div class="reading-box">
-        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Tujuan Pembelajaran">
-        <strong>Tujuan Pembelajaran</strong>
-    </div>
     <div class="content">
         <h3>Tujuan Pembelajaran</h3>
         <ul>
@@ -20,7 +16,7 @@
 </div>
 <div class="card-custom">
     <div class="title-box">
-        <span><h5>3.1 Kamera</h5></span>
+        <span>3.1 Kamera</span>
     </div>
     <div class="reading-box">
         <img src="https://cdn-icons-png.flaticon.com/512/2232/2232688.png" alt="Buku">
@@ -38,7 +34,7 @@
 </div>
 
 <div class="card-custom">
-    <h5>Latihan</h5>
+    <h5>Aktivitas 3.1</h5>
     <div class="question-container">
         <!-- Soal 1 -->
         <div class="question" id="soal1">

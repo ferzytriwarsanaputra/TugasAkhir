@@ -3,7 +3,7 @@
 @section('container')
 <div class="card-custom">
     <div class="title-box">
-        <span><h5>3.2 Kaca Pembesar (Lup)</h5></span>
+        <span>3.2 Kaca Pembesar (Lup)</span>
     </div>
     <div class="reading-box">
         <img src="https://cdn-icons-png.flaticon.com/512/2232/2232688.png" alt="Buku">
@@ -25,7 +25,7 @@
 </div>
 
 <div class="card-custom">
-    <h5>Latihan</h5>
+    <h5>Aktivitas 3.2</h5>
     <div class="question-container">
         <!-- Soal 1 -->
         <div class="question" id="soal1">

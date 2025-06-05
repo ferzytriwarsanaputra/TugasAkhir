@@ -5,10 +5,6 @@
     <h1 class="text-center fw-bold mb-4">HALAMAN GURU</h1>
 
     <div class="container col-lg-10 mx-auto">
-        <div class="d-flex justify-content-start mb-3">
-            <a href="/" class="btn btn-secondary">← Kembali</a>
-        </div>
-
         <div class="bg-light rounded-4 shadow p-4">
             <div class="row justify-content-center g-4 py-3">
                 <div class="col-12 col-md-6 col-lg-5">

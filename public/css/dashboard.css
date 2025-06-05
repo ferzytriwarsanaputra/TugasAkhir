@@ -1,7 +1,156 @@
-.card-custom h6, p{
-  font-size: 18px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
 }
 
+h1 {
+    font-weight: 800;
+}
+
+a {
+    text-decoration: none;
+}
+
+.main {
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+#sidebar {
+    max-width: 314px;
+    min-width: 314px;
+    transition: all 0.35s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar.collapsed {
+    margin-left: -314px;
+}
+
+.toggler-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+}
+
+.toggler-btn i {
+    font-size: 23px;
+    color: #1363DF;
+}
+
+.navbar {
+    padding: 18.4px 24px;
+    border-bottom: 1px solid #b3a8a8;
+}
+
+.sidebar-nav {
+    flex: 1 1 auto;
+    border-right: 1px solid #b3a8a8;
+}
+
+.sidebar-logo {
+    padding: 20.2px 24px;
+    border-bottom: 1px solid #b3a8a8;
+    text-align: center;
+    
+}
+
+.sidebar-logo a {
+    color: #1363DF;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.sidebar-header {
+    color: #1363DF;
+    font-size: 22px;
+    text-align: center;
+    font-weight: 600;
+    padding: 24px 24px 6px 6px;
+}
+
+a.sidebar-link {
+    padding: 10px 26px;
+    color: #000;
+    position: relative;
+    transition: all 0.35s;
+    display: block;
+    font-size: 18px;
+}
+
+a.sidebar-link:hover {
+    background-color: #DFF6FF;
+    color: #000;
+}
+
+.sidebar-link[data-bs-toggle="collapse"]::after {
+    border: solid;
+    border-width: 0 1.2px 1.2px 0;
+    content: "";
+    display: inline-block;
+    padding: 2px;
+    position: absolute;
+    right: 24px;
+    top: 22.4px;
+    transform: rotate(-135deg);
+    transition: all .2s ease-out;
+}
+
+.sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+    transform: rotate(45deg);
+    transition: all .2s ease-out;
+}
+
+.sidebar-link.active {
+  background-color: #1363DF;
+  color: #fff;
+  font-weight: 600;
+}
+
+.sidebar-link.active:hover {
+  background-color: #47B5FF;
+  color: #fff;
+}
+
+.sidebar-link {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-dropdown .sidebar-link {
+  font-size: 16px;
+  padding-left: 40px;
+}
+
+.sidebar-dropdown .sidebar-link:hover {
+  background-color: #DFF6FF;
+  color: #000;
+}
+
+.sidebar-link.active-parent {
+  background-color: #DFF6FF; /* Warna latar saat aktif */
+  color: #000; /* Warna teks saat aktif */
+}
+
+.sidebar-link.active-parent:hover {
+  background-color: #1363DF; /* Warna saat hover jika aktif */
+  color: #fff;
+}
+
+/* Screen size less than 768px */
+
+@media (max-width:768px) {
+
+    .sidebar-toggle {
+        margin-left: -314px;
+    }
+
+    #sidebar.collapsed {
+        margin-left: 0;
+    }
+}
 
 .feather {
   width: 16px;
@@ -22,226 +171,6 @@ th {
   background-color: #f2f2f2;
 }
 
-/* Sidebar */
-
-.sidebar {
-  position: fixed;
-  height: 100vh;
-  overflow-y: auto;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 100; /* Behind the navbar */
-  padding: 48px 0 0; /* Height of navbar */
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-}
-
-@media (max-width: 767.98px) {
-  .sidebar {
-    top: 5rem;
-  }
-}
-
-.sidebar-sticky {
-  position: relative;
-  top: 0;
-  height: calc(100vh - 48px);
-  padding-top: .5rem;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.sidebar .nav-link {
-  font-weight: 500;
-  margin-right: 4px;
-  color: #727272;
-}
-
-.sidebar .nav-link:hover,
-.sidebar .nav-link.active {
-  color: #ffffff;
-  background-color: #007bff;
-  border-radius: 5px;
-}
-
-.sidebar .nav-link:hover .feather,
-.sidebar .nav-link.active .feather {
-  color: inherit;
-}
-
-.sidebar-heading {
-  font-size: .75rem;
-  text-transform: uppercase;
-}
-
-/* Navbar */
-
-.navbar-brand {
-  padding-top: .75rem;
-  padding-bottom: .75rem;
-  font-size: 1rem;
-  background-color: rgba(0, 0, 0, .25);
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
-}
-
-.navbar .navbar-toggler {
-  top: .25rem;
-  right: 1rem;
-}
-
-.navbar .form-control {
-  padding: .75rem 1rem;
-  border-width: 0;
-  border-radius: 0;
-}
-
-.form-control-dark {
-  color: #fff;
-  background-color: rgba(255, 255, 255, .1);
-  border-color: rgba(255, 255, 255, .1);
-}
-
-.form-control-dark:focus {
-  border-color: transparent;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
-}
-
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-.sidebar-nav {
-  font-size: 18px !important;
-}
-
-.sidebar-item a {
-  font-size: 16px !important;
-}
-
-li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-}
-
-.main {
-    min-height: 100vh;
-    width: 100%;
-    overflow: hidden;
-    background-color: #f9f9f9;
-}
-
-#sidebar {
-    max-width: 264px;
-    min-width: 264px;
-    transition: all 0.35s ease-in-out;
-    background-color: #000;
-    display: flex;
-    flex-direction: column;
-}
-
-#sidebar.collapsed {
-    margin-left: -264px;
-}
-
-.toggler-btn {
-    background-color: transparent;
-    cursor: pointer;
-    border: 0;
-}
-
-.toggler-btn i {
-    font-size: 1.75rem;
-    color: #000;
-    font-weight: 1000;
-}
-
-.navbar {
-    padding: .8rem 1.1rem;
-    border-bottom: 2px dashed #b3a8a8;
-}
-
-.sidebar-nav {
-    flex: 1 1 auto;
-}
-
-.sidebar-logo {
-    padding: 1.15rem 1.5rem;
-    text-align: center;
-}
-
-.sidebar-logo a {
-    color: #FFF;
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-
-.sidebar-header {
-    color: #FFF;
-    font-size: .75rem;
-    padding: 1.5rem 1.5rem .375rem;
-}
-
-a.sidebar-link {
-    padding: .625rem 1.625rem;
-    color: #FFF;
-    position: relative;
-    transition: all 0.35s;
-    display: block;
-    font-size: 1.25rem;
-}
-
-a.sidebar-link:hover {
-    background-color: #f9f6f630;
-}
-
-.sidebar-link[data-bs-toggle="collapse"]::after {
-    border: solid;
-    border-width: 0 .075rem .075rem 0;
-    content: "";
-    display: inline-block;
-    padding: 2px;
-    position: absolute;
-    right: 1.5rem;
-    top: 1.4rem;
-    transform: rotate(-135deg);
-    transition: all .2s ease-out;
-}
-
-.sidebar-link[data-bs-toggle="collapse"].collapsed::after {
-    transform: rotate(45deg);
-    transition: all .2s ease-out;
-}
-
-.sidebar-footer a {
-  color: white !important;
-  background-color: #dc3545;
-  padding: 5px 10px;
-  font-size: 18px;
-  border-radius: 5px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.sidebar-footer a:hover {
-  background-color: #c82333;
-} */
-
-/* Screen size less than 768px */
-
-/* @media (max-width:768px) {
-
-    .sidebar-toggle {
-        margin-left: -264px;
-    }
-
-    #sidebar.collapsed {
-        margin-left: 0;
-    }
-} */
-
 /* tampilan materi */
 .card-custom {
   background-color: #ffffff;
@@ -249,12 +178,12 @@ a.sidebar-link:hover {
   border-radius: 8px;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  margin-top: 20px;
+  margin-bottom: 18px;
 }
 .title-box {
   display: flex;
   align-items: center;
-  background-color: #007bff;
+  background-color: #1363DF;
   color: white;
   padding: 8px 15px;
   border-radius: 6px;
@@ -265,9 +194,9 @@ a.sidebar-link:hover {
   margin-left: 10px;
 }
 .reading-box {
-  background-color: #9dccff;
+  background-color: #DFF6FF;
   padding: 10px;
-  border-left: 5px solid #007bff;
+  border-left: 5px solid #47B5FF;
   border-radius: 6px;
   display: flex;
   align-items: center;

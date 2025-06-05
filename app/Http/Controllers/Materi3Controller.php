@@ -43,7 +43,18 @@ class Materi3Controller extends Controller
             abort(404); // Jika halaman tidak valid, tampilkan error 404
         }
 
-        return view('materi3.' . $halaman);
+        // Buat judul berdasarkan halaman
+        $titles = [
+            'kamera' => 'Kamera',
+            'lup' => 'Kaca Pembesar (Lup)',
+            'mikroskop' => 'Mikroskop',
+            'teleskop' => 'Teleskop',
+            'kuis' => 'Kuis 3'
+        ];
+
+        return view('materi3.' . $halaman, [
+            'title' => $titles[$halaman] ?? 'Materi'
+        ]);
     }
 
     /**

@@ -26,7 +26,7 @@
             <div class="col">
                 <div class="bg-light rounded-4 shadow p-4 h-100">
                     <h2 class="text-center" style="font-size: 1.25rem;">
-                        <i class="bi bi-person-circle me-2 text-success"></i>
+                        <i class="bi bi-person-circle me-2 text-primary"></i>
                         Data Siswa
                     </h2>
                     <hr>

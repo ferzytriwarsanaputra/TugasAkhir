@@ -5,10 +5,6 @@
     <div class="title-box">
         <span>2</span> <span>Indra Penglihatan Manusia dan Hewan</span>
     </div>
-    <div class="reading-box">
-        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Tujuan Pembelajaran">
-        <strong>Tujuan Pembelajaran</strong>
-    </div>
     <div class="content">
         <h3>Tujuan Pembelajaran</h3>
         <ul>
@@ -19,7 +15,7 @@
 </div>
 <div class="card-custom">
     <div class="title-box">
-        <span><h5>2.1 Indra Penglihatan Manusia</h5></span>
+        <span>2.1 Indra Penglihatan Manusia</span>
     </div>
     <div class="reading-box">
         <img src="https://cdn-icons-png.flaticon.com/512/2232/2232688.png" alt="Buku">
@@ -92,7 +88,7 @@
 </div>
 
 <div class="card-custom">
-    <h5>Latihan</h5>
+    <h5>Aktivitas 2.1</h5>
     <div class="question-container">
         <!-- Soal 1 -->
         <div class="question" id="soal1">

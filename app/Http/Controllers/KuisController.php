@@ -74,7 +74,6 @@ class KuisController extends Controller
     {
         $userId = auth()->user()->id;
 
-        // Ambil hasil kuis terakhir dari user
         $hasil = HasilKuis::where('user_id', $userId)
                         ->orderBy('created_at', 'desc')
                         ->first();
@@ -83,7 +82,6 @@ class KuisController extends Controller
             return redirect('/')->with('error', 'Hasil kuis tidak ditemukan.');
         }
 
-        // Data dari session
         $nama = session('nama');
         $skor = session('skor');
         $hari = session('hari');
@@ -91,11 +89,10 @@ class KuisController extends Controller
         $waktu = session('waktu');
         $kuisId = session('kuis_id');
 
-        // Ambil nilai KKM berdasarkan kuis_id
         $kkm = KKM::where('kuis_id', $kuisId)->value('nilai_kkm');
-
-        // Tentukan status kelulusan
         $status = $skor >= $kkm ? 'memenuhi' : 'belum memenuhi';
+
+        $title = 'Hasil Nilai';
 
         return view('dashboard-siswa.nilai', [
             'skor' => $skor,
@@ -105,13 +102,16 @@ class KuisController extends Controller
             'waktu' => $waktu,
             'kuis_id' => $kuisId,
             'kkm' => $kkm,
-            'status' => $status, // Tambahkan status ke view
+            'status' => $status,
+            'title' => $title, // DITAMBAHKAN
         ]);
     }
 
     public function evaluasi($id)
     {
         $kuis = Kuis::findOrFail($id);
-        return view('dashboard-siswa.evaluasi.index', compact('kuis'));
+        $title = 'Evaluasi';
+
+        return view('dashboard-siswa.evaluasi.index', compact('kuis', 'title'));
     }
 }

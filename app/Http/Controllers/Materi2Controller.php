@@ -43,7 +43,16 @@ class Materi2Controller extends Controller
             abort(404); // Jika halaman tidak valid, tampilkan error 404
         }
 
-        return view('materi2.' . $halaman);
+        // Buat judul berdasarkan halaman
+        $titles = [
+            'penglihatan-manusia' => 'Indra Penglihatan Manusia',
+            'penglihatan-serangga' => 'Indra Penglihatan Serangga',
+            'kuis' => 'Kuis 2'
+        ];
+
+        return view('materi2.' . $halaman, [
+            'title' => $titles[$halaman] ?? 'Materi'
+        ]);
     }
 
     /**
