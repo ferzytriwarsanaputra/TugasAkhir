@@ -13,11 +13,17 @@
         <p>
             Kaca pembesar  atau lup, adalah alat optik sederhana yang memiliki satu lensa cembung. Alat ini digunakan untuk memperbesar objek kecil supaya kita bisa melihat detailnya dengan lebih jelas. Ketika cahaya melewati lensa cembung, cahaya tersebut akan dibelokkan dan berkumpul di satu titik, sehingga bayangan objek menjadi lebih besar. Kaca pembesar sering digunakan untuk kegiatan sehari-hari, seperti membaca tulisan kecil atau melihat detail pada suatu benda.
         </p>
-        <img src="/img/Materi3/optik2.png" alt="Kaca Pembesar (Lup)" class="img-fluid d-block mx-auto">
+        <figure class="text-center">
+            <img src="/img/Materi3/optik2.png" alt="Kaca Pembesar (Lup)" class="img-fluid d-block mx-auto">
+            <figcaption><em>Gambar 3.2 Kaca Pembesar (Lup) (Sumber: Kemdikbud. 2017)</em></figcaption>
+        </figure>        
         <p>
             Penggunaan kaca pembesar tidak terbatas pada kegiatan sehari-hari, tetapi juga digunakan dalam penelitian ilmiah untuk mengamati detail yang tidak terlihat oleh mata telanjang. Memahami cara kerja kaca pembesar membantu dalam berbagai aplikasi yang membutuhkan perbesaran.
         </p>
-        <img src="/img/Materi3/optik3.png" alt="(a) Pengamatan Menggunakan Lup dengan Mata Berakomodasi  Maksimum, (b) Pengamatan Menggunakan Lup dengan Mata Tidak Berakomodasi" class="img-fluid d-block mx-auto" style="max-width: 40%;">
+        <figure class="text-center">
+            <img src="/img/Materi3/optik3.png" alt="(a) Pengamatan Menggunakan Lup dengan Mata Berakomodasi Maksimum, (b) Pengamatan Menggunakan Lup dengan Mata Tidak Berakomodasi" class="img-fluid d-block mx-auto" style="max-width: 40%;">
+            <figcaption><em>Gambar 3.3 (a) Pengamatan Menggunakan Lup dengan Mata Berakomodasi  Maksimum, (b) Pengamatan Menggunakan Lup dengan Mata Tidak Berakomodasi (Sumber: Kemdikbud. 2017)</em></figcaption>
+        </figure>
         <p>
             (a) Pengamatan Menggunakan Lup dengan Mata Berakomodasi  Maksimum, <br>(b) Pengamatan Menggunakan Lup dengan Mata Tidak Berakomodasi
         </p>
@@ -29,6 +35,7 @@
     <div class="question-container">
         <!-- Soal 1 -->
         <div class="question" id="soal1">
+            <p><strong>Petunjuk:</strong> Pilih satu jawaban yang paling tepat.</p>
             <p>1. Apa fungsi utama kaca pembesar dalam kehidupan sehari-hari?</p>
             <ul class="options" id="q1">
                 <li onclick="pilihJawaban(this, 'q1', 'Memperbesar objek agar detailnya lebih terlihat jelas', 'hasil1')">Memperkecil ukuran objek agar lebih mudah dipahami</li>
@@ -42,6 +49,7 @@
 
         <!-- Soal 2 -->
         <div class="question" id="soal2" style="display: none;">
+            <p><strong>Petunjuk:</strong> Ketik jawaban singkat yang benar.</p>
             <p>2. Apa jenis lensa yang digunakan pada kaca pembesar?</p>
             <input type="text" id="jawaban2">
             <p id="hasil2"></p>
@@ -51,6 +59,7 @@
 
         <!-- Soal 3 -->
         <div class="question" id="soal3" style="display: none;">
+            <p><strong>Petunjuk:</strong> Seret dan cocokkan setiap istilah dengan penjelasan yang sesuai.</p>
             <p>3. Cocokkan istilah berikut dengan penjelasannya yang benar:</p>
             <div id="dragContainer" class="drag-container">
                 <div class="drag-item" draggable="true" id="lup" ondragstart="drag(event)">Membantu melihat benda kecil lebih jelas</div>
@@ -67,6 +76,7 @@
 
         <!-- Soal 4 -->
         <div class="question" id="soal4" style="display: none;">
+            <p><strong>Petunjuk:</strong> Ketik jawaban singkat berdasarkan pemahamanmu.</p>
             <p>4. Apa fungsi utama kaca pembesar dalam kehidupan sehari-hari?</p>
             <input type="text" id="jawaban4">
             <p id="hasil4"></p>
@@ -76,6 +86,7 @@
 
         <!-- Soal 5 -->
         <div class="question" id="soal5" style="display: none;">
+            <p><strong>Petunjuk:</strong> Pilih "Benar" atau "Salah" berdasarkan pernyataan berikut.</p>
             <p>5. Perhatikan pernyataan berikut:</p>
             <p>"Kaca pembesar menggunakan lensa cekung untuk memperbesar objek."</p>
             <ul id="q5" class="list-unstyled">
@@ -88,9 +99,9 @@
     </div>
 </div>
 
-<div class="navigation">
-    <a class="nav-btn" href="/materi3/kamera">Sebelumnya</a>
-    <a class="nav-btn" href="/materi3/mikroskop">Selanjutnya</a>
+<div class="navigation d-flex justify-content-between">
+    <a class="nav-btn btn btn-primary" href="/materi3/kamera">Sebelumnya</a>
+    <a class="nav-btn btn btn-primary" href="/materi3/mikroskop">Selanjutnya</a>
 </div>
 
 <script>

@@ -13,38 +13,65 @@
         <p>
             Lensa adalah benda bening yang dibatasi oleh dua permukaan bidang lengkung atau benda bening yang dibatasi oleh satu bidang lengkung dan satu bidang datar. Berdasarkan bentuknya, lensa dibedakan menjadi dua yaitu lensa cembung dan lensa cekung.
         </p>
-        <img src="/img/Materi1/lensa1.png" alt="Lensa cembung dan cekung pada benda" class="img-fluid d-block mx-auto" style="max-width: 60%;">
-        <img src="/img/Materi1/lensa2.png" alt="Lensa Cembung dan Lensa Cekung" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+        <figure class="text-center">
+            <img src="/img/Materi1/lensa1.png" alt="Lensa cembung dan cekung pada benda" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <figcaption><em>Gambar 1.17 Lensa cembung dan cekung pada benda (Sumber: pinterest.com)</em></figcaption>
+        </figure>
+        <figure class="text-center">
+            <img src="/img/Materi1/lensa2.png" alt="Lensa Cembung dan Lensa Cekung" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <figcaption><em>Gambar 1.18 Lensa Cembung dan Lensa Cekung (Sumber: Kemdikbud. 2017)</em></figcaption>
+        </figure>
         <h6>a. Lensa Cembung</h6>
         <p>
             Lensa cembung merupakan jenis lensa yang memiliki bagian tengah lebih tebal dibandingkan bagian tepinya, dengan permukaan yang melengkung ke arah luar. Cahaya yang melewati lensa ini akan dibiaskan sehingga terkonsentrasi pada satu titik fokus. Lensa cembung banyak dimanfaatkan dalam berbagai perangkat optik seperti kamera, mikroskop, dan mata manusia. Selain itu, lensa cembung juga digunakan pada kacamata untuk membantu penglihatan penderita rabun dekat.
         </p>
-        <img src="/img/Materi1/lensa3.jpg" alt="Lensa cembung pada lensa kamera" class="img-fluid d-block mx-auto" style="max-width: 30%;">
-        <h6><br>1) Pemantulan sinar-sinar istimewa pada cermin cekung adalah sebagai berikut :</h6>
-        <table cellpadding="10">
-            <tr>
-                <th>Sinar Istimewa</th>
-                <th>Diagram Sinar</th>
-            </tr>
-            <tr>
-                <td>a. Suatu sinar datang sejajar sumbu utama lensa akan dibiaskan menuju titik fokus aktif (F_1) di belakang lensa.</td>
-                <td><img src="/img/Materi1/lensa1a.png" alt="Cermin cekung sebagai reflektor pada senter" class="img-fluid d-block mx-auto"></td>
-            </tr>
-            <tr>
-                <td>b. Suatu sinar datang melalui titik fokus pasif (F_2)di depan lensa akan dibiaskan sejajar sumbu utama.</td>
-                <td><img src="/img/Materi1/lensa1b.png" alt="Cermin cekung sebagai reflektor pada senter" class="img-fluid d-block mx-auto"></td>
-            </tr>
-            <tr>
-                <td>c. Suatu sinar datang melalui pusat optik lensa (O) akan diteruskan tanpa dibiaskan.</td>
-                <td><img src="/img/Materi1/lensa1c.png" alt="Cermin cekung sebagai reflektor pada senter" class="img-fluid d-block mx-auto"></td>
-            </tr>
-        </table>
+        <figure class="text-center">
+            <img src="/img/Materi1/lensa3.jpg" alt="Lensa cembung pada lensa kamera" class="img-fluid d-block mx-auto" style="max-width: 30%;">
+            <figcaption><em>Gambar 1.19 Lensa cembung pada lensa kamera (Sumber: pinterest.com)</em></figcaption>
+        </figure>
+        <h6><br>1) Pemantulan sinar-sinar istimewa pada lensa cembung adalah sebagai berikut:</h6>
+        <figure>
+            <figcaption class="text-center"><em>Tabel 1.3 Sinar Istimewa pada Lensa Cembung</em></figcaption>
+            <table cellpadding="10">
+                <tr>
+                    <th>Sinar Istimewa</th>
+                    <th>Diagram Sinar</th>
+                </tr>
+                <tr>
+                    <td>a. Sinar datang sejajar sumbu utama akan dibiaskan menuju titik fokus aktif (F<sub>1</sub>) di belakang lensa.</td>
+                    <td>
+                        <figure class="text-center">
+                            <img src="/img/Materi1/lensa1a.png" alt="Sinar sejajar ke F1" class="img-fluid d-block mx-auto">
+                        </figure>
+                    </td>
+                </tr>
+                <tr>
+                    <td>b. Sinar datang melalui titik fokus pasif (F<sub>2</sub>) akan dibiaskan sejajar sumbu utama.</td>
+                    <td>
+                        <figure class="text-center">
+                            <img src="/img/Materi1/lensa1b.png" alt="Sinar dari F2 ke sejajar" class="img-fluid d-block mx-auto">
+                        </figure>
+                    </td>
+                </tr>
+                <tr>
+                    <td>c. Sinar datang melalui pusat optik (O) akan diteruskan tanpa pembiasan.</td>
+                    <td>
+                        <figure class="text-center">
+                            <img src="/img/Materi1/lensa1c.png" alt="Sinar melalui pusat optik" class="img-fluid d-block mx-auto">
+                        </figure>
+                    </td>
+                </tr>
+            </table>
+        </figure>
 
         <h6><br>2)	Melukis Pembentukan Bayangan pada Lensa Cembung Menggunakan Diagram Sinar</h6>
         <p>
             Jika sebuah benda diletakkan di depan lensa cembung akan membentuk bayangan, seperti ditunjukkan pada Gambar.
         </p>
-        <img src="/img/Materi1/lensa4.png" alt="Pembentukan Bayangan oleh Lensa Cembung" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+        <figure class="text-center">
+            <img src="/img/Materi1/lensa4.png" alt="Pembentukan Bayangan oleh Lensa Cembung" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <figcaption><em>Gambar 1.20 Pembentukan Bayangan oleh Lensa Cembung (Sumber: Kemdikbud. 2017)</em></figcaption>
+        </figure>
         <p>
             Pembentukan bayangan pada lensa cembung membutuhkan sekurang-kurangnya dua sinar istimewa. Sifat bayangan yang terbentuk pada lensa cembung bergantung pada posisi benda.
         </p>
@@ -52,33 +79,54 @@
         <p>
             Lensa cekung, dengan permukaan melengkung ke dalam, memiliki kemampuan untuk menyebarkan cahaya yang melewatinya. Sifat ini menjadikannya ideal untuk digunakan pada kacamata penderita rabun jauh (miopia), karena lensa cekung membantu memperbaiki fokus cahaya sehingga bayangan jatuh tepat pada retina. Berbeda dengan lensa cembung yang memfokuskan cahaya ke satu titik, lensa cekung menyebabkan cahaya menyebar, menghasilkan bayangan yang tampak lebih kecil dan lebih jauh dari aslinya.
         </p>
-        <img src="/img/Materi1/lensa5.png" alt="Lensa cekung pada lubang intip pintu" class="img-fluid d-block mx-auto" style="max-width: 30%;">
+        <figure class="text-center">
+            <img src="/img/Materi1/lensa5.png" alt="Lensa cekung pada lubang intip pintu" class="img-fluid d-block mx-auto" style="max-width: 30%;">
+            <figcaption><em>Gambar 1.21 Lensa cekung pada lubang intip pintu (Sumber: canva.com)</em></figcaption>
+        </figure>
         <p>
             Pada pembiasan lensa cekung juga berlaku sinar-sinar istimewa ketika kita hendak membuat bayangan pada lensa. Sinar-sinar istimewa pada pembiasan cahaya oleh lensa cekung.
         </p>
-        <table cellpadding="10">
-            <tr>
-                <th>Sinar Istimewa</th>
-                <th>Diagram Sinar</th>
-            </tr>
-            <tr>
-                <td>Sinar datang sejajar sumbu utama lensa seolah-olah dibiaskan berasal dari titik fokus aktif(F)di depan lensa.</td>
-                <td><img src="/img/Materi1/lensa2a.png" alt="Cermin cekung sebagai reflektor pada senter" class="img-fluid d-block mx-auto"></td>
-            </tr>
-            <tr>
-                <td>Sinar datang seolah- olah menuju titik fokus pasif (F) di depan lensa akan dibiaskan sejajar sumbu utama.</td>
-                <td><img src="/img/Materi1/lensa2b.png" alt="Cermin cekung sebagai reflektor pada senter" class="img-fluid d-block mx-auto"></td>
-            </tr>
-            <tr>
-                <td>Sinar datang melalui pusat optik lensa (O)akan diteruskan tanpa dibiaskan.</td>
-                <td><img src="/img/Materi1/lensa2c.png" alt="Cermin cekung sebagai reflektor pada senter" class="img-fluid d-block mx-auto"></td>
-            </tr>
-        </table>
+        <figure>
+            <figcaption class="text-center"><em>Tabel 1.4 Sinar Istimewa pada Lensa Cekung</em></figcaption>
+            <table cellpadding="10">
+                <tr>
+                    <th>Sinar Istimewa</th>
+                    <th>Diagram Sinar</th>
+                </tr>
+                <tr>
+                    <td>Sinar datang sejajar sumbu utama seolah-olah dibiaskan berasal dari titik fokus aktif (F) di depan lensa.</td>
+                    <td>
+                        <figure class="text-center">
+                            <img src="/img/Materi1/lensa2a.png" alt="Sinar sejajar pada lensa cekung" class="img-fluid d-block mx-auto">
+                        </figure>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sinar datang seolah-olah menuju titik fokus pasif (F) akan dibiaskan sejajar sumbu utama.</td>
+                    <td>
+                        <figure class="text-center">
+                            <img src="/img/Materi1/lensa2b.png" alt="Sinar menuju fokus cekung" class="img-fluid d-block mx-auto">
+                        </figure>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sinar datang melalui pusat optik (O) akan diteruskan tanpa pembiasan.</td>
+                    <td>
+                        <figure class="text-center">
+                            <img src="/img/Materi1/lensa2c.png" alt="Sinar lurus lensa cekung" class="img-fluid d-block mx-auto">
+                        </figure>
+                    </td>
+                </tr>
+            </table>
+        </figure>
 
         <p><br>
             Jika ketiga sinar istimewa yang berasal dari sebuah benda dilukiskan pada satu lensa, maka akan terbentuk bayangan benda
         </p>
-        <img src="/img/Materi1/lensa6.png" alt="Pembentukan Bayangan oleh Lensa Cekung" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+        <figure class="text-center">
+            <img src="/img/Materi1/lensa6.png" alt="Pembentukan Bayangan oleh Lensa Cekung" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <figcaption><em>Gambar 1.22 Pembentukan Bayangan oleh Lensa Cekung (Sumber: Kemdikbud. 2017)</em></figcaption>
+        </figure>
         <p>
             Sifat bayangan yang dihasilkan oleh lensa cekung bergantung pada posisi benda dan dapat dianalisis menggunakan diagram sinar serta sinar-sinar istimewa. Selain itu, sifat-sifat bayangan ini juga dapat ditentukan dengan menerapkan Dalil Esbach, seperti halnya pada lensa cembung. Penting untuk diingat bahwa pada lensa cekung, benda yang berada di depan lensa akan selalu menghasilkan bayangan yang bersifat maya, tegak, diperkecil, dan terletak di depan lensa.
         </p>
@@ -89,6 +137,7 @@
     <div class="question-container">
         <!-- Soal 1 -->
         <div class="question" id="soal1">
+            <div class="petunjuk"><strong>Petunjuk:</strong> Pilih satu jawaban yang paling benar!</div>
             <p>1. Lensa cekung digunakan dalam kacamata untuk membantu penderita rabun jauh. Hal ini karena lensa cekung memiliki sifat...</p>
             <ul class="options" id="q1">
                 <li onclick="pilihJawaban(this, 'q1', 'Menyebarkan cahaya yang melewatinya', 'hasil1')">Mengumpulkan cahaya ke satu titik</li>
@@ -102,6 +151,7 @@
 
         <!-- Soal 2 -->
         <div class="question" id="soal2" style="display: none;">
+            <div class="petunjuk"><strong>Petunjuk:</strong> Tarik dan jatuhkan pasangan fungsi ke lensa yang sesuai!</div>
             <p>2. Pasangkan jenis lensa dengan fungsinya yang sesuai:</p>
             <div id="dragContainer" class="drag-container">
                 <div class="drag-item" draggable="true" id="cembung1" ondragstart="drag(event)">Digunakan pada kacamata untuk rabun jauh</div>
@@ -120,6 +170,7 @@
 
         <!-- Soal 3 -->
         <div class="question" id="soal3" style="display: none;">
+            <div class="petunjuk"><strong>Petunjuk:</strong> Ketik jawaban singkat berdasarkan pemahamanmu!</div>
             <p>3. Pada cermin cekung, jika benda berada di antara titik fokus (F) dan cermin, maka bayangan yang terbentuk akan...</p>
             <input type="text" id="jawaban3">
             <p id="hasil3"></p>
@@ -129,6 +180,7 @@
 
         <!-- Soal 4 -->
         <div class="question" id="soal4" style="display: none;">
+            <div class="petunjuk"><strong>Petunjuk:</strong> Pilih salah satu jawaban: Benar atau Salah!</div>
             <p>4. Perhatikan pernyataan berikut:</p>
             <p>"Lensa cekung dapat menghasilkan bayangan nyata jika benda diletakkan cukup dekat dengan lensa."</p>
             <ul id="q4" class="list-unstyled">
@@ -141,6 +193,7 @@
 
         <!-- Soal 5 -->
         <div class="question" id="soal5" style="display: none;">
+            <div class="petunjuk"><strong>Petunjuk:</strong> Urutkan langkah-langkah di bawah ini dengan cara menyeret ke posisi yang benar!</div>
             <p>5. Urutkan langkah-langkah melukis bayangan pada lensa cembung dari yang benar:</p>
             <ul id="sortable" class="sortable-list">
                 <li class="sortable-item" draggable="true" id="step1">Sinar datang melalui titik fokus pasif → dibiaskan sejajar sumbu utama</li>
@@ -334,4 +387,5 @@
         }
     });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
 @endsection

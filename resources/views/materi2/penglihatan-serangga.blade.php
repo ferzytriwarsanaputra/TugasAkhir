@@ -16,7 +16,10 @@
         <p>
             Mata majemuk sangat bermanfaat untuk kelangsungan hidup serangga, terutama dalam mendeteksi predator atau mencari makanan. Sebagai contoh, lalat dapat merespons ancaman dalam hitungan milidetik berkat mata majemuknya. Selain itu, serangga seperti lebah mampu melihat cahaya ultraviolet, yang membantu mereka dalam mencari bunga.
         </p>
-        <img src="/img/Materi2/mata6.png" alt="Mata Majemuk pada Mata Lalat" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+        <figure class="text-center">
+            <img src="/img/Materi2/mata6.png" alt="Mata Majemuk pada Mata Lalat" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+            <figcaption><em>Gambar 2.6 Mata Majemuk pada Mata Lalat (Sumber: Kemdikbud. 2017)</em></figcaption>
+        </figure>        
     </div>
 </div>
 
@@ -25,6 +28,7 @@
     <div class="question-container">
         <!-- Soal 1 -->
         <div class="question" id="soal1">
+            <p><strong>Petunjuk:</strong> Pilih satu jawaban yang paling tepat.</p>
             <p>1. Apa yang menjadi ciri khas mata majemuk pada serangga?</p>
             <ul class="options" id="q1">
                 <li onclick="pilihJawaban(this, 'q1', 'Terdiri dari banyak lensa kecil (ommatidia)', 'hasil1')">Memiliki satu lensa besar</li>
@@ -38,6 +42,7 @@
 
         <!-- Soal 2 -->
         <div class="question" id="soal2" style="display: none;">
+            <p><strong>Petunjuk:</strong> Bacalah pernyataan lalu pilih Benar atau Salah.</p>
             <p>2. Perhatikan pernyataan berikut:</p>
             <p>"Mata majemuk pada serangga membantu mereka melihat dengan resolusi yang lebih tinggi dibandingkan manusia."</p>
             <ul id="q2" class="list-unstyled">
@@ -50,6 +55,7 @@
 
         <!-- Soal 3 -->
         <div class="question" id="soal3" style="display: none;">
+            <p><strong>Petunjuk:</strong> Ketik jawaban singkat pada kolom yang tersedia.</p>
             <p>3. Apa nama bagian kecil pada mata majemuk yang membantu serangga melihat?</p>
             <input type="text" id="jawaban3">
             <p id="hasil3"></p>
@@ -59,6 +65,7 @@
 
         <!-- Soal 4 -->
         <div class="question" id="soal4" style="display: none;">
+            <p><strong>Petunjuk:</strong> Seret dan jatuhkan jawaban ke kolom yang sesuai.</p>
             <p>4. Cocokkan serangga dengan manfaat mata majemuknya!</p>
             <div id="dragContainer" class="drag-container">
                 <div class="drag-item" draggable="true" id="lalat" ondragstart="drag(event)">Dapat mendeteksi gerakan dengan cepat</div>
@@ -73,6 +80,7 @@
 
         <!-- Soal 5 -->
         <div class="question" id="soal5" style="display: none;">
+            <p><strong>Petunjuk:</strong> Pilih jawaban yang paling tepat dari daftar pilihan.</p>
             <p>5. Mengapa mata majemuk penting bagi serangga?</p>
             <ul class="options" id="q5">
                 <li onclick="pilihJawaban(this, 'q5', 'Membantu mereka mendeteksi gerakan dengan cepat', 'hasil5')">Membantu mereka mendeteksi gerakan dengan cepat</li>
@@ -87,9 +95,9 @@
 </div>
 
 <!-- Navigasi Halaman -->
-<div class="navigation">
-    <a class="nav-btn" href="/materi2/penglihatan-manusia">Sebelumnya</a>
-    <a class="nav-btn" href="/petunjuk/2">Selanjutnya</a>
+<div class="navigation d-flex justify-content-between">
+    <a class="nav-btn btn btn-primary" href="/materi2/penglihatan-manusia">Sebelumnya</a>
+    <a class="nav-btn btn btn-primary" href="/petunjuk/2">Selanjutnya</a>
 </div>
 
 <script>

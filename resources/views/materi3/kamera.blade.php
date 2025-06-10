@@ -29,7 +29,10 @@
         <p>
             Kamera digunakan untuk banyak hal, dari foto sehari-hari hingga aplikasi ilmiah seperti mengambil gambar bintang atau benda mikroskopis. Memahami cara kerja kamera penting agar kita bisa menghasilkan foto yang bagus.
         </p>
-        <img src="/img/Materi3/optik1.png" alt="Pembentukan Bayangan pada Kamera Analog" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+        <figure class="text-center">
+            <img src="/img/Materi3/optik1.png" alt="Pembentukan Bayangan pada Kamera Analog" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <figcaption><em>Gambar 3.1 Pembentukan Bayangan pada Kamera Analog (Sumber: Kemdikbud. 2017)</em></figcaption>
+        </figure>        
     </div>
 </div>
 
@@ -38,6 +41,7 @@
     <div class="question-container">
         <!-- Soal 1 -->
         <div class="question" id="soal1">
+            <p><strong>Petunjuk:</strong> Pilih satu jawaban yang paling tepat.</p>
             <p>1. Apa fungsi utama lensa pada kamera?</p>
             <ul class="options" id="q1">
                 <li onclick="pilihJawaban(this, 'q1', 'Memfokuskan cahaya pada sensor kamera', 'hasil1')">Menyerap cahaya agar gambar lebih terang</li>
@@ -51,6 +55,7 @@
 
         <!-- Soal 2 -->
         <div class="question" id="soal2">
+            <p><strong>Petunjuk:</strong> Pilih satu jawaban yang paling tepat.</p>
             <p>2. Bagaimana kamera modern dapat tetap mengambil gambar yang jelas dalam kondisi pencahayaan rendah?</p>
             <ul class="options" id="q2">
                 <li onclick="pilihJawaban(this, 'q2', 'Menggunakan sensor cahaya yang lebih besar', 'hasil2')">Menggunakan sensor cahaya yang lebih besar</li>
@@ -64,6 +69,7 @@
 
         <!-- Soal 3 -->
         <div class="question" id="soal3" style="display: none;">
+            <p><strong>Petunjuk:</strong> Seret dan cocokkan setiap item dengan fungsi yang sesuai.</p>
             <p>3. Pasangkan jenis lensa dengan fungsinya yang sesuai:</p>
             <div id="dragContainer" class="drag-container">
                 <div class="drag-item" draggable="true" id="lensa" ondragstart="drag(event)">Memfokuskan cahaya pada sensor</div>
@@ -82,6 +88,7 @@
 
         <!-- Soal 4 -->
         <div class="question" id="soal4" style="display: none;">
+            <p><strong>Petunjuk:</strong> Pilih "Benar" atau "Salah" berdasarkan pernyataan berikut.</p>
             <p>4. Perhatikan pernyataan berikut:</p>
             <p>"Semua kamera bekerja tanpa perlu adanya cahaya."</p>
             <ul id="q4" class="list-unstyled">
@@ -94,7 +101,8 @@
 
         <!-- Soal 5 -->
         <div class="question" id="soal5" style="display: none;">
-            <p>5.	Bagaimana cara kerja sensor kamera digital dalam menangkap gambar?</p>
+            <p><strong>Petunjuk:</strong> Pilih satu jawaban yang paling tepat.</p>
+            <p>5. Bagaimana cara kerja sensor kamera digital dalam menangkap gambar?</p>
             <ul class="options" id="q5">
                 <li onclick="pilihJawaban(this, 'q5', 'Mempercepat pergerakan lensa', 'hasil5')">Menggunakan sensor cahaya yang lebih besar</li>
                 <li onclick="pilihJawaban(this, 'q5', 'Mempercepat pergerakan lensa', 'hasil5')">Menghapus bayangan pada gambar</li>
@@ -108,9 +116,9 @@
 </div>
 
 <!-- Navigasi Halaman -->
-<div class="navigation">
-    <a class="nav-btn" href="/materi2/penglihatan-serangga">Sebelumnya</a>
-    <a class="nav-btn" href="/materi3/lup">Selanjutnya</a>
+<div class="navigation d-flex justify-content-between">
+    <a class="nav-btn btn btn-primary" href="/materi2/penglihatan-serangga">Sebelumnya</a>
+    <a class="nav-btn btn btn-primary" href="/materi3/lup">Selanjutnya</a>
 </div>
 
 <script>

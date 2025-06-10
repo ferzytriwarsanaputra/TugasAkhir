@@ -16,11 +16,17 @@
         <p>
             Mikroskop sangat penting dalam ilmu pengetahuan untuk mempelajari hal-hal yang sangat kecil. Banyak penemuan dalam biologi, mikrobiologi, dan bidang lain sangat bergantung pada penggunaan mikroskop.
         </p>
-        <img src="/img/Materi3/optik4.png" alt="Mikroskop Cahaya" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+        <figure class="text-center">
+            <img src="/img/Materi3/optik4.png" alt="Mikroskop Cahaya" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <figcaption><em>Gambar 3.4 Mikroskop Cahaya (Sumber: Kemdikbud. 2017)</em></figcaption>
+        </figure>
         <p>
             Lensa okuler dan lensa objektif pada mikroskop adalah lensa cembung yang memiliki titik fokus yang berbeda. Objek yang ingin diamati diletakkan di atas kaca objek dan disinari dari bawah. Cahaya masuk melalui lensa objektif dan membentuk bayangan nyata yang diperbesar. Bayangan ini menjadi lebih besar karena objek diletakkan antara jarak fokus pertama dan kedua lensa objektif. Kemudian, bayangan yang sudah diperbesar itu akan diperbesar lagi oleh lensa okuler, sehingga menghasilkan bayangan maya yang lebih besar. Dengan susunan lensa seperti ini, mikroskop bisa menghasilkan bayangan yang ratusan kali lebih besar dari objek aslinya.
         </p>
-        <img src="/img/Materi3/optik5.png" alt="Pembentukan Bayangan pada Mikroskop" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+        <figure class="text-center">
+            <img src="/img/Materi3/optik5.png" alt="Pembentukan Bayangan pada Mikroskop" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <figcaption><em>Gambar 3.5 Pembentukan Bayangan pada Mikroskop (Sumber: Kemdikbud. 2017)</em></figcaption>
+        </figure>
     </div>
 </div>
 
@@ -29,6 +35,7 @@
     <div class="question-container">
         <!-- Soal 1 -->
         <div class="question" id="soal1">
+            <p><strong>Petunjuk:</strong> Pilih jawaban yang paling tepat terkait fungsi mikroskop dalam kehidupan sehari-hari.</p>
             <p>1. Apa fungsi utama mikroskop dalam kehidupan sehari-hari?</p>
             <ul class="options" id="q1">
                 <li onclick="pilihJawaban(this, 'q1', 'Memperbesar benda kecil agar terlihat lebih jelas', 'hasil1')">
@@ -46,6 +53,7 @@
 
         <!-- Soal 2 -->
         <div class="question" id="soal2" style="display: none;">
+            <p><strong>Petunjuk:</strong> Seret nama bagian mikroskop ke tempat yang sesuai dengan fungsinya.</p>
             <p>2. Cocokkan bagian mikroskop dengan fungsinya!</p>
             <div id="dragContainer" class="drag-container">
                 <div class="drag-item" draggable="true" id="okuler" ondragstart="drag(event)">Memegang objek yang akan diamati</div>
@@ -64,6 +72,7 @@
 
         <!-- Soal 3 -->
         <div class="question" id="soal3" style="display: none;">
+            <p><strong>Petunjuk:</strong> Ketik dua jenis lensa dalam mikroskop dan jelaskan fungsinya.</p>
             <p>3. Sebutkan dua jenis lensa yang digunakan pada mikroskop dan fungsinya!</p>
             <input type="text" id="jawaban3">
             <p id="hasil3"></p>
@@ -73,6 +82,7 @@
 
         <!-- Soal 4 -->
         <div class="question" id="soal4" style="display: none;">
+            <p><strong>Petunjuk:</strong> Baca pernyataan berikut dan pilih apakah pernyataan tersebut benar atau salah.</p>
             <p>4. Perhatikan pernyataan berikut:</p>
             <p>"Bayangan yang dihasilkan oleh mikroskop bersifat maya dan diperbesar."</p>
             <ul id="q4" class="list-unstyled">
@@ -85,6 +95,7 @@
 
         <!-- Soal 5 -->
         <div class="question" id="soal5" style="display: none;">
+            <p><strong>Petunjuk:</strong> Lengkapi kalimat dengan dua kata yang menggambarkan sifat bayangan dari lensa objektif mikroskop.</p>
             <p>5. Lengkapi pernyataan berikut dengan kata yang tepat!</p>
             <p>Lensa objektif pada mikroskop menghasilkan bayangan yang bersifat 
                 <input type="text" id="jawaban5a"> dan 
@@ -98,9 +109,9 @@
 </div>
 
 <!-- Navigasi Halaman -->
-<div class="navigation">
-    <a class="nav-btn" href="/materi3/lup">Sebelumnya</a>
-    <a class="nav-btn" href="/materi3/teleskop">Selanjutnya</a>
+<div class="navigation d-flex justify-content-between">
+    <a class="nav-btn btn btn-primary" href="/materi3/lup">Sebelumnya</a>
+    <a class="nav-btn btn btn-primary" href="/materi3/teleskop">Selanjutnya</a>
 </div>
 
 <script>

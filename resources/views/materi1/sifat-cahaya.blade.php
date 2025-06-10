@@ -30,12 +30,18 @@
         <p>
             Cahaya merambat lurus dalam ruang yang serba sama. Apabila mengenai suatu benda, cahaya dapat diteruskan, diserap atau dipantulkan. Misalkan saja, kamu menyalakan lilin di tempat gelap, maka kamu akan melihat bahwa daerah yang ada di sekitar lilin tersebut akan terang.
         </p>
-        <img src="/img/Materi1/Pengamat.png" alt="Set Percobaan Perambatan Cahaya" class="img-fluid d-block mx-auto" style="max-width: 80%;">
+        <figure class="text-center">
+            <img src="/img/Materi1/Pengamat.png" alt="Set Percobaan Perambatan Cahaya" class="img-fluid d-block mx-auto" style="max-width: 80%;">
+            <figcaption>Gambar 1.1 Set Percobaan Perambatan Cahaya</figcaption>
+        </figure>        
         <h6>b. Cahaya dapat dipantulkan</h6>
         <p>
             Agar dapat melihat bayanganmu di cermin, cahaya harus terpantul mengenai cermin dan dipantulkan kembali oleh cermin ke dalam mata kamu. Pemantulan cahaya terjadi ketika cahaya mengenai suatu benda dan dipantulkan oleh benda tersebut.
         </p>
-        <img src="/img/Materi1/bercermin.jpeg" alt="Melihat Bayangan dicermin" class="img-fluid d-block mx-auto" style="max-width: 40%%;">
+        <figure class="text-center">
+            <img src="/img/Materi1/bercermin.jpeg" alt="Melihat Bayangan di Cermin" class="img-fluid d-block mx-auto" style="max-width: 40%;">
+            <figcaption>Gambar 1.2 Melihat Bayangan di Cermin (Sumber: haibunda.com)</figcaption>
+        </figure>        
         <p>
             Kita dapat melihat benda karena sebagian cahaya yang mengenai benda dipantulkan ke mata. Pemantulan yang terjadi dapat berupa pemantulan baur dan pemantulan teratur. Pemantulan teratur terjadi jika cahata dipantulkan oleh bidang yang tidak rata, seperti aspal, tembok yang tidak rata, batang kayu dan sebagainya. Pemantulan baur merupakan pemantulan yang arah sinar-sinar pantulnya tidak sama. Akan tetapi sudut pantulan cahaya besarnya selalu sama dengan sudut datang cahaya. Inilah yang menjadi dasar hukum pemantulan.
         </p>
@@ -45,23 +51,31 @@
             2. Sudut pantul (θ) sama dengan sudut datang (α)        
         </p>
         <div class="d-flex justify-content-center gap-4 flex-wrap">
-            <img src="/img/Materi1/pemantulan cahaya.png" alt="Proses Pemantulan Cahaya pada Cermin Datar"
-                 class="img-fluid" style="max-width: 40%;">
-            <img src="/img/Materi1/2.png" alt="Ilustrasi Proses Pemantulan Cahaya pada Cermin Datar"
-                 class="img-fluid" style="max-width: 40%;">
+            <figure style="max-width: 40%;">
+                <img src="/img/Materi1/pemantulan cahaya.png" alt="Proses Pemantulan Cahaya" class="img-fluid">
+                <figcaption class="text-center">Gambar 1.3 Proses Pemantulan Cahaya pada Cermin Datar (Sumber: Kemdikbud. 2017)</figcaption>
+            </figure>
+            <figure style="max-width: 40%;">
+                <img src="/img/Materi1/2.png" alt="Ilustrasi Proses Pemantulan Cahaya" class="img-fluid">
+                <figcaption class="text-center">Gambar 1.4 Ilustrasi Pemantulan Cahaya pada Cermin Datar</figcaption>
+            </figure>
         </div>        
         <h6>c. Cahaya dapat dibiaskan</h6>
         <p>
             Apabila cahaya datang dari medium satu ke medium lain yang berbeda massa jenisnya (kerapatannya) maka akan dibelokan atau dibiaskan.
         </p>
         <p>
-            Perhatikan Gambar 1.4 Cahaya di dalam gelas terisi air dan sendok tersebut mengalami pembelokkan. Pembelokkan ini disebut dengan pembiasan. Pembiasan cahaya adalah pembelokan gelombang cahaya yang disebabkan oleh suatu perubahan dalam kelajuan gelombang cahaya pada saat gelombang cahaya tersebut merabat dari suatu zat ke zat lainnya.
+            Perhatikan Gambar 1.5 Cahaya di dalam gelas terisi air dan sendok tersebut mengalami pembelokkan. Pembelokkan ini disebut dengan pembiasan. Pembiasan cahaya adalah pembelokan gelombang cahaya yang disebabkan oleh suatu perubahan dalam kelajuan gelombang cahaya pada saat gelombang cahaya tersebut merabat dari suatu zat ke zat lainnya.
         </p>
         <div class="d-flex justify-content-center gap-4 flex-wrap">
-            <img src="/img/Materi1/pembiasan.png" alt="Set Percobaan Pembiasan" 
-                 class="img-fluid" style="max-width: 40%;">
-            <img src="/img/Materi1/3.png" alt="Ilustrasi Pembelokkan Gelombang Cahaya" 
-                 class="img-fluid" style="max-width: 40%;">
+            <figure style="max-width: 40%;">
+                <img src="/img/Materi1/pembiasan.png" alt="Set Percobaan Pembiasan" class="img-fluid">
+                <figcaption class="text-center">Gambar 1.5 Set Percobaan Pembiasan (Sumber: Kemdikbud. 2017)</figcaption>
+            </figure>
+            <figure style="max-width: 40%;">
+                <img src="/img/Materi1/3.png" alt="Ilustrasi Pembelokkan Gelombang Cahaya" class="img-fluid">
+                <figcaption class="text-center">Gambar 1.6 Ilustrasi Pembelokkan Gelombang Cahaya</figcaption>
+            </figure>
         </div>        
         <h6>Hukum Pemantulan</h6>
         <p>
@@ -77,14 +91,19 @@
         <p>
             Bayangkan cahaya seperti gelombang di lautan, yang naik turun saat bergerak. Bedanya, gelombang cahaya terdiri dari dua bagian yang saling tegak lurus: satu bagian adalah medan listrik, dan yang lainnya medan magnet. Keduanya bergerak bersama-sama dengan sangat cepat—sekitar 300.000 km per detik di ruang hampa!
         </p>
-        <img src="/img/Materi1/elektromagnetik.png" alt="Spektrum Elektromagnetik" class="img-fluid d-block mx-auto" style="max-width: 100%;">
+        <figure class="text-center">
+            <img src="/img/Materi1/elektromagnetik.png" alt="Spektrum Elektromagnetik" class="img-fluid d-block mx-auto" style="max-width: 100%;">
+            <figcaption>Gambar 1.7 Spektrum Elektromagnetik (Sumber: Kemdikbud. 2017)</figcaption>
+        </figure>        
     </div>
 </div>
 <div class="card-custom">
     <h5>Aktivitas 1.1</h5>
     <div class="question-container">
+
         <!-- Soal 1 -->
         <div class="question" id="soal1">
+            <p class="petunjuk">Pilihlah satu jawaban yang paling benar.</p>
             <p>1. Saat cahaya menembus celah kecil pada jendela dan membentuk garis lurus di ruangan yang gelap, peristiwa ini menunjukkan sifat cahaya…</p>
             <ul class="options" id="q1">
                 <li onclick="pilihJawaban(this, 'q1')">Dapat dipantulkan</li>
@@ -98,6 +117,7 @@
 
         <!-- Soal 2 -->
         <div class="question" id="soal2" style="display: none;">
+            <p class="petunjuk">Seret dan cocokkan pernyataan dengan jenis pemantulannya yang sesuai.</p>
             <p>2. Cocokkan jenis pemantulan dengan contohnya:</p>
             <div id="dragContainer" class="drag-container">
                 <div class="drag-item" draggable="true" id="cermin" ondragstart="drag(event)">Cahaya dipantulkan oleh cermin datar</div>
@@ -107,8 +127,7 @@
             <div class="drop-zone" id="drop1" ondrop="drop(event, 'drop1')" ondragover="allowDrop(event)"></div>
             <p>Pemantulan Baur:</p>
             <div class="drop-zone" id="drop2" ondrop="drop(event, 'drop2')" ondragover="allowDrop(event)"></div>
-            
-            <!-- Tombol Periksa dan Lanjut -->
+
             <div style="display: flex; gap: 10px; align-items: center; margin-top: 10px;">
                 <button class="cekJawaban nav-btn" onclick="cekDragDrop()">Periksa</button>
                 <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()" disabled>Lanjut</button>
@@ -118,20 +137,19 @@
 
         <!-- Soal 3 -->
         <div class="question" id="soal3" style="display: none;">
+            <p class="petunjuk">Isilah jawaban Anda dengan angka yang tepat (gunakan simbol ° jika perlu).</p>
             <p>3. Jika sudut datang cahaya ke sebuah cermin adalah 30°, maka berapakah sudut pantulnya berdasarkan hukum pemantulan?</p>
-            
-            <!-- Input + Tombol Periksa -->
             <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 10px;">
                 <input type="text" id="jawaban3">
                 <button class="cekJawaban nav-btn" id="cekEssayBtn" onclick="cekEssay()">Periksa</button>
             </div>
-
             <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()" disabled id="lanjutEssayBtn">Lanjut</button>
             <p id="hasil3"></p>
         </div>
 
         <!-- Soal 4 -->
         <div class="question" id="soal4" style="display: none;">
+            <p class="petunjuk">Pilihlah satu jawaban yang paling benar.</p>
             <p>4. Saat melihat ke dalam kolam yang jernih, dasar kolam terlihat lebih dangkal daripada kedalaman sebenarnya. Fenomena ini terjadi karena…</p>
             <ul class="options" id="q4">
                 <li onclick="pilihJawaban(this, 'q4')">Cahaya dipantulkan oleh air</li>
@@ -145,6 +163,7 @@
 
         <!-- Soal 5 -->
         <div class="question" id="soal5" style="display: none;">
+            <p class="petunjuk">Pilihlah satu jawaban yang paling benar.</p>
             <p>5. Cahaya matahari yang melewati tetesan air hujan dan membentuk pelangi adalah contoh dari peristiwa…</p>
             <ul class="options" id="q5">
                 <li onclick="pilihJawaban(this, 'q5')">Interferensi cahaya</li>
@@ -155,8 +174,8 @@
             <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()" disabled>Lanjut</button>
             <p id="hasil5"></p>
         </div>
-    </div>
 
+    </div>
 </div>
 
 <!-- Navigasi Halaman -->

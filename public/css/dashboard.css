@@ -172,6 +172,13 @@ th {
 }
 
 /* tampilan materi */
+caption {
+  caption-side: top;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px;
+}
+
 .card-custom {
   background-color: #ffffff;
   border: 2px solid #d9d9d9;
@@ -211,6 +218,23 @@ th {
   margin-top: 10px;
   line-height: 1.6;
   text-align: justify;
+}
+
+.question {
+  height: 420px;
+  overflow-y: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.petunjuk {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 15px;
 }
 
 /* evaluasi */

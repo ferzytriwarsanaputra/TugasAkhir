@@ -20,35 +20,49 @@
         <p>
             Teleskop adalah alat optik yang membuat benda-benda jauh terlihat lebih dekat. Teleskop bias sederhana terdiri dari dua lensa cembung yang ada di dalam pipa. Lensa yang lebih besar disebut lensa objektif, sedangkan lensa yang lebih kecil adalah lensa okuler (lensa mata). Lensa objektif pertama-tama membentuk bayangan, kemudian bayangan itu diperbesar oleh lensa okuler. Lensa objektif pada teleskop bias lebih besar daripada diameter mata kita, jadi lebih banyak cahaya yang bisa masuk ke dalam lensa dan ke mata kita. Karena itu, bayangan yang terbentuk oleh teleskop akan lebih jelas dan objek yang terlihat jadi lebih detail dibandingkan dengan melihat langsung dengan mata.
         </p>
-        <img src="/img/Materi3/optik6.png" alt="Teleskop Bias" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+        <figure class="text-center">
+            <img src="/img/Materi3/optik6.png" alt="Teleskop Bias" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+            <figcaption><em>Gambar 3.6 Teleskop Bias (Sumber: Kemdikbud. 2017)</em></figcaption>
+        </figure>
         <p>
             Teleskop yang dibuat dengan lensa disebut teleskop pembias. Lensa dalam teleskop bias ini sama dengan lensa yang ada di kacamata, yaitu sama-sama bisa membelokkan cahaya yang melewatinya.
         </p>
         <p>
             Tapi, ada bedanya nih lensa di teleskop sama di kacamata. Kalau di kacamata, lensa membantu bikin objek yang elo lihat supaya nggak kelihatan buram lagi. Kalau di teleskop, lensa ini yang bikin elo bisa melihat objek yang jauh dengan lebih dekat. 
         </p>
-        <img src="/img/Materi3/teleskop bias.png" alt="Cara Kerja Teleskop Bias dalam menangkap cahaya" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+        <figure class="text-center">
+            <img src="/img/Materi3/teleskop bias.png" alt="Cara Kerja Teleskop Bias dalam menangkap cahaya" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+            <figcaption><em>Gambar 3.7 Cara Kerja Teleskop Bias dalam menangkap cahaya</em></figcaption>
+        </figure>
 
         <h6>b. Teleskop Pantul</h6>
         <p>
             Pada teleskop pantul, lensa objektif digantikan dengan cermin cekung. Bayangan dari objek yang jauh terbentuk di dalam tabung teleskop ketika cahaya dipantulkan oleh cermin cekung. Cahaya dari objek yang jauh masuk ke salah satu ujung tabung dan dipantulkan oleh cermin lain di ujung satunya. Cahaya tersebut kemudian dipantulkan lagi dari cermin cekung ke cermin datar di dalam tabung. Cermin datar ini memantulkan cahaya ke lensa okuler, yang berfungsi untuk memperbesar gambar.
         </p>
-        <img src="/img/Materi3/optik7.png" alt="Teleskop Pantul" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+        <figure class="text-center">
+            <img src="/img/Materi3/optik7.png" alt="Teleskop Pantul" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+            <figcaption><em>Gambar 3.8 Teleskop Pantul (Sumber: Kemdikbud. 2017)</em></figcaption>
+        </figure>
         <p>
             Teleskop pemantul bisa mendapatkan hasil yang bagus walaupun menggunakan cermin yang tipis banget. Karena cara kerja teleskop pemantul yaitu cahaya terkonsentrasi dengan memantul dari cermin, jadi cermin nggak perlu dibuat tebal, hanya perlu dibuat dengan bentuk lengkung yang tepat.
         </p>
         <p>
             Ini juga alasan mengapa lebih banyak teleskop yang menggunakan cermin saat ini, karena cara membuatnya juga nggak begitu sulit. Apalagi cermin juga lebih mudah dibersihkan dan dipoles daripada lensa.
         </p>
-        <img src="/img/Materi3/teleskop pantul.png" alt="Cara Kerja Teleskop Pantul dalam menangkap cahaya" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+        <figure class="text-center">
+            <img src="/img/Materi3/teleskop pantul.png" alt="Cara Kerja Teleskop Pantul dalam menangkap cahaya" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+            <figcaption><em>Gambar 3.9 Cara Kerja Teleskop Pantul dalam menangkap cahaya (Sumber: Dokumen Penulis)</em></figcaption>
+        </figure>
     </div>
 </div>
 
 <div class="card-custom">
     <h5>Aktivitas 3.4</h5>
     <div class="question-container">
+
         <!-- Soal 1 -->
         <div class="question" id="soal1">
+            <p><strong>Petunjuk:</strong> Bacalah setiap pilihan jawaban dengan teliti. Perhatikan jenis alat optik yang digunakan pada masing-masing teleskop.</p>
             <p>1. Apa perbedaan utama antara teleskop bias dan teleskop pantul?</p>
             <ul class="options" id="q1">
                 <li onclick="pilihJawaban(this, 'q1', 'Teleskop bias menggunakan lensa, sedangkan teleskop pantul menggunakan cermin', 'hasil1')">
@@ -57,8 +71,12 @@
                 <li onclick="pilihJawaban(this, 'q1', 'Teleskop bias menggunakan lensa, sedangkan teleskop pantul menggunakan cermin', 'hasil1')">
                     Teleskop bias menggunakan lensa, sedangkan teleskop pantul menggunakan cermin
                 </li>                
-                <li onclick="pilihJawaban(this, 'q1', 'Teleskop bias menggunakan lensa, sedangkan teleskop pantul menggunakan cermin', 'hasil1')">Teleskop bias menggunakan dua lensa cekung, sedangkan teleskop pantul menggunakan dua cermin cembung</li>
-                <li onclick="pilihJawaban(this, 'q1', 'Teleskop bias menggunakan lensa, sedangkan teleskop pantul menggunakan cermin', 'hasil1')">Teleskop bias dan teleskop pantul bekerja dengan prinsip yang sama tanpa perbedaan</li>
+                <li onclick="pilihJawaban(this, 'q1', 'Teleskop bias menggunakan lensa, sedangkan teleskop pantul menggunakan cermin', 'hasil1')">
+                    Teleskop bias menggunakan dua lensa cekung, sedangkan teleskop pantul menggunakan dua cermin cembung
+                </li>
+                <li onclick="pilihJawaban(this, 'q1', 'Teleskop bias menggunakan lensa, sedangkan teleskop pantul menggunakan cermin', 'hasil1')">
+                    Teleskop bias dan teleskop pantul bekerja dengan prinsip yang sama tanpa perbedaan
+                </li>
             </ul>
             <p id="hasil1"></p>
             <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
@@ -66,6 +84,7 @@
 
         <!-- Soal 2 -->
         <div class="question" id="soal2" style="display: none;">
+            <p><strong>Petunjuk:</strong> Seret dan cocokkan deskripsi ciri khas teleskop pada tempat yang sesuai. Gunakan pemahaman visual dan fungsi alat.</p>
             <p>2. Cocokkan jenis teleskop di kolom kiri dengan ciri khasnya di kolom kanan!</p>
             <div id="dragContainer" class="drag-container">
                 <div class="drag-item" draggable="true" id="bias" ondragstart="drag(event)">Menggunakan cermin cekung sebagai pengumpul cahaya</div>
@@ -80,6 +99,7 @@
 
         <!-- Soal 3 -->
         <div class="question" id="soal3" style="display: none;">
+            <p><strong>Petunjuk:</strong> Ketik jawabanmu berdasarkan komponen utama pada teleskop bias yang bertugas memperbesar bayangan.</p>
             <p>3. Lensa yang berfungsi untuk memperbesar bayangan pada teleskop bias disebut <input type="text" id="jawaban3">.</p>
             <p id="hasil3"></p>
             <button class="cekJawaban nav-btn" onclick="cekJawaban3()">Periksa</button>
@@ -88,6 +108,7 @@
 
         <!-- Soal 4 -->
         <div class="question" id="soal4" style="display: none;">
+            <p><strong>Petunjuk:</strong> Tinjau fakta dari pernyataan dan pilih 'Benar' atau 'Salah' berdasarkan pengetahuan tentang teleskop modern.</p>
             <p>4. Perhatikan pernyataan berikut:</p>
             <p>"Teleskop pantul lebih sering digunakan dalam astronomi modern karena cermin lebih mudah dibuat dan lebih ringan dibandingkan lensa besar."</p>
             <ul id="q4" class="list-unstyled">
@@ -100,13 +121,16 @@
 
         <!-- Soal 5 -->
         <div class="question" id="soal5" style="display: none;">
+            <p><strong>Petunjuk:</strong> Isilah bagian kosong dengan kata yang menunjukkan bagian utama teleskop pantul dan sifat cahaya yang dipantulkan.</p>
             <p>5. Lengkapi pernyataan berikut dengan kata yang tepat!</p>
-            <p>Cahaya yang masuk ke teleskop pantul akan dipantulkan oleh <input type="text" id="jawaban5"> sebelum mencapai lensa okuler untuk diperbesar.
+            <p>Cahaya yang masuk ke teleskop pantul akan dipantulkan oleh 
+                <input type="text" id="jawaban5"> sebelum mencapai lensa okuler untuk diperbesar.
             </p>
             <p id="hasil5"></p>
             <button class="cekJawaban nav-btn" onclick="cekJawaban5()">Periksa</button>
             <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
         </div>
+
     </div>
 </div>
 

@@ -32,7 +32,10 @@
         <p>
             Mata adalah organ penglihatan pada manusia yang berbentuk bulat dan terdiri atas beberapa bagian dengan fungsi masing-masing. Mata dilapisi oleh tiga jaringan berbeda. Lapisan terluar disebut sklera, yang membentuk kornea. Lapisan tengah adalah koroid, yang membentuk iris. Sementara itu, lapisan terdalam adalah retina.
         </p>
-        <img src="/img/Materi2/Mata1.png" alt="Bagian-bagian Mata" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+        <figure class="text-center">
+            <img src="/img/Materi2/Mata1.png" alt="Bagian-bagian Mata" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <figcaption><em>Gambar 2.1 Bagian-bagian Mata (Sumber: Kemdikbud. 2017)</em></figcaption>
+        </figure>
         <h6>1) Kornea</h6>
         <p>
             Mata memiliki bentuk menyerupai bola dengan diameter sekitar 2,5 cm. Bagian terluar mata dikenal sebagai sklera, yaitu lapisan putih yang menyatu dengan bagian bening di depan mata yang disebut kornea. Kornea adalah jalan masuk cahaya ke dalam mata. Lapisan luar kornea bersifat kuat dan transparan, berfungsi untuk melindungi area sensitif di belakangnya serta membantu memfokuskan cahaya pada retina.
@@ -45,7 +48,10 @@
         <p>
             Cahaya yang telah melewati pupil kemudian bergerak ke lensa mata. Lensa mata berbentuk bikonveks (cembung di kedua sisi), mirip dengan lensa pada kaca pembesar. Lensa ini bersifat fleksibel dan kecembungannya dapat diubah dengan bantuan otot siliar, sehingga mempermudah proses pemfokusan cahaya.
         </p>
-        <img src="/img/Materi2/mata2.png" alt="perubahan Kecembungan Lensa Mata Ketika Melihat Benda Jauh dan Dekat" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+        <figure class="text-center">
+            <img src="/img/Materi2/mata2.png" alt="Perubahan Kecembungan Lensa Mata" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <figcaption><em>Gambar 2.2 Perubahan Kecembungan Lensa Mata Ketika Melihat Benda Jauh dan Dekat (Sumber: Kemdikbud. 2017)</em></figcaption>
+        </figure>
         <p>
             Saat melihat benda yang berada jauh, otot siliaris pada mata akan rileks. Kondisi ini membuat lensa mata menjadi lebih datar, sehingga mata dapat melihat tanpa proses akomodasi. Sebaliknya, ketika melihat benda yang dekat, otot siliaris akan berkontraksi, menyebabkan lensa mata menjadi lebih cembung. Dalam kondisi ini, mata disebut sedang berakomodasi maksimum. Dengan kemampuan mengubah kecembungan lensa, mata dapat menangkap bayangan yang jelas, baik dari benda yang jauh maupun dekat, yang kemudian diproyeksikan ke retina. Oleh karena itu, kita patut bersyukur kepada Tuhan atas karunia berupa lensa mata yang memungkinkan kita melihat benda dengan jelas, terlepas dari jaraknya.
         </p>
@@ -53,7 +59,10 @@
         <p>
             Cahaya yang melewati lensa akan menghasilkan bayangan yang ditangkap oleh retina. Retina adalah lapisan saraf di bagian belakang mata yang sangat sensitif terhadap cahaya (fotoreseptor). Retina memiliki dua jenis sel fotoreseptor, yaitu sel batang dan sel kerucut. Sel kerucut berfungsi untuk melihat warna, namun membutuhkan cahaya yang lebih terang dibandingkan sel batang. Sebaliknya, sel batang aktif di kondisi cahaya redup dan hanya dapat mendeteksi sinar tanpa warna. Jumlah sel batang di retina sekitar 125 juta, sedangkan sel kerucut, yang mampu menangkap cahaya terang dan warna, berjumlah sekitar 6,5 hingga 7 juta.
         </p>
-        <img src="/img/Materi2/mata3.png" alt="Sel Batang dan Kerucut pada Retina" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+        <figure class="text-center">
+            <img src="/img/Materi2/mata3.png" alt="Sel Batang dan Kerucut" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <figcaption><em>Gambar 2.3 Sel Batang dan Kerucut pada Retina (Sumber: Kemdikbud. 2017)</em></figcaption>
+        </figure>
         <p>
             Ketika sel kerucut menyerap cahaya, reaksi kimia akan terjadi, menghasilkan impuls saraf yang kemudian diteruskan ke otak melalui saraf mata. Sel batang, yang aktif dalam kondisi redup, mengandung pigmen bernama rodopsin, yaitu gabungan antara vitamin A dan protein. Saat terkena cahaya terang, rodopsin akan terurai dan kembali terbentuk dalam kondisi gelap. Proses pembentukan ulang rodopsin membutuhkan waktu yang disebut adaptasi gelap atau adaptasi rodopsin, yang menyebabkan mata kesulitan melihat sementara waktu. Inilah alasan pentingnya vitamin A untuk menjaga kesehatan mata. Sel kerucut memiliki pigmen iodopsin, gabungan antara retinin dan opsin, dengan tiga jenis sel kerucut yang masing-masing sensitif terhadap warna merah, biru, dan hijau. Kombinasi sensitivitas ini memungkinkan kita melihat berbagai spektrum warna.
         </p>
@@ -62,12 +71,18 @@
         <p>
             Penderita rabun dekat mengalami kesulitan melihat benda yang berada pada jarak dekat (sekitar 30 cm) dengan jelas. Hal ini terjadi karena bayangan benda jatuh di belakang retina, sehingga gambar yang terbentuk pada retina tampak kabur. Untuk mengatasi masalah ini, penderita dapat menggunakan kacamata berlensa positif. Lensa cembung pada kacamata membantu mengumpulkan cahaya sebelum masuk ke mata, memungkinkan kornea dan lensa mata membentuk bayangan yang tajam tepat di retina.
         </p>
-        <img src="/img/Materi2/mata4.png" alt="Perubahan Fokus Sinar pada Rabun Dekat" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+        <figure class="text-center">
+            <img src="/img/Materi2/mata4.png" alt="Rabun Dekat" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <figcaption><em>Gambar 2.4 Perubahan Fokus Sinar pada Rabun Dekat (Sumber: Kemdikbud. 2017)</em></figcaption>
+        </figure>
         <h6>2) Rabun Jauh</h6>
         <p>
             Penderita rabun jauh kesulitan melihat benda yang berada pada jarak jauh (tak terhingga) dengan jelas. Ini disebabkan oleh bayangan yang jatuh di depan retina, seperti yang terlihat pada gambar. Untuk membantu mengatasi masalah ini, penderita rabun jauh dapat menggunakan kacamata dengan lensa negatif. Lensa cekung pada kacamata akan menyebarkan cahaya sebelum cahaya masuk ke mata, sehingga bayangan yang jelas dapat terbentuk di retina.
         </p>
-        <img src="/img/Materi2/mata5.png" alt="Perubahan Fokus Sinar pada Rabun Jauh" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+        <figure class="text-center">
+            <img src="/img/Materi2/mata5.png" alt="Rabun Jauh" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <figcaption><em>Gambar 2.5 Perubahan Fokus Sinar pada Rabun Jauh (Sumber: Kemdikbud. 2017)</em></figcaption>
+        </figure>
         <h6>3) Buta Warna</h6>
         <p>
             Buta warna adalah kelainan mata yang terjadi akibat ketidakmampuan sel-sel kerucut di mata untuk mendeteksi warna tertentu. Kondisi ini bersifat diwariskan. Terdapat dua jenis buta warna: total dan sebagian. Pada buta warna total, penderita hanya dapat melihat warna hitam dan putih, sementara pada buta warna sebagian, penderita tidak dapat melihat warna tertentu seperti merah, hijau, atau biru. Hal ini berkaitan dengan fungsi sel kerucut yang telah dijelaskan sebelumnya.
@@ -92,6 +107,7 @@
     <div class="question-container">
         <!-- Soal 1 -->
         <div class="question" id="soal1">
+            <p><strong>Petunjuk:</strong> Pilih satu jawaban yang paling benar.</p>
             <p>1. Bagian mata manakah yang berfungsi mengatur jumlah cahaya yang masuk dengan mengubah ukuran pupil?</p>
             <ul class="options" id="q1">
                 <li onclick="pilihJawaban(this, 'q1', 'Iris', 'hasil1')">Kornea</li>
@@ -105,13 +121,14 @@
 
         <!-- Soal 2 -->
         <div class="question" id="soal2" style="display: none;">
+            <p><strong>Petunjuk:</strong> Seret dan susun langkah-langkah di bawah ini sesuai urutan cahaya masuk ke mata.</p>
             <p>2. Urutkan jalannya cahaya saat masuk ke mata hingga membentuk bayangan yang dapat kita lihat!</p>
             <ul id="sortable" class="sortable-list">
                 <li class="sortable-item" draggable="true" id="step1">Lensa</li>
                 <li class="sortable-item" draggable="true" id="step2">Retina</li>
                 <li class="sortable-item" draggable="true" id="step3">Kornea</li>
                 <li class="sortable-item" draggable="true" id="step4">Pupil</li>
-            </ul>            
+            </ul>
             <p id="hasil2"></p>
             <button class="cekJawaban nav-btn" onclick="cekUrutan()">Periksa</button>
             <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
@@ -119,6 +136,7 @@
 
         <!-- Soal 3 -->
         <div class="question" id="soal3" style="display: none;">
+            <p><strong>Petunjuk:</strong> Bacalah pernyataan dan pilih apakah pernyataan tersebut benar atau salah.</p>
             <p>3. Perhatikan pernyataan berikut:</p>
             <p>"Penderita rabun jauh menggunakan kacamata dengan lensa cembung."</p>
             <ul id="q3" class="list-unstyled">
@@ -131,6 +149,7 @@
 
         <!-- Soal 4 -->
         <div class="question" id="soal4" style="display: none;">
+            <p><strong>Petunjuk:</strong> Seret dan letakkan keterangan yang sesuai ke masing-masing jenis gangguan mata.</p>
             <p>4. Cocokkan jenis gangguan mata dengan keterangan yang benar!</p>
             <div id="dragContainer" class="drag-container">
                 <div class="drag-item" draggable="true" id="rabunDekat" ondragstart="drag(event)">Bayangan jatuh di belakang retina</div>
@@ -149,6 +168,7 @@
 
         <!-- Soal 5 -->
         <div class="question" id="soal5" style="display: none;">
+            <p><strong>Petunjuk:</strong> Isilah bagian yang kosong dengan satu kata yang paling tepat.</p>
             <p>5. Lengkapi pernyataan berikut dengan kata yang tepat!</p>
             <p>Saat melihat benda yang sangat dekat, lensa mata akan menjadi lebih <input type="text" id="jawaban5"> agar cahaya dapat difokuskan ke retina.</p>
             <p id="hasil5"></p>
@@ -159,9 +179,9 @@
 </div>
 
 <!-- Navigasi Halaman -->
-<div class="navigation">
-    <a class="nav-btn" href="/materi1/lensa">Sebelumnya</a>
-    <a class="nav-btn" href="/materi2/penglihatan-serangga">Selanjutnya</a>
+<div class="navigation d-flex justify-content-between">
+    <a class="nav-btn btn btn-primary" href="/materi1/lensa">Sebelumnya</a>
+    <a class="nav-btn btn btn-primary" href="/materi2/penglihatan-serangga">Selanjutnya</a>
 </div>
 
 <script>
@@ -357,4 +377,5 @@
         }
     });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
 @endsection
