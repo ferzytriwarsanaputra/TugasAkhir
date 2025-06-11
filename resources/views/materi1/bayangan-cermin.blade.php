@@ -137,10 +137,10 @@
             <p class="petunjuk"><strong>Petunjuk:</strong> Pilih satu jawaban yang menurutmu paling tepat.</p>
             <p>1. Bayangan yang terbentuk pada cermin datar memiliki sifat sebagai berikut, kecuali...</p>
             <ul class="options" id="q1">
-                <li onclick="pilihJawaban(this, 'q1', 'Terbaik terhadap objek', 'hasil1', 'lanjut1')">Maya</li>
-                <li onclick="pilihJawaban(this, 'q1', 'Terbaik terhadap objek', 'hasil1', 'lanjut1')">Sama besar dengan objek</li>
-                <li onclick="pilihJawaban(this, 'q1', 'Terbaik terhadap objek', 'hasil1', 'lanjut1')">Terbaik terhadap objek</li>
-                <li onclick="pilihJawaban(this, 'q1', 'Terbaik terhadap objek', 'hasil1', 'lanjut1')">Tegak</li>
+                <li onclick="pilihJawaban(this, 'q1', 'Maya', 'hasil1', 'lanjut1')">Maya</li>
+                <li onclick="pilihJawaban(this, 'q1', 'Maya', 'hasil1', 'lanjut1')">Sama besar dengan objek</li>
+                <li onclick="pilihJawaban(this, 'q1', 'Maya', 'hasil1', 'lanjut1')">Terbaik terhadap objek</li>
+                <li onclick="pilihJawaban(this, 'q1', 'Maya', 'hasil1', 'lanjut1')">Tegak</li>
             </ul>
             <button id="lanjut1" class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
             <p id="hasil1"></p>
@@ -182,9 +182,9 @@
             <p>4. Cocokkan jenis cermin dengan sifat bayangannya!</p>
             <div id="dragContainer" class="drag-container">
                 <div class="drag-item" draggable="true" id="datar" ondragstart="drag(event)">Maya, tegak, sama besar</div>
+                <div class="drag-item" draggable="true" id="cembung" ondragstart="drag(event)">Maya, tegak, diperkecil</div>
+                <div class="drag-item" draggable="true" id="cekungdalam" ondragstart="drag(event)">Maya, tegak, diperbesar</div>
                 <div class="drag-item" draggable="true" id="cekungluar" ondragstart="drag(event)">Nyata, terbalik, diperkecil</div>
-                <div class="drag-item" draggable="true" id="cekungdalam" ondragstart="drag(event)">Nyata, tegak, diperbesar</div>
-                <div class="drag-item" draggable="true" id="cembung" ondragstart="drag(event)">Maya, terbalik, diperkecil</div>
             </div>
             <p>Cermin Datar</p>
             <div class="drop-zone" id="drop1" ondrop="drop(event, 'drop1')" ondragover="allowDrop(event)"></div>
@@ -295,7 +295,7 @@
             document.querySelectorAll(".drag-item").forEach(i => i.setAttribute("draggable", false));
             btnLanjut.classList.remove("disabled");
         } else {
-            hasil.innerHTML = "Jawaban Salah! Coba periksa kembali kecocokan antara jenis cermin dan sifat bayangannya.";
+            hasil.innerHTML = "Jawaban Salah! <br>Cermin Datar → Maya, tegak, sama besar <br>Cermin Cekung (di luar F) → Nyata, terbalik, diperkecil <br>Cermin Cekung (di dalam F) → Maya, tegak, diperbesar <br>Cermin Cembung → Maya, tegak, diperkecil";
             hasil.style.color = "red";
         }
     }
@@ -314,7 +314,7 @@
 
         let userAnswer = selected.value;
         if (userAnswer === correctAnswer) {
-            resultElement.innerHTML = "Jawaban Benar!";
+            resultElement.innerHTML = "Jawaban Benar! Jika benda diletakkan tepat di titik fokus cermin cekung, bayangan tidak akan terbentuk atau akan berada pada posisi yang sangat jauh hingga dianggap tak terhingga.";
             resultElement.style.color = "green";
 
             // Kunci pilihan
@@ -331,7 +331,7 @@
 
     let currentSoal = 1;
     const totalSoal = 5;
-    const latihanKe = 2; // ← ini kunci: latihan ke berapa
+    const latihanKe = 2;
     let sedangMemproses = false;
 
     function showSoal(index) {
@@ -349,31 +349,55 @@
         btn.disabled = true;
 
         if (currentSoal === totalSoal) {
-            // Hanya simpan ke database jika soal terakhir
-            fetch('/simpan-hasil-latihan', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                },
-                body: JSON.stringify({ latihan_ke: latihanKe }) // Kirim latihan ke-2
-            })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data.message);
-                window.location.href = "/materi1/lensa"; // Redirect setelah berhasil
-            })
-            .catch(err => {
-                console.error('Gagal simpan hasil latihan:', err);
-                alert('Gagal menyimpan hasil latihan. Silakan coba lagi.');
-                btn.disabled = false;
-                btn.classList.remove("disabled");
-            })
-            .finally(() => {
-                sedangMemproses = false;
+            // Tampilkan konfirmasi swal sebelum kirim data
+            Swal.fire({
+                title: 'Selesai?',
+                text: 'Apakah kamu yakin ingin menyelesaikan latihan ini?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Selesai',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Simpan ke database
+                    fetch('/simpan-hasil-latihan', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                        },
+                        body: JSON.stringify({ latihan_ke: latihanKe })
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data.message);
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Latihan telah disimpan.',
+                            icon: 'success',
+                            timer: 1500,
+                            showConfirmButton: false
+                        }).then(() => {
+                            window.location.href = "/materi1/lensa";
+                        });
+                    })
+                    .catch(err => {
+                        console.error('Gagal simpan hasil latihan:', err);
+                        Swal.fire('Error', 'Gagal menyimpan hasil latihan. Silakan coba lagi.', 'error');
+                        btn.disabled = false;
+                        btn.classList.remove("disabled");
+                    })
+                    .finally(() => {
+                        sedangMemproses = false;
+                    });
+                } else {
+                    // Batalkan proses, enable kembali tombol
+                    btn.disabled = false;
+                    btn.classList.remove("disabled");
+                    sedangMemproses = false;
+                }
             });
         } else {
-            // Kalau belum soal terakhir, hanya lanjutkan soal
             currentSoal++;
             showSoal(currentSoal);
             sedangMemproses = false;

@@ -6,7 +6,7 @@
         <h2>Dashboard</h2>
         <!-- Profil Kamu -->
     <div class="row justify-content-center mb-4">
-        <div class="col-md-8">
+        <div>
             <div class="card p-4 shadow-sm">
                 <h5 class="fw-bold text-center mb-4">Profil Kamu</h5>
                 <div class="d-flex align-items-center">
@@ -28,7 +28,7 @@
     
     <!-- Progress Pembelajaran -->
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div>
             <div class="card p-4 shadow-sm">
                 <h5 class="fw-bold text-center mb-3">Progress Pembelajaran</h5>
                 <div class="progress" style="height: 30px;">

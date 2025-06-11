@@ -72,10 +72,10 @@
             <p><strong>Petunjuk:</strong> Seret dan cocokkan setiap item dengan fungsi yang sesuai.</p>
             <p>3. Pasangkan jenis lensa dengan fungsinya yang sesuai:</p>
             <div id="dragContainer" class="drag-container">
-                <div class="drag-item" draggable="true" id="lensa" ondragstart="drag(event)">Memfokuskan cahaya pada sensor</div>
                 <div class="drag-item" draggable="true" id="sensor" ondragstart="drag(event)">Mengubah cahaya menjadi sinyal digital</div>
-                <div class="drag-item" draggable="true" id="apertur" ondragstart="drag(event)">Mengatur jumlah cahaya yang masuk</div>
+                <div class="drag-item" draggable="true" id="lensa" ondragstart="drag(event)">Memfokuskan cahaya pada sensor</div>
                 <div class="drag-item" draggable="true" id="shutter" ondragstart="drag(event)">Menentukan durasi cahaya masuk ke kamera</div>
+                <div class="drag-item" draggable="true" id="apertur" ondragstart="drag(event)">Mengatur jumlah cahaya yang masuk</div>
             </div>
             <p>Lensa Kamera</p><div class="drop-zone" id="drop1" ondrop="drop(event, 'drop1')" ondragover="allowDrop(event)"></div>
             <p>Sensor Kamera</p><div class="drop-zone" id="drop2" ondrop="drop(event, 'drop2')" ondragover="allowDrop(event)"></div>
@@ -212,7 +212,7 @@
             hasil.dataset.answered = "true";
             document.querySelectorAll(".drag-item").forEach(i => i.setAttribute("draggable", false));
         } else {
-            hasil.innerHTML = "Jawaban Salah! Pastikan semua pasangan sesuai dengan istilah kameranya.";
+            hasil.innerHTML = "Jawaban Salah! <br>Lensa kamera → Memfokuskan cahaya pada sensor <br>Sensor kamera → Mengubah cahaya menjadi sinyal digital <br>Apertur → Mengatur jumlah cahaya yang masuk <br>Shutter → Menentukan durasi cahaya masuk ke kamera";
             hasil.style.color = "red";
         }
 
@@ -233,23 +233,41 @@
             currentSoal++;
             showSoal(currentSoal);
         } else {
-            // HANYA SIMPAN SAAT SOAL TERAKHIR SAJA (latihan ke-6)
-            fetch('/simpan-hasil-latihan', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                },
-                body: JSON.stringify({ latihan_ke: 6 }) // ← latihan ke-6
-            })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data.message);
-                window.location.href = "/materi3/lup"; // ← redirect setelah selesai
-            })
-            .catch(err => {
-                console.error('Gagal simpan hasil latihan:', err);
-                alert('Gagal menyimpan hasil latihan. Silakan coba lagi.');
+            // Swal konfirmasi sebelum menyimpan & redirect
+            Swal.fire({
+                title: 'Latihan selesai!',
+                text: 'Apakah kamu ingin melanjutkan ke materi berikutnya?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, lanjut',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    fetch('/simpan-hasil-latihan', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                        },
+                        body: JSON.stringify({ latihan_ke: 6 }) // ← latihan ke-6
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data.message);
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Hasil latihan telah disimpan.',
+                            icon: 'success',
+                            confirmButtonText: 'Lanjut ke Materi'
+                        }).then(() => {
+                            window.location.href = "/materi3/lup"; // ← redirect setelah selesai
+                        });
+                    })
+                    .catch(err => {
+                        console.error('Gagal simpan hasil latihan:', err);
+                        Swal.fire('Gagal', 'Tidak dapat menyimpan hasil latihan. Silakan coba lagi.', 'error');
+                    });
+                }
             });
         }
     }

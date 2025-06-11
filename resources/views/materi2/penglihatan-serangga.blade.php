@@ -253,23 +253,41 @@
             currentSoal++;
             showSoal(currentSoal);
         } else {
-            // HANYA SIMPAN SAAT SOAL TERAKHIR SAJA (latihan ke-5)
-            fetch('/simpan-hasil-latihan', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                },
-                body: JSON.stringify({ latihan_ke: 5 }) // ← latihan ke-5
-            })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data.message);
-                window.location.href = "/petunjuk/2"; // ← redirect setelah selesai
-            })
-            .catch(err => {
-                console.error('Gagal simpan hasil latihan:', err);
-                alert('Gagal menyimpan hasil latihan. Silakan coba lagi.');
+            // Konfirmasi Swal sebelum menyimpan dan redirect
+            Swal.fire({
+                title: 'Latihan selesai!',
+                text: 'Apakah kamu ingin melanjutkan ke materi berikutnya?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, lanjut',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    fetch('/simpan-hasil-latihan', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                        },
+                        body: JSON.stringify({ latihan_ke: 5 }) // ← latihan ke-5
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data.message);
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Hasil latihan telah disimpan.',
+                            icon: 'success',
+                            confirmButtonText: 'Lanjut ke Materi'
+                        }).then(() => {
+                            window.location.href = "/petunjuk/2"; // ← redirect setelah selesai
+                        });
+                    })
+                    .catch(err => {
+                        console.error('Gagal simpan hasil latihan:', err);
+                        Swal.fire('Gagal', 'Tidak dapat menyimpan hasil latihan. Coba lagi nanti.', 'error');
+                    });
+                }
             });
         }
     }

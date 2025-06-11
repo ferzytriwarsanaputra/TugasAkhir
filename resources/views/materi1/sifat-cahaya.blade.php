@@ -309,27 +309,37 @@
     }
 
     function nextSoal() {
-        // Jika soal ke-5 (soal terakhir), simpan ke server dulu
         if (currentSoal === 5) {
-            // Kirim data latihan ke server
-            fetch('/simpan-hasil-latihan', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-            },
-            body: JSON.stringify({
-                latihan_ke: 1
-            })
-            })
-            .then(response => response.json())
-            .then(data => {
-            console.log(data.message);
-            window.location.href = "/materi1/bayangan-cermin";
-            })
-            .catch(error => {
-            console.error("Gagal menyimpan hasil latihan:", error);
-            alert("Terjadi kesalahan. Coba lagi.");
+            Swal.fire({
+                title: 'Latihan selesai!',
+                text: 'Apakah kamu yakin ingin melanjutkan ke materi berikutnya?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, lanjut',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Kirim data latihan ke server
+                    fetch('/simpan-hasil-latihan', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        },
+                        body: JSON.stringify({
+                            latihan_ke: 1
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data.message);
+                        window.location.href = "/materi1/bayangan-cermin";
+                    })
+                    .catch(error => {
+                        console.error("Gagal menyimpan hasil latihan:", error);
+                        Swal.fire('Gagal', 'Terjadi kesalahan saat menyimpan. Coba lagi.', 'error');
+                    });
+                }
             });
 
             return; // Stop agar tidak lanjut ke baris bawah

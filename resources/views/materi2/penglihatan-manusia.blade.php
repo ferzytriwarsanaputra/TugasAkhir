@@ -152,9 +152,9 @@
             <p><strong>Petunjuk:</strong> Seret dan letakkan keterangan yang sesuai ke masing-masing jenis gangguan mata.</p>
             <p>4. Cocokkan jenis gangguan mata dengan keterangan yang benar!</p>
             <div id="dragContainer" class="drag-container">
-                <div class="drag-item" draggable="true" id="rabunDekat" ondragstart="drag(event)">Bayangan jatuh di belakang retina</div>
                 <div class="drag-item" draggable="true" id="rabunJauh" ondragstart="drag(event)">Bayangan jatuh di depan retina</div>
                 <div class="drag-item" draggable="true" id="astigmatisma" ondragstart="drag(event)">Kelainan bentuk lensa menyebabkan penglihatan kabur</div>
+                <div class="drag-item" draggable="true" id="rabunDekat" ondragstart="drag(event)">Bayangan jatuh di belakang retina</div>
                 <div class="drag-item" draggable="true" id="butaWarna" ondragstart="drag(event)">Kesulitan membedakan warna tertentu</div>
             </div>
             <p>Rabun dekat</p><div class="drop-zone" id="drop1" ondrop="drop(event, 'drop1')" ondragover="allowDrop(event)"></div>
@@ -200,23 +200,41 @@
             currentSoal++;
             showSoal(currentSoal);
         } else {
-            // HANYA SIMPAN SAAT SOAL TERAKHIR SAJA (latihan ke-4)
-            fetch('/simpan-hasil-latihan', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                },
-                body: JSON.stringify({ latihan_ke: 4 }) // ← latihan ke-4
-            })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data.message);
-                window.location.href = "/materi2/penglihatan-serangga"; // ← redirect setelah selesai
-            })
-            .catch(err => {
-                console.error('Gagal simpan hasil latihan:', err);
-                alert('Gagal menyimpan hasil latihan. Silakan coba lagi.');
+            // Konfirmasi Swal sebelum simpan dan redirect
+            Swal.fire({
+                title: 'Latihan selesai!',
+                text: 'Apakah kamu ingin melanjutkan ke materi berikutnya?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, lanjut',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    fetch('/simpan-hasil-latihan', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                        },
+                        body: JSON.stringify({ latihan_ke: 4 }) // ← latihan ke-4
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data.message);
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Hasil latihan telah disimpan.',
+                            icon: 'success',
+                            confirmButtonText: 'Lanjut ke Materi'
+                        }).then(() => {
+                            window.location.href = "/materi2/penglihatan-serangga"; // ← redirect setelah selesai
+                        });
+                    })
+                    .catch(err => {
+                        console.error('Gagal simpan hasil latihan:', err);
+                        Swal.fire('Gagal', 'Tidak dapat menyimpan hasil latihan. Coba lagi nanti.', 'error');
+                    });
+                }
             });
         }
     }
@@ -313,7 +331,7 @@
             btnLanjut.classList.remove("disabled"); // Hanya aktif jika benar
             document.querySelectorAll(".drag-item").forEach(i => i.setAttribute("draggable", false));
         } else {
-            hasil.innerHTML = "Jawaban Salah! Pastikan semua pasangan sesuai.";
+            hasil.innerHTML = "Jawaban Salah! <br>Rabun dekat → Bayangan jatuh di belakang retina <br>Rabun jauh → Bayangan jatuh di depan retina <br>Astigmatisma → Kelainan bentuk lensa menyebabkan penglihatan kabur <br>Buta warna → Kesulitan membedakan warna tertentu";
             hasil.style.color = "red";
         }
     }

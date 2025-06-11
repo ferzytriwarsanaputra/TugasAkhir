@@ -16,6 +16,7 @@ a {
     min-height: 100vh;
     width: 100%;
     overflow: hidden;
+    padding-top: 80px;
 }
 
 #sidebar {
@@ -24,6 +25,7 @@ a {
     transition: all 0.35s ease-in-out;
     display: flex;
     flex-direction: column;
+    padding-top: 80px;;
 }
 
 #sidebar.collapsed {
@@ -55,6 +57,7 @@ a {
     padding: 20.2px 24px;
     border-bottom: 1px solid #b3a8a8;
     text-align: center;
+    border-right: 1px solid
     
 }
 
@@ -187,6 +190,7 @@ caption {
   padding: 20px;
   margin-bottom: 18px;
 }
+
 .title-box {
   display: flex;
   align-items: center;
@@ -221,8 +225,7 @@ caption {
 }
 
 .question {
-  height: 420px;
-  overflow-y: auto;
+  height: 100%;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -235,6 +238,12 @@ caption {
   font-style: italic;
   color: #555;
   margin-bottom: 15px;
+}
+
+.sidebar-link.disabled {
+  color: #aaa !important;
+  pointer-events: none;
+  cursor: not-allowed;
 }
 
 /* evaluasi */
@@ -430,7 +439,7 @@ caption {
 
 /* halaman kuis */
 .quiz-container { text-align: center; }
-.container { width: 80%; margin: auto; background: white; padding: 20px; border-radius: 10px; }
+.container { width: 100%; margin: auto; background: white; padding: 20px; border-radius: 10px; }
 .question-box { text-align: left; padding: 15px; border-radius: 10px; }
 .options { list-style-type: none; padding: 0; }
 .options li { padding: 8px; cursor: pointer; border: 1px solid #ccc; margin: 5px; border-radius: 5px; }
@@ -556,4 +565,12 @@ button.disabled {
 .options li[style*="pointer-events: none"] {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.input-besar {
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }

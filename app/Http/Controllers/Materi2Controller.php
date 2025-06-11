@@ -36,14 +36,27 @@ class Materi2Controller extends Controller
      */
     public function show($halaman)
     {
-        // Pastikan halaman ada untuk menghindari error
         $validPages = ['penglihatan-manusia', 'penglihatan-serangga', 'kuis'];
 
         if (!in_array($halaman, $validPages)) {
-            abort(404); // Jika halaman tidak valid, tampilkan error 404
+            abort(404);
         }
 
-        // Buat judul berdasarkan halaman
+        // 🔒 Cek akses progres siswa
+        $akses = app(\App\Http\Controllers\SiswaController::class)->cekProgress();
+
+        // Sesuaikan key akses dengan nama route/halaman
+        $mapHalamanToKey = [
+            'penglihatan-manusia' => 'materi2.penglihatan-manusia',
+            'penglihatan-serangga' => 'materi2.penglihatan-serangga',
+            'kuis' => 'kuis.2'
+        ];
+
+        $kunciAkses = $mapHalamanToKey[$halaman] ?? null;
+        if ($kunciAkses && !($akses[$kunciAkses] ?? false)) {
+            return redirect('/dashboard-siswa')->with('error', 'Akses ditolak. Selesaikan materi sebelumnya terlebih dahulu.');
+        }
+
         $titles = [
             'penglihatan-manusia' => 'Indra Penglihatan Manusia',
             'penglihatan-serangga' => 'Indra Penglihatan Serangga',

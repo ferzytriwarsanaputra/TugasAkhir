@@ -3,15 +3,11 @@
 @section('container')
 @include('sweetalert::alert')
 
-<main class="container mt-5 px-4">
-    <h1 class="text-center fw-bold mb-4">Atur KKM untuk Kuis</h1>
+<main class="container px-4">
+    <h1 class="fw-bold mb-4">Atur KKM</h1>
 
-    <div class="d-flex justify-content-between mb-3">
-        <a href="{{ route('dashboard-guru.hasil-belajar') }}" class="btn btn-secondary">← Kembali</a>
-    </div>
-
-    <table class="table table-bordered table-striped align-middle">
-        <thead class="table-dark text-center">
+    <table class="table table-bordered table-sm align-middle">
+        <thead class="table-primary text-center">
             <tr>
                 <th scope="col">No</th>
                 <th scope="col">Kuis</th>

@@ -13,7 +13,7 @@
             <div class="top-bar">
                 <h2>{{ $kuis->judul }}</h2>
                 <div class="legend">
-                    <div id="timer">10:00</div>
+                    <div id="timer">30:00</div>
                     <button type="button" class="submit-button" onclick="submitQuiz()">Selesai</button>
                 </div>
             </div>
@@ -127,7 +127,7 @@
         return Math.round((skor / questions.length) * 100);
     }
 
-    let totalTime = 600; // Total waktu dalam detik (misal 10 menit)
+    let totalTime = 1800; // Total waktu dalam detik (misal 10 menit)
     let startTime = Date.now(); // Waktu mulai (dalam milidetik)
 
     function startTimer() {

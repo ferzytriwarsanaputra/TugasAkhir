@@ -154,10 +154,10 @@
             <div class="petunjuk"><strong>Petunjuk:</strong> Tarik dan jatuhkan pasangan fungsi ke lensa yang sesuai!</div>
             <p>2. Pasangkan jenis lensa dengan fungsinya yang sesuai:</p>
             <div id="dragContainer" class="drag-container">
-                <div class="drag-item" draggable="true" id="cembung1" ondragstart="drag(event)">Digunakan pada kacamata untuk rabun jauh</div>
                 <div class="drag-item" draggable="true" id="cekung1" ondragstart="drag(event)">Digunakan pada kamera untuk memfokuskan cahaya</div>
-                <div class="drag-item" draggable="true" id="cembung2" ondragstart="drag(event)">Digunakan pada mikroskop untuk memperbesar objek</div>
                 <div class="drag-item" draggable="true" id="cekung2" ondragstart="drag(event)">Digunakan pada lubang intip pintu</div>
+                <div class="drag-item" draggable="true" id="cembung2" ondragstart="drag(event)">Digunakan pada mikroskop untuk memperbesar objek</div>
+                <div class="drag-item" draggable="true" id="cembung1" ondragstart="drag(event)">Digunakan pada kacamata untuk rabun jauh</div>
             </div>
             <p>Lensa Cembung</p><div class="drop-zone" id="drop1" ondrop="drop(event, 'drop1')" ondragover="allowDrop(event)"></div>
             <p>Lensa Cekung</p><div class="drop-zone" id="drop2" ondrop="drop(event, 'drop2')" ondragover="allowDrop(event)"></div>
@@ -228,23 +228,40 @@
             currentSoal++;
             showSoal(currentSoal);
         } else {
-            // HANYA SIMPAN SAAT SOAL TERAKHIR SAJA (latihan ke-3)
-            fetch('/simpan-hasil-latihan', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                },
-                body: JSON.stringify({ latihan_ke: 3 }) // ← latihan ke-3
-            })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data.message);
-                window.location.href = "/petunjuk/1"; // ← redirect setelah selesai
-            })
-            .catch(err => {
-                console.error('Gagal simpan hasil latihan:', err);
-                alert('Gagal menyimpan hasil latihan. Silakan coba lagi.');
+            Swal.fire({
+                title: 'Latihan selesai!',
+                text: 'Apakah kamu yakin ingin melanjutkan ke materi selanjutnya?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, lanjut',
+                cancelButtonText: 'Kembali'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    fetch('/simpan-hasil-latihan', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                        },
+                        body: JSON.stringify({ latihan_ke: 3 })
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data.message);
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Data latihan kamu telah disimpan.',
+                            icon: 'success',
+                            confirmButtonText: 'Lanjut ke Materi'
+                        }).then(() => {
+                            window.location.href = "/petunjuk/1";
+                        });
+                    })
+                    .catch(err => {
+                        console.error('Gagal simpan hasil latihan:', err);
+                        Swal.fire('Error', 'Gagal menyimpan hasil latihan. Silakan coba lagi.', 'error');
+                    });
+                }
             });
         }
     }
@@ -285,7 +302,7 @@
         }
 
         if (jawab.value === kunci) {
-            hasil.innerHTML = "Jawaban Benar!";
+            hasil.innerHTML = "Jawaban Benar! Lensa cekung selalu menghasilkan bayangan maya, tegak, dan diperkecil, tidak peduli seberapa dekat benda diletakkan.";
             hasil.style.color = "green";
             hasil.dataset.answered = "true";
             btn.classList.remove("disabled");
@@ -346,7 +363,7 @@
             hasil.dataset.answered = "true";
             document.querySelectorAll(".drag-item").forEach(i => i.setAttribute("draggable", false));
         } else {
-            hasil.innerHTML = "Jawaban Salah! Pastikan semua pasangan sesuai jenis lensanya.";
+            hasil.innerHTML = "Jawaban Salah! <br>Lensa cembung → Digunakan pada kacamata untuk rabun jauh <br>Lensa cekung → Digunakan pada kamera untuk memfokuskan cahaya <br>Lensa cembung → Digunakan pada mikroskop untuk memperbesar objek <br>Lensa cekung → Digunakan pada lubang intip pintu";
             hasil.style.color = "red";
         }
 

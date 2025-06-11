@@ -36,14 +36,31 @@ class Materi3Controller extends Controller
      */
     public function show($halaman)
     {
-        // Pastikan halaman ada untuk menghindari error
+        // Daftar halaman yang valid untuk materi 3
         $validPages = ['kamera', 'lup', 'mikroskop', 'teleskop', 'kuis'];
 
         if (!in_array($halaman, $validPages)) {
-            abort(404); // Jika halaman tidak valid, tampilkan error 404
+            abort(404);
         }
 
-        // Buat judul berdasarkan halaman
+        // 🔒 Cek akses progres siswa
+        $akses = app(\App\Http\Controllers\SiswaController::class)->cekProgress();
+
+        // Mapping halaman ke key akses
+        $mapHalamanToKey = [
+            'kamera' => 'materi3.kamera',
+            'lup' => 'materi3.lup',
+            'mikroskop' => 'materi3.mikroskop',
+            'teleskop' => 'materi3.teleskop',
+            'kuis' => 'kuis.3'
+        ];
+
+        $kunciAkses = $mapHalamanToKey[$halaman] ?? null;
+        if ($kunciAkses && !($akses[$kunciAkses] ?? false)) {
+            return redirect('/dashboard-siswa')->with('error', 'Akses ditolak. Selesaikan materi sebelumnya terlebih dahulu.');
+        }
+
+        // Judul halaman
         $titles = [
             'kamera' => 'Kamera',
             'lup' => 'Kaca Pembesar (Lup)',

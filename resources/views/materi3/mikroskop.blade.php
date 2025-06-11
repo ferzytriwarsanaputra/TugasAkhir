@@ -56,10 +56,10 @@
             <p><strong>Petunjuk:</strong> Seret nama bagian mikroskop ke tempat yang sesuai dengan fungsinya.</p>
             <p>2. Cocokkan bagian mikroskop dengan fungsinya!</p>
             <div id="dragContainer" class="drag-container">
-                <div class="drag-item" draggable="true" id="okuler" ondragstart="drag(event)">Memegang objek yang akan diamati</div>
-                <div class="drag-item" draggable="true" id="objektif" ondragstart="drag(event)">Memperbesar bayangan dari lensa objektif</div>
-                <div class="drag-item" draggable="true" id="mikroskop" ondragstart="drag(event)">Memfokuskan cahaya ke objek</div>
-                <div class="drag-item" draggable="true" id="cermin" ondragstart="drag(event)">Memperbesar objek pertama kali</div>
+                <div class="drag-item" draggable="true" id="cermin" ondragstart="drag(event)">Memfokuskan cahaya ke objek</div>
+                <div class="drag-item" draggable="true" id="objektif" ondragstart="drag(event)">Memperbesar objek pertama kali</div>
+                <div class="drag-item" draggable="true" id="okuler" ondragstart="drag(event)">Memperbesar bayangan dari lensa objektif</div>
+                <div class="drag-item" draggable="true" id="mikroskop" ondragstart="drag(event)">Memegang objek yang akan diamati</div>
             </div>
             <p>Lensa Okuler</p><div class="drop-zone" id="drop1" ondrop="drop(event, 'drop1')" ondragover="allowDrop(event)"></div>
             <p>Lensa Objektif</p><div class="drop-zone" id="drop2" ondrop="drop(event, 'drop2')" ondragover="allowDrop(event)"></div>
@@ -74,7 +74,7 @@
         <div class="question" id="soal3" style="display: none;">
             <p><strong>Petunjuk:</strong> Ketik dua jenis lensa dalam mikroskop dan jelaskan fungsinya.</p>
             <p>3. Sebutkan dua jenis lensa yang digunakan pada mikroskop dan fungsinya!</p>
-            <input type="text" id="jawaban3">
+            <input type="text" id="jawaban3" class="input-besar">
             <p id="hasil3"></p>
             <button class="cekJawaban nav-btn" onclick="cekJawaban3()">Periksa</button>
             <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
@@ -86,8 +86,8 @@
             <p>4. Perhatikan pernyataan berikut:</p>
             <p>"Bayangan yang dihasilkan oleh mikroskop bersifat maya dan diperbesar."</p>
             <ul id="q4" class="list-unstyled">
-                <li><input type="radio" name="q4" value="Benar" onclick="cekPernyataan('q4', 'Salah', 'hasil4')"> Benar</li>
-                <li><input type="radio" name="q4" value="Salah" onclick="cekPernyataan('q4', 'Salah', 'hasil4')"> Salah</li>
+                <li><input type="radio" name="q4" value="Benar" onclick="cekPernyataan('q4', 'Benar', 'hasil4')"> Benar</li>
+                <li><input type="radio" name="q4" value="Salah" onclick="cekPernyataan('q4', 'Benar', 'hasil4')"> Salah</li>
             </ul>
             <p id="hasil4"></p>
             <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
@@ -141,11 +141,22 @@
             .then(res => res.json())
             .then(data => {
                 console.log(data.message);
-                window.location.href = "/materi3/teleskop"; // ← redirect setelah selesai
+
+                // Tampilkan Swal sebelum redirect
+                Swal.fire({
+                    title: 'Latihan Selesai!',
+                    text: 'Kamu akan diarahkan ke materi berikutnya.',
+                    icon: 'success',
+                    confirmButtonText: 'Lanjutkan'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "/materi3/teleskop"; // ← redirect setelah selesai
+                    }
+                });
             })
             .catch(err => {
                 console.error('Gagal simpan hasil latihan:', err);
-                alert('Gagal menyimpan hasil latihan. Silakan coba lagi.');
+                Swal.fire('Oops!', 'Gagal menyimpan hasil latihan. Silakan coba lagi.', 'error');
             });
         }
     }
@@ -242,7 +253,7 @@
             btnLanjut.classList.remove("disabled");
             document.querySelectorAll(".drag-item").forEach(i => i.setAttribute("draggable", false));
         } else {
-            hasil.innerHTML = "Jawaban Salah! Pastikan semua pasangan sudah benar.";
+            hasil.innerHTML = "Jawaban Salah! <br>Lensa Okuler → Memperbesar bayangan dari lensa objektif <br>Lensa Objektif → Memperbesar objek pertama kali <br>Meja Mikroskop → Memegang objek yang akan diamati <br>Cermin → Memfokuskan cahaya ke objek";
             hasil.style.color = "red";
         }
     }

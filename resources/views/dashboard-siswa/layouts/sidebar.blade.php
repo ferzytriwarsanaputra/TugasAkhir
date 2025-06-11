@@ -1,3 +1,7 @@
+@php
+    $akses = $aksesMateri ?? [];
+@endphp
+
 <aside id="sidebar" class="sidebar-toggle">
   <div class="sidebar-logo">
       <a href="/">LightLensEdu</a>
@@ -30,21 +34,50 @@
              aria-controls="auth1">
               <i class="bi bi-brightness-high"></i>
               <span>Sifat Cahaya dan Proses Pembentukan Bayangan</span>
-          </a>
-          <ul id="auth1" class="sidebar-dropdown list-unstyled collapse {{ request()->is('materi1/*') || request()->is('petunjuk/1') ? 'show' : '' }}" data-bs-parent="#sidebar">
-              <li class="sidebar-item">
-                  <a href="/materi1/sifat-cahaya" class="sidebar-link {{ request()->is('materi1/sifat-cahaya') ? 'active' : '' }}">Sifat-sifat Cahaya</a>
-              </li>
-              <li class="sidebar-item">
-                  <a href="/materi1/bayangan-cermin" class="sidebar-link {{ request()->is('materi1/bayangan-cermin') ? 'active' : '' }}">Pembentukan Bayangan Pada Cermin</a>
-              </li>
-              <li class="sidebar-item">
-                  <a href="/materi1/lensa" class="sidebar-link {{ request()->is('materi1/lensa') ? 'active' : '' }}">Lensa</a>
-              </li>
-              <li class="sidebar-item">
-                  <a href="/petunjuk/1" class="sidebar-link {{ request()->is('petunjuk/1') ? 'active' : '' }}">Kuis 1</a>
-              </li>
-          </ul>
+        </a>
+        <ul id="auth1" class="sidebar-dropdown list-unstyled collapse {{ request()->is('materi1/*') || request()->is('petunjuk/1') ? 'show' : '' }}" data-bs-parent="#sidebar">
+
+            @php $materi = 'materi1.sifat-cahaya'; @endphp
+            <li class="sidebar-item">
+                <a href="/materi1/sifat-cahaya"
+                   class="sidebar-link d-flex justify-content-between align-items-center {{ request()->is('materi1/sifat-cahaya') ? 'active' : '' }} {{ !($akses[$materi] ?? true) ? 'disabled' : '' }}"
+                   onclick="return {{ !($akses[$materi] ?? true) ? 'false' : 'true' }}">
+                    <span>Sifat-sifat Cahaya</span>
+                    @if (!($akses[$materi] ?? true)) <i class="bi bi-lock-fill text-muted ms-2"></i> @endif
+                </a>
+            </li>
+
+            @php $materi = 'materi1.bayangan-cermin'; @endphp
+            <li class="sidebar-item">
+                <a href="/materi1/bayangan-cermin"
+                   class="sidebar-link d-flex justify-content-between align-items-center {{ request()->is('materi1/bayangan-cermin') ? 'active' : '' }} {{ !($akses[$materi] ?? false) ? 'disabled' : '' }}"
+                   onclick="return {{ !($akses[$materi] ?? false) ? 'false' : 'true' }}">
+                    <span>Pembentukan Bayangan Pada Cermin</span>
+                    @if (!($akses[$materi] ?? false)) <i class="bi bi-lock-fill text-muted ms-2"></i> @endif
+                </a>
+            </li>
+
+            @php $materi = 'materi1.lensa'; @endphp
+            <li class="sidebar-item">
+                <a href="/materi1/lensa"
+                   class="sidebar-link d-flex justify-content-between align-items-center {{ request()->is('materi1/lensa') ? 'active' : '' }} {{ !($akses[$materi] ?? false) ? 'disabled' : '' }}"
+                   onclick="return {{ !($akses[$materi] ?? false) ? 'false' : 'true' }}">
+                    <span>Lensa</span>
+                    @if (!($akses[$materi] ?? false)) <i class="bi bi-lock-fill text-muted ms-2"></i> @endif
+                </a>
+            </li>
+
+            @php $kuis = 'kuis.1'; @endphp
+            <li class="sidebar-item">
+                <a href="/petunjuk/1"
+                   class="sidebar-link d-flex justify-content-between align-items-center {{ request()->is('petunjuk/1') ? 'active' : '' }} {{ !($akses[$kuis] ?? false) ? 'disabled' : '' }}"
+                   onclick="return {{ !($akses[$kuis] ?? false) ? 'false' : 'true' }}">
+                    <span>Kuis 1</span>
+                    @if (!($akses[$kuis] ?? false)) <i class="bi bi-lock-fill text-muted ms-2"></i> @endif
+                </a>
+            </li>
+
+        </ul>
       </li>
 
       {{-- Materi 2 --}}
@@ -57,15 +90,37 @@
               <span>Indra Penglihatan Manusia dan Hewan</span>
           </a>
           <ul id="auth2" class="sidebar-dropdown list-unstyled collapse {{ request()->is('materi2/*') || request()->is('petunjuk/2') ? 'show' : '' }}" data-bs-parent="#sidebar">
-              <li class="sidebar-item">
-                  <a href="/materi2/penglihatan-manusia" class="sidebar-link {{ request()->is('materi2/penglihatan-manusia') ? 'active' : '' }}">Indra Penglihatan Manusia</a>
-              </li>
-              <li class="sidebar-item">
-                  <a href="/materi2/penglihatan-serangga" class="sidebar-link {{ request()->is('materi2/penglihatan-serangga') ? 'active' : '' }}">Indra Penglihatan Serangga</a>
-              </li>
-              <li class="sidebar-item">
-                  <a href="/petunjuk/2" class="sidebar-link {{ request()->is('petunjuk/2') ? 'active' : '' }}">Kuis 2</a>
-              </li>
+
+            @php $materi = 'materi2.penglihatan-manusia'; @endphp
+            <li class="sidebar-item">
+                <a href="/materi2/penglihatan-manusia"
+                   class="sidebar-link d-flex justify-content-between align-items-center {{ request()->is('materi2/penglihatan-manusia') ? 'active' : '' }} {{ !($akses[$materi] ?? false) ? 'disabled' : '' }}"
+                   onclick="return {{ !($akses[$materi] ?? false) ? 'false' : 'true' }}">
+                    <span>Indra Penglihatan Manusia</span>
+                    @if (!($akses[$materi] ?? false)) <i class="bi bi-lock-fill text-muted ms-2"></i> @endif
+                </a>
+            </li>
+
+            @php $materi = 'materi2.penglihatan-serangga'; @endphp
+            <li class="sidebar-item">
+                <a href="/materi2/penglihatan-serangga"
+                   class="sidebar-link d-flex justify-content-between align-items-center {{ request()->is('materi2/penglihatan-serangga') ? 'active' : '' }} {{ !($akses[$materi] ?? false) ? 'disabled' : '' }}"
+                   onclick="return {{ !($akses[$materi] ?? false) ? 'false' : 'true' }}">
+                    <span>Indra Penglihatan Serangga</span>
+                    @if (!($akses[$materi] ?? false)) <i class="bi bi-lock-fill text-muted ms-2"></i> @endif
+                </a>
+            </li>
+
+            @php $kuis = 'kuis.2'; @endphp
+            <li class="sidebar-item">
+                <a href="/petunjuk/2"
+                   class="sidebar-link d-flex justify-content-between align-items-center {{ request()->is('petunjuk/2') ? 'active' : '' }} {{ !($akses[$kuis] ?? false) ? 'disabled' : '' }}"
+                   onclick="return {{ !($akses[$kuis] ?? false) ? 'false' : 'true' }}">
+                    <span>Kuis 2</span>
+                    @if (!($akses[$kuis] ?? false)) <i class="bi bi-lock-fill text-muted ms-2"></i> @endif
+                </a>
+            </li>
+
           </ul>
       </li>
 
@@ -79,29 +134,41 @@
               <span>Alat Optik dalam Kehidupan Sehari-hari</span>
           </a>
           <ul id="auth3" class="sidebar-dropdown list-unstyled collapse {{ request()->is('materi3/*') || request()->is('petunjuk/3') ? 'show' : '' }}" data-bs-parent="#sidebar">
+
+            @foreach (['kamera', 'lup', 'mikroskop', 'teleskop'] as $item)
+              @php $materi = "materi3.$item"; @endphp
               <li class="sidebar-item">
-                  <a href="/materi3/kamera" class="sidebar-link {{ request()->is('materi3/kamera') ? 'active' : '' }}">Kamera</a>
+                  <a href="/materi3/{{ $item }}"
+                     class="sidebar-link d-flex justify-content-between align-items-center {{ request()->is("materi3/$item") ? 'active' : '' }} {{ !($akses[$materi] ?? false) ? 'disabled' : '' }}"
+                     onclick="return {{ !($akses[$materi] ?? false) ? 'false' : 'true' }}">
+                      <span>{{ ucfirst($item) }}</span>
+                      @if (!($akses[$materi] ?? false)) <i class="bi bi-lock-fill text-muted ms-2"></i> @endif
+                  </a>
               </li>
-              <li class="sidebar-item">
-                  <a href="/materi3/lup" class="sidebar-link {{ request()->is('materi3/lup') ? 'active' : '' }}">Kaca Pembesar (Lup)</a>
-              </li>
-              <li class="sidebar-item">
-                  <a href="/materi3/mikroskop" class="sidebar-link {{ request()->is('materi3/mikroskop') ? 'active' : '' }}">Mikroskop</a>
-              </li>
-              <li class="sidebar-item">
-                  <a href="/materi3/teleskop" class="sidebar-link {{ request()->is('materi3/teleskop') ? 'active' : '' }}">Teleskop</a>
-              </li>
-              <li class="sidebar-item">
-                  <a href="/petunjuk/3" class="sidebar-link {{ request()->is('petunjuk/3') ? 'active' : '' }}">Kuis 3</a>
-              </li>
+            @endforeach
+
+            @php $kuis = 'kuis.3'; @endphp
+            <li class="sidebar-item">
+                <a href="/petunjuk/3"
+                   class="sidebar-link d-flex justify-content-between align-items-center {{ request()->is('petunjuk/3') ? 'active' : '' }} {{ !($akses[$kuis] ?? false) ? 'disabled' : '' }}"
+                   onclick="return {{ !($akses[$kuis] ?? false) ? 'false' : 'true' }}">
+                    <span>Kuis 3</span>
+                    @if (!($akses[$kuis] ?? false)) <i class="bi bi-lock-fill text-muted ms-2"></i> @endif
+                </a>
+            </li>
+
           </ul>
       </li>
 
+      @php $evaluasi = 'evaluasi'; @endphp
       <li class="sidebar-item">
-          <a href="/petunjuk-evaluasi/4" class="sidebar-link {{ request()->is('petunjuk-evaluasi/4') ? 'active' : '' }}">
-              <i class="bi bi-clipboard"></i>
-              <span>Evaluasi</span>
-          </a>
+        <a href="/petunjuk-evaluasi/4"
+           class="sidebar-link d-flex justify-content-between align-items-center {{ request()->is('petunjuk-evaluasi/4') ? 'active' : '' }} {{ !($akses[$evaluasi] ?? false) ? 'disabled' : '' }}"
+           onclick="return {{ !($akses[$evaluasi] ?? false) ? 'false' : 'true' }}">
+            <span><i class="bi bi-clipboard me-2"></i>Evaluasi</span>
+            @if (!($akses[$evaluasi] ?? false)) <i class="bi bi-lock-fill text-muted ms-2"></i> @endif
+        </a>
       </li>
+
   </ul>
 </aside>

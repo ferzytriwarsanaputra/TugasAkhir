@@ -10,7 +10,7 @@
     <div class="quiz-wrapper">
         <div class="question-card">
             <div class="top-bar">
-                <h2>Kuis {{ $kuis->id }} : {{ $kuis->judul }}</h2>
+                <h2>Kuis {{ $kuis->id }}</h2>
                 <div class="legend">
                     <div id="timer">10:00</div>
                     <button type="button" class="submit-button" onclick="submitQuiz()">Selesai</button>

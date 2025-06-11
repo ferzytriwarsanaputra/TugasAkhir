@@ -36,14 +36,28 @@ class Materi1Controller extends Controller
      */
     public function show($halaman)
     {
-        // Pastikan halaman ada untuk menghindari error
         $validPages = ['sifat-cahaya', 'bayangan-cermin', 'lensa', 'kuis'];
 
         if (!in_array($halaman, $validPages)) {
-            abort(404); // Jika halaman tidak valid, tampilkan error 404
+            abort(404);
         }
 
-        // Buat judul berdasarkan halaman
+        // 🔒 Cek akses progres siswa
+        $akses = app(\App\Http\Controllers\SiswaController::class)->cekProgress();
+
+        // Sesuaikan key akses dengan nama route/halaman
+        $mapHalamanToKey = [
+            'sifat-cahaya' => 'materi1.sifat-cahaya',
+            'bayangan-cermin' => 'materi1.bayangan-cermin',
+            'lensa' => 'materi1.lensa',
+            'kuis' => 'petunjuk.1'
+        ];
+
+        $kunciAkses = $mapHalamanToKey[$halaman] ?? null;
+        if ($kunciAkses && !($akses[$kunciAkses] ?? false)) {
+            return redirect('/dashboard-siswa')->with('error', 'Akses ditolak. Selesaikan materi sebelumnya terlebih dahulu.');
+        }
+
         $titles = [
             'sifat-cahaya' => 'Sifat-sifat Cahaya',
             'bayangan-cermin' => 'Pembentukan Bayangan pada Cermin',

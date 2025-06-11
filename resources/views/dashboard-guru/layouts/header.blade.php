@@ -1,20 +1,7 @@
 <nav class="navbar navbar-expand fixed-top bg-white shadow-sm">
-
-    @if (
-        Request::is('petunjuk/*') ||
-        Request::is('kuis/*') ||
-        Request::is('dashboard-siswa/nilai') ||
-        Request::is('petunjuk-evaluasi/*') ||
-        Request::is('evaluasi/mulai/*')
-    )
-        <div class="navbar-logo ms-3">
-            <a href="/" class="fw-bold text-decoration-none text-primary fs-4">LightLensEdu</a>
-        </div>
-    @else
-        <button class="toggler-btn ms-3" type="button">
-            <i class="bi bi-justify fs-4"></i>
-        </button>
-    @endif
+    <button class="toggler-btn" type="button">
+      <i class="bi bi-justify"></i>
+    </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
   
@@ -79,4 +66,3 @@
       }
     });
   </script>
-  

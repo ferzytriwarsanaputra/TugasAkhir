@@ -167,11 +167,22 @@
             .then(res => res.json())
             .then(data => {
                 console.log(data.message);
-                window.location.href = "/petunjuk/3"; // ← redirect setelah selesai
+
+                // Tampilkan SweetAlert sebelum redirect
+                Swal.fire({
+                    title: 'Latihan Selesai!',
+                    text: 'Kamu akan diarahkan ke materi berikutnya.',
+                    icon: 'success',
+                    confirmButtonText: 'Lanjutkan'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "/petunjuk/3"; // ← redirect setelah selesai
+                    }
+                });
             })
             .catch(err => {
                 console.error('Gagal simpan hasil latihan:', err);
-                alert('Gagal menyimpan hasil latihan. Silakan coba lagi.');
+                Swal.fire('Oops!', 'Gagal menyimpan hasil latihan. Silakan coba lagi.', 'error');
             });
         }
     }

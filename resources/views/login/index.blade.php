@@ -1,41 +1,80 @@
 @extends('layouts.main')
 
 @section('container')
-<div class="d-flex justify-content-center align-items-center py-5">
-    <div class="card shadow-lg p-4" style="max-width: 800px; width: 100%;">
-        <div class="row align-items-center">
-            <div class="col-md-6 text-center">
-                <img src="img/imguser.jpg" alt="Ilustrasi Login" class="img-fluid" style="max-width: 80%;">
+<div class="container d-flex justify-content-center align-items-center py-5">
+    <div class="card shadow rounded-4 p-3 p-md-4 w-100" style="max-width: 900px; max-height: 90vh; overflow-y: auto;">
+        <div class="row g-0 align-items-center">
+            {{-- Gambar Login --}}
+            <div class="col-md-6 d-none d-md-block text-center">
+                <img src="{{ asset('img/imguser.jpg') }}" alt="Login Illustration"
+                    class="img-fluid w-100 px-3 py-3" style="object-fit: contain;">
             </div>
 
-            <div class="col-md-6 p-4">
-                <h2 class="text-center fw-bold text-dark mb-4">Login</h2>
-                <form method="POST" action="{{ route('login.auth') }}">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="identifier" class="form-label fw-semibold">NISN / NIP</label>
-                        <input type="text" name="identifier" id="identifier" class="form-control @error('identifier') is-invalid @enderror" placeholder="Masukkan NISN atau NIP" autofocus value="{{ old('identifier') }}">
-                        @error('identifier')
-                            <div class="invalid-feedback">
-                                {{ $message }}
+            {{-- Form Login --}}
+            <div class="col-md-6">
+                <div class="px-3 py-4">
+                    <h3 class="text-center fw-bold text-dark mb-4">Login</h3>
+
+                    <form method="POST" action="{{ route('login.auth') }}">
+                        @csrf
+
+                        {{-- NISN / NIP --}}
+                        <div class="mb-3">
+                            <label for="identifier" class="form-label">NISN / NIP</label>
+                            <input type="text" name="identifier" id="identifier"
+                                class="form-control @error('identifier') is-invalid @enderror"
+                                placeholder="Masukkan NISN atau NIP" autofocus value="{{ old('identifier') }}">
+                            @error('identifier')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        {{-- Password --}}
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <div class="input-group">
+                                <input type="password" name="password" id="password"
+                                    class="form-control @error('password') is-invalid @enderror"
+                                    placeholder="Masukkan Password">
+                                <span class="input-group-text bg-white">
+                                    <i class="bi bi-eye-slash" id="togglePassword" style="cursor: pointer;"></i>
+                                </span>
+                                @error('password')
+                                    <div class="invalid-feedback d-block">{{ $message }}</div>
+                                @enderror
                             </div>
-                        @enderror
+                        </div>
+
+                        {{-- Tombol Login --}}
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-box-arrow-in-right me-1"></i> Login
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="text-center mt-3">
+                        <small class="text-muted">Lupa password? Hubungi Guru</small>
                     </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label fw-semibold">Password</label>
-                        <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukkan Password">
-                        @error('password')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>                            
-                        @enderror
-                    </div>
-                    <div class="d-grid">
-                        <button class="btn btn-primary text-light text-decoration-none" type="submit">Login</button>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+{{-- Script Show/Hide Password --}}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.type === 'password' ? 'text' : 'password';
+            passwordInput.type = type;
+
+            this.classList.toggle('bi-eye');
+            this.classList.toggle('bi-eye-slash');
+        });
+    });
+</script>
 @endsection

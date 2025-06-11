@@ -7,8 +7,8 @@
 
             <div class="text-white rounded-top py-2" style="background-color: #1363DF">
                 <h4 class="m-0">
-                    {{ $kuis_id == 4 ? 'HASIL EVALUASI AKHIR' : 'HASIL KUIS ' . $kuis_id }}
-                </h4>
+                    {{ $kuisId == 4 ? 'HASIL EVALUASI AKHIR' : 'HASIL KUIS ' . $kuisId }}
+                </h4>                
             </div>            
 
             <div class="text-muted text-center mt-3">
@@ -22,25 +22,58 @@
             </div>
 
             <p>
-                @if ($status === 'memenuhi')
-                    <span class="text-success">Selamat nilaimu memenuhi KKM! Silahkan pelajari materi selanjutnya</span>
+                @if ($skor == 100)
+                    <span class="text-success">Skor kamu sempurna! Tidak perlu mengulang kuis. Silakan lanjut ke materi berikutnya.</span>
+                @elseif ($status === 'memenuhi')
+                    <span class="text-success">Selamat nilaimu memenuhi KKM! Silakan pelajari materi selanjutnya.</span>
                 @else
-                    <span class="text-danger">Maaf, nilaimu belum memenuhi KKM. Silakan pelajari kembali materinya ya!</span>
+                    <span class="text-danger">Maaf, nilaimu belum memenuhi KKM. Silakan pelajari kembali materi dan ulangi kuis ini!</span>
                 @endif
             </p>
 
             <div class="mt-3">
-                @if ($kuis_id == 1)
-                    <a href="/materi2/penglihatan-manusia" class="btn btn-primary">Selesai Kuis</a>
-                @elseif ($kuis_id == 2)
-                    <a href="/materi3/kamera" class="btn btn-primary">Selesai Kuis</a>
-                @elseif ($kuis_id == 3)
-                    <a href="/petunjuk-evaluasi/4" class="btn btn-primary">Selesai Kuis</a>
+                @if ($skor == 100)
+                    {{-- Skor sempurna: hanya tombol lanjut --}}
+                    @if ($kuisId == 1)
+                        <a href="/materi2/penglihatan-manusia" class="btn btn-primary">Lanjut ke Materi</a>
+                    @elseif ($kuisId == 2)
+                        <a href="/materi3/kamera" class="btn btn-primary">Lanjut ke Materi</a>
+                    @elseif ($kuisId == 3)
+                        <a href="/petunjuk-evaluasi/4" class="btn btn-primary">Lanjut ke Evaluasi Akhir</a>
+                    @elseif ($kuisId == 4)
+                        <a href="/" class="btn btn-primary">Kembali ke Dashboard</a>
+                    @endif
+            
+                @elseif ($status === 'memenuhi')
+                    {{-- Skor di atas KKM tapi tidak sempurna: dua tombol --}}
+                    <div class="d-flex justify-content-center gap-2 flex-wrap">
+                        @if ($kuisId == 1)
+                            <a href="/materi2/penglihatan-manusia" class="btn btn-primary">Lanjut ke Materi</a>
+                        @elseif ($kuisId == 2)
+                            <a href="/materi3/kamera" class="btn btn-primary">Lanjut ke Materi</a>
+                        @elseif ($kuisId == 3)
+                            <a href="/petunjuk-evaluasi/4" class="btn btn-primary">Lanjut ke Evaluasi Akhir</a>
+                        @elseif ($kuisId == 4)
+                            <a href="/" class="btn btn-primary">Kembali ke Dashboard</a>
+                        @endif
+            
+                        <a href="/kuis/{{ $kuisId }}" class="btn btn-outline-danger">Ulangi Kuis</a>
+                    </div>
+            
                 @else
-                    <a href="/" class="btn btn-primary">Kembali ke Dashboard</a>
+                    {{-- Skor di bawah KKM: tombol materi dan ulangi --}}
+                    <div class="d-flex justify-content-center gap-2 flex-wrap">
+                        @if ($kuisId == 1)
+                            <a href="/materi1/sifat-cahaya" class="btn btn-outline-primary">Pelajari Materi</a>
+                        @elseif ($kuisId == 2)
+                            <a href="/materi2/penglihatan-manusia" class="btn btn-outline-primary">Pelajari Materi</a>
+                        @elseif ($kuisId == 3)
+                            <a href="/materi3/kamera" class="btn btn-outline-primary">Pelajari Materi</a>
+                        @endif
+                        <a href="/kuis/{{ $kuisId }}" class="btn btn-danger">Ulangi Kuis</a>
+                    </div>
                 @endif
-            </div>
-
+            </div>            
         </div>
     </div>
 </main>

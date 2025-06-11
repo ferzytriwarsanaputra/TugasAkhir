@@ -51,7 +51,7 @@
         <div class="question" id="soal2" style="display: none;">
             <p><strong>Petunjuk:</strong> Ketik jawaban singkat yang benar.</p>
             <p>2. Apa jenis lensa yang digunakan pada kaca pembesar?</p>
-            <input type="text" id="jawaban2">
+            <input type="text" id="jawaban2" class="input-besar">
             <p id="hasil2"></p>
             <button class="cekJawaban nav-btn" onclick="cekJawaban2()">Periksa</button>
             <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
@@ -62,8 +62,8 @@
             <p><strong>Petunjuk:</strong> Seret dan cocokkan setiap istilah dengan penjelasan yang sesuai.</p>
             <p>3. Cocokkan istilah berikut dengan penjelasannya yang benar:</p>
             <div id="dragContainer" class="drag-container">
-                <div class="drag-item" draggable="true" id="lup" ondragstart="drag(event)">Membantu melihat benda kecil lebih jelas</div>
                 <div class="drag-item" draggable="true" id="cembung" ondragstart="drag(event)">Mengumpulkan cahaya dan memperbesar bayangan</div>
+                <div class="drag-item" draggable="true" id="lup" ondragstart="drag(event)">Membantu melihat benda kecil lebih jelas</div>
                 <div class="drag-item" draggable="true" id="cekung" ondragstart="drag(event)">Menyebarkan cahaya dan membuat bayangan lebih</div>
             </div>
             <p>Lup</p><div class="drop-zone" id="drop1" ondrop="drop(event, 'drop1')" ondragover="allowDrop(event)"></div>
@@ -78,7 +78,7 @@
         <div class="question" id="soal4" style="display: none;">
             <p><strong>Petunjuk:</strong> Ketik jawaban singkat berdasarkan pemahamanmu.</p>
             <p>4. Apa fungsi utama kaca pembesar dalam kehidupan sehari-hari?</p>
-            <input type="text" id="jawaban4">
+            <input type="text" id="jawaban4" class="input-besar">
             <p id="hasil4"></p>
             <button class="cekJawaban nav-btn" onclick="cekJawaban4()">Periksa</button>
             <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
@@ -119,23 +119,41 @@
             currentSoal++;
             showSoal(currentSoal);
         } else {
-            // HANYA SIMPAN SAAT SOAL TERAKHIR SAJA (latihan ke-7)
-            fetch('/simpan-hasil-latihan', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                },
-                body: JSON.stringify({ latihan_ke: 7 }) // ← latihan ke-7
-            })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data.message);
-                window.location.href = "/materi3/mikroskop"; // ← redirect setelah selesai
-            })
-            .catch(err => {
-                console.error('Gagal simpan hasil latihan:', err);
-                alert('Gagal menyimpan hasil latihan. Silakan coba lagi.');
+            // Swal konfirmasi sebelum menyimpan & redirect
+            Swal.fire({
+                title: 'Latihan selesai!',
+                text: 'Apakah kamu ingin melanjutkan ke materi berikutnya?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, lanjut',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    fetch('/simpan-hasil-latihan', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                        },
+                        body: JSON.stringify({ latihan_ke: 7 }) // ← latihan ke-7
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data.message);
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Hasil latihan telah disimpan.',
+                            icon: 'success',
+                            confirmButtonText: 'Lanjut ke Materi'
+                        }).then(() => {
+                            window.location.href = "/materi3/mikroskop"; // ← redirect setelah selesai
+                        });
+                    })
+                    .catch(err => {
+                        console.error('Gagal simpan hasil latihan:', err);
+                        Swal.fire('Gagal', 'Tidak dapat menyimpan hasil latihan. Silakan coba lagi.', 'error');
+                    });
+                }
             });
         }
     }
@@ -220,7 +238,7 @@
             btnLanjut.classList.remove("disabled");
             document.querySelectorAll(".drag-item").forEach(i => i.setAttribute("draggable", false));
         } else {
-            hasil.innerHTML = "Jawaban Salah! Pastikan semua pasangan sesuai jenis lensanya.";
+            hasil.innerHTML = "Jawaban Salah! <br>Lup → Membantu melihat benda kecil lebih jelas <br>Lensa cembung → Mengumpulkan cahaya dan memperbesar bayangan <br>Lensa cekung → Menyebarkan cahaya dan membuat bayangan lebih kecil";
             hasil.style.color = "red";
         }
     }

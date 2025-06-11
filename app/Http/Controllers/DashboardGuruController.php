@@ -11,8 +11,25 @@ class DashboardGuruController extends Controller
 {
     public function index()
     {
+        $guru = auth()->user(); // Ambil data guru yang login
+        $jumlahSiswa = User::where('role', 'siswa')->count();
+
+        // Hitung siswa yang telah menyelesaikan semua (latihan + kuis + evaluasi)
+        $siswa = User::where('role', 'siswa')->get();
+
+        $jumlahSiswaSelesai = $siswa->filter(function($s) {
+            $latihanDone = HasilLatihan::where('siswa_id', $s->id)->count();
+            $kuisDone = HasilKuis::where('user_id', $s->id)->whereIn('kuis_id', [1,2,3])->count();
+            $evaluasiDone = HasilKuis::where('user_id', $s->id)->where('kuis_id', 4)->count();
+
+            return ($latihanDone == 9 && $kuisDone == 3 && $evaluasiDone == 1);
+        })->count();
+
         return view('dashboard-guru.index', [
-            'title' => 'Halaman Guru'
+            'title' => 'Halaman Guru',
+            'guru' => $guru,
+            'jumlahSiswa' => $jumlahSiswa,
+            'jumlahSiswaSelesai' => $jumlahSiswaSelesai
         ]);
     }
 

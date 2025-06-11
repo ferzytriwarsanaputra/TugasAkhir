@@ -82,55 +82,28 @@ Route::group(['middleware' => ['auth', 'guru']], function () {
 
 Route::middleware('auth')->group(function () {
 
-    // Materi
     Route::get('/materi1/{halaman}', [Materi1Controller::class, 'show']);
     Route::get('/materi2/{halaman}', [Materi2Controller::class, 'show']);
     Route::get('/materi3/{halaman}', [Materi3Controller::class, 'show']);
 
-    Route::get('/dashboard-siswa', function () {
-        $kuisList = Kuis::all();
-        $title = 'Dashboard Siswa';
-        return view('dashboard-siswa.index', compact('kuisList', 'title'));
-    })->name('dashboard-siswa');
-
+    Route::get('/dashboard-siswa', [SiswaController::class, 'index'])->middleware('auth')->name('dashboard-siswa');
     Route::get('/dashboard-siswa/evaluasi', function () {
         $title = 'Evaluasi';
         return view('dashboard-siswa.evaluasi.index', compact('title'));
     });
 
-    Route::get('/petunjuk/{kuis}', function ($id) {
-        $kuis = Kuis::with('soals')->findOrFail($id);
-        $title = 'Petunjuk Kuis';
-        return view('dashboard-siswa.petunjuk', compact('kuis', 'title'));
-    })->name('petunjuk');
-
-    Route::get('/petunjuk-evaluasi/{id}', function ($id) {
-        $evaluasi = Kuis::with('soals')->findOrFail($id);
-        $title = 'Petunjuk Evaluasi';
-        return view('dashboard-siswa.evaluasi.petunjuk', compact('evaluasi', 'title'));
-    })->name('petunjuk-evaluasi');
-
+    Route::get('/petunjuk/{kuis}', [KuisController::class, 'petunjuk'])->name('petunjuk');
+    Route::get('/petunjuk-evaluasi/{id}', [KuisController::class, 'petunjukEvaluasi'])->name('petunjuk-evaluasi');
+    Route::get('/kuis/{kuis}', [KuisController::class, 'kuis'])->name('mulai-kuis');
     Route::get('/evaluasi/mulai/{id}', [KuisController::class, 'evaluasi'])->name('mulai-evaluasi');
 
+    Route::post('/siswa/submit-kuis', [KuisController::class, 'submitKuis'])->name('siswa.submitKuis');
     Route::post('/dashboard-siswa/submit-kuis', [KuisController::class, 'submitKuis'])->name('evaluasi.submit');
 
     Route::get('/dashboard-siswa/nilai', [KuisController::class, 'nilai'])->name('dashboard-siswa.nilai');
-
-    Route::get('/kuis/{kuis}', function ($id) {
-        $kuis = Kuis::with('soals')->findOrFail($id);
-        $title = 'Kuis';
-        return view('dashboard-siswa.kuis', compact('kuis', 'title'));
-    })->name('mulai-kuis');
-
-    Route::post('/hasil', function (Request $request) {
-        return redirect()->route('dashboard-siswa.hasil');
-    })->name('hasil-kuis');
-
-    Route::post('/siswa/submit-kuis', [KuisController::class, 'submitKuis'])->name('siswa.submitKuis');
-
     Route::get('/siswa/nilai/{id}', [KuisController::class, 'tampilkanNilai'])->name('siswa.nilai');
 
     Route::post('/simpan-hasil-latihan', [LatihanController::class, 'simpanHasil']);
-    Route::get('/dashboard-siswa', [SiswaController::class, 'index'])->middleware('auth');
+
     Route::get('/hasilSiswa', [SiswaController::class, 'hasilSiswa'])->middleware('auth');
 });

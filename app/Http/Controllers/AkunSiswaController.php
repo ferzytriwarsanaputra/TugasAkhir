@@ -11,9 +11,25 @@ class AkunSiswaController extends Controller
 {
     public function show()
     {
+        $users = User::where('role', 'siswa')->get();
+
+        $users->map(function ($user) {
+            $latihanDone = \App\Models\HasilLatihan::where('siswa_id', $user->id)->count();
+            $kuisDone = \App\Models\HasilKuis::where('user_id', $user->id)
+                ->whereIn('kuis_id', [1, 2, 3])
+                ->distinct('kuis_id')
+                ->count('kuis_id');
+            $evaluasiDone = \App\Models\HasilKuis::where('user_id', $user->id)
+                ->where('kuis_id', 4)
+                ->exists();
+
+            $user->selesai = $latihanDone >= 9 && $kuisDone === 3 && $evaluasiDone;
+            return $user;
+        });
+
         return view('dashboard-guru.akunSiswa', [
             'title' => 'Akun Siswa',
-            'users' => User::where('role', 'siswa')->get()
+            'users' => $users
         ]);
     }
 

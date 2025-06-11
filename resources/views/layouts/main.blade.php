@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
-    @include('partials.navbar')
+
+    @if (!Request::is('login'))
+      @include('partials.navbar')
+    @endif
 
     <div class="container mt-4 content">
         @yield('container')      
