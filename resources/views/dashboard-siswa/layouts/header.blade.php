@@ -1,4 +1,12 @@
-<nav class="navbar navbar-expand fixed-top bg-white shadow-sm">
+@php
+  $noSidebar = 
+    Request::is('petunjuk/*') ||
+    Request::is('kuis/*') ||
+    Request::is('dashboard-siswa/nilai') ||
+    Request::is('petunjuk-evaluasi/*') ||
+    Request::is('evaluasi/mulai/*');
+@endphp
+<nav class="navbar navbar-expand fixed-top bg-white shadow-sm {{ $noSidebar ? 'no-sidebar' : '' }}">
 
     @if (
         Request::is('petunjuk/*') ||
@@ -11,7 +19,7 @@
             <a href="/" class="fw-bold text-decoration-none text-primary fs-4">LightLensEdu</a>
         </div>
     @else
-        <button class="toggler-btn ms-3" type="button">
+        <button class="toggler-btn" type="button">
             <i class="bi bi-justify fs-4"></i>
         </button>
     @endif

@@ -15,10 +15,8 @@
 </head>
 
 <body>
-    <div class="d-flex">
+    <div class="d-flex" id="wrapper">
         @include('dashboard-guru.layouts.sidebar')
-        <!-- Sidebar Ends -->
-        <!-- Main Component -->
         <div class="main">
             @include('dashboard-guru.layouts.header')
             <main class="p-3">

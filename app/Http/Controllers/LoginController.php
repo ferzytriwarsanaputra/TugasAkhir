@@ -25,10 +25,9 @@ class LoginController extends Controller
             'password' => 'required|string',
         ]);
 
-        // Cari user berdasarkan nisn, nip, atau nama
+        // Cari user berdasarkan nisn, nip
         $user = User::where('nisn', $credentials['identifier'])
             ->orWhere('nip', $credentials['identifier'])
-            ->orWhere('nama', $credentials['identifier'])
             ->first();
 
             if ($user && Hash::check($credentials['password'], $user->password)) {

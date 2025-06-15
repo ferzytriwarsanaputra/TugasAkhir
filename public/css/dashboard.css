@@ -12,24 +12,65 @@ a {
     text-decoration: none;
 }
 
+/* Saat normal, sidebar terlihat dan main digeser */
 .main {
-    min-height: 100vh;
-    width: 100%;
-    overflow: hidden;
-    padding-top: 80px;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 75px;
+  margin-left: 314px;
+  transition: margin-left 0.3s ease;
+}
+
+.main.no-sidebar {
+  margin-left: 0;
+}
+
+.navbar.no-sidebar {
+  margin-left: 0;
+  width: 100%;
 }
 
 #sidebar {
-    max-width: 314px;
-    min-width: 314px;
-    transition: all 0.35s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    padding-top: 80px;;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 314px;
+  height: 100%;
+  min-width: 314px;
+  max-width: 314px;
+  background-color: #fff;
+  z-index: 1030;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+#wrapper.collapsed .sidebar-toggle{
+  margin-left: -314px;
+}
+
+#wrapper.collapsed .main {
+  margin-left: 0;
+}
+
+.navbar {
+  padding: 18.4px 24px;
+  border-bottom: 1px solid #b3a8a8;
+  margin-left: 314px;
+  transition: margin-left 0.3s ease;
+}
+
+#wrapper.collapsed .navbar{
+  margin-left: 0;
 }
 
 #sidebar.collapsed {
     margin-left: -314px;
+}
+
+#sidebar .sidebar-nav {
+  max-height: calc(100vh - 60px); /* 100vh dikurangi tinggi navbar */
+  overflow-y: auto;
 }
 
 .toggler-btn {
@@ -41,11 +82,6 @@ a {
 .toggler-btn i {
     font-size: 23px;
     color: #1363DF;
-}
-
-.navbar {
-    padding: 18.4px 24px;
-    border-bottom: 1px solid #b3a8a8;
 }
 
 .sidebar-nav {
@@ -140,19 +176,6 @@ a.sidebar-link:hover {
 .sidebar-link.active-parent:hover {
   background-color: #1363DF; /* Warna saat hover jika aktif */
   color: #fff;
-}
-
-/* Screen size less than 768px */
-
-@media (max-width:768px) {
-
-    .sidebar-toggle {
-        margin-left: -314px;
-    }
-
-    #sidebar.collapsed {
-        margin-left: 0;
-    }
 }
 
 .feather {
@@ -422,21 +445,6 @@ caption {
   color: white; 
 }
 
-/* Responsiveness */
-@media (max-width: 768px) {
-  .quiz-wrapper { flex-direction: column; align-items: center; }
-  .question-nav-card { width: 90%; margin-bottom: 10px; }
-  .question-card { width: 90%; }
-  .nav-buttons { flex-direction: column; align-items: center; gap: 10px; }
-}
-
-/* Responsive untuk tampilan mobile */
-@media (max-width: 768px) {
-  .quiz-wrapper {
-      flex-direction: column;
-  }
-}
-
 /* halaman kuis */
 .quiz-container { text-align: center; }
 .container { width: 100%; margin: auto; background: white; padding: 20px; border-radius: 10px; }
@@ -573,4 +581,31 @@ button.disabled {
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
+}
+
+/* RESPONSIVE: MOBILE */
+@media (max-width: 768px) {
+  #sidebar {
+      margin-left: -314px;
+  }
+
+  .main {
+      margin-left: 0 !important;
+  }
+
+  .navbar {
+      margin-left: 0px;
+  }
+
+  #wrapper.collapsed .main {
+      margin-left: 0px;
+  }
+
+  #wrapper.collapsed .navbar {
+    margin-left: 314px;
+  }
+
+  #wrapper.collapsed .sidebar-toggle {
+    margin-left: 0px; 
+  }
 }
