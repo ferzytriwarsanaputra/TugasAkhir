@@ -49,7 +49,7 @@ class Materi2Controller extends Controller
         $mapHalamanToKey = [
             'penglihatan-manusia' => 'materi2.penglihatan-manusia',
             'penglihatan-serangga' => 'materi2.penglihatan-serangga',
-            'kuis' => 'kuis.2'
+            'kuis' => 'petunjuk.2'
         ];
 
         $kunciAkses = $mapHalamanToKey[$halaman] ?? null;
@@ -64,7 +64,8 @@ class Materi2Controller extends Controller
         ];
 
         return view('materi2.' . $halaman, [
-            'title' => $titles[$halaman] ?? 'Materi'
+            'title' => $titles[$halaman] ?? 'Materi',
+            'akses' => $akses, // ← Tambahkan ini
         ]);
     }
 

@@ -132,278 +132,181 @@
 </div>
 <div class="card-custom">
     <h5>Aktivitas 1.2</h5>
-        <!-- Soal 1 -->
-        <div class="question" id="soal1">
-            <p class="petunjuk"><strong>Petunjuk:</strong> Pilih satu jawaban yang menurutmu paling tepat.</p>
-            <p>1. Bayangan yang terbentuk pada cermin datar memiliki sifat sebagai berikut, kecuali...</p>
-            <ul class="options" id="q1">
-                <li onclick="pilihJawaban(this, 'q1', 'Maya', 'hasil1', 'lanjut1')">Maya</li>
-                <li onclick="pilihJawaban(this, 'q1', 'Maya', 'hasil1', 'lanjut1')">Sama besar dengan objek</li>
-                <li onclick="pilihJawaban(this, 'q1', 'Maya', 'hasil1', 'lanjut1')">Terbaik terhadap objek</li>
-                <li onclick="pilihJawaban(this, 'q1', 'Maya', 'hasil1', 'lanjut1')">Tegak</li>
-            </ul>
-            <button id="lanjut1" class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
-            <p id="hasil1"></p>
-        </div>
-
-        <!-- Soal 2 -->
-        <div class="question" id="soal2" style="display: none;">
-            <p class="petunjuk"><strong>Petunjuk:</strong> Ketik jawaban singkatmu pada kolom di bawah ini, lalu klik “Periksa”.</p>
-            <p>2. Pada cermin cekung, jika benda berada di antara titik fokus (F) dan cermin, maka bayangan yang terbentuk akan...</p>
-            <div style="display: flex; gap: 10px; align-items: center;">
-                <input type="text" id="jawaban2">
-                <button onclick="cekEssayLangsung()" class="cekJawaban nav-btn">Periksa</button>
-            </div>
-            <button id="lanjut2" class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
-            <p id="hasil2"></p>
-        </div>
-
-        <!-- Soal 3 -->
-        <div class="question" id="soal3" style="display: none;">
-            <p class="petunjuk"><strong>Petunjuk:</strong> Bacalah pernyataan berikut dan pilih “Benar” atau “Salah”.</p>
-            <p>3. Pada cermin cekung, jika benda berada di antara titik fokus (F) dan cermin, maka bayangan yang terbentuk bersifat nyata dan terbalik.</p>
-            <ul id="q3" class="list-unstyled">
-                <li>
-                    <input type="radio" name="q3" id="q3_benar" value="Benar" onclick="cekPernyataanLangsung('q3', 'Salah', 'hasil3', 'lanjut3')">
-                    <label for="q3_benar">Benar</label>
-                </li>
-                <li>
-                    <input type="radio" name="q3" id="q3_salah" value="Salah" onclick="cekPernyataanLangsung('q3', 'Salah', 'hasil3', 'lanjut3')">
-                    <label for="q3_salah">Salah</label>
-                </li>
-            </ul>
-            <button id="lanjut3" class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
-            <p id="hasil3"></p>
-        </div>
-
-        <!-- Soal 4 -->
-        <div class="question" id="soal4" style="display: none;">
-            <p class="petunjuk"><strong>Petunjuk:</strong> Seret dan jatuhkan pernyataan yang sesuai ke setiap jenis cermin di bawah ini.</p>
-            <p>4. Cocokkan jenis cermin dengan sifat bayangannya!</p>
-            <div id="dragContainer" class="drag-container">
-                <div class="drag-item" draggable="true" id="datar" ondragstart="drag(event)">Maya, tegak, sama besar</div>
-                <div class="drag-item" draggable="true" id="cembung" ondragstart="drag(event)">Maya, tegak, diperkecil</div>
-                <div class="drag-item" draggable="true" id="cekungdalam" ondragstart="drag(event)">Maya, tegak, diperbesar</div>
-                <div class="drag-item" draggable="true" id="cekungluar" ondragstart="drag(event)">Nyata, terbalik, diperkecil</div>
-            </div>
-            <p>Cermin Datar</p>
-            <div class="drop-zone" id="drop1" ondrop="drop(event, 'drop1')" ondragover="allowDrop(event)"></div>
-            <p>Cermin Cekung (diluar F)</p>
-            <div class="drop-zone" id="drop2" ondrop="drop(event, 'drop2')" ondragover="allowDrop(event)"></div>
-            <p>Cermin Cekung (didalam F)</p>
-            <div class="drop-zone" id="drop3" ondrop="drop(event, 'drop3')" ondragover="allowDrop(event)"></div>
-            <p>Cermin Cembung</p>
-            <div class="drop-zone" id="drop4" ondrop="drop(event, 'drop4')" ondragover="allowDrop(event)"></div>
-            <button onclick="cekDragDropLangsung()" class="cekJawaban nav-btn">Periksa</button>
-            <button id="lanjut4" class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
-            <p id="hasil4"></p>
-        </div>
-
-        <!-- Soal 5 -->
-        <div class="question" id="soal5" style="display: none;">
-            <p class="petunjuk"><strong>Petunjuk:</strong> Pilih satu jawaban yang paling tepat.</p>
-            <p>5. Seorang siswa menyalakan lilin di depan cermin cekung dan menggeser lilin semakin jauh dari cermin. Bagaimana perubahan bayangan yang terbentuk saat lilin digeser menjauh dari cermin?</p>
-            <ul class="options" id="q5">
-                <li onclick="pilihJawaban(this, 'q5', 'Bayangan semakin kecil dan tetap terbalik', 'hasil5', 'lanjut5')">Bayangan tetap sama</li>
-                <li onclick="pilihJawaban(this, 'q5', 'Bayangan semakin kecil dan tetap terbalik', 'hasil5', 'lanjut5')">Bayangan semakin kecil dan tetap terbalik</li>
-                <li onclick="pilihJawaban(this, 'q5', 'Bayangan semakin kecil dan tetap terbalik', 'hasil5', 'lanjut5')">Bayangan semakin besar dan tetap tegak</li>
-                <li onclick="pilihJawaban(this, 'q5', 'Bayangan semakin kecil dan tetap terbalik', 'hasil5', 'lanjut5')">Bayangan menjadi maya dan diperbesar</li>
-            </ul>
-            <button id="lanjut5" class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
-            <p id="hasil5"></p>
-        </div>
-
-</div>
-
-<!-- Navigasi Halaman -->
-<div class="navigation d-flex justify-content-between">
-    <a class="nav-btn btn btn-primary" href="/materi1/sifat-cahaya">Sebelumnya</a>
-    <a class="nav-btn btn btn-primary" href="/materi1/lensa">Selanjutnya</a>
-</div>
-
-<script>
-    function pilihJawaban(element, questionId, correctAnswer, resultId, buttonId) {
-        let options = document.querySelectorAll(`#${questionId} li`);
-
-        let userAnswer = element.textContent;
-        let resultElement = document.getElementById(resultId);
-        let lanjutButton = document.getElementById(buttonId);
-
-        if (userAnswer === correctAnswer) {
-            resultElement.innerHTML = "Jawaban Benar!";
-            resultElement.style.color = "green";
-            options.forEach(option => option.style.pointerEvents = "none"); // Disable semua opsi
-            lanjutButton.classList.remove("disabled");
-        } else {
-            resultElement.innerHTML = "Jawaban Salah! Jawaban yang benar: " + correctAnswer;
-            resultElement.style.color = "red";
-        }
-    }
-
-    function cekEssayLangsung() {
-        let userAnswerInput = document.getElementById("jawaban2");
-        let userAnswer = userAnswerInput.value.trim();
-        let resultElement = document.getElementById("hasil2");
-        let lanjutButton = document.getElementById("lanjut2");
-
-        if (userAnswer.length === 0) {
-            resultElement.innerHTML = "";
-            lanjutButton.classList.add("disabled");
-            return;
-        }
-
-        if (userAnswer.toLowerCase() === "maya, tegak, diperbesar") {
-            resultElement.innerHTML = "Jawaban Benar!";
-            resultElement.style.color = "green";
-            userAnswerInput.disabled = true;
-            lanjutButton.classList.remove("disabled");
-        } else {
-            resultElement.innerHTML = "Jawaban Salah! Jawaban yang benar: Maya, tegak, diperbesar";
-            resultElement.style.color = "red";
-            lanjutButton.classList.add("disabled");
-        }
-    }
-
-    function allowDrop(e) { e.preventDefault(); }
-    function drag(e) { e.dataTransfer.setData("text", e.target.id); }
-
-    function drop(e, targetId) {
-        e.preventDefault();
-        const id = e.dataTransfer.getData("text");
-        const target = document.getElementById(targetId);
-        const item = document.getElementById(id);
-        if (target.children.length > 0) {
-            document.getElementById("dragContainer").appendChild(target.firstChild);
-        }
-        target.innerHTML = "";
-        target.appendChild(item);
-    }
-
-    function cekDragDropLangsung() {
-        const benar =
-            document.getElementById("drop1").children[0]?.id === "datar" &&
-            document.getElementById("drop2").children[0]?.id === "cekungluar" &&
-            document.getElementById("drop3").children[0]?.id === "cekungdalam" &&
-            document.getElementById("drop4").children[0]?.id === "cembung";
-
-        const hasil = document.getElementById("hasil4");
-        const btnLanjut = document.getElementById("lanjut4");
-
-        if (benar) {
-            hasil.innerHTML = "Jawaban Benar!";
-            hasil.style.color = "green";
-            document.querySelectorAll(".drag-item").forEach(i => i.setAttribute("draggable", false));
-            btnLanjut.classList.remove("disabled");
-        } else {
-            hasil.innerHTML = "Jawaban Salah! <br>Cermin Datar → Maya, tegak, sama besar <br>Cermin Cekung (di luar F) → Nyata, terbalik, diperkecil <br>Cermin Cekung (di dalam F) → Maya, tegak, diperbesar <br>Cermin Cembung → Maya, tegak, diperkecil";
-            hasil.style.color = "red";
-        }
-    }
-
-    function cekPernyataanLangsung(questionId, correctAnswer, resultId, buttonId) {
-        let selected = document.querySelector(`input[name="${questionId}"]:checked`);
-        let resultElement = document.getElementById(resultId);
-        let lanjutButton = document.getElementById(buttonId);
-
-        if (!selected) {
-            resultElement.innerHTML = "";
-            lanjutButton.classList.add("disabled");
-
-            return;
-        }
-
-        let userAnswer = selected.value;
-        if (userAnswer === correctAnswer) {
-            resultElement.innerHTML = "Jawaban Benar! Jika benda diletakkan tepat di titik fokus cermin cekung, bayangan tidak akan terbentuk atau akan berada pada posisi yang sangat jauh hingga dianggap tak terhingga.";
-            resultElement.style.color = "green";
-
-            // Kunci pilihan
-            let radios = document.querySelectorAll(`input[name="${questionId}"]`);
-            radios.forEach(radio => radio.disabled = true);
-
-            lanjutButton.classList.remove("disabled");
-        } else {
-            resultElement.innerHTML = "Jawaban Salah! Jawaban yang benar: " + correctAnswer;
-            resultElement.style.color = "red";
-            lanjutButton.classList.add("disabled");
-        }
-    }
-
+  
+    <!-- Soal 1 -->
+    <div class="question" id="soal1">
+      <p class="petunjuk"><strong>Petunjuk:</strong> Tarik gambar ke area yang sesuai.</p>
+      <p>1. Tarik gambar jenis cermin yang dapat membentuk bayangan nyata dan terbalik.</p>
+      <div class="drag-container">
+        <img src="/img/Materi1/senter.png" alt="Cermin Cekung" class="drag-item" id="cekung" draggable="true" ondragstart="drag(event)" style="max-width: 300px;">
+        <img src="/img/Materi1/bercermin.jpeg" alt="Cermin Datar" class="drag-item" id="datar" draggable="true" ondragstart="drag(event)" style="max-width: 300px;">
+        <img src="/img/Materi1/spion.png" alt="Cermin Cembung" class="drag-item" id="cembung" draggable="true" ondragstart="drag(event)" style="max-width: 300px;">
+      </div>
+      <div class="drop-zone" id="drop1" ondrop="drop(event, 'drop1')" ondragover="allowDrop(event)">Lepaskan gambar di sini</div>
+      <button onclick="cekDragDrop(1, 'cekung')" class="cekJawaban nav-btn">Periksa</button>
+      <button id="lanjut1" class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
+      <p id="hasil1"></p>
+    </div>
+  
+    <!-- Soal 2 -->
+    <div class="question" id="soal2" style="display:none">
+      <p class="petunjuk"><strong>Petunjuk:</strong> Tarik gambar ke area yang sesuai.</p>
+      <p>2. Tarik gambar jenis cermin yang membentuk bayangan maya, tegak, dan diperkecil.</p>
+      <div class="drag-container">
+        <img src="/img/Materi1/senter.png" alt="Cermin Cekung" class="drag-item" id="cekung2" draggable="true" ondragstart="drag(event)" style="max-width: 300px;">
+        <img src="/img/Materi1/bercermin.jpeg" alt="Cermin Datar" class="drag-item" id="datar2" draggable="true" ondragstart="drag(event)" style="max-width: 300px;">
+        <img src="/img/Materi1/spion.png" alt="Cermin Cembung" class="drag-item" id="cembung2" draggable="true" ondragstart="drag(event)" style="max-width: 300px;">
+      </div>
+      <div class="drop-zone" id="drop2" ondrop="drop(event, 'drop2')" ondragover="allowDrop(event)">Lepaskan gambar di sini</div>
+      <button onclick="cekDragDrop(2, 'cembung2')" class="cekJawaban nav-btn">Periksa</button>
+      <button id="lanjut2" class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
+      <p id="hasil2"></p>
+    </div>
+  
+    <!-- Soal 3 -->
+    <div class="question" id="soal3" style="display:none">
+      <p class="petunjuk"><strong>Petunjuk:</strong> Tarik gambar jalur sinar yang sesuai dengan hukum pemantulan.</p>
+      <p>3. Pilih gambar sinar pantul yang sudut datangnya sama dengan sudut pantul.</p>
+      <div class="drag-container">
+        <img src="/img/Materi1/1a.png" alt="Sinar Benar" class="drag-item" id="sinar_benar" draggable="true" ondragstart="drag(event)" style="max-width: 300px;">
+        <img src="/img/Materi1/1b.png" alt="Sinar Acak" class="drag-item" id="sinar_acak" draggable="true" ondragstart="drag(event)" style="max-width: 300px;">
+        <img src="/img/Materi1/1c.png" alt="Sinar Salah" class="drag-item" id="sinar_salah" draggable="true" ondragstart="drag(event)" style="max-width: 300px;">
+      </div>
+      <div class="drop-zone" id="drop3" ondrop="drop(event, 'drop3')" ondragover="allowDrop(event)">Lepaskan gambar di sini</div>
+      <button onclick="cekDragDrop(3, 'sinar_benar')" class="cekJawaban nav-btn">Periksa</button>
+      <button id="lanjut3" class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
+      <p id="hasil3"></p>
+    </div>
+  
+    <!-- Soal 4 (diperbarui dengan pilihan lebih menipu) -->
+    <div class="question" id="soal4" style="display:none">
+      <p class="petunjuk"><strong>Petunjuk:</strong> Pilih gambar bayangan yang terbentuk oleh cermin datar.</p>
+      <p>4. Tarik gambar bayangan yang tegak dan sama besar dengan benda.</p>
+      <div class="drag-container">
+        <img src="/img/Materi1/bercermin.jpeg" alt="Bayangan Datar" class="drag-item" id="bayangan_datar" draggable="true" ondragstart="drag(event)" style="max-width: 300px;">
+        <img src="/img/Materi1/senter.png" alt="Bayangan Cekung (maya diperbesar)" class="drag-item" id="bayangan_cekung2" draggable="true" ondragstart="drag(event)" style="max-width: 300px;">
+        <img src="/img/Materi1/spion.png" alt="Bayangan Cembung (diperkecil)" class="drag-item" id="bayangan_cembung2" draggable="true" ondragstart="drag(event)" style="max-width: 300px;">
+      </div>
+      <div class="drop-zone" id="drop4" ondrop="drop(event, 'drop4')" ondragover="allowDrop(event)">Lepaskan gambar di sini</div>
+      <button onclick="cekDragDrop(4, 'bayangan_datar')" class="cekJawaban nav-btn">Periksa</button>
+      <button id="lanjut4" class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
+      <p id="hasil4"></p>
+    </div>
+  
+    <!-- Soal 5 -->
+    <div class="question" id="soal5" style="display:none">
+      <p class="petunjuk"><strong>Petunjuk:</strong> Pilih gambar yang menunjukkan posisi bayangan maya dari benda di depan cermin cekung (dalam fokus).</p>
+      <p>5. Tarik gambar posisi bayangan ke area jawaban.</p>
+      <div class="drag-container">
+        <img src="/img/Materi1/23.png" alt="Bayangan Maya" class="drag-item" id="bayangan_maya" draggable="true" ondragstart="drag(event)" style="max-width: 300px;">
+        <img src="/img/Materi1/222.png" alt="Bayangan Nyata" class="drag-item" id="bayangan_nyata" draggable="true" ondragstart="drag(event)" style="max-width: 300px;">
+        <img src="/img/Materi1/333.png" alt="Bayangan Salah" class="drag-item" id="bayangan_salah" draggable="true" ondragstart="drag(event)" style="max-width: 300px;">
+      </div>
+      <div class="drop-zone" id="drop5" ondrop="drop(event, 'drop5')" ondragover="allowDrop(event)">Lepaskan gambar di sini</div>
+      <button onclick="cekDragDrop(5, 'bayangan_maya')" class="cekJawaban nav-btn">Periksa</button>
+      <button id="lanjut5" class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
+      <p id="hasil5"></p>
+    </div>
+  </div>
+  
+  <script>
     let currentSoal = 1;
     const totalSoal = 5;
-    const latihanKe = 2;
-    let sedangMemproses = false;
-
+    
     function showSoal(index) {
-        for (let i = 1; i <= totalSoal; i++) {
-            document.getElementById(`soal${i}`).style.display = i === index ? "block" : "none";
-        }
+      for (let i = 1; i <= totalSoal; i++) {
+        const soal = document.getElementById(`soal${i}`);
+        if (soal) soal.style.display = i === index ? "block" : "none";
+      }
     }
-
+    
     function nextSoal() {
-        if (sedangMemproses) return;
-        sedangMemproses = true;
-
-        const btn = document.getElementById(`lanjut${currentSoal}`);
-        btn.classList.add("disabled");
-        btn.disabled = true;
-
-        if (currentSoal === totalSoal) {
-            // Tampilkan konfirmasi swal sebelum kirim data
-            Swal.fire({
-                title: 'Selesai?',
-                text: 'Apakah kamu yakin ingin menyelesaikan latihan ini?',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonText: 'Ya, Selesai',
-                cancelButtonText: 'Batal'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Simpan ke database
-                    fetch('/simpan-hasil-latihan', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                        },
-                        body: JSON.stringify({ latihan_ke: latihanKe })
-                    })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data.message);
-                        Swal.fire({
-                            title: 'Berhasil!',
-                            text: 'Latihan telah disimpan.',
-                            icon: 'success',
-                            timer: 1500,
-                            showConfirmButton: false
-                        }).then(() => {
-                            window.location.href = "/materi1/lensa";
-                        });
-                    })
-                    .catch(err => {
-                        console.error('Gagal simpan hasil latihan:', err);
-                        Swal.fire('Error', 'Gagal menyimpan hasil latihan. Silakan coba lagi.', 'error');
-                        btn.disabled = false;
-                        btn.classList.remove("disabled");
-                    })
-                    .finally(() => {
-                        sedangMemproses = false;
-                    });
-                } else {
-                    // Batalkan proses, enable kembali tombol
-                    btn.disabled = false;
-                    btn.classList.remove("disabled");
-                    sedangMemproses = false;
-                }
+      const btn = document.getElementById(`lanjut${currentSoal}`);
+      btn.classList.add("disabled");
+      btn.disabled = true;
+    
+      if (currentSoal === totalSoal) {
+        Swal.fire({
+          title: 'Selesai?',
+          text: 'Apakah kamu yakin ingin menyelesaikan latihan ini dan lanjut ke materi berikutnya?',
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonText: 'Ya, Lanjut',
+          cancelButtonText: 'Belum'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            fetch('/simpan-hasil-latihan', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+              },
+              body: JSON.stringify({ latihan_ke: 2 })
+            })
+            .then(res => res.json())
+            .then(data => {
+              Swal.fire({
+                title: 'Berhasil!',
+                text: 'Latihan telah disimpan.',
+                icon: 'success',
+                timer: 1500,
+                showConfirmButton: false
+              }).then(() => {
+                window.location.href = "/materi1/lensa";
+              });
+            })
+            .catch(err => {
+              Swal.fire('Error', 'Gagal menyimpan hasil latihan. Silakan coba lagi.', 'error');
+              btn.disabled = false;
+              btn.classList.remove("disabled");
             });
-        } else {
-            currentSoal++;
-            showSoal(currentSoal);
-            sedangMemproses = false;
-        }
+          } else {
+            btn.disabled = false;
+            btn.classList.remove("disabled");
+          }
+        });
+      } else {
+        currentSoal++;
+        showSoal(currentSoal);
+      }
     }
-
+    
+    function allowDrop(e) { e.preventDefault(); }
+    function drag(e) { e.dataTransfer.setData("text", e.target.id); }
+    
+    function drop(e, targetId) {
+      e.preventDefault();
+      const id = e.dataTransfer.getData("text");
+      const item = document.getElementById(id);
+      const target = document.getElementById(targetId);
+    
+      if (target.children.length > 0) {
+        const parent = target.parentElement.querySelector('.drag-container');
+        if (parent) parent.appendChild(target.firstChild);
+      }
+    
+      target.innerHTML = "";
+      target.appendChild(item);
+    }
+    
+    function cekDragDrop(nomor, kunciId) {
+      const drop = document.getElementById(`drop${nomor}`);
+      const hasil = document.getElementById(`hasil${nomor}`);
+      const btnLanjut = document.getElementById(`lanjut${nomor}`);
+      const anak = drop.children[0];
+    
+      if (anak && anak.id === kunciId) {
+        hasil.innerHTML = "Jawaban Benar!";
+        hasil.style.color = "green";
+        document.querySelectorAll(`#soal${nomor} .drag-item`).forEach(i => i.setAttribute("draggable", false));
+        btnLanjut.classList.remove("disabled");
+        btnLanjut.disabled = false;
+      } else {
+        hasil.innerHTML = "Jawaban Salah! Silakan coba lagi.";
+        hasil.style.color = "red";
+      }
+    }
+    
     showSoal(currentSoal);
 </script>
 @endsection

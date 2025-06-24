@@ -33,69 +33,57 @@
 <div class="card-custom">
     <h5>Aktivitas 3.2</h5>
     <div class="question-container">
-        <!-- Soal 1 -->
+
+        <!-- Essay 1 -->
         <div class="question" id="soal1">
-            <p><strong>Petunjuk:</strong> Pilih satu jawaban yang paling tepat.</p>
-            <p>1. Apa fungsi utama kaca pembesar dalam kehidupan sehari-hari?</p>
-            <ul class="options" id="q1">
-                <li onclick="pilihJawaban(this, 'q1', 'Memperbesar objek agar detailnya lebih terlihat jelas', 'hasil1')">Memperkecil ukuran objek agar lebih mudah dipahami</li>
-                <li onclick="pilihJawaban(this, 'q1', 'Memperbesar objek agar detailnya lebih terlihat jelas', 'hasil1')">Memperbesar objek agar detailnya lebih terlihat jelas</li>
-                <li onclick="pilihJawaban(this, 'q1', 'Memperbesar objek agar detailnya lebih terlihat jelas', 'hasil1')">Mengubah warna objek agar lebih kontras</li>
-                <li onclick="pilihJawaban(this, 'q1', 'Memperbesar objek agar detailnya lebih terlihat jelas', 'hasil1')">Menyerap cahaya untuk meningkatkan pencahayaan</li>
-            </ul>
+            <p><strong>Petunjuk:</strong> Ketik jawaban singkat yang benar.</p>
+            <p>1. Kaca pembesar menggunakan jenis lensa ...</p>
+            <input type="text" id="jawaban1" class="input-besar">
             <p id="hasil1"></p>
+            <button class="cekJawaban nav-btn" onclick="cekJawabanEssay('jawaban1', 'cembung', 'hasil1', 'Kaca pembesar menggunakan lensa cembung untuk membentuk bayangan yang diperbesar.')">Periksa</button>
             <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
         </div>
 
-        <!-- Soal 2 -->
+        <!-- Essay 2 -->
         <div class="question" id="soal2" style="display: none;">
             <p><strong>Petunjuk:</strong> Ketik jawaban singkat yang benar.</p>
-            <p>2. Apa jenis lensa yang digunakan pada kaca pembesar?</p>
+            <p>2. Bayangan yang dibentuk kaca pembesar bersifat maya, tegak, dan ...</p>
             <input type="text" id="jawaban2" class="input-besar">
             <p id="hasil2"></p>
-            <button class="cekJawaban nav-btn" onclick="cekJawaban2()">Periksa</button>
+            <button class="cekJawaban nav-btn" onclick="cekJawabanEssay('jawaban2', 'diperbesar', 'hasil2', 'Bayangan yang dibentuk oleh lup bersifat maya, tegak, dan diperbesar.')">Periksa</button>
             <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
         </div>
 
-        <!-- Soal 3 -->
+        <!-- Essay 3 -->
         <div class="question" id="soal3" style="display: none;">
-            <p><strong>Petunjuk:</strong> Seret dan cocokkan setiap istilah dengan penjelasan yang sesuai.</p>
-            <p>3. Cocokkan istilah berikut dengan penjelasannya yang benar:</p>
-            <div id="dragContainer" class="drag-container">
-                <div class="drag-item" draggable="true" id="cembung" ondragstart="drag(event)">Mengumpulkan cahaya dan memperbesar bayangan</div>
-                <div class="drag-item" draggable="true" id="lup" ondragstart="drag(event)">Membantu melihat benda kecil lebih jelas</div>
-                <div class="drag-item" draggable="true" id="cekung" ondragstart="drag(event)">Menyebarkan cahaya dan membuat bayangan lebih</div>
-            </div>
-            <p>Lup</p><div class="drop-zone" id="drop1" ondrop="drop(event, 'drop1')" ondragover="allowDrop(event)"></div>
-            <p>Lensa Cembung</p><div class="drop-zone" id="drop2" ondrop="drop(event, 'drop2')" ondragover="allowDrop(event)"></div>
-            <p>Lensa Cekung</p><div class="drop-zone" id="drop3" ondrop="drop(event, 'drop3')" ondragover="allowDrop(event)"></div>
+            <p><strong>Petunjuk:</strong> Ketik jawaban singkat yang benar.</p>
+            <p>3. Kaca pembesar digunakan untuk melihat benda-benda yang ...</p>
+            <input type="text" id="jawaban3" class="input-besar">
             <p id="hasil3"></p>
-            <button class="cekJawaban nav-btn" onclick="cekDragDrop()">Periksa</button>
+            <button class="cekJawaban nav-btn" onclick="cekJawabanEssay('jawaban3', 'kecil', 'hasil3', 'Lup digunakan untuk melihat benda-benda kecil agar tampak lebih besar.')">Periksa</button>
             <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
         </div>
 
-        <!-- Soal 4 -->
+        <!-- Essay 4 -->
         <div class="question" id="soal4" style="display: none;">
-            <p><strong>Petunjuk:</strong> Ketik jawaban singkat berdasarkan pemahamanmu.</p>
-            <p>4. Apa fungsi utama kaca pembesar dalam kehidupan sehari-hari?</p>
+            <p><strong>Petunjuk:</strong> Ketik jawaban singkat yang benar.</p>
+            <p>4. Jika mata tidak berakomodasi, bayangan dibentuk pada titik ...</p>
             <input type="text" id="jawaban4" class="input-besar">
             <p id="hasil4"></p>
-            <button class="cekJawaban nav-btn" onclick="cekJawaban4()">Periksa</button>
+            <button class="cekJawaban nav-btn" onclick="cekJawabanEssay('jawaban4', 'dekat', 'hasil4', 'Jika mata tidak berakomodasi, bayangan dibentuk pada titik dekat mata (Sn).')">Periksa</button>
             <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
         </div>
 
-        <!-- Soal 5 -->
+        <!-- Essay 5 -->
         <div class="question" id="soal5" style="display: none;">
-            <p><strong>Petunjuk:</strong> Pilih "Benar" atau "Salah" berdasarkan pernyataan berikut.</p>
-            <p>5. Perhatikan pernyataan berikut:</p>
-            <p>"Kaca pembesar menggunakan lensa cekung untuk memperbesar objek."</p>
-            <ul id="q5" class="list-unstyled">
-                <li><input type="radio" name="q5" value="Benar" onclick="cekPernyataan('q5', 'Salah', 'hasil5')"> Benar</li>
-                <li><input type="radio" name="q5" value="Salah" onclick="cekPernyataan('q5', 'Salah', 'hasil5')"> Salah</li>
-            </ul>
+            <p><strong>Petunjuk:</strong> Ketik jawaban singkat yang benar.</p>
+            <p>5. Nama lain dari kaca pembesar adalah ...</p>
+            <input type="text" id="jawaban5" class="input-besar">
             <p id="hasil5"></p>
+            <button class="cekJawaban nav-btn" onclick="cekJawabanEssay('jawaban5', 'lup', 'hasil5', 'Lup atau kaca pembesar merupakan alat optik sederhana.')">Periksa</button>
             <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
         </div>
+
     </div>
 </div>
 
@@ -119,7 +107,6 @@
             currentSoal++;
             showSoal(currentSoal);
         } else {
-            // Swal konfirmasi sebelum menyimpan & redirect
             Swal.fire({
                 title: 'Latihan selesai!',
                 text: 'Apakah kamu ingin melanjutkan ke materi berikutnya?',
@@ -135,22 +122,20 @@
                             'Content-Type': 'application/json',
                             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                         },
-                        body: JSON.stringify({ latihan_ke: 7 }) // ← latihan ke-7
+                        body: JSON.stringify({ latihan_ke: 7 })
                     })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data.message);
                         Swal.fire({
                             title: 'Berhasil!',
                             text: 'Hasil latihan telah disimpan.',
                             icon: 'success',
                             confirmButtonText: 'Lanjut ke Materi'
                         }).then(() => {
-                            window.location.href = "/materi3/mikroskop"; // ← redirect setelah selesai
+                            window.location.href = "/materi3/mikroskop";
                         });
                     })
                     .catch(err => {
-                        console.error('Gagal simpan hasil latihan:', err);
                         Swal.fire('Gagal', 'Tidak dapat menyimpan hasil latihan. Silakan coba lagi.', 'error');
                     });
                 }
@@ -158,131 +143,22 @@
         }
     }
 
-    function pilihJawaban(el, qid, kunci, hasilId) {
-        const container = document.getElementById(qid);
+    function cekJawabanEssay(inputId, kunci, hasilId, penjelasan) {
+        const input = document.getElementById(inputId).value.trim().toLowerCase();
         const hasil = document.getElementById(hasilId);
-        const btn = hasil.nextElementSibling;
+        const nomorSoal = inputId.replace("jawaban", "");
+        const btnLanjut = document.querySelector(`#soal${nomorSoal} .lanjut-btn`);
 
         if (hasil.dataset.answered === "true") return;
 
-        container.querySelectorAll("li").forEach(li => li.classList.remove("selected"));
-        el.classList.add("selected");
-
-        const userJawaban = el.textContent.trim();
-        if (userJawaban === kunci) {
-            hasil.innerHTML = "Jawaban Benar!";
-            hasil.style.color = "green";
-            hasil.dataset.answered = "true";
-            btn.classList.remove("disabled");
-            container.querySelectorAll("li").forEach(li => li.style.pointerEvents = "none");
-        } else {
-            hasil.innerHTML = `Jawaban Salah! Jawaban yang benar: ${kunci}`;
-            hasil.style.color = "red";
-        }
-    }
-
-    function cekJawaban2() {
-        const hasil = document.getElementById("hasil2");
-        const input = document.getElementById("jawaban2").value.trim().toLowerCase();
-        const btnLanjut = document.querySelector("#soal2 .lanjut-btn");
-
-        if (hasil.dataset.answered === "true") return;
-
-        if (input === "lensa cembung") {
-            hasil.innerHTML = "Jawaban Benar!";
+        if (input === kunci) {
+            hasil.innerHTML = `<span style="color:green">Jawaban Benar!</span><br><em>${penjelasan}</em>`;
             hasil.style.color = "green";
             hasil.dataset.answered = "true";
             btnLanjut.classList.remove("disabled");
-            document.getElementById("jawaban2").setAttribute("disabled", true);
+            document.getElementById(inputId).setAttribute("disabled", true);
         } else {
-            hasil.innerHTML = "Jawaban Salah! Jawaban yang benar: Lensa cembung";
-            hasil.style.color = "red";
-        }
-    }
-
-    function allowDrop(e) { e.preventDefault(); }
-
-    function drag(e) {
-        e.dataTransfer.setData("text", e.target.id);
-    }
-
-    function drop(e, targetId) {
-        e.preventDefault();
-        const id = e.dataTransfer.getData("text");
-        const target = document.getElementById(targetId);
-        const item = document.getElementById(id);
-
-        if (target.children.length > 0) {
-            document.getElementById("dragContainer").appendChild(target.firstChild);
-        }
-
-        target.innerHTML = "";
-        target.appendChild(item);
-    }
-
-    function cekDragDrop() {
-        const hasil = document.getElementById("hasil3");
-        const btnLanjut = document.querySelector("#soal3 .lanjut-btn");
-
-        if (hasil.dataset.answered === "true") return;
-
-        const benar =
-            document.getElementById("drop1").children[0]?.id === "lup" &&
-            document.getElementById("drop2").children[0]?.id === "cembung" &&
-            document.getElementById("drop3").children[0]?.id === "cekung";
-
-        if (benar) {
-            hasil.innerHTML = "Jawaban Benar!";
-            hasil.style.color = "green";
-            hasil.dataset.answered = "true";
-            btnLanjut.classList.remove("disabled");
-            document.querySelectorAll(".drag-item").forEach(i => i.setAttribute("draggable", false));
-        } else {
-            hasil.innerHTML = "Jawaban Salah! <br>Lup → Membantu melihat benda kecil lebih jelas <br>Lensa cembung → Mengumpulkan cahaya dan memperbesar bayangan <br>Lensa cekung → Menyebarkan cahaya dan membuat bayangan lebih kecil";
-            hasil.style.color = "red";
-        }
-    }
-
-    function cekJawaban4() {
-        const hasil = document.getElementById("hasil4");
-        const input = document.getElementById("jawaban4").value.trim().toLowerCase();
-        const btnLanjut = document.querySelector("#soal4 .lanjut-btn");
-
-        if (hasil.dataset.answered === "true") return;
-
-        if (input === "memperbesar objek agar detailnya lebih terlihat jelas") {
-            hasil.innerHTML = "Jawaban Benar!";
-            hasil.style.color = "green";
-            hasil.dataset.answered = "true";
-            btnLanjut.classList.remove("disabled");
-            document.getElementById("jawaban4").setAttribute("disabled", true);
-        } else {
-            hasil.innerHTML = "Jawaban Salah! Jawaban yang benar: Memperbesar objek agar detailnya lebih terlihat jelas";
-            hasil.style.color = "red";
-        }
-    }
-
-    function cekPernyataan(qid, kunci, hasilId) {
-        const hasil = document.getElementById(hasilId);
-        const btnLanjut = hasil.nextElementSibling;
-
-        if (hasil.dataset.answered === "true") return;
-
-        const jawab = document.querySelector(`input[name="${qid}"]:checked`);
-        if (!jawab) {
-            hasil.textContent = "Pilih salah satu jawaban!";
-            hasil.style.color = "orange";
-            return;
-        }
-
-        if (jawab.value === kunci) {
-            hasil.innerHTML = "Jawaban Benar!";
-            hasil.style.color = "green";
-            hasil.dataset.answered = "true";
-            btnLanjut.classList.remove("disabled");
-            document.querySelectorAll(`input[name="${qid}"]`).forEach(i => i.disabled = true);
-        } else {
-            hasil.innerHTML = `Jawaban Salah! Jawaban yang benar: ${kunci}. Lensa cekung tidak digunakan untuk memperbesar objek.`;
+            hasil.innerHTML = "Jawaban Salah! Silakan coba lagi.";
             hasil.style.color = "red";
         }
     }

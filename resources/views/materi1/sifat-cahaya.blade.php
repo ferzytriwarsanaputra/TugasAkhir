@@ -117,45 +117,41 @@
 
         <!-- Soal 2 -->
         <div class="question" id="soal2" style="display: none;">
-            <p class="petunjuk">Seret dan cocokkan pernyataan dengan jenis pemantulannya yang sesuai.</p>
-            <p>2. Cocokkan jenis pemantulan dengan contohnya:</p>
-            <div id="dragContainer" class="drag-container">
-                <div class="drag-item" draggable="true" id="cermin" ondragstart="drag(event)">Cahaya dipantulkan oleh cermin datar</div>
-                <div class="drag-item" draggable="true" id="tembok" ondragstart="drag(event)">Cahaya dipantulkan oleh tembok kasar</div>
-            </div>
-            <p>Pemantulan Teratur:</p>
-            <div class="drop-zone" id="drop1" ondrop="drop(event, 'drop1')" ondragover="allowDrop(event)"></div>
-            <p>Pemantulan Baur:</p>
-            <div class="drop-zone" id="drop2" ondrop="drop(event, 'drop2')" ondragover="allowDrop(event)"></div>
-
-            <div style="display: flex; gap: 10px; align-items: center; margin-top: 10px;">
-                <button class="cekJawaban nav-btn" onclick="cekDragDrop()">Periksa</button>
-                <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()" disabled>Lanjut</button>
-            </div>
+            <p class="petunjuk">Pilihlah satu jawaban yang paling benar.</p>
+            <p>2. Pasangan yang tepat antara jenis pemantulan dan contohnya ditunjukkan oleh pernyataan ...</p>
+            <ul class="options" id="q2">
+                <li onclick="pilihJawaban(this, 'q2')">Pemantulan teratur – cahaya dipantulkan oleh tembok kasar</li>
+                <li onclick="pilihJawaban(this, 'q2')">Pemantulan baur – cahaya dipantulkan oleh cermin datar</li>
+                <li onclick="pilihJawaban(this, 'q2')">Pemantulan teratur – cahaya dipantulkan oleh cermin datar</li>
+                <li onclick="pilihJawaban(this, 'q2')">Pemantulan baur – cahaya dipantulkan oleh kaca bening</li>
+            </ul>
+            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()" disabled>Lanjut</button>
             <p id="hasil2"></p>
         </div>
 
         <!-- Soal 3 -->
         <div class="question" id="soal3" style="display: none;">
-            <p class="petunjuk">Isilah jawaban Anda dengan angka yang tepat (gunakan simbol ° jika perlu).</p>
-            <p>3. Jika sudut datang cahaya ke sebuah cermin adalah 30°, maka berapakah sudut pantulnya berdasarkan hukum pemantulan?</p>
-            <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 10px;">
-                <input type="text" id="jawaban3">
-                <button class="cekJawaban nav-btn" id="cekEssayBtn" onclick="cekEssay()">Periksa</button>
-            </div>
-            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()" disabled id="lanjutEssayBtn">Lanjut</button>
+            <p class="petunjuk">Pilihlah satu jawaban yang paling benar.</p>
+            <p>3. Sudut pantul cahaya jika sudut datangnya 30° berdasarkan hukum pemantulan adalah ...</p>
+            <ul class="options" id="q3">
+                <li onclick="pilihJawaban(this, 'q3')">15°</li>
+                <li onclick="pilihJawaban(this, 'q3')">30°</li>
+                <li onclick="pilihJawaban(this, 'q3')">45°</li>
+                <li onclick="pilihJawaban(this, 'q3')">60°</li>
+            </ul>
+            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()" disabled>Lanjut</button>
             <p id="hasil3"></p>
         </div>
 
         <!-- Soal 4 -->
         <div class="question" id="soal4" style="display: none;">
             <p class="petunjuk">Pilihlah satu jawaban yang paling benar.</p>
-            <p>4. Saat melihat ke dalam kolam yang jernih, dasar kolam terlihat lebih dangkal daripada kedalaman sebenarnya. Fenomena ini terjadi karena…</p>
+            <p>4. Dasar kolam terlihat lebih dangkal daripada kedalaman sebenarnya karena peristiwa ...</p>
             <ul class="options" id="q4">
                 <li onclick="pilihJawaban(this, 'q4')">Cahaya dipantulkan oleh air</li>
                 <li onclick="pilihJawaban(this, 'q4')">Cahaya dibiaskan saat berpindah dari air ke udara</li>
                 <li onclick="pilihJawaban(this, 'q4')">Cahaya merambat lurus dalam air</li>
-                <li onclick="pilihJawaban(this, 'q4')">Cahaya merupakan gelombang elektronik</li>
+                <li onclick="pilihJawaban(this, 'q4')">Cahaya merupakan gelombang elektromagnetik</li>
             </ul>
             <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()" disabled>Lanjut</button>
             <p id="hasil4"></p>
@@ -164,12 +160,12 @@
         <!-- Soal 5 -->
         <div class="question" id="soal5" style="display: none;">
             <p class="petunjuk">Pilihlah satu jawaban yang paling benar.</p>
-            <p>5. Cahaya matahari yang melewati tetesan air hujan dan membentuk pelangi adalah contoh dari peristiwa…</p>
+            <p>5. Perbedaan antara cahaya dan suara dalam hal perambatan ditunjukkan oleh pernyataan ...</p>
             <ul class="options" id="q5">
-                <li onclick="pilihJawaban(this, 'q5')">Interferensi cahaya</li>
-                <li onclick="pilihJawaban(this, 'q5')">Dispersi cahaya</li>
-                <li onclick="pilihJawaban(this, 'q5')">Refleksi cahaya</li>
-                <li onclick="pilihJawaban(this, 'q5')">Difraksi cahaya</li>
+                <li onclick="pilihJawaban(this, 'q5')">Cahaya membutuhkan udara sebagai medium perambatan</li>
+                <li onclick="pilihJawaban(this, 'q5')">Cahaya dapat merambat tanpa memerlukan medium</li>
+                <li onclick="pilihJawaban(this, 'q5')">Cahaya hanya bisa merambat dalam air</li>
+                <li onclick="pilihJawaban(this, 'q5')">Cahaya tidak bisa merambat di luar angkasa</li>
             </ul>
             <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()" disabled>Lanjut</button>
             <p id="hasil5"></p>
@@ -187,118 +183,43 @@
 <script>
     let currentSoal = 1;
 
+    const correctAnswer = {
+        q1: "Merambat lurus",
+        q2: "Pemantulan teratur – cahaya dipantulkan oleh cermin datar",
+        q3: "30°",
+        q4: "Cahaya dibiaskan saat berpindah dari air ke udara",
+        q5: "Cahaya dapat merambat tanpa memerlukan medium"
+    };
+
+    const resultId = {
+        q1: "hasil1",
+        q2: "hasil2",
+        q3: "hasil3",
+        q4: "hasil4",
+        q5: "hasil5"
+    };
+
     function pilihJawaban(element, questionId) {
         let options = document.querySelectorAll(`#${questionId} li`);
         options.forEach(option => option.classList.remove("selected"));
         element.classList.add("selected");
 
-        let correctAnswer = {
-            q1: "Merambat lurus",
-            q4: "Cahaya dibiaskan saat berpindah dari air ke udara",
-            q5: "Dispersi cahaya"
-        }[questionId];
-
-        let resultId = {
-            q1: "hasil1",
-            q4: "hasil4",
-            q5: "hasil5"
-        }[questionId];
-
-        let resultElement = document.getElementById(resultId);
+        let resultElement = document.getElementById(resultId[questionId]);
         let userAnswer = element.textContent;
 
-        if (userAnswer === correctAnswer) {
+        if (userAnswer === correctAnswer[questionId]) {
             resultElement.innerHTML = "Jawaban Benar!";
             resultElement.style.color = "green";
-            enableLanjut();  // ✅ hanya diaktifkan jika benar
+            enableLanjut();
             options.forEach(option => {
-                option.onclick = null; // Matikan event klik
-                option.style.pointerEvents = "none"; // Opsional: hindari interaksi
+                option.onclick = null;
+                option.style.pointerEvents = "none";
             });
         } else {
-            resultElement.innerHTML = "Jawaban Salah! Jawaban yang benar: " + correctAnswer;
+            resultElement.innerHTML = "Jawaban Salah. Silakan baca ulang materinya dan coba lagi.";
             resultElement.style.color = "red";
         }
     }
-
-    function cekEssay() {
-        let userAnswer = document.getElementById("jawaban3").value.trim();
-        let resultElement = document.getElementById("hasil3");
-        let lanjutBtn = document.getElementById("lanjutEssayBtn");
-        let periksaBtn = document.getElementById("cekEssayBtn");
-
-        if (userAnswer === "30") {
-            resultElement.innerHTML = "Jawaban Benar!";
-            resultElement.style.color = "green";
-            lanjutBtn.disabled = false;
-            lanjutBtn.classList.remove("disabled");
-
-            // Nonaktifkan input dan tombol periksa
-            document.getElementById("jawaban3").setAttribute("disabled", "true");
-            periksaBtn.disabled = true;
-            periksaBtn.classList.add("disabled");
-        } else {
-            resultElement.innerHTML = "Jawaban Salah! Jawaban yang benar: 30°";
-            resultElement.style.color = "red";
-        }
-    }
-
-        // Fungsi untuk mengizinkan item di-drag ke dalam drop zone
-        function allowDrop(event) {
-        event.preventDefault();  // Menghindari perilaku default browser
-    }
-
-    // Fungsi drag event handler
-    function drag(event) {
-        event.dataTransfer.setData("text", event.target.id);  // Set data ID item yang di-drag
-    }
-
-    function drop(event, dropZoneId) {
-        event.preventDefault();
-        let data = event.dataTransfer.getData("text");
-        let draggedElement = document.getElementById(data);
-        let dropZone = document.getElementById(dropZoneId);
-
-        // Jika sudah ada item di zona drop, kembalikan ke kontainer drag
-        if (dropZone.children.length > 0) {
-            let existingItem = dropZone.children[0];
-            document.getElementById("dragContainer").appendChild(existingItem);
-        }
-
-        // Pindahkan elemen ke zona drop
-        dropZone.innerHTML = "";
-        dropZone.appendChild(draggedElement);
-
-    }
-
-    // Fungsi untuk memeriksa apakah drag-drop sudah benar
-    function cekDragDrop() {
-        let drop1 = document.getElementById("drop1").children[0]?.id;
-        let drop2 = document.getElementById("drop2").children[0]?.id;
-        let resultElement = document.getElementById("hasil2");
-
-        if (drop1 === "cermin" && drop2 === "tembok") {
-            resultElement.innerHTML = "Jawaban Benar!";
-            resultElement.style.color = "green";
-            enableLanjut();  // Pindahkan ke sini agar hanya dipanggil jika sudah dijawab
-            // Nonaktifkan drag & drop setelah benar
-            document.querySelectorAll(".drag-item").forEach(item => {
-                item.setAttribute("draggable", "false");
-                item.style.cursor = "default";
-            });
-            document.querySelectorAll(".drop-zone").forEach(zone => {
-                zone.ondrop = null;
-                zone.ondragover = null;
-            });
-        } else if (drop1 || drop2) {
-            resultElement.innerHTML = "Jawaban Salah! Pemantulan teratur terjadi pada cermin, dan pemantulan baur terjadi pada tembok kasar.";
-            resultElement.style.color = "red";
-        } else {
-            resultElement.innerHTML = "Lengkapi semua kolom terlebih dahulu!";
-            resultElement.style.color = "red";
-        }
-    }
-
 
     function enableLanjut() {
         let btn = document.querySelector(`#soal${currentSoal} .lanjut-btn`);
@@ -319,44 +240,30 @@
                 cancelButtonText: 'Batal'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // Kirim data latihan ke server
                     fetch('/simpan-hasil-latihan', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
                             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
                         },
-                        body: JSON.stringify({
-                            latihan_ke: 1
-                        })
+                        body: JSON.stringify({ latihan_ke: 1 })
                     })
                     .then(response => response.json())
                     .then(data => {
-                        console.log(data.message);
                         window.location.href = "/materi1/bayangan-cermin";
                     })
                     .catch(error => {
-                        console.error("Gagal menyimpan hasil latihan:", error);
                         Swal.fire('Gagal', 'Terjadi kesalahan saat menyimpan. Coba lagi.', 'error');
                     });
                 }
             });
-
-            return; // Stop agar tidak lanjut ke baris bawah
+            return;
         }
 
-        // Sembunyikan soal saat ini
         document.getElementById(`soal${currentSoal}`).style.display = "none";
-
-        // Tambah nomor soal
         currentSoal++;
+        document.getElementById(`soal${currentSoal}`).style.display = "block";
 
-        // Tampilkan soal berikutnya
-        if (document.getElementById(`soal${currentSoal}`)) {
-            document.getElementById(`soal${currentSoal}`).style.display = "block";
-        }
-
-        // Reset tombol lanjut di soal baru
         let currentBtn = document.querySelector(`#soal${currentSoal} .lanjut-btn`);
         if (currentBtn) {
             currentBtn.disabled = true;

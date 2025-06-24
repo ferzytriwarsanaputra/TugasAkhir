@@ -36,16 +36,12 @@
         <!-- Soal 1 -->
         <div class="question" id="soal1">
             <p><strong>Petunjuk:</strong> Pilih jawaban yang paling tepat terkait fungsi mikroskop dalam kehidupan sehari-hari.</p>
-            <p>1. Apa fungsi utama mikroskop dalam kehidupan sehari-hari?</p>
+            <p>1. Mikroskop digunakan untuk melihat benda kecil agar...</p>
             <ul class="options" id="q1">
-                <li onclick="pilihJawaban(this, 'q1', 'Memperbesar benda kecil agar terlihat lebih jelas', 'hasil1')">
-                    Memperbesar benda kecil agar terlihat lebih jelas
-                </li>
-                <li onclick="pilihJawaban(this, 'q1', 'Memperbesar benda kecil agar terlihat lebih jelas', 'hasil1')">
-                    Mengubah warna objek agar lebih mudah diamati
-                </li>                
-                <li onclick="pilihJawaban(this, 'q1', 'Memperbesar benda kecil agar terlihat lebih jelas', 'hasil1')">Memperkecil benda besar agar lebih praktis diamati</li>
-                <li onclick="pilihJawaban(this, 'q1', 'Memperbesar benda kecil agar terlihat lebih jelas', 'hasil1')">Memantulkan cahaya untuk menghasilkan bayangan baru</li>
+                <li onclick="pilihJawaban(this, 'q1', 'Memperbesar benda kecil agar terlihat lebih jelas', 'hasil1')">Memperkecil benda besar agar praktis</li>
+                <li onclick="pilihJawaban(this, 'q1', 'Memperbesar benda kecil agar terlihat lebih jelas', 'hasil1')">Mengubah warna objek agar lebih menarik</li>
+                <li onclick="pilihJawaban(this, 'q1', 'Memperbesar benda kecil agar terlihat lebih jelas', 'hasil1')">Memperbesar benda kecil agar terlihat lebih jelas</li>
+                <li onclick="pilihJawaban(this, 'q1', 'Memperbesar benda kecil agar terlihat lebih jelas', 'hasil1')">Memantulkan cahaya dari atas</li>
             </ul>
             <p id="hasil1"></p>
             <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
@@ -53,41 +49,41 @@
 
         <!-- Soal 2 -->
         <div class="question" id="soal2" style="display: none;">
-            <p><strong>Petunjuk:</strong> Seret nama bagian mikroskop ke tempat yang sesuai dengan fungsinya.</p>
-            <p>2. Cocokkan bagian mikroskop dengan fungsinya!</p>
-            <div id="dragContainer" class="drag-container">
-                <div class="drag-item" draggable="true" id="cermin" ondragstart="drag(event)">Memfokuskan cahaya ke objek</div>
-                <div class="drag-item" draggable="true" id="objektif" ondragstart="drag(event)">Memperbesar objek pertama kali</div>
-                <div class="drag-item" draggable="true" id="okuler" ondragstart="drag(event)">Memperbesar bayangan dari lensa objektif</div>
-                <div class="drag-item" draggable="true" id="mikroskop" ondragstart="drag(event)">Memegang objek yang akan diamati</div>
-            </div>
-            <p>Lensa Okuler</p><div class="drop-zone" id="drop1" ondrop="drop(event, 'drop1')" ondragover="allowDrop(event)"></div>
-            <p>Lensa Objektif</p><div class="drop-zone" id="drop2" ondrop="drop(event, 'drop2')" ondragover="allowDrop(event)"></div>
-            <p>Meja Mikroskop</p><div class="drop-zone" id="drop3" ondrop="drop(event, 'drop3')" ondragover="allowDrop(event)"></div>
-            <p>Cermin</p><div class="drop-zone" id="drop4" ondrop="drop(event, 'drop4')" ondragover="allowDrop(event)"></div>
+            <p><strong>Petunjuk:</strong> Pilih dua lensa yang digunakan dalam mikroskop cahaya.</p>
+            <p>2. Dua jenis lensa utama dalam mikroskop cahaya adalah...</p>
+            <ul class="options" id="q2">
+                <li onclick="pilihJawaban(this, 'q2', 'Lensa objektif dan lensa okuler', 'hasil2')">Lensa cembung dan lensa cekung</li>
+                <li onclick="pilihJawaban(this, 'q2', 'Lensa objektif dan lensa okuler', 'hasil2')">Lensa prisma dan lensa kontak</li>
+                <li onclick="pilihJawaban(this, 'q2', 'Lensa objektif dan lensa okuler', 'hasil2')">Lensa cekung dan cermin datar</li>
+                <li onclick="pilihJawaban(this, 'q2', 'Lensa objektif dan lensa okuler', 'hasil2')">Lensa objektif dan lensa okuler</li>
+            </ul>
             <p id="hasil2"></p>
-            <button class="cekJawaban nav-btn" onclick="cekDragDrop()">Periksa</button>
             <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
         </div>
 
         <!-- Soal 3 -->
         <div class="question" id="soal3" style="display: none;">
-            <p><strong>Petunjuk:</strong> Ketik dua jenis lensa dalam mikroskop dan jelaskan fungsinya.</p>
-            <p>3. Sebutkan dua jenis lensa yang digunakan pada mikroskop dan fungsinya!</p>
-            <input type="text" id="jawaban3" class="input-besar">
+            <p><strong>Petunjuk:</strong> Pilih sifat bayangan akhir yang dihasilkan mikroskop.</p>
+            <p>3. Bayangan akhir dari mikroskop bersifat...</p>
+            <ul class="options" id="q3">
+                <li onclick="pilihJawaban(this, 'q3', 'Maya dan diperbesar', 'hasil3')">Nyata dan menyusut</li>
+                <li onclick="pilihJawaban(this, 'q3', 'Maya dan diperbesar', 'hasil3')">Maya dan diperbesar</li>
+                <li onclick="pilihJawaban(this, 'q3', 'Maya dan diperbesar', 'hasil3')">Maya dan berwarna</li>
+                <li onclick="pilihJawaban(this, 'q3', 'Maya dan diperbesar', 'hasil3')">Nyata dan tegak</li>
+            </ul>
             <p id="hasil3"></p>
-            <button class="cekJawaban nav-btn" onclick="cekJawaban3()">Periksa</button>
             <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
         </div>
 
         <!-- Soal 4 -->
         <div class="question" id="soal4" style="display: none;">
-            <p><strong>Petunjuk:</strong> Baca pernyataan berikut dan pilih apakah pernyataan tersebut benar atau salah.</p>
-            <p>4. Perhatikan pernyataan berikut:</p>
-            <p>"Bayangan yang dihasilkan oleh mikroskop bersifat maya dan diperbesar."</p>
-            <ul id="q4" class="list-unstyled">
-                <li><input type="radio" name="q4" value="Benar" onclick="cekPernyataan('q4', 'Benar', 'hasil4')"> Benar</li>
-                <li><input type="radio" name="q4" value="Salah" onclick="cekPernyataan('q4', 'Benar', 'hasil4')"> Salah</li>
+            <p><strong>Petunjuk:</strong> Pilih jawaban yang paling tepat tentang fungsi lensa objektif.</p>
+            <p>4. Lensa objektif dalam mikroskop berfungsi untuk...</p>
+            <ul class="options" id="q4">
+                <li onclick="pilihJawaban(this, 'q4', 'Memperbesar objek pertama kali', 'hasil4')">Meningkatkan fokus cahaya</li>
+                <li onclick="pilihJawaban(this, 'q4', 'Memperbesar objek pertama kali', 'hasil4')">Memperbesar objek pertama kali</li>
+                <li onclick="pilihJawaban(this, 'q4', 'Memperbesar objek pertama kali', 'hasil4')">Menyaring warna dari objek</li>
+                <li onclick="pilihJawaban(this, 'q4', 'Memperbesar objek pertama kali', 'hasil4')">Menyalurkan cahaya ke mata</li>
             </ul>
             <p id="hasil4"></p>
             <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
@@ -95,20 +91,20 @@
 
         <!-- Soal 5 -->
         <div class="question" id="soal5" style="display: none;">
-            <p><strong>Petunjuk:</strong> Lengkapi kalimat dengan dua kata yang menggambarkan sifat bayangan dari lensa objektif mikroskop.</p>
-            <p>5. Lengkapi pernyataan berikut dengan kata yang tepat!</p>
-            <p>Lensa objektif pada mikroskop menghasilkan bayangan yang bersifat 
-                <input type="text" id="jawaban5a"> dan 
-                <input type="text" id="jawaban5b">.
-            </p>
+            <p><strong>Petunjuk:</strong> Pilih pernyataan yang benar tentang mikroskop.</p>
+            <p>5. Mikroskop sangat penting dalam ilmu pengetahuan karena...</p>
+            <ul class="options" id="q5">
+                <li onclick="pilihJawaban(this, 'q5', 'Membantu melihat detail yang tidak bisa dilihat oleh mata biasa', 'hasil5')">Memantulkan bayangan nyata ke cermin datar</li>
+                <li onclick="pilihJawaban(this, 'q5', 'Membantu melihat detail yang tidak bisa dilihat oleh mata biasa', 'hasil5')">Memperkecil objek untuk dipelajari lebih mudah</li>
+                <li onclick="pilihJawaban(this, 'q5', 'Membantu melihat detail yang tidak bisa dilihat oleh mata biasa', 'hasil5')">Membantu melihat detail yang tidak bisa dilihat oleh mata biasa</li>
+                <li onclick="pilihJawaban(this, 'q5', 'Membantu melihat detail yang tidak bisa dilihat oleh mata biasa', 'hasil5')">Membantu menyerap cahaya dari mata manusia</li>
+            </ul>
             <p id="hasil5"></p>
-            <button class="cekJawaban nav-btn" onclick="cekJawaban5()">Periksa</button>
             <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
         </div>
     </div>
 </div>
 
-<!-- Navigasi Halaman -->
 <div class="navigation d-flex justify-content-between">
     <a class="nav-btn btn btn-primary" href="/materi3/lup">Sebelumnya</a>
     <a class="nav-btn btn btn-primary" href="/materi3/teleskop">Selanjutnya</a>
@@ -129,20 +125,16 @@
             currentSoal++;
             showSoal(currentSoal);
         } else {
-            // HANYA SIMPAN SAAT SOAL TERAKHIR SAJA (latihan ke-8)
             fetch('/simpan-hasil-latihan', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                 },
-                body: JSON.stringify({ latihan_ke: 8 }) // ← latihan ke-8
+                body: JSON.stringify({ latihan_ke: 8 })
             })
             .then(res => res.json())
             .then(data => {
-                console.log(data.message);
-
-                // Tampilkan Swal sebelum redirect
                 Swal.fire({
                     title: 'Latihan Selesai!',
                     text: 'Kamu akan diarahkan ke materi berikutnya.',
@@ -150,7 +142,7 @@
                     confirmButtonText: 'Lanjutkan'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = "/materi3/teleskop"; // ← redirect setelah selesai
+                        window.location.href = "/materi3/teleskop";
                     }
                 });
             })
@@ -179,130 +171,7 @@
             btn.classList.remove("disabled");
             container.querySelectorAll("li").forEach(li => li.style.pointerEvents = "none");
         } else {
-            hasil.innerHTML = `Jawaban Salah! Jawaban yang benar: ${kunci}`;
-            hasil.style.color = "red";
-        }
-    }
-
-    function cekPernyataan(qid, kunci, hasilId) {
-        const hasil = document.getElementById(hasilId);
-        const btn = hasil.nextElementSibling;
-        if (hasil.dataset.answered === "true") return;
-
-        const jawab = document.querySelector(`input[name="${qid}"]:checked`);
-        if (!jawab) {
-            hasil.textContent = "Pilih salah satu jawaban!";
-            hasil.style.color = "orange";
-            return;
-        }
-
-        if (jawab.value === kunci) {
-            hasil.innerHTML = "Jawaban Benar!";
-            hasil.style.color = "green";
-            hasil.dataset.answered = "true";
-            btn.classList.remove("disabled");
-            document.querySelectorAll(`input[name="${qid}"]`).forEach(i => i.disabled = true);
-        } else {
-            hasil.innerHTML = `Jawaban Salah! Jawaban yang benar: ${kunci}`;
-            hasil.style.color = "red";
-        }
-    }
-
-    function allowDrop(e) { e.preventDefault(); }
-
-    function drag(e) {
-        e.dataTransfer.setData("text", e.target.id);
-    }
-
-    function drop(e, targetId) {
-        e.preventDefault();
-        const id = e.dataTransfer.getData("text");
-        const target = document.getElementById(targetId);
-        const item = document.getElementById(id);
-        if (target.children.length > 0) {
-            document.getElementById("dragContainer").appendChild(target.firstChild);
-        }
-        target.innerHTML = "";
-        target.appendChild(item);
-    }
-
-    function cekDragDrop() {
-        const hasil = document.getElementById("hasil2");
-        const btnLanjut = hasil.nextElementSibling.nextElementSibling;
-
-        const jawabanBenar = {
-            drop1: "okuler",     // Lensa Okuler
-            drop2: "objektif",   // Lensa Objektif
-            drop3: "mikroskop",  // Meja Mikroskop
-            drop4: "cermin"      // Cermin
-        };
-
-        let benar = true;
-        for (let key in jawabanBenar) {
-            const child = document.getElementById(key).children[0];
-            if (!child || child.id !== jawabanBenar[key]) {
-                benar = false;
-                break;
-            }
-        }
-
-        if (benar) {
-            hasil.innerHTML = "Jawaban Benar!";
-            hasil.style.color = "green";
-            hasil.dataset.answered = "true";
-            btnLanjut.classList.remove("disabled");
-            document.querySelectorAll(".drag-item").forEach(i => i.setAttribute("draggable", false));
-        } else {
-            hasil.innerHTML = "Jawaban Salah! <br>Lensa Okuler → Memperbesar bayangan dari lensa objektif <br>Lensa Objektif → Memperbesar objek pertama kali <br>Meja Mikroskop → Memegang objek yang akan diamati <br>Cermin → Memfokuskan cahaya ke objek";
-            hasil.style.color = "red";
-        }
-    }
-
-    function cekJawaban3() {
-        const hasil = document.getElementById("hasil3");
-        const input = document.getElementById("jawaban3");
-        const btnLanjut = hasil.nextElementSibling.nextElementSibling;
-
-        if (hasil.dataset.answered === "true") return;
-
-        const jawaban = input.value.toLowerCase();
-        const benar = jawaban.includes("objektif") && jawaban.includes("okuler");
-
-        if (benar) {
-            hasil.innerHTML = "Jawaban Benar!";
-            hasil.style.color = "green";
-            hasil.dataset.answered = "true";
-            input.disabled = true;
-            btnLanjut.classList.remove("disabled");
-        } else {
-            hasil.innerHTML = "Jawaban Salah! Contoh jawaban benar: Lensa objektif Memperbesar objek pertama kali, Lensa okuler Memperbesar bayangan yang dihasilkan oleh lensa objektif";
-            hasil.style.color = "red";
-        }
-    }
-
-    function cekJawaban5() {
-        const hasil = document.getElementById("hasil5");
-        const input1 = document.getElementById("jawaban5a");
-        const input2 = document.getElementById("jawaban5b");
-        const btnLanjut = hasil.nextElementSibling.nextElementSibling;
-
-        if (hasil.dataset.answered === "true") return;
-
-        const jawaban1 = input1.value.trim().toLowerCase();
-        const jawaban2 = input2.value.trim().toLowerCase();
-
-        const benar1 = ["nyata"];
-        const benar2 = ["diperbesar"];
-
-        if (benar1.includes(jawaban1) && benar2.includes(jawaban2)) {
-            hasil.innerHTML = "Jawaban Benar!";
-            hasil.style.color = "green";
-            hasil.dataset.answered = "true";
-            input1.disabled = true;
-            input2.disabled = true;
-            btnLanjut.classList.remove("disabled");
-        } else {
-            hasil.innerHTML = "Jawaban Salah! Jawaban yang benar: nyata dan terbalik";
+            hasil.innerHTML = "Jawaban Salah!";
             hasil.style.color = "red";
         }
     }

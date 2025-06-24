@@ -59,275 +59,137 @@
 <div class="card-custom">
     <h5>Aktivitas 3.4</h5>
     <div class="question-container">
-
-        <!-- Soal 1 -->
-        <div class="question" id="soal1">
-            <p><strong>Petunjuk:</strong> Bacalah setiap pilihan jawaban dengan teliti. Perhatikan jenis alat optik yang digunakan pada masing-masing teleskop.</p>
-            <p>1. Apa perbedaan utama antara teleskop bias dan teleskop pantul?</p>
-            <ul class="options" id="q1">
-                <li onclick="pilihJawaban(this, 'q1', 'Teleskop bias menggunakan lensa, sedangkan teleskop pantul menggunakan cermin', 'hasil1')">
-                    Teleskop bias menggunakan cermin, sedangkan teleskop pantul menggunakan lensa
-                </li>
-                <li onclick="pilihJawaban(this, 'q1', 'Teleskop bias menggunakan lensa, sedangkan teleskop pantul menggunakan cermin', 'hasil1')">
-                    Teleskop bias menggunakan lensa, sedangkan teleskop pantul menggunakan cermin
-                </li>                
-                <li onclick="pilihJawaban(this, 'q1', 'Teleskop bias menggunakan lensa, sedangkan teleskop pantul menggunakan cermin', 'hasil1')">
-                    Teleskop bias menggunakan dua lensa cekung, sedangkan teleskop pantul menggunakan dua cermin cembung
-                </li>
-                <li onclick="pilihJawaban(this, 'q1', 'Teleskop bias menggunakan lensa, sedangkan teleskop pantul menggunakan cermin', 'hasil1')">
-                    Teleskop bias dan teleskop pantul bekerja dengan prinsip yang sama tanpa perbedaan
-                </li>
-            </ul>
-            <p id="hasil1"></p>
-            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
-        </div>
-
-        <!-- Soal 2 -->
-        <div class="question" id="soal2" style="display: none;">
-            <p><strong>Petunjuk:</strong> Seret dan cocokkan deskripsi ciri khas teleskop pada tempat yang sesuai. Gunakan pemahaman visual dan fungsi alat.</p>
-            <p>2. Cocokkan jenis teleskop di kolom kiri dengan ciri khasnya di kolom kanan!</p>
-            <div id="dragContainer" class="drag-container">
-                <div class="drag-item" draggable="true" id="bias" ondragstart="drag(event)">Menggunakan cermin cekung sebagai pengumpul cahaya</div>
-                <div class="drag-item" draggable="true" id="pantul" ondragstart="drag(event)">Menggunakan lensa cembung sebagai pengumpul cahaya</div>
-            </div>
-            <p>Teleskop Bias</p><div class="drop-zone" id="drop1" ondrop="drop(event, 'drop1')" ondragover="allowDrop(event)"></div>
-            <p>Teleskop Pantul</p><div class="drop-zone" id="drop2" ondrop="drop(event, 'drop2')" ondragover="allowDrop(event)"></div>
-            <p id="hasil2"></p>
-            <button class="cekJawaban nav-btn" onclick="cekDragDrop()">Periksa</button>
-            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
-        </div>
-
-        <!-- Soal 3 -->
-        <div class="question" id="soal3" style="display: none;">
-            <p><strong>Petunjuk:</strong> Ketik jawabanmu berdasarkan komponen utama pada teleskop bias yang bertugas memperbesar bayangan.</p>
-            <p>3. Lensa yang berfungsi untuk memperbesar bayangan pada teleskop bias disebut <input type="text" id="jawaban3">.</p>
-            <p id="hasil3"></p>
-            <button class="cekJawaban nav-btn" onclick="cekJawaban3()">Periksa</button>
-            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
-        </div>
-
-        <!-- Soal 4 -->
-        <div class="question" id="soal4" style="display: none;">
-            <p><strong>Petunjuk:</strong> Tinjau fakta dari pernyataan dan pilih 'Benar' atau 'Salah' berdasarkan pengetahuan tentang teleskop modern.</p>
-            <p>4. Perhatikan pernyataan berikut:</p>
-            <p>"Teleskop pantul lebih sering digunakan dalam astronomi modern karena cermin lebih mudah dibuat dan lebih ringan dibandingkan lensa besar."</p>
-            <ul id="q4" class="list-unstyled">
-                <li><input type="radio" name="q4" value="Benar" onclick="cekPernyataan('q4', 'Benar', 'hasil4')"> Benar</li>
-                <li><input type="radio" name="q4" value="Salah" onclick="cekPernyataan('q4', 'Benar', 'hasil4')"> Salah</li>
-            </ul>
-            <p id="hasil4"></p>
-            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
-        </div>
-
-        <!-- Soal 5 -->
-        <div class="question" id="soal5" style="display: none;">
-            <p><strong>Petunjuk:</strong> Isilah bagian kosong dengan kata yang menunjukkan bagian utama teleskop pantul dan sifat cahaya yang dipantulkan.</p>
-            <p>5. Lengkapi pernyataan berikut dengan kata yang tepat!</p>
-            <p>Cahaya yang masuk ke teleskop pantul akan dipantulkan oleh 
-                <input type="text" id="jawaban5"> sebelum mencapai lensa okuler untuk diperbesar.
-            </p>
-            <p id="hasil5"></p>
-            <button class="cekJawaban nav-btn" onclick="cekJawaban5()">Periksa</button>
-            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
-        </div>
-
+      <!-- Soal 1 -->
+      <div class="question" id="soal1">
+        <p><strong>Petunjuk:</strong> Bacalah dengan cermat perbedaan jenis teleskop berdasarkan komponen optiknya.</p>
+        <p>1. Apa perbedaan utama antara teleskop bias dan teleskop pantul?</p>
+        <ul class="options" id="q1">
+          <li onclick="pilihJawaban(this, 'q1', 'Teleskop bias menggunakan lensa, sedangkan teleskop pantul menggunakan cermin', 'hasil1')">
+            Teleskop bias menggunakan cermin, sedangkan teleskop pantul menggunakan lensa
+          </li>
+          <li onclick="pilihJawaban(this, 'q1', 'Teleskop bias menggunakan lensa, sedangkan teleskop pantul menggunakan cermin', 'hasil1')">
+            Teleskop bias menggunakan lensa, sedangkan teleskop pantul menggunakan cermin
+          </li>
+          <li onclick="pilihJawaban(this, 'q1', 'Teleskop bias menggunakan lensa, sedangkan teleskop pantul menggunakan cermin', 'hasil1')">
+            Teleskop bias menggunakan dua lensa cekung, sedangkan teleskop pantul menggunakan dua cermin cembung
+          </li>
+          <li onclick="pilihJawaban(this, 'q1', 'Teleskop bias menggunakan lensa, sedangkan teleskop pantul menggunakan cermin', 'hasil1')">
+            Teleskop bias dan teleskop pantul bekerja dengan prinsip yang sama tanpa perbedaan
+          </li>
+        </ul>
+        <p id="hasil1"></p>
+        <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
+      </div>
+  
+      <!-- Soal 2 -->
+      <div class="question" id="soal2" style="display:none">
+        <p><strong>Petunjuk:</strong> Pilih jawaban yang benar mengenai bagian teleskop pantul.</p>
+        <p>2. Komponen utama yang memantulkan cahaya dalam teleskop pantul adalah ...</p>
+        <ul class="options" id="q2">
+          <li onclick="pilihJawaban(this, 'q2', 'Cermin cekung', 'hasil2')">Lensa cembung</li>
+          <li onclick="pilihJawaban(this, 'q2', 'Cermin cekung', 'hasil2')">Cermin cembung</li>
+          <li onclick="pilihJawaban(this, 'q2', 'Cermin cekung', 'hasil2')">Cermin datar</li>
+          <li onclick="pilihJawaban(this, 'q2', 'Cermin cekung', 'hasil2')">Cermin cekung</li>
+        </ul>
+        <p id="hasil2"></p>
+        <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
+      </div>
+  
+      <!-- Soal 3 -->
+      <div class="question" id="soal3" style="display:none">
+        <p><strong>Petunjuk:</strong> Fokuslah pada peran komponen lensa dalam teleskop bias.</p>
+        <p>3. Lensa yang berfungsi untuk memperbesar bayangan dalam teleskop bias adalah ...</p>
+        <ul class="options" id="q3">
+          <li onclick="pilihJawaban(this, 'q3', 'Lensa okuler', 'hasil3')">Lensa objektif</li>
+          <li onclick="pilihJawaban(this, 'q3', 'Lensa okuler', 'hasil3')">Lensa cembung</li>
+          <li onclick="pilihJawaban(this, 'q3', 'Lensa okuler', 'hasil3')">Lensa okuler</li>
+          <li onclick="pilihJawaban(this, 'q3', 'Lensa okuler', 'hasil3')">Lensa cekung</li>
+        </ul>
+        <p id="hasil3"></p>
+        <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
+      </div>
+  
+      <!-- Soal 4 -->
+      <div class="question" id="soal4" style="display:none">
+        <p><strong>Petunjuk:</strong> Perhatikan alasan penggunaan teleskop modern dalam astronomi.</p>
+        <p>4. Mengapa teleskop pantul lebih disukai dalam astronomi modern?</p>
+        <ul class="options" id="q4">
+          <li onclick="pilihJawaban(this, 'q4', 'Karena cermin lebih mudah dibuat dan lebih ringan daripada lensa besar', 'hasil4')">Karena lebih mahal dan kompleks</li>
+          <li onclick="pilihJawaban(this, 'q4', 'Karena cermin lebih mudah dibuat dan lebih ringan daripada lensa besar', 'hasil4')">Karena memerlukan lebih banyak cahaya</li>
+          <li onclick="pilihJawaban(this, 'q4', 'Karena cermin lebih mudah dibuat dan lebih ringan daripada lensa besar', 'hasil4')">Karena menghasilkan warna lebih tajam</li>
+          <li onclick="pilihJawaban(this, 'q4', 'Karena cermin lebih mudah dibuat dan lebih ringan daripada lensa besar', 'hasil4')">Karena cermin lebih mudah dibuat dan lebih ringan daripada lensa besar</li>
+        </ul>
+        <p id="hasil4"></p>
+        <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
+      </div>
+  
+      <!-- Soal 5 -->
+      <div class="question" id="soal5" style="display:none">
+        <p><strong>Petunjuk:</strong> Identifikasi prinsip dasar pemantulan dalam teleskop pantul.</p>
+        <p>5. Proses pembentukan bayangan dalam teleskop pantul dimulai dengan cahaya yang dipantulkan oleh ...</p>
+        <ul class="options" id="q5">
+          <li onclick="pilihJawaban(this, 'q5', 'Cermin utama', 'hasil5')">Lensa okuler</li>
+          <li onclick="pilihJawaban(this, 'q5', 'Cermin utama', 'hasil5')">Cermin utama</li>
+          <li onclick="pilihJawaban(this, 'q5', 'Cermin utama', 'hasil5')">Lensa objektif</li>
+          <li onclick="pilihJawaban(this, 'q5', 'Cermin utama', 'hasil5')">Cermin datar</li>
+        </ul>
+        <p id="hasil5"></p>
+        <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
+      </div>
     </div>
-</div>
-
-<!-- Navigasi Halaman -->
-<div class="navigation">
-    <a class="nav-btn" href="/materi3/mikroskop">Sebelumnya</a>
-    <a class="nav-btn" href="/petunjuk/3">Selanjutnya</a>
-</div>
-
-<script>
+  </div>
+  
+  <script>
     let currentSoal = 1;
     const totalSoal = 5;
-
+  
     function showSoal(n) {
-        for (let i = 1; i <= totalSoal; i++) {
-            document.getElementById(`soal${i}`).style.display = i === n ? "block" : "none";
-        }
+      for (let i = 1; i <= totalSoal; i++) {
+        document.getElementById(`soal${i}`).style.display = i === n ? 'block' : 'none';
+      }
     }
-
+  
     function nextSoal() {
-        if (currentSoal < totalSoal) {
-            currentSoal++;
-            showSoal(currentSoal);
-        } else {
-            // HANYA SIMPAN SAAT SOAL TERAKHIR SAJA (latihan ke-9)
-            fetch('/simpan-hasil-latihan', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                },
-                body: JSON.stringify({ latihan_ke: 9 }) // ← latihan ke-9
-            })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data.message);
-
-                // Tampilkan SweetAlert sebelum redirect
-                Swal.fire({
-                    title: 'Latihan Selesai!',
-                    text: 'Kamu akan diarahkan ke materi berikutnya.',
-                    icon: 'success',
-                    confirmButtonText: 'Lanjutkan'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = "/petunjuk/3"; // ← redirect setelah selesai
-                    }
-                });
-            })
-            .catch(err => {
-                console.error('Gagal simpan hasil latihan:', err);
-                Swal.fire('Oops!', 'Gagal menyimpan hasil latihan. Silakan coba lagi.', 'error');
-            });
-        }
-    }
-
-    function pilihJawaban(el, qid, kunci, hasilId) {
-        const container = document.querySelector(`#${qid}`);
-        const hasil = document.getElementById(hasilId);
-        const btn = hasil.nextElementSibling;
-
-        if (hasil.dataset.answered === "true") return;
-
-        document.querySelectorAll(`#${qid} li`).forEach(li => li.classList.remove("selected"));
-        el.classList.add("selected");
-
-        const userJawaban = el.textContent.trim();
-        if (userJawaban === kunci) {
-            hasil.innerHTML = "Jawaban Benar!";
-            hasil.style.color = "green";
-            hasil.dataset.answered = "true";
-            btn.classList.remove("disabled");
-            container.querySelectorAll("li").forEach(li => li.style.pointerEvents = "none");
-        } else {
-            hasil.innerHTML = `Jawaban Salah! Jawaban yang benar: ${kunci}`;
-            hasil.style.color = "red";
-        }
-    }
-
-    function cekPernyataan(qid, kunci, hasilId) {
-        const hasil = document.getElementById(hasilId);
-        const btn = hasil.nextElementSibling;
-        if (hasil.dataset.answered === "true") return;
-
-        const jawab = document.querySelector(`input[name="${qid}"]:checked`);
-        if (!jawab) {
-            hasil.textContent = "Pilih salah satu jawaban!";
-            hasil.style.color = "orange";
-            return;
-        }
-
-        if (jawab.value === kunci) {
-            hasil.innerHTML = "Jawaban Benar!";
-            hasil.style.color = "green";
-            hasil.dataset.answered = "true";
-            btn.classList.remove("disabled");
-            document.querySelectorAll(`input[name="${qid}"]`).forEach(i => i.disabled = true);
-        } else {
-            hasil.innerHTML = `Jawaban Salah! Jawaban yang benar: ${kunci}`;
-            hasil.style.color = "red";
-        }
-    }
-
-    function allowDrop(e) { e.preventDefault(); }
-
-    function drag(e) {
-        e.dataTransfer.setData("text", e.target.id);
-    }
-
-    function drop(e, targetId) {
-        e.preventDefault();
-        const id = e.dataTransfer.getData("text");
-        const target = document.getElementById(targetId);
-        const item = document.getElementById(id);
-        if (target.children.length > 0) {
-            document.getElementById("dragContainer").appendChild(target.firstChild);
-        }
-        target.innerHTML = "";
-        target.appendChild(item);
-    }
-
-    function cekDragDrop() {
-        const hasil = document.getElementById("hasil2");
-        const btnLanjut = hasil.nextElementSibling.nextElementSibling;
-
-        const jawabanBenar = {
-            drop1: "pantul", // Teleskop Pantul → Menggunakan cermin
-            drop2: "bias"    // Teleskop Bias → Menggunakan lensa
-        };
-
-        let benar = true;
-        for (let key in jawabanBenar) {
-            const child = document.getElementById(key).children[0];
-            if (!child || child.id !== jawabanBenar[key]) {
-                benar = false;
-                break;
-            }
-        }
-
-        if (benar) {
-            hasil.innerHTML = "Jawaban Benar!";
-            hasil.style.color = "green";
-            hasil.dataset.answered = "true";
-            btnLanjut.classList.remove("disabled");
-            document.querySelectorAll(".drag-item").forEach(i => i.setAttribute("draggable", false));
-        } else {
-            hasil.innerHTML = "Jawaban Salah! Pastikan semua pasangan sudah benar.";
-            hasil.style.color = "red";
-        }
-    }
-
-    function cekJawaban3() {
-        const hasil = document.getElementById("hasil3");
-        const input = document.getElementById("jawaban3");
-        const btnLanjut = hasil.nextElementSibling.nextElementSibling;
-
-        if (hasil.dataset.answered === "true") return;
-
-        const jawaban = input.value.trim().toLowerCase();
-        const benar = jawaban.includes("okuler");
-
-        if (benar) {
-            hasil.innerHTML = "Jawaban Benar!";
-            hasil.style.color = "green";
-            hasil.dataset.answered = "true";
-            input.disabled = true;
-            btnLanjut.classList.remove("disabled");
-        } else {
-            hasil.innerHTML = "Jawaban Salah! Jawaban yang benar: okuler";
-            hasil.style.color = "red";
-        }
-    }
-
-    function cekJawaban5() {
-        const hasil = document.getElementById("hasil5");
-        const input = document.getElementById("jawaban5");
-        const btnLanjut = hasil.nextElementSibling.nextElementSibling;
-
-        if (hasil.dataset.answered === "true") return;
-
-        const jawaban = input.value.trim().toLowerCase();
-        const benar = jawaban.includes("cermin");
-
-        if (benar) {
-            hasil.innerHTML = "Jawaban Benar!";
-            hasil.style.color = "green";
-            hasil.dataset.answered = "true";
-            input.disabled = true;
-            btnLanjut.classList.remove("disabled");
-        } else {
-            hasil.innerHTML = "Jawaban Salah! Jawaban yang benar: cermin";
-            hasil.style.color = "red";
-        }
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
+      if (currentSoal < totalSoal) {
+        currentSoal++;
         showSoal(currentSoal);
+      } else {
+        Swal.fire({
+          title: 'Latihan Selesai!',
+          text: 'Kamu telah menyelesaikan semua soal.',
+          icon: 'success',
+          confirmButtonText: 'Lanjutkan'
+        }).then(() => {
+          window.location.href = "/petunjuk/3"; // → Redirect setelah selesai
+        });
+      }
+    }
+  
+    function pilihJawaban(el, qid, kunci, hasilId) {
+      const container = document.getElementById(qid);
+      const hasil = document.getElementById(hasilId);
+      const btn = hasil.nextElementSibling;
+  
+      if (hasil.dataset.answered === "true") return;
+  
+      container.querySelectorAll("li").forEach(li => li.classList.remove("selected"));
+      el.classList.add("selected");
+  
+      const userJawaban = el.textContent.trim();
+      if (userJawaban === kunci) {
+        hasil.innerHTML = "Jawaban Benar!";
+        hasil.style.color = "green";
+        hasil.dataset.answered = "true";
+        btn.classList.remove("disabled");
+        container.querySelectorAll("li").forEach(li => li.style.pointerEvents = "none");
+      } else {
+        hasil.innerHTML = "Jawaban Salah! Coba lagi.";
+        hasil.style.color = "red";
+      }
+    }
+  
+    document.addEventListener("DOMContentLoaded", () => {
+      showSoal(currentSoal);
     });
-</script>
+  </script>  
 @endsection

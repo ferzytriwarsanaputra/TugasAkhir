@@ -123,7 +123,7 @@ class KuisController extends Controller
 
         $syarat = [
             1 => ['latihan_ke' => 3, 'aktivitas' => 'Aktivitas 1.3'],
-            2 => ['latihan_ke' => 6, 'aktivitas' => 'Aktivitas 2.2'],
+            2 => ['latihan_ke' => 5, 'aktivitas' => 'Aktivitas 2.2'],
             3 => ['latihan_ke' => 9, 'aktivitas' => 'Aktivitas 3.4'],
         ];
 
@@ -156,7 +156,7 @@ class KuisController extends Controller
 
         $syarat = [
             1 => ['latihan_ke' => 3, 'aktivitas' => 'Aktivitas 1.3'],
-            2 => ['latihan_ke' => 6, 'aktivitas' => 'Aktivitas 2.2'],
+            2 => ['latihan_ke' => 5, 'aktivitas' => 'Aktivitas 2.2'],
             3 => ['latihan_ke' => 9, 'aktivitas' => 'Aktivitas 3.4'],
         ];
 
@@ -174,6 +174,12 @@ class KuisController extends Controller
     public function petunjukEvaluasi($id)
     {
         $userId = auth()->id();
+
+        // Cek apakah skor sudah 100, jika ya langsung redirect ke nilai
+        $hasil = HasilKuis::where('user_id', $userId)->where('kuis_id', $id)->first();
+        if ($hasil && $hasil->skor == 100) {
+            return redirect()->route('dashboard-siswa.nilai', ['kuis_id' => $id]);
+        }
 
         $kuis3 = HasilKuis::where('user_id', $userId)->where('kuis_id', 3)->first();
         if (!$kuis3) {

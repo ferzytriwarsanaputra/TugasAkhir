@@ -5,7 +5,7 @@
     <div class="card shadow rounded-4 p-3 p-md-4 w-100" style="max-width: 900px; max-height: 90vh; overflow-y: auto;">
         <div class="row g-0 align-items-center">
             {{-- Gambar Login --}}
-            <div class="col-md-6 d-none d-md-block text-center">
+            <div class="col-md-6 text-center">
                 <img src="{{ asset('img/imguser.jpg') }}" alt="Login Illustration"
                     class="img-fluid w-100 px-3 py-3" style="object-fit: contain;">
             </div>

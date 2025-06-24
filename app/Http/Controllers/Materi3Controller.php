@@ -52,7 +52,7 @@ class Materi3Controller extends Controller
             'lup' => 'materi3.lup',
             'mikroskop' => 'materi3.mikroskop',
             'teleskop' => 'materi3.teleskop',
-            'kuis' => 'kuis.3'
+            'kuis' => 'petunjuk.3'
         ];
 
         $kunciAkses = $mapHalamanToKey[$halaman] ?? null;

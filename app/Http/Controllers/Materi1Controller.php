@@ -66,7 +66,8 @@ class Materi1Controller extends Controller
         ];
 
         return view('materi1.' . $halaman, [
-            'title' => $titles[$halaman] ?? 'Materi'
+            'title' => $titles[$halaman] ?? 'Materi',
+            'akses' => $akses, // ← ini ditambahkan
         ]);
     }
 

@@ -26,70 +26,50 @@
 <div class="card-custom">
     <h5>Aktivitas 2.2</h5>
     <div class="question-container">
-        <!-- Soal 1 -->
         <div class="question" id="soal1">
-            <p><strong>Petunjuk:</strong> Pilih satu jawaban yang paling tepat.</p>
-            <p>1. Apa yang menjadi ciri khas mata majemuk pada serangga?</p>
-            <ul class="options" id="q1">
-                <li onclick="pilihJawaban(this, 'q1', 'Terdiri dari banyak lensa kecil (ommatidia)', 'hasil1')">Memiliki satu lensa besar</li>
-                <li onclick="pilihJawaban(this, 'q1', 'Terdiri dari banyak lensa kecil (ommatidia)', 'hasil1')">Terdiri dari banyak lensa kecil (ommatidia)</li>
-                <li onclick="pilihJawaban(this, 'q1', 'Terdiri dari banyak lensa kecil (ommatidia)', 'hasil1')">Dapat melihat lebih jelas daripada mata manusia</li>
-                <li onclick="pilihJawaban(this, 'q1', 'Terdiri dari banyak lensa kecil (ommatidia)', 'hasil1')">Tidak bisa mendeteksi gerakan</li>
-            </ul>
-            <p id="hasil1"></p>
-            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
-        </div>
+            <p><strong>Petunjuk:</strong> Seret fungsi yang sesuai ke kolom "Fungsi" di sebelah nama bagian mata.</p>
 
-        <!-- Soal 2 -->
-        <div class="question" id="soal2" style="display: none;">
-            <p><strong>Petunjuk:</strong> Bacalah pernyataan lalu pilih Benar atau Salah.</p>
-            <p>2. Perhatikan pernyataan berikut:</p>
-            <p>"Mata majemuk pada serangga membantu mereka melihat dengan resolusi yang lebih tinggi dibandingkan manusia."</p>
-            <ul id="q2" class="list-unstyled">
-                <li><input type="radio" name="q2" value="Benar" onclick="cekPernyataan('q2', 'Salah', 'hasil2')"> Benar</li>
-                <li><input type="radio" name="q2" value="Salah" onclick="cekPernyataan('q2', 'Salah', 'hasil2')"> Salah</li>
-            </ul>
-            <p id="hasil2"></p>
-            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
-        </div>
-
-        <!-- Soal 3 -->
-        <div class="question" id="soal3" style="display: none;">
-            <p><strong>Petunjuk:</strong> Ketik jawaban singkat pada kolom yang tersedia.</p>
-            <p>3. Apa nama bagian kecil pada mata majemuk yang membantu serangga melihat?</p>
-            <input type="text" id="jawaban3">
-            <p id="hasil3"></p>
-            <button class="cekJawaban nav-btn" onclick="cekJawaban3()">Periksa</button>
-            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
-        </div>
-
-        <!-- Soal 4 -->
-        <div class="question" id="soal4" style="display: none;">
-            <p><strong>Petunjuk:</strong> Seret dan jatuhkan jawaban ke kolom yang sesuai.</p>
-            <p>4. Cocokkan serangga dengan manfaat mata majemuknya!</p>
-            <div id="dragContainer" class="drag-container">
-                <div class="drag-item" draggable="true" id="lalat" ondragstart="drag(event)">Dapat mendeteksi gerakan dengan cepat</div>
-                <div class="drag-item" draggable="true" id="lebah" ondragstart="drag(event)">Dapat melihat cahaya ultraviolet untuk mencari bunga</div>
+            <div class="table-container">
+                <table class="tabel-dragdrop">
+                    <thead>
+                        <tr>
+                            <th>Bagian Mata</th>
+                            <th>Fungsi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lensa</td>
+                            <td class="drop-zone" data-jawaban="faset" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                        </tr>
+                        <tr>
+                            <td>Kerucut kristalin</td>
+                            <td class="drop-zone" data-jawaban="tembus" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                        </tr>
+                        <tr>
+                            <td>Sel penglihatan</td>
+                            <td class="drop-zone" data-jawaban="peka" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                        </tr>
+                        <tr>
+                            <td>Sel pigmen</td>
+                            <td class="drop-zone" data-jawaban="pisah" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <p>Lalat</p><div class="drop-zone" id="drop1" ondrop="drop(event, 'drop1')" ondragover="allowDrop(event)"></div>
-            <p>Lebah</p><div class="drop-zone" id="drop2" ondrop="drop(event, 'drop2')" ondragover="allowDrop(event)"></div>
-            <p id="hasil4"></p>
-            <button class="cekJawaban nav-btn" onclick="cekDragDrop()">Periksa</button>
-            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
-        </div>
 
-        <!-- Soal 5 -->
-        <div class="question" id="soal5" style="display: none;">
-            <p><strong>Petunjuk:</strong> Pilih jawaban yang paling tepat dari daftar pilihan.</p>
-            <p>5. Mengapa mata majemuk penting bagi serangga?</p>
-            <ul class="options" id="q5">
-                <li onclick="pilihJawaban(this, 'q5', 'Membantu mereka mendeteksi gerakan dengan cepat', 'hasil5')">Membantu mereka mendeteksi gerakan dengan cepat</li>
-                <li onclick="pilihJawaban(this, 'q5', 'Membantu mereka mendeteksi gerakan dengan cepat', 'hasil5')">Membuat penglihatan mereka lebih tajam dari manusia</li>
-                <li onclick="pilihJawaban(this, 'q5', 'Membantu mereka mendeteksi gerakan dengan cepat', 'hasil5')">Membantu mereka melihat di dalam gelap total</li>
-                <li onclick="pilihJawaban(this, 'q5', 'Membantu mereka mendeteksi gerakan dengan cepat', 'hasil5')">Mengurangi kepekaan terhadap cahaya</li>
-            </ul>
-            <p id="hasil5"></p>
-            <button class="cekJawaban lanjut-btn nav-btn disabled" onclick="nextSoal()">Lanjut</button>
+            <h5 class="mt-2">Fungsi:</h5>
+            <div id="dragContainer" class="drag-container">
+                <div class="drag-item" id="tembus" draggable="true" ondragstart="drag(event)">Mengarahkan cahaya ke dalam omatidium, tembus cahaya</div>
+                <div class="drag-item" id="peka" draggable="true" ondragstart="drag(event)">Mendeteksi atau peka terhadap cahaya</div>
+                <div class="drag-item" id="faset" draggable="true" ondragstart="drag(event)">Menjadi permukaan depan dari faset mata majemuk</div>
+                <div class="drag-item" id="pisah" draggable="true" ondragstart="drag(event)">Memisahkan omatidia dari omatidia lain di sekelilingnya</div>
+            </div>
+
+            <p id="hasil1"></p>
+            <button class="cekJawaban nav-btn" onclick="cekDragTable()">Periksa</button>
+            <button id="btnReset" class="cekJawaban nav-btn" onclick="resetJawaban()">Reset Jawaban</button>
+            <a id="btnLanjut" class="cekJawaban nav-btn disabled" href="#" onclick="lanjutMateri(event)">Lanjut</a>
         </div>
     </div>
 </div>
@@ -97,217 +77,176 @@
 <!-- Navigasi Halaman -->
 <div class="navigation d-flex justify-content-between">
     <a class="nav-btn btn btn-primary" href="/materi2/penglihatan-manusia">Sebelumnya</a>
-    <a class="nav-btn btn btn-primary" href="/petunjuk/2">Selanjutnya</a>
 </div>
 
 <script>
-    function pilihJawaban(el, qid, kunci, hasilId) {
-        const container = document.querySelector(`#${qid}`);
-        const hasil = document.getElementById(hasilId);
-        const btn = hasil.nextElementSibling;
+    let sudahBenar = false;
 
-        // Jika sudah benar, tidak bisa klik lagi
-        if (hasil.dataset.answered === "true") return;
-
-        document.querySelectorAll(`#${qid} li`).forEach(li => li.classList.remove("selected"));
-        el.classList.add("selected");
-
-        const userJawaban = el.textContent.trim();
-        if (userJawaban === kunci) {
-            hasil.innerHTML = "Jawaban Benar!";
-            hasil.style.color = "green";
-            btn.classList.remove("disabled");
-
-            // Tandai sebagai sudah dijawab benar
-            hasil.dataset.answered = "true";
-
-            // Nonaktifkan semua opsi
-            document.querySelectorAll(`#${qid} li`).forEach(li => {
-                li.style.pointerEvents = "none";
-            });
-        } else {
-            hasil.innerHTML = `Jawaban Salah! Jawaban yang benar: ${kunci}`;
-            hasil.style.color = "red";
-        }
+    function allowDrop(e) {
+        if (sudahBenar) return;
+        e.preventDefault();
     }
-
-    function cekPernyataan(qid, kunci, hasilId) {
-        const jawab = document.querySelector(`input[name="${qid}"]:checked`);
-        const hasil = document.getElementById(hasilId);
-        const btn = hasil.nextElementSibling;
-
-        // Cegah menjawab ulang jika sudah benar
-        if (hasil.dataset.answered === "true") return;
-
-        if (!jawab) {
-            hasil.textContent = "Pilih salah satu jawaban!";
-            hasil.style.color = "orange";
-            return;
-        }
-
-        if (jawab.value === kunci) {
-            hasil.innerHTML = "Jawaban Benar!";
-            hasil.style.color = "green";
-            btn.classList.remove("disabled");
-
-            // Tandai sebagai sudah dijawab benar
-            hasil.dataset.answered = "true";
-
-            // Nonaktifkan semua radio button
-            document.querySelectorAll(`input[name="${qid}"]`).forEach(input => {
-                input.disabled = true;
-            });
-        } else {
-            hasil.innerHTML = `Jawaban Salah! Jawaban yang benar: ${kunci}. Mata majemuk serangga tidak sejelas mata manusia, resolusinya lebih rendah, hanya bagus untuk mendeteksi gerakan.`;
-            hasil.style.color = "red";
-        }
-    }
-
-    function cekJawaban3() {
-        const jawaban = document.getElementById("jawaban3").value.trim().toLowerCase();
-        const hasil = document.getElementById("hasil3");
-        const btnLanjut = hasil.nextElementSibling.nextElementSibling; // karena ada 2 tombol sekarang
-
-        if (jawaban === "ommatidium") {
-            hasil.innerHTML = "Jawaban Benar!";
-            hasil.style.color = "green";
-            btnLanjut.classList.remove("disabled");
-        } else {
-            hasil.innerHTML = "Jawaban Salah! Jawaban yang benar: ommatidium";
-            hasil.style.color = "red";
-        }
-    }
-
-    function allowDrop(e) { e.preventDefault(); }
 
     function drag(e) {
+        if (sudahBenar) return;
         e.dataTransfer.setData("text", e.target.id);
     }
 
-    function drop(e, targetId) {
+    function drop(e) {
+        if (sudahBenar) return;
         e.preventDefault();
         const id = e.dataTransfer.getData("text");
-        const target = document.getElementById(targetId);
-        const item = document.getElementById(id);
-        if (target.children.length > 0) {
-            document.getElementById("dragContainer").appendChild(target.firstChild);
+        const dragged = document.getElementById(id);
+
+        // Pastikan target adalah .drop-zone
+        let target = e.target;
+        while (target && !target.classList.contains("drop-zone")) {
+            target = target.parentElement;
         }
-        target.innerHTML = "";
-        target.appendChild(item);
+        if (!target) return;
+
+        const asal = dragged.parentElement;
+        const sebelumnya = target.firstElementChild;
+
+        if (asal === target) return;
+
+        // Tukar isi jika sudah ada
+        if (sebelumnya) {
+            if (asal.id === "dragContainer") {
+                document.getElementById("dragContainer").appendChild(sebelumnya);
+            } else if (asal.classList.contains("drop-zone")) {
+                asal.appendChild(sebelumnya);
+            }
+        }
+
+        target.innerHTML = '';
+        target.appendChild(dragged);
     }
 
-    function cekDragDrop() {
-        const benar = document.getElementById("drop1").children[0]?.id === "lalat" &&
-                    document.getElementById("drop2").children[0]?.id === "lebah";
+    function cekDragTable() {
+        const zones = document.querySelectorAll('.drop-zone');
+        let benar = 0;
 
-        const hasil = document.getElementById("hasil4");
-        const btnLanjut = hasil.nextElementSibling.nextElementSibling;
+        zones.forEach(zone => {
+            const isi = zone.querySelector('.drag-item');
+            const jawaban = zone.getAttribute("data-jawaban");
+            if (isi && isi.id === jawaban) {
+                zone.style.backgroundColor = "#d4edda";
+                benar++;
+            } else {
+                zone.style.backgroundColor = "#f8d7da";
+            }
+        });
 
-        if (benar) {
-            hasil.innerHTML = "Jawaban Benar!";
+        const hasil = document.getElementById("hasil1");
+        const lanjut = document.getElementById("btnLanjut");
+        const reset = document.getElementById("btnReset");
+
+        if (benar === zones.length) {
+            hasil.innerText = "Jawaban Benar! Semua pasangan sesuai 🎉";
             hasil.style.color = "green";
-            hasil.dataset.answered = "true";
+            sudahBenar = true;
 
-            // Nonaktifkan drag
-            document.querySelectorAll(".drag-item").forEach(item => item.setAttribute("draggable", false));
+            document.querySelectorAll('.drag-item').forEach(item => item.setAttribute("draggable", false));
+            lanjut.classList.remove("disabled");
+            lanjut.style.pointerEvents = "auto";
+            lanjut.style.opacity = "1";
+
+            // Nonaktifkan tombol reset
+            reset.disabled = true;
+            reset.classList.add("disabled");
+            reset.style.opacity = "0.6";
         } else {
-            hasil.innerHTML = "Jawaban Salah! Pastikan mata majemuk lalat dan lebah dipasangkan dengan fungsi yang benar.";
+            hasil.innerText = `Jawaban Salah! ${benar} dari ${zones.length} benar.`;
             hasil.style.color = "red";
-        }
 
-        // Aktifkan tombol Lanjut setelah diperiksa
-        btnLanjut.classList.remove("disabled");
-    }
-
-    function cekUrutan() {
-        const urutan = [...document.querySelectorAll("#sortable .sortable-item")].map(i => i.id);
-        const hasil = document.getElementById("hasil5");
-        const btnLanjut = hasil.nextElementSibling.nextElementSibling;
-
-        if (JSON.stringify(urutan) === JSON.stringify(["step1", "step2", "step3"])) {
-            hasil.innerHTML = "Jawaban Benar!";
-            hasil.style.color = "green";
-            hasil.dataset.answered = "true";
-
-            // Nonaktifkan drag
-            document.querySelectorAll(".sortable-item").forEach(item => item.setAttribute("draggable", false));
-        } else {
-            hasil.innerHTML = "Jawaban Salah! Urutan yang benar adalah:<br>1) Fokus pasif → sejajar<br>2) Sejajar → fokus aktif<br>3) Pusat optik → lurus";
-            hasil.style.color = "red";
-        }
-
-        btnLanjut.classList.remove("disabled");
-    }
-
-    let currentSoal = 1;
-    const totalSoal = 5;
-
-    function showSoal(n) {
-        for (let i = 1; i <= totalSoal; i++) {
-            document.getElementById(`soal${i}`).style.display = i === n ? "block" : "none";
+            // Aktifkan kembali tombol reset
+            reset.disabled = false;
+            reset.classList.remove("disabled");
+            reset.style.opacity = "1";
         }
     }
 
-    function nextSoal() {
-        if (currentSoal < totalSoal) {
-            currentSoal++;
-            showSoal(currentSoal);
-        } else {
-            // Konfirmasi Swal sebelum menyimpan dan redirect
-            Swal.fire({
-                title: 'Latihan selesai!',
-                text: 'Apakah kamu ingin melanjutkan ke materi berikutnya?',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonText: 'Ya, lanjut',
-                cancelButtonText: 'Batal'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    fetch('/simpan-hasil-latihan', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                        },
-                        body: JSON.stringify({ latihan_ke: 5 }) // ← latihan ke-5
-                    })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data.message);
-                        Swal.fire({
-                            title: 'Berhasil!',
-                            text: 'Hasil latihan telah disimpan.',
-                            icon: 'success',
-                            confirmButtonText: 'Lanjut ke Materi'
-                        }).then(() => {
-                            window.location.href = "/petunjuk/2"; // ← redirect setelah selesai
-                        });
-                    })
-                    .catch(err => {
-                        console.error('Gagal simpan hasil latihan:', err);
-                        Swal.fire('Gagal', 'Tidak dapat menyimpan hasil latihan. Coba lagi nanti.', 'error');
-                    });
-                }
-            });
+    function resetJawaban() {
+        const zones = document.querySelectorAll('.drop-zone');
+        const dragContainer = document.getElementById('dragContainer');
+        const hasil = document.getElementById('hasil1');
+        const tombolLanjut = document.getElementById('btnLanjut');
+        const tombolReset = document.getElementById('btnReset');
+
+        zones.forEach(zone => {
+            const isi = zone.querySelector('.drag-item');
+            if (isi) dragContainer.appendChild(isi);
+            zone.style.backgroundColor = "";
+        });
+
+        document.querySelectorAll('.drag-item').forEach(item => {
+            item.setAttribute('draggable', true);
+        });
+
+        zones.forEach(zone => {
+            zone.setAttribute('ondrop', 'drop(event)');
+            zone.setAttribute('ondragover', 'allowDrop(event)');
+        });
+
+        // Reset status
+        sudahBenar = false;
+        hasil.innerText = "";
+        tombolLanjut.classList.add("disabled");
+        tombolLanjut.style.pointerEvents = "none";
+        tombolLanjut.style.opacity = "0.6";
+
+        // Aktifkan kembali tombol reset
+        tombolReset.disabled = false;
+        tombolReset.classList.remove("disabled");
+        tombolReset.style.opacity = "1";
+    }
+
+    function lanjutMateri(event) {
+        event.preventDefault();
+        if (!sudahBenar) {
+            Swal.fire('Belum selesai', 'Silakan periksa jawaban kamu terlebih dahulu.', 'warning');
+            return;
         }
+
+        Swal.fire({
+            title: 'Latihan selesai!',
+            text: 'Apakah kamu ingin melanjutkan ke materi berikutnya?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Ya, lanjut',
+            cancelButtonText: 'Batal'
+        }).then(result => {
+            if (result.isConfirmed) {
+                fetch('/simpan-hasil-latihan', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    },
+                    body: JSON.stringify({ latihan_ke: 4 })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    Swal.fire('Berhasil!', 'Hasil latihan telah disimpan.', 'success')
+                        .then(() => window.location.href = "/petunjuk/2");
+                })
+                .catch(() => {
+                    Swal.fire('Gagal', 'Tidak dapat menyimpan hasil latihan. Coba lagi nanti.', 'error');
+                });
+            }
+        });
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-    showSoal(currentSoal);
-
-    // Inisialisasi SortableJS
-    Sortable.create(document.getElementById("sortable"), {
-        animation: 150
+        const lanjut = document.getElementById("btnLanjut");
+        const reset = document.getElementById("btnReset");
+        lanjut.classList.add("disabled");
+        lanjut.style.pointerEvents = "none";
+        lanjut.style.opacity = "0.6";
+        reset.disabled = false;
+        reset.classList.remove("disabled");
+        reset.style.opacity = "1";
     });
-
-    // Acak urutan soal no 5
-    const sortableList = document.getElementById("sortable");
-    const items = Array.from(sortableList.children);
-    for (let i = items.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        sortableList.appendChild(items[j]);
-        items.splice(j, 1);
-    }
-});
-</script>
+</script>  
 @endsection
