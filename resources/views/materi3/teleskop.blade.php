@@ -62,7 +62,7 @@
       <!-- Soal 1 -->
       <div class="question" id="soal1">
         <p><strong>Petunjuk:</strong> Bacalah dengan cermat perbedaan jenis teleskop berdasarkan komponen optiknya.</p>
-        <p>1. Apa perbedaan utama antara teleskop bias dan teleskop pantul?</p>
+        <p>1. Perbedaan utama antara teleskop bias dan teleskop pantul adalah...</p>
         <ul class="options" id="q1">
           <li onclick="pilihJawaban(this, 'q1', 'Teleskop bias menggunakan lensa, sedangkan teleskop pantul menggunakan cermin', 'hasil1')">
             Teleskop bias menggunakan cermin, sedangkan teleskop pantul menggunakan lensa
@@ -112,7 +112,7 @@
       <!-- Soal 4 -->
       <div class="question" id="soal4" style="display:none">
         <p><strong>Petunjuk:</strong> Perhatikan alasan penggunaan teleskop modern dalam astronomi.</p>
-        <p>4. Mengapa teleskop pantul lebih disukai dalam astronomi modern?</p>
+        <p>4. Teleskop pantul lebih disukai dalam astronomi modern karena...</p>
         <ul class="options" id="q4">
           <li onclick="pilihJawaban(this, 'q4', 'Karena cermin lebih mudah dibuat dan lebih ringan daripada lensa besar', 'hasil4')">Karena lebih mahal dan kompleks</li>
           <li onclick="pilihJawaban(this, 'q4', 'Karena cermin lebih mudah dibuat dan lebih ringan daripada lensa besar', 'hasil4')">Karena memerlukan lebih banyak cahaya</li>

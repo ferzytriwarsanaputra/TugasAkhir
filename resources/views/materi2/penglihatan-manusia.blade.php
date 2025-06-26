@@ -35,7 +35,7 @@
 
         <div id="diagram-container">
             <h5>🔍 Klik Bagian Mata untuk Melihat Fungsinya</h5>
-            <img src="/img/Materi2/Mata1.png" width="500" alt="Diagram Mata">
+            <img src="/img/Materi2/mata1.png" width="500" alt="Diagram Mata">
             <figcaption><em>Gambar 2.1 Bagian-bagian Mata (Sumber: Kemdikbud. 2017)</em></figcaption>
             
             <!-- Titik Interaktif -->
