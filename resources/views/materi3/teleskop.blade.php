@@ -173,36 +173,37 @@
     }
   
     function nextSoal() {
-        if (currentSoal < totalSoal) {
-            currentSoal++;
-            showSoal(currentSoal);
-        } else {
-            fetch('/simpan-hasil-latihan', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                },
-                body: JSON.stringify({ latihan_ke: 8 })
-            })
-            .then(res => res.json())
-            .then(data => {
-                Swal.fire({
-                    title: 'Latihan Selesai!',
-                    text: 'Kamu akan diarahkan ke materi berikutnya.',
-                    icon: 'success',
-                    confirmButtonText: 'Lanjutkan'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = "/petunjuk/3";
-                    }
-                });
-            })
-            .catch(err => {
-                console.error('Gagal simpan hasil latihan:', err);
-                Swal.fire('Oops!', 'Gagal menyimpan hasil latihan. Silakan coba lagi.', 'error');
-            });
-        }
+      if (currentSoal < totalSoal) {
+        currentSoal++;
+        showSoal(currentSoal);
+      } else {
+        fetch('/simpan-hasil-latihan', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+          },
+          body: JSON.stringify({ latihan_ke: 8 })
+        })
+        .then(res => res.json())
+        .then(data => {
+          Swal.fire({
+            title: 'Latihan Selesai!',
+            text: 'Kamu akan diarahkan ke materi berikutnya.',
+            icon: 'success',
+            confirmButtonText: 'Lanjutkan'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = "/petunjuk/3";
+            }
+          });
+        })
+        .catch(err => {
+          console.error('Gagal simpan hasil latihan:', err);
+          Swal.fire('Oops!', 'Gagal menyimpan hasil latihan. Silakan coba lagi.', 'error');
+        });
+      }
+    }
   
     function pilihJawaban(el, qid, kunci, hasilId) {
       const container = document.getElementById(qid);
@@ -227,14 +228,14 @@
       }
     }
   
+    function tampilkanGambar(imgElement) {
+      const modalImg = document.getElementById('gambarModal');
+      modalImg.src = imgElement.src;
+      modalImg.alt = imgElement.alt;
+    }
+  
     document.addEventListener("DOMContentLoaded", () => {
       showSoal(currentSoal);
     });
-
-    function tampilkanGambar(imgElement) {
-        const modalImg = document.getElementById('gambarModal');
-        modalImg.src = imgElement.src;
-        modalImg.alt = imgElement.alt;
-    }
-  </script>  
+  </script>
 @endsection
