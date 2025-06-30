@@ -45,31 +45,39 @@ class DashboardGuruController extends Controller
         $siswa = User::where('role', 'siswa')->get();
 
         $progres = $siswa->map(function($s) {
+            // 1. Latihan
             $latihanDone = HasilLatihan::where('siswa_id', $s->id)->count();
-            $totalLatihan = 9;
-
-            $kuisDone = HasilKuis::where('user_id', $s->id)
-                        ->whereIn('kuis_id', [1, 2, 3])
-                        ->count();
-            $totalKuis = 3;
-
-            $evaluasiDone = HasilKuis::where('user_id', $s->id)
-                        ->where('kuis_id', 4)
-                        ->count();
-            $totalEvaluasi = 1;
-
-            $totalAktivitas = $totalLatihan + $totalKuis + $totalEvaluasi;
-            $doneAktivitas = $latihanDone + $kuisDone + $evaluasiDone;
-
-            $persen = ($doneAktivitas / $totalAktivitas) * 100;
-
+            $maxLatihan = 9;
+            $latihanProgres = min($latihanDone, $maxLatihan);
+            $latihanPersen = ($latihanProgres / $maxLatihan) * 40;
+        
+            // 2. Kuis & Evaluasi
+            $bobotKuis = [
+                1 => 20,
+                2 => 20,
+                3 => 20,
+                4 => 40, // evaluasi
+            ];
+        
+            $nilaiKuisPersen = 0;
+            foreach ($bobotKuis as $kuisId => $bobot) {
+                $hasil = HasilKuis::where('user_id', $s->id)->where('kuis_id', $kuisId)->first();
+                if ($hasil) {
+                    $nilaiKuisPersen += ($hasil->skor / 100) * $bobot;
+                }
+            }
+        
+            // 3. Total Progres
+            $totalProgres = $latihanPersen + $nilaiKuisPersen;
+            $totalProgres = min(100, round($totalProgres, 2));
+        
             return [
                 'nama' => $s->nama,
                 'nisn' => $s->nisn,
                 'kelas' => $s->kelas,
-                'progres' => round($persen, 2)
+                'progres' => $totalProgres
             ];
-        });
+        });        
 
         $title = 'Progres Belajar Siswa';
         return view('dashboard-guru.progres', compact('progres', 'title'));

@@ -57,6 +57,28 @@
             </tbody>
         </table>
     </div>
+    <div class="alert alert-primary mt-4">
+        <h5 class="fw-bold"><i class="bi bi-info-circle-fill me-2"></i>Informasi Perhitungan Progres Siswa</h5>
+        <p>
+            Progres belajar siswa dihitung berdasarkan <strong>aktivitas yang telah dikerjakan</strong> dan <strong>nilai (skor)</strong> yang diperoleh dari kuis dan evaluasi.
+        </p>
+        <ul>
+            <li><strong>Latihan</strong> terdiri dari 9 aktivitas. Setiap latihan yang diselesaikan menambah progres sebesar <code>40% ÷ 9 ≈ 4.44%</code>.</li>
+            <li><strong>Kuis & Evaluasi</strong> memberikan kontribusi maksimal 60%, yang dihitung berdasarkan skor masing-masing:</li>
+        </ul>
+        <table class="table table-sm table-bordered w-auto">
+            <thead class="table-light">
+                <tr><th>Komponen</th><th>Bobot</th><th>Rumus Hitung</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Kuis 1</td><td>20%</td><td>(skor ÷ 100) × 20</td></tr>
+                <tr><td>Kuis 2</td><td>20%</td><td>(skor ÷ 100) × 20</td></tr>
+                <tr><td>Kuis 3</td><td>20%</td><td>(skor ÷ 100) × 20</td></tr>
+                <tr><td>Evaluasi</td><td>40%</td><td>(skor ÷ 100) × 40</td></tr>
+            </tbody>
+        </table>
+        <p class="mb-0"><strong>Catatan:</strong> Progres 100% hanya bisa dicapai jika seluruh latihan diselesaikan dan semua skor kuis & evaluasi bernilai sempurna (100).</p>
+    </div>    
 </main>
 
 <script>

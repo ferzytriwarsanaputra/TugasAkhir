@@ -44,5 +44,23 @@
             </div>
         </div>
     </div>
+    <div class="alert alert-primary mt-4">
+        <h5 class="fw-bold">📘 Informasi Progres Belajar</h5>
+        <p>
+            Progres belajar kamu dihitung dari dua bagian:
+        </p>
+        <ul>
+            <li><strong>Latihan</strong>: menyelesaikan setiap latihan akan menambah progres. Total 9 latihan berkontribusi hingga <strong>40%</strong> dari progres belajar.</li>
+            <li><strong>Kuis & Evaluasi</strong>: nilai (skor) yang kamu dapatkan akan menentukan tambahan progres. Jika skornya rendah, progresnya juga kecil.</li>
+        </ul>
+        <p>Berikut ini bobot setiap bagian:</p>
+        <ul class="mb-2">
+            <li>Kuis 1 → 20%</li>
+            <li>Kuis 2 → 20%</li>
+            <li>Kuis 3 → 20%</li>
+            <li>Evaluasi → 40%</li>
+        </ul>
+        <p class="mb-0"><strong>Tip:</strong> Dapatkan skor tinggi untuk menaikkan progres dan capai 100% sebagai tanda kamu telah menyelesaikan seluruh pembelajaran!</p>
+    </div>    
 </div>
 @endsection
