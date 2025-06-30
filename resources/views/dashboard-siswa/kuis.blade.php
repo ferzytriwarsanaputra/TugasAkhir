@@ -41,7 +41,6 @@
         </div>
     </div>
 </form>
-<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 <script>
     const questions = @json($kuis->soals);
     const kuisId = {{ $kuis->id }};
