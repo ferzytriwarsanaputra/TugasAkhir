@@ -142,7 +142,7 @@
     function hitungSkor() {
         let skor = 0;
         questions.forEach((q, i) => {
-            if (userAnswers[i] === q.jawaban_benar) skor++;
+            if (userAnswers[i] === parseInt(q.jawaban_benar)) skor++;
         });
         return Math.round((skor / questions.length) * 100);
     }
@@ -199,9 +199,5 @@
 
     loadQuestion();
     startTimer();
-    const el = document.getElementById("sidebar-toggle");
-    if (el) {
-        el.classList.toggle("open");
-    }
 </script>
 @endsection
