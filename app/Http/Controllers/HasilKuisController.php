@@ -12,21 +12,26 @@ class HasilKuisController extends Controller
     {
         $user = auth()->user();
         $hariIni = Carbon::now()->translatedFormat('l');
-        $tanggal = Carbon::now()->format('Y-m-d');
-        $waktu = Carbon::now()->format('H:i:s');
-    
+        $tanggal = Carbon::now()->translatedFormat('d F Y');
+        $waktu = Carbon::now()->format('H:i');
+
         HasilKuis::create([
             'user_id' => $user->id,
             'kuis_id' => $request->kuis_id,
             'skor' => $request->skor,
             'hari' => $hariIni,
+            'tanggal' => Carbon::now()->format('Y-m-d'),
+            'waktu' => Carbon::now()->format('H:i:s'),
+        ]);
+
+        return view('dashboard-siswa.hasil-nilai', [
+            'skor' => $request->skor,
+            'nama' => $user->nama,
+            'hari' => $hariIni,
             'tanggal' => $tanggal,
             'waktu' => $waktu,
-        ]);
-    
-        return redirect()->route('kuis.nilai')->with([
-            'skor' => $request->skor,
-            'nama' => $user->nama
+            'kuisId' => $request->kuis_id,
+            'status' => $request->skor >= 70 ? 'memenuhi' : 'tidak'
         ]);
     }
     
