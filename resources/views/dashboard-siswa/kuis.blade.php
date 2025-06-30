@@ -12,7 +12,7 @@
             <div class="top-bar">
                 <h2>Kuis {{ $kuis->id }}</h2>
                 <div class="legend">
-                    <div id="timer">10:00</div>
+                    <div id="timer">00:00</div>
                     <button type="button" class="submit-button" onclick="submitQuiz()">Selesai</button>
                 </div>
             </div>
@@ -63,9 +63,13 @@
     if (savedCurrent) currentQuestion = parseInt(savedCurrent);
 
     // Ambil atau set waktu mulai
-    if (!localStorage.getItem(localTimeKey)) {
+    const navigationType = performance.getEntriesByType('navigation')[0].type;
+
+    if (navigationType === 'navigate') {
+        // User datang dari luar, reset waktu
         localStorage.setItem(localTimeKey, Date.now());
     }
+
     startTime = parseInt(localStorage.getItem(localTimeKey));
 
     function saveProgress() {
