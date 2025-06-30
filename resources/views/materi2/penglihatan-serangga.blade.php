@@ -38,9 +38,16 @@
 <div class="card-custom">
     <h5>Aktivitas 2.2</h5>
     <div class="question-container">
+        <div class="alert alert-info mb-3">
+            <strong>Petunjuk Pengerjaan:</strong>
+            <ul>
+                <li>Seret fungsi yang sesuai ke kolom <em>Fungsi</em> di samping nama bagian mata.</li>
+                <li>Pastikan semua kotak sudah terisi sebelum mengklik tombol <strong>Periksa</strong>.</li>
+                <li>Jika jawaban salah, kamu bisa mengatur ulang dengan tombol <strong>Reset Jawaban</strong>.</li>
+                <li>Setelah semua jawaban benar, tombol <strong>Lanjut</strong> akan aktif untuk berpindah ke materi berikutnya.</li>
+            </ul>
+        </div>        
         <div class="question" id="soal1">
-            <p><strong>Petunjuk:</strong> Seret fungsi yang sesuai ke kolom "Fungsi" di sebelah nama bagian mata.</p>
-
             <div class="table-container">
                 <table class="tabel-dragdrop">
                     <thead>
@@ -89,6 +96,7 @@
 <!-- Navigasi Halaman -->
 <div class="navigation d-flex justify-content-between">
     <a class="nav-btn btn btn-primary" href="/materi2/penglihatan-manusia">Sebelumnya</a>
+    <a class="nav-btn btn btn-primary" href="/petunjuk/3">Selanjutnya</a>
 </div>
 
 <script>

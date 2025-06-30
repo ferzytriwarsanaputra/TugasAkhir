@@ -77,9 +77,18 @@
 <div class="card-custom">
     <h5>Aktivitas 3.4</h5>
     <div class="question-container">
+      <div class="alert alert-info mb-3">
+        <strong>Petunjuk Pengerjaan:</strong>
+        <ul class="mb-0">
+            <li>Terdapat <strong>5 soal pilihan ganda</strong> dalam aktivitas ini.</li>
+            <li>Bacalah setiap soal dengan cermat.</li>
+            <li>Klik pada jawaban yang menurutmu paling tepat.</li>
+            <li>Jika jawabanmu benar, tombol "Lanjut" akan aktif untuk berpindah ke soal berikutnya.</li>
+            <li>Jika jawaban salah, coba pahami kembali materi sebelum melanjutkan.</li>
+        </ul>
+      </div>
       <!-- Soal 1 -->
       <div class="question" id="soal1">
-        <p><strong>Petunjuk:</strong> Bacalah dengan cermat perbedaan jenis teleskop berdasarkan komponen optiknya.</p>
         <p>1. Perbedaan utama antara teleskop bias dan teleskop pantul adalah...</p>
         <ul class="options" id="q1">
           <li onclick="pilihJawaban(this, 'q1', 'Teleskop bias menggunakan lensa, sedangkan teleskop pantul menggunakan cermin', 'hasil1')">
@@ -101,7 +110,6 @@
   
       <!-- Soal 2 -->
       <div class="question" id="soal2" style="display:none">
-        <p><strong>Petunjuk:</strong> Pilih jawaban yang benar mengenai bagian teleskop pantul.</p>
         <p>2. Komponen utama yang memantulkan cahaya dalam teleskop pantul adalah ...</p>
         <ul class="options" id="q2">
           <li onclick="pilihJawaban(this, 'q2', 'Cermin cekung', 'hasil2')">Lensa cembung</li>
@@ -115,7 +123,6 @@
   
       <!-- Soal 3 -->
       <div class="question" id="soal3" style="display:none">
-        <p><strong>Petunjuk:</strong> Fokuslah pada peran komponen lensa dalam teleskop bias.</p>
         <p>3. Lensa yang berfungsi untuk memperbesar bayangan dalam teleskop bias adalah ...</p>
         <ul class="options" id="q3">
           <li onclick="pilihJawaban(this, 'q3', 'Lensa okuler', 'hasil3')">Lensa objektif</li>
@@ -129,7 +136,6 @@
   
       <!-- Soal 4 -->
       <div class="question" id="soal4" style="display:none">
-        <p><strong>Petunjuk:</strong> Perhatikan alasan penggunaan teleskop modern dalam astronomi.</p>
         <p>4. Teleskop pantul lebih disukai dalam astronomi modern karena...</p>
         <ul class="options" id="q4">
           <li onclick="pilihJawaban(this, 'q4', 'Karena cermin lebih mudah dibuat dan lebih ringan daripada lensa besar', 'hasil4')">Karena lebih mahal dan kompleks</li>
@@ -143,7 +149,6 @@
   
       <!-- Soal 5 -->
       <div class="question" id="soal5" style="display:none">
-        <p><strong>Petunjuk:</strong> Identifikasi prinsip dasar pemantulan dalam teleskop pantul.</p>
         <p>5. Proses pembentukan bayangan dalam teleskop pantul dimulai dengan cahaya yang dipantulkan oleh ...</p>
         <ul class="options" id="q5">
           <li onclick="pilihJawaban(this, 'q5', 'Cermin utama', 'hasil5')">Lensa okuler</li>
@@ -168,20 +173,36 @@
     }
   
     function nextSoal() {
-      if (currentSoal < totalSoal) {
-        currentSoal++;
-        showSoal(currentSoal);
-      } else {
-        Swal.fire({
-          title: 'Latihan Selesai!',
-          text: 'Kamu telah menyelesaikan semua soal.',
-          icon: 'success',
-          confirmButtonText: 'Lanjutkan'
-        }).then(() => {
-          window.location.href = "/petunjuk/3"; // → Redirect setelah selesai
-        });
-      }
-    }
+        if (currentSoal < totalSoal) {
+            currentSoal++;
+            showSoal(currentSoal);
+        } else {
+            fetch('/simpan-hasil-latihan', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                },
+                body: JSON.stringify({ latihan_ke: 8 })
+            })
+            .then(res => res.json())
+            .then(data => {
+                Swal.fire({
+                    title: 'Latihan Selesai!',
+                    text: 'Kamu akan diarahkan ke materi berikutnya.',
+                    icon: 'success',
+                    confirmButtonText: 'Lanjutkan'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "/petunjuk/3";
+                    }
+                });
+            })
+            .catch(err => {
+                console.error('Gagal simpan hasil latihan:', err);
+                Swal.fire('Oops!', 'Gagal menyimpan hasil latihan. Silakan coba lagi.', 'error');
+            });
+        }
   
     function pilihJawaban(el, qid, kunci, hasilId) {
       const container = document.getElementById(qid);

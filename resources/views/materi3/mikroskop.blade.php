@@ -47,9 +47,18 @@
 <div class="card-custom">
     <h5>Aktivitas 3.3</h5>
     <div class="question-container">
+        <div class="alert alert-info mb-3">
+            <strong>Petunjuk Pengerjaan:</strong>
+            <ul class="mb-0">
+                <li>Terdapat <strong>5 soal pilihan ganda</strong> dalam aktivitas ini.</li>
+                <li>Bacalah setiap soal dengan cermat.</li>
+                <li>Klik pada jawaban yang menurutmu paling tepat.</li>
+                <li>Jika jawabanmu benar, tombol "Lanjut" akan aktif untuk berpindah ke soal berikutnya.</li>
+                <li>Jika jawaban salah, coba pahami kembali materi sebelum melanjutkan.</li>
+            </ul>
+        </div>       
         <!-- Soal 1 -->
         <div class="question" id="soal1">
-            <p><strong>Petunjuk:</strong> Pilih jawaban yang paling tepat terkait fungsi mikroskop dalam kehidupan sehari-hari.</p>
             <p>1. Mikroskop digunakan untuk melihat benda kecil agar...</p>
             <ul class="options" id="q1">
                 <li onclick="pilihJawaban(this, 'q1', 'Memperbesar benda kecil agar terlihat lebih jelas', 'hasil1')">Memperkecil benda besar agar praktis</li>
@@ -63,7 +72,6 @@
 
         <!-- Soal 2 -->
         <div class="question" id="soal2" style="display: none;">
-            <p><strong>Petunjuk:</strong> Pilih dua lensa yang digunakan dalam mikroskop cahaya.</p>
             <p>2. Dua jenis lensa utama dalam mikroskop cahaya adalah...</p>
             <ul class="options" id="q2">
                 <li onclick="pilihJawaban(this, 'q2', 'Lensa objektif dan lensa okuler', 'hasil2')">Lensa cembung dan lensa cekung</li>
@@ -77,7 +85,6 @@
 
         <!-- Soal 3 -->
         <div class="question" id="soal3" style="display: none;">
-            <p><strong>Petunjuk:</strong> Pilih sifat bayangan akhir yang dihasilkan mikroskop.</p>
             <p>3. Bayangan akhir dari mikroskop bersifat...</p>
             <ul class="options" id="q3">
                 <li onclick="pilihJawaban(this, 'q3', 'Maya dan diperbesar', 'hasil3')">Nyata dan menyusut</li>
@@ -91,7 +98,6 @@
 
         <!-- Soal 4 -->
         <div class="question" id="soal4" style="display: none;">
-            <p><strong>Petunjuk:</strong> Pilih jawaban yang paling tepat tentang fungsi lensa objektif.</p>
             <p>4. Lensa objektif dalam mikroskop berfungsi untuk...</p>
             <ul class="options" id="q4">
                 <li onclick="pilihJawaban(this, 'q4', 'Memperbesar objek pertama kali', 'hasil4')">Meningkatkan fokus cahaya</li>
@@ -105,7 +111,6 @@
 
         <!-- Soal 5 -->
         <div class="question" id="soal5" style="display: none;">
-            <p><strong>Petunjuk:</strong> Pilih pernyataan yang benar tentang mikroskop.</p>
             <p>5. Mikroskop sangat penting dalam ilmu pengetahuan karena...</p>
             <ul class="options" id="q5">
                 <li onclick="pilihJawaban(this, 'q5', 'Membantu melihat detail yang tidak bisa dilihat oleh mata biasa', 'hasil5')">Memantulkan bayangan nyata ke cermin datar</li>

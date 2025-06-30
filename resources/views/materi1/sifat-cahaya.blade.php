@@ -133,10 +133,18 @@
 <div class="card-custom">
     <h5>Aktivitas 1.1</h5>
     <div class="question-container">
-
+        <div class="alert alert-info mb-3">
+            <strong>Petunjuk Pengerjaan:</strong>
+            <ul class="mb-0">
+                <li>Terdapat <strong>5 soal pilihan ganda</strong> dalam aktivitas ini.</li>
+                <li>Bacalah setiap soal dengan cermat.</li>
+                <li>Klik pada jawaban yang menurutmu paling tepat.</li>
+                <li>Jika jawabanmu benar, tombol "Lanjut" akan aktif untuk berpindah ke soal berikutnya.</li>
+                <li>Jika jawaban salah, coba pahami kembali materi sebelum melanjutkan.</li>
+            </ul>
+        </div>
         <!-- Soal 1 -->
-        <div class="question" id="soal1">
-            <p class="petunjuk">Pilihlah satu jawaban yang paling benar.</p>
+        <div class="question" id="soal1">            
             <p>1. Saat cahaya menembus celah kecil pada jendela dan membentuk garis lurus di ruangan yang gelap, peristiwa ini menunjukkan sifat cahaya…</p>
             <ul class="options" id="q1">
                 <li onclick="pilihJawaban(this, 'q1')">Dapat dipantulkan</li>
@@ -150,7 +158,6 @@
 
         <!-- Soal 2 -->
         <div class="question" id="soal2" style="display: none;">
-            <p class="petunjuk">Pilihlah satu jawaban yang paling benar.</p>
             <p>2. Pasangan yang tepat antara jenis pemantulan dan contohnya ditunjukkan oleh pernyataan ...</p>
             <ul class="options" id="q2">
                 <li onclick="pilihJawaban(this, 'q2')">Pemantulan teratur – cahaya dipantulkan oleh tembok kasar</li>
@@ -164,7 +171,6 @@
 
         <!-- Soal 3 -->
         <div class="question" id="soal3" style="display: none;">
-            <p class="petunjuk">Pilihlah satu jawaban yang paling benar.</p>
             <p>3. Sudut pantul cahaya jika sudut datangnya 30° berdasarkan hukum pemantulan adalah ...</p>
             <ul class="options" id="q3">
                 <li onclick="pilihJawaban(this, 'q3')">15°</li>
@@ -178,7 +184,6 @@
 
         <!-- Soal 4 -->
         <div class="question" id="soal4" style="display: none;">
-            <p class="petunjuk">Pilihlah satu jawaban yang paling benar.</p>
             <p>4. Dasar kolam terlihat lebih dangkal daripada kedalaman sebenarnya karena peristiwa ...</p>
             <ul class="options" id="q4">
                 <li onclick="pilihJawaban(this, 'q4')">Cahaya dipantulkan oleh air</li>
@@ -192,7 +197,6 @@
 
         <!-- Soal 5 -->
         <div class="question" id="soal5" style="display: none;">
-            <p class="petunjuk">Pilihlah satu jawaban yang paling benar.</p>
             <p>5. Perbedaan antara cahaya dan suara dalam hal perambatan ditunjukkan oleh pernyataan ...</p>
             <ul class="options" id="q5">
                 <li onclick="pilihJawaban(this, 'q5')">Cahaya membutuhkan udara sebagai medium perambatan</li>

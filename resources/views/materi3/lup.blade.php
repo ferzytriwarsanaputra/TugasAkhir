@@ -47,10 +47,19 @@
 <div class="card-custom">
     <h5>Aktivitas 3.2</h5>
     <div class="question-container">
-
+        <div class="alert alert-info mb-3">
+            <strong>Petunjuk Pengerjaan:</strong>
+            <ul>
+                <li>Ada total <strong>5 soal isian singkat</strong> yang harus kamu jawab.</li>
+                <li>Ketik jawaban singkat di kotak yang tersedia.</li>
+                <li>Gunakan huruf kecil semua agar jawaban terbaca sistem.</li>
+                <li>Jika jawaban benar, tombol <em>Lanjut</em> akan aktif.</li>
+                <li>Jawaban salah dapat diperbaiki sebelum lanjut.</li>
+            </ul>
+        </div>
+        
         <!-- Essay 1 -->
         <div class="question" id="soal1">
-            <p><strong>Petunjuk:</strong> Ketik jawaban singkat yang benar.</p>
             <p>1. Kaca pembesar menggunakan jenis lensa ...</p>
             <input type="text" id="jawaban1" class="input-besar">
             <p id="hasil1"></p>
@@ -60,7 +69,6 @@
 
         <!-- Essay 2 -->
         <div class="question" id="soal2" style="display: none;">
-            <p><strong>Petunjuk:</strong> Ketik jawaban singkat yang benar.</p>
             <p>2. Bayangan yang dibentuk kaca pembesar bersifat maya, tegak, dan ...</p>
             <input type="text" id="jawaban2" class="input-besar">
             <p id="hasil2"></p>
@@ -70,7 +78,6 @@
 
         <!-- Essay 3 -->
         <div class="question" id="soal3" style="display: none;">
-            <p><strong>Petunjuk:</strong> Ketik jawaban singkat yang benar.</p>
             <p>3. Kaca pembesar digunakan untuk melihat benda-benda yang ...</p>
             <input type="text" id="jawaban3" class="input-besar">
             <p id="hasil3"></p>
@@ -80,7 +87,6 @@
 
         <!-- Essay 4 -->
         <div class="question" id="soal4" style="display: none;">
-            <p><strong>Petunjuk:</strong> Ketik jawaban singkat yang benar.</p>
             <p>4. Jika mata tidak berakomodasi, bayangan dibentuk pada titik ...</p>
             <input type="text" id="jawaban4" class="input-besar">
             <p id="hasil4"></p>
@@ -90,7 +96,6 @@
 
         <!-- Essay 5 -->
         <div class="question" id="soal5" style="display: none;">
-            <p><strong>Petunjuk:</strong> Ketik jawaban singkat yang benar.</p>
             <p>5. Nama lain dari kaca pembesar adalah ...</p>
             <input type="text" id="jawaban5" class="input-besar">
             <p id="hasil5"></p>

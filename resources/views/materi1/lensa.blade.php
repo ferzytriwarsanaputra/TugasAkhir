@@ -169,10 +169,20 @@
   
 <div class="card-custom">
     <h5>Aktivitas 1.3</h5>
+    
     <div class="question-container">
+        <div class="alert alert-info mb-3">
+            <strong>Petunjuk Pengerjaan:</strong>
+            <ul>
+                <li>Aktivitas ini terdiri dari <strong>2 soal</strong> yang harus kamu kerjakan secara berurutan.</li>
+                <li>Baca pertanyaan dengan teliti dan pilih semua jawaban yang benar.</li>
+                <li>Klik tombol <em>Periksa</em> untuk memeriksa jawabanmu.</li>
+                <li>Jika jawabanmu benar, tombol <em>Lanjut</em> akan aktif untuk menuju soal berikutnya.</li>
+                <li>Setelah menyelesaikan semua soal, hasil latihan akan disimpan secara otomatis.</li>
+            </ul>
+        </div>
         <!-- Soal 1: Checkbox Bayangan Lensa Cekung -->
         <div class="question" id="soal1">
-            <div class="petunjuk"><strong>Petunjuk:</strong> Pilih semua jawaban yang benar!</div>
             <p>1. Ciri-ciri bayangan yang dihasilkan oleh lensa cekung adalah ...</p>
             <ul class="options checkbox-style">
                 <label><input type="checkbox" name="q1" value="Maya"> Maya</label><br>
@@ -188,7 +198,6 @@
 
         <!-- Soal 2: Checkbox Fungsi Lensa Cembung -->
         <div class="question" id="soal2" style="display: none;">
-            <div class="petunjuk"><strong>Petunjuk:</strong> Pilih semua jawaban yang benar!</div>
             <p>2. Fungsi dari lensa cembung adalah ...</p>
             <ul class="options checkbox-style">
                 <label><input type="checkbox" name="q2" value="Kaca pembesar"> Kaca pembesar</label><br>

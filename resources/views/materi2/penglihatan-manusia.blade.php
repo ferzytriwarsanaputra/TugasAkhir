@@ -34,7 +34,7 @@
         </p>
 
         <div id="diagram-container" class="position-relative my-3">
-            <h5>🔍 Arahkan kursor ke titik kuninb untuk membaca penjelasan bagian mata</h5>
+            <h5>🔍 Arahkan kursor ke titik kuning untuk membaca penjelasan bagian mata</h5>
             <img src="/img/Materi2/mata1.png" width="500" alt="Diagram Mata" data-bs-toggle="modal"
             data-bs-target="#modalGambar"
             onclick="tampilkanGambar(this)">
@@ -149,9 +149,18 @@
 <div class="card-custom">
     <h5>Aktivitas 2.1</h5>
     <div class="question-container">
+        <div class="alert alert-info mb-3">
+            <strong>Petunjuk Pengerjaan:</strong>
+            <ul class="mb-0">
+                <li>Terdapat <strong>5 soal pilihan ganda</strong> dalam aktivitas ini.</li>
+                <li>Bacalah setiap soal dengan cermat.</li>
+                <li>Klik pada jawaban yang menurutmu paling tepat.</li>
+                <li>Jika jawabanmu benar, tombol "Lanjut" akan aktif untuk berpindah ke soal berikutnya.</li>
+                <li>Jika jawaban salah, coba pahami kembali materi sebelum melanjutkan.</li>
+            </ul>
+        </div>
         <!-- Soal 1 -->
         <div class="question" id="soal1">
-            <p><strong>Petunjuk:</strong> Pilih satu jawaban yang paling benar.</p>
             <p>1. Bayangan yang terbentuk pada retina mata manusia bersifat...</p>
             <ul class="options" id="q1">
                 <li onclick="pilihJawaban(this, 'q1', 'Terbalik dan nyata', 'hasil1')">Tegak dan nyata</li>
@@ -165,7 +174,6 @@
 
         <!-- Soal 2 -->
         <div class="question" id="soal2" style="display: none;">
-            <p><strong>Petunjuk:</strong> Pilih satu jawaban yang paling benar.</p>
             <p>2. Bagian mata yang mengatur jumlah cahaya yang masuk ke mata adalah...</p>
             <ul class="options" id="q2">
                 <li onclick="pilihJawaban(this, 'q2', 'Iris', 'hasil2')">Kornea</li>
@@ -179,7 +187,6 @@
 
         <!-- Soal 3 -->
         <div class="question" id="soal3" style="display: none;">
-            <p><strong>Petunjuk:</strong> Pilih satu jawaban yang paling benar.</p>
             <p>3. Gangguan penglihatan yang disebabkan oleh bayangan jatuh di depan retina disebut...</p>
             <ul class="options" id="q3">
                 <li onclick="pilihJawaban(this, 'q3', 'Rabun jauh', 'hasil3')">Rabun dekat</li>
@@ -193,7 +200,6 @@
 
         <!-- Soal 4 -->
         <div class="question" id="soal4" style="display: none;">
-            <p><strong>Petunjuk:</strong> Pilih satu jawaban yang paling benar.</p>
             <p>4. Sel batang pada retina berfungsi untuk...</p>
             <ul class="options" id="q4">
                 <li onclick="pilihJawaban(this, 'q4', 'Melihat dalam gelap atau cahaya redup', 'hasil4')">Melihat warna dalam cahaya terang</li>
@@ -207,7 +213,6 @@
 
         <!-- Soal 5 -->
         <div class="question" id="soal5" style="display: none;">
-            <p><strong>Petunjuk:</strong> Pilih satu jawaban yang paling benar.</p>
             <p>5. Mekanisme penglihatan pada serangga berbeda dengan manusia karena...</p>
             <ul class="options" id="q5">
                 <li onclick="pilihJawaban(this, 'q5', 'Serangga memiliki mata majemuk (kompleks) yang terdiri dari banyak unit penglihatan', 'hasil5')">Serangga tidak memiliki retina</li>

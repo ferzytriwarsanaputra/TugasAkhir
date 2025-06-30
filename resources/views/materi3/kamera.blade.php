@@ -51,9 +51,17 @@
 <div class="card-custom">
     <h5>Aktivitas 3.1</h5>
     <div class="question-container">
+        <div class="alert alert-info mb-3">
+            <strong>Petunjuk Pengerjaan:</strong>
+            <ul>
+                <li>Ada total <strong>5 soal pernyataan</strong> yang harus kamu jawab.</li>
+                <li>Pilih <em>Benar</em> atau <em>Salah</em> pada setiap pernyataan.</li>
+                <li>Setelah menjawab, klik tombol <em>Lanjut</em> untuk menuju soal berikutnya.</li>
+                <li>Perhatikan jawabanmu agar hasil latihan dapat tersimpan dengan benar.</li>
+            </ul>
+        </div>
         <!-- Soal 1 -->
         <div class="question" id="soal1">
-            <p><strong>Petunjuk:</strong> Pilih "Benar" atau "Salah" untuk setiap pernyataan berikut.</p>
             <p>1. Fungsi utama lensa pada kamera adalah untuk memfokuskan cahaya pada sensor kamera.</p>
             <ul id="q1" class="list-unstyled">
                 <li><input type="radio" name="q1" value="Benar" onclick="cekPernyataan('q1', 'Benar', 'hasil1')"> Benar</li>
@@ -65,7 +73,6 @@
 
         <!-- Soal 2 -->
         <div class="question" id="soal2" style="display: none;">
-            <p>2. Kamera modern dapat mengambil gambar jelas dalam kondisi gelap karena menggunakan sensor cahaya yang lebih besar.</p>
             <ul id="q2" class="list-unstyled">
                 <li><input type="radio" name="q2" value="Benar" onclick="cekPernyataan('q2', 'Benar', 'hasil2')"> Benar</li>
                 <li><input type="radio" name="q2" value="Salah" onclick="cekPernyataan('q2', 'Benar', 'hasil2')"> Salah</li>
@@ -76,7 +83,6 @@
 
         <!-- Soal 3 -->
         <div class="question" id="soal3" style="display: none;">
-            <p>3. Apertur adalah bagian kamera yang mengatur jumlah cahaya yang masuk.</p>
             <ul id="q3" class="list-unstyled">
                 <li><input type="radio" name="q3" value="Benar" onclick="cekPernyataan('q3', 'Benar', 'hasil3')"> Benar</li>
                 <li><input type="radio" name="q3" value="Salah" onclick="cekPernyataan('q3', 'Benar', 'hasil3')"> Salah</li>
@@ -87,7 +93,6 @@
 
         <!-- Soal 4 -->
         <div class="question" id="soal4" style="display: none;">
-            <p>4. Semua kamera dapat berfungsi tanpa cahaya.</p>
             <ul id="q4" class="list-unstyled">
                 <li><input type="radio" name="q4" value="Benar" onclick="cekPernyataan('q4', 'Salah', 'hasil4')"> Benar</li>
                 <li><input type="radio" name="q4" value="Salah" onclick="cekPernyataan('q4', 'Salah', 'hasil4')"> Salah</li>
@@ -98,7 +103,6 @@
 
         <!-- Soal 5 -->
         <div class="question" id="soal5" style="display: none;">
-            <p>5. Sensor kamera digital bekerja dengan mengubah cahaya menjadi sinyal digital.</p>
             <ul id="q5" class="list-unstyled">
                 <li><input type="radio" name="q5" value="Benar" onclick="cekPernyataan('q5', 'Benar', 'hasil5')"> Benar</li>
                 <li><input type="radio" name="q5" value="Salah" onclick="cekPernyataan('q5', 'Benar', 'hasil5')"> Salah</li>

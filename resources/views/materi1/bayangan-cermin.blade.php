@@ -173,10 +173,19 @@
 
 <div class="card-custom">
     <h5>Aktivitas 1.2</h5>
-  
+    <div class="alert alert-info mb-3">
+      <strong>Petunjuk Aktivitas:</strong>
+      <ul class="mb-0">
+        <li>Aktivitas ini terdiri dari <strong>5 soal</strong> yang harus dikerjakan secara berurutan.</li>
+        <li>Setiap soal meminta kamu <strong>menarik gambar ke area jawaban yang sesuai</strong>.</li>
+        <li>Klik tombol <em>Periksa</em> untuk mengecek jawabanmu.</li>
+        <li>Jika jawaban benar, tombol <em>Lanjut</em> akan aktif untuk berpindah ke soal berikutnya.</li>
+        <li>Jika jawaban salah, kamu harus mencoba lagi sampai menemukan jawaban yang benar.</li>
+        <li>Setelah semua soal selesai, kamu akan diarahkan ke materi berikutnya.</li>
+      </ul>
+    </div>    
     <!-- Soal 1 -->
     <div class="question" id="soal1">
-      <p class="petunjuk"><strong>Petunjuk:</strong> Tarik gambar ke area yang sesuai.</p>
       <p>1. Tarik gambar jenis cermin yang dapat membentuk bayangan nyata dan terbalik.</p>
       <div class="drag-container">
         <img src="/img/Materi1/senter.png" alt="Cermin Cekung" class="drag-item" id="cekung" draggable="true" ondragstart="drag(event)" style="max-width: 300px;">
@@ -191,7 +200,6 @@
   
     <!-- Soal 2 -->
     <div class="question" id="soal2" style="display:none">
-      <p class="petunjuk"><strong>Petunjuk:</strong> Tarik gambar ke area yang sesuai.</p>
       <p>2. Tarik gambar jenis cermin yang membentuk bayangan maya, tegak, dan diperkecil.</p>
       <div class="drag-container">
         <img src="/img/Materi1/senter.png" alt="Cermin Cekung" class="drag-item" id="cekung2" draggable="true" ondragstart="drag(event)" style="max-width: 300px;">
@@ -206,7 +214,6 @@
   
     <!-- Soal 3 -->
     <div class="question" id="soal3" style="display:none">
-      <p class="petunjuk"><strong>Petunjuk:</strong> Tarik gambar jalur sinar yang sesuai dengan hukum pemantulan.</p>
       <p>3. Pilih gambar sinar pantul yang sudut datangnya sama dengan sudut pantul.</p>
       <div class="drag-container">
         <img src="/img/Materi1/1a.png" alt="Sinar Benar" class="drag-item" id="sinar_benar" draggable="true" ondragstart="drag(event)" style="max-width: 300px;">
@@ -221,7 +228,6 @@
   
     <!-- Soal 4 (diperbarui dengan pilihan lebih menipu) -->
     <div class="question" id="soal4" style="display:none">
-      <p class="petunjuk"><strong>Petunjuk:</strong> Pilih gambar bayangan yang terbentuk oleh cermin datar.</p>
       <p>4. Tarik gambar bayangan yang tegak dan sama besar dengan benda.</p>
       <div class="drag-container">
         <img src="/img/Materi1/bercermin.jpeg" alt="Bayangan Datar" class="drag-item" id="bayangan_datar" draggable="true" ondragstart="drag(event)" style="max-width: 300px;">
@@ -236,7 +242,6 @@
   
     <!-- Soal 5 -->
     <div class="question" id="soal5" style="display:none">
-      <p class="petunjuk"><strong>Petunjuk:</strong> Pilih gambar yang menunjukkan posisi bayangan maya dari benda di depan cermin cekung (dalam fokus).</p>
       <p>5. Tarik gambar posisi bayangan ke area jawaban.</p>
       <div class="drag-container">
         <img src="/img/Materi1/23.png" alt="Bayangan Maya" class="drag-item" id="bayangan_maya" draggable="true" ondragstart="drag(event)" style="max-width: 300px;">
