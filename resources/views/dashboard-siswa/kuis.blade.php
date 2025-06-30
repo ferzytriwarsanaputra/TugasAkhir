@@ -199,5 +199,9 @@
 
     loadQuestion();
     startTimer();
+    const el = document.getElementById("sidebar-toggle");
+    if (el) {
+        el.classList.toggle("open");
+    }
 </script>
 @endsection
