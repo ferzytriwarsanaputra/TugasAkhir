@@ -30,12 +30,24 @@
             Kamera digunakan untuk banyak hal, dari foto sehari-hari hingga aplikasi ilmiah seperti mengambil gambar bintang atau benda mikroskopis. Memahami cara kerja kamera penting agar kita bisa menghasilkan foto yang bagus.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi3/optik1.png" alt="Pembentukan Bayangan pada Kamera Analog" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <img src="/img/Materi3/optik1.png" alt="Pembentukan Bayangan pada Kamera Analog" class="img-fluid d-block mx-auto" style="max-width: 60%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption><em>Gambar 3.1 Pembentukan Bayangan pada Kamera Analog (Sumber: Kemdikbud. 2017)</em></figcaption>
         </figure>        
     </div>
 </div>
-
+<!-- Modal Gambar -->
+<div class="modal fade" id="modalGambar" tabindex="-1" aria-labelledby="modalGambarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <img id="gambarModal" src="" alt="" class="img-fluid w-100">
+        </div>
+      </div>
+    </div>
+  </div>
+  
 <div class="card-custom">
     <h5>Aktivitas 3.1</h5>
     <div class="question-container">
@@ -104,83 +116,89 @@
 </div>
 
 <script>
-function cekPernyataan(qid, kunci, hasilId) {
-    const jawab = document.querySelector(`input[name="${qid}"]:checked`);
-    const hasil = document.getElementById(hasilId);
-    const btn = hasil.nextElementSibling;
+    function cekPernyataan(qid, kunci, hasilId) {
+        const jawab = document.querySelector(`input[name="${qid}"]:checked`);
+        const hasil = document.getElementById(hasilId);
+        const btn = hasil.nextElementSibling;
 
-    if (hasil.dataset.answered === "true") return;
+        if (hasil.dataset.answered === "true") return;
 
-    if (!jawab) {
-        hasil.textContent = "Pilih salah satu jawaban!";
-        hasil.style.color = "orange";
-        return;
+        if (!jawab) {
+            hasil.textContent = "Pilih salah satu jawaban!";
+            hasil.style.color = "orange";
+            return;
+        }
+
+        if (jawab.value === kunci) {
+            hasil.innerHTML = "Jawaban Benar!";
+            hasil.style.color = "green";
+            btn.classList.remove("disabled");
+            hasil.dataset.answered = "true";
+            document.querySelectorAll(`input[name="${qid}"]`).forEach(radio => radio.disabled = true);
+        } else {
+            hasil.innerHTML = `Jawaban Salah!`;
+            hasil.style.color = "red";
+        }
     }
 
-    if (jawab.value === kunci) {
-        hasil.innerHTML = "Jawaban Benar!";
-        hasil.style.color = "green";
-        btn.classList.remove("disabled");
-        hasil.dataset.answered = "true";
-        document.querySelectorAll(`input[name="${qid}"]`).forEach(radio => radio.disabled = true);
-    } else {
-        hasil.innerHTML = `Jawaban Salah!`;
-        hasil.style.color = "red";
+    let currentSoal = 1;
+    const totalSoal = 5;
+
+    function showSoal(n) {
+        for (let i = 1; i <= totalSoal; i++) {
+            document.getElementById(`soal${i}`).style.display = i === n ? "block" : "none";
+        }
     }
-}
 
-let currentSoal = 1;
-const totalSoal = 5;
-
-function showSoal(n) {
-    for (let i = 1; i <= totalSoal; i++) {
-        document.getElementById(`soal${i}`).style.display = i === n ? "block" : "none";
-    }
-}
-
-function nextSoal() {
-    if (currentSoal < totalSoal) {
-        currentSoal++;
-        showSoal(currentSoal);
-    } else {
-        Swal.fire({
-            title: 'Latihan selesai!',
-            text: 'Apakah kamu ingin melanjutkan ke materi berikutnya?',
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonText: 'Ya, lanjut',
-            cancelButtonText: 'Batal'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                fetch('/simpan-hasil-latihan', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                    },
-                    body: JSON.stringify({ latihan_ke: 6 })
-                })
-                .then(res => res.json())
-                .then(data => {
-                    Swal.fire({
-                        title: 'Berhasil!',
-                        text: 'Hasil latihan telah disimpan.',
-                        icon: 'success',
-                        confirmButtonText: 'Lanjut ke Materi'
-                    }).then(() => {
-                        window.location.href = "/materi3/lup";
+    function nextSoal() {
+        if (currentSoal < totalSoal) {
+            currentSoal++;
+            showSoal(currentSoal);
+        } else {
+            Swal.fire({
+                title: 'Latihan selesai!',
+                text: 'Apakah kamu ingin melanjutkan ke materi berikutnya?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, lanjut',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    fetch('/simpan-hasil-latihan', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                        },
+                        body: JSON.stringify({ latihan_ke: 6 })
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Hasil latihan telah disimpan.',
+                            icon: 'success',
+                            confirmButtonText: 'Lanjut ke Materi'
+                        }).then(() => {
+                            window.location.href = "/materi3/lup";
+                        });
+                    })
+                    .catch(err => {
+                        Swal.fire('Gagal', 'Tidak dapat menyimpan hasil latihan. Silakan coba lagi.', 'error');
                     });
-                })
-                .catch(err => {
-                    Swal.fire('Gagal', 'Tidak dapat menyimpan hasil latihan. Silakan coba lagi.', 'error');
-                });
-            }
-        });
+                }
+            });
+        }
     }
-}
 
-document.addEventListener("DOMContentLoaded", () => {
-    showSoal(currentSoal);
-});
+    document.addEventListener("DOMContentLoaded", () => {
+        showSoal(currentSoal);
+    });
+
+    function tampilkanGambar(imgElement) {
+        const modalImg = document.getElementById('gambarModal');
+        modalImg.src = imgElement.src;
+        modalImg.alt = imgElement.alt;
+    }
 </script>
 @endsection

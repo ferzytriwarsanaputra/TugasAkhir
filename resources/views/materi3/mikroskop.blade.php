@@ -17,19 +17,33 @@
             Mikroskop sangat penting dalam ilmu pengetahuan untuk mempelajari hal-hal yang sangat kecil. Banyak penemuan dalam biologi, mikrobiologi, dan bidang lain sangat bergantung pada penggunaan mikroskop.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi3/optik4.png" alt="Mikroskop Cahaya" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <img src="/img/Materi3/optik4.png" alt="Mikroskop Cahaya" class="img-fluid d-block mx-auto" style="max-width: 60%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption><em>Gambar 3.4 Mikroskop Cahaya (Sumber: Kemdikbud. 2017)</em></figcaption>
         </figure>
         <p>
             Lensa okuler dan lensa objektif pada mikroskop adalah lensa cembung yang memiliki titik fokus yang berbeda. Objek yang ingin diamati diletakkan di atas kaca objek dan disinari dari bawah. Cahaya masuk melalui lensa objektif dan membentuk bayangan nyata yang diperbesar. Bayangan ini menjadi lebih besar karena objek diletakkan antara jarak fokus pertama dan kedua lensa objektif. Kemudian, bayangan yang sudah diperbesar itu akan diperbesar lagi oleh lensa okuler, sehingga menghasilkan bayangan maya yang lebih besar. Dengan susunan lensa seperti ini, mikroskop bisa menghasilkan bayangan yang ratusan kali lebih besar dari objek aslinya.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi3/optik5.png" alt="Pembentukan Bayangan pada Mikroskop" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <img src="/img/Materi3/optik5.png" alt="Pembentukan Bayangan pada Mikroskop" class="img-fluid d-block mx-auto" style="max-width: 60%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption><em>Gambar 3.5 Pembentukan Bayangan pada Mikroskop (Sumber: Kemdikbud. 2017)</em></figcaption>
         </figure>
     </div>
 </div>
-
+<!-- Modal Gambar -->
+<div class="modal fade" id="modalGambar" tabindex="-1" aria-labelledby="modalGambarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <img id="gambarModal" src="" alt="" class="img-fluid w-100">
+        </div>
+      </div>
+    </div>
+  </div>
+  
 <div class="card-custom">
     <h5>Aktivitas 3.3</h5>
     <div class="question-container">
@@ -179,5 +193,10 @@
     document.addEventListener("DOMContentLoaded", () => {
         showSoal(currentSoal);
     });
+    function tampilkanGambar(imgElement) {
+        const modalImg = document.getElementById('gambarModal');
+        modalImg.src = imgElement.src;
+        modalImg.alt = imgElement.alt;
+    }
 </script>
 @endsection

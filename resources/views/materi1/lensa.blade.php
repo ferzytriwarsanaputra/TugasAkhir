@@ -14,11 +14,15 @@
             Lensa adalah benda bening yang dibatasi oleh dua permukaan bidang lengkung atau benda bening yang dibatasi oleh satu bidang lengkung dan satu bidang datar. Berdasarkan bentuknya, lensa dibedakan menjadi dua yaitu lensa cembung dan lensa cekung.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi1/lensa1.png" alt="Lensa cembung dan cekung pada benda" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <img src="/img/Materi1/lensa1.png" alt="Lensa cembung dan cekung pada benda" class="img-fluid d-block mx-auto" style="max-width: 60%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption><em>Gambar 1.17 Lensa cembung dan cekung pada benda (Sumber: pinterest.com)</em></figcaption>
         </figure>
         <figure class="text-center">
-            <img src="/img/Materi1/lensa2.png" alt="Lensa Cembung dan Lensa Cekung" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <img src="/img/Materi1/lensa2.png" alt="Lensa Cembung dan Lensa Cekung" class="img-fluid d-block mx-auto" style="max-width: 60%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption><em>Gambar 1.18 Lensa Cembung dan Lensa Cekung (Sumber: Kemdikbud. 2017)</em></figcaption>
         </figure>
         <h6>a. Lensa Cembung</h6>
@@ -26,7 +30,9 @@
             Lensa cembung merupakan jenis lensa yang memiliki bagian tengah lebih tebal dibandingkan bagian tepinya, dengan permukaan yang melengkung ke arah luar. Cahaya yang melewati lensa ini akan dibiaskan sehingga terkonsentrasi pada satu titik fokus. Lensa cembung banyak dimanfaatkan dalam berbagai perangkat optik seperti kamera, mikroskop, dan mata manusia. Selain itu, lensa cembung juga digunakan pada kacamata untuk membantu penglihatan penderita rabun dekat.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi1/lensa3.jpg" alt="Lensa cembung pada lensa kamera" class="img-fluid d-block mx-auto" style="max-width: 30%;">
+            <img src="/img/Materi1/lensa3.jpg" alt="Lensa cembung pada lensa kamera" class="img-fluid d-block mx-auto" style="max-width: 30%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption><em>Gambar 1.19 Lensa cembung pada lensa kamera (Sumber: pinterest.com)</em></figcaption>
         </figure>
         <h6><br>1) Pemantulan sinar-sinar istimewa pada lensa cembung adalah sebagai berikut:</h6>
@@ -41,7 +47,9 @@
                     <td>a. Sinar datang sejajar sumbu utama akan dibiaskan menuju titik fokus aktif (F<sub>1</sub>) di belakang lensa.</td>
                     <td>
                         <figure class="text-center">
-                            <img src="/img/Materi1/lensa1a.png" alt="Sinar sejajar ke F1" class="img-fluid d-block mx-auto">
+                            <img src="/img/Materi1/lensa1a.png" alt="Sinar sejajar ke F1" class="img-fluid d-block mx-auto" data-bs-toggle="modal"
+                            data-bs-target="#modalGambar"
+                            onclick="tampilkanGambar(this)">
                         </figure>
                     </td>
                 </tr>
@@ -49,7 +57,9 @@
                     <td>b. Sinar datang melalui titik fokus pasif (F<sub>2</sub>) akan dibiaskan sejajar sumbu utama.</td>
                     <td>
                         <figure class="text-center">
-                            <img src="/img/Materi1/lensa1b.png" alt="Sinar dari F2 ke sejajar" class="img-fluid d-block mx-auto">
+                            <img src="/img/Materi1/lensa1b.png" alt="Sinar dari F2 ke sejajar" class="img-fluid d-block mx-auto" data-bs-toggle="modal"
+                            data-bs-target="#modalGambar"
+                            onclick="tampilkanGambar(this)">
                         </figure>
                     </td>
                 </tr>
@@ -57,7 +67,9 @@
                     <td>c. Sinar datang melalui pusat optik (O) akan diteruskan tanpa pembiasan.</td>
                     <td>
                         <figure class="text-center">
-                            <img src="/img/Materi1/lensa1c.png" alt="Sinar melalui pusat optik" class="img-fluid d-block mx-auto">
+                            <img src="/img/Materi1/lensa1c.png" alt="Sinar melalui pusat optik" class="img-fluid d-block mx-auto" data-bs-toggle="modal"
+                            data-bs-target="#modalGambar"
+                            onclick="tampilkanGambar(this)">
                         </figure>
                     </td>
                 </tr>
@@ -69,7 +81,9 @@
             Jika sebuah benda diletakkan di depan lensa cembung akan membentuk bayangan, seperti ditunjukkan pada Gambar.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi1/lensa4.png" alt="Pembentukan Bayangan oleh Lensa Cembung" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <img src="/img/Materi1/lensa4.png" alt="Pembentukan Bayangan oleh Lensa Cembung" class="img-fluid d-block mx-auto" style="max-width: 60%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption><em>Gambar 1.20 Pembentukan Bayangan oleh Lensa Cembung (Sumber: Kemdikbud. 2017)</em></figcaption>
         </figure>
         <p>
@@ -80,7 +94,9 @@
             Lensa cekung, dengan permukaan melengkung ke dalam, memiliki kemampuan untuk menyebarkan cahaya yang melewatinya. Sifat ini menjadikannya ideal untuk digunakan pada kacamata penderita rabun jauh (miopia), karena lensa cekung membantu memperbaiki fokus cahaya sehingga bayangan jatuh tepat pada retina. Berbeda dengan lensa cembung yang memfokuskan cahaya ke satu titik, lensa cekung menyebabkan cahaya menyebar, menghasilkan bayangan yang tampak lebih kecil dan lebih jauh dari aslinya.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi1/lensa5.png" alt="Lensa cekung pada lubang intip pintu" class="img-fluid d-block mx-auto" style="max-width: 30%;">
+            <img src="/img/Materi1/lensa5.png" alt="Lensa cekung pada lubang intip pintu" class="img-fluid d-block mx-auto" style="max-width: 30%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption><em>Gambar 1.21 Lensa cekung pada lubang intip pintu (Sumber: canva.com)</em></figcaption>
         </figure>
         <p>
@@ -97,7 +113,9 @@
                     <td>Sinar datang sejajar sumbu utama seolah-olah dibiaskan berasal dari titik fokus aktif (F) di depan lensa.</td>
                     <td>
                         <figure class="text-center">
-                            <img src="/img/Materi1/lensa2a.png" alt="Sinar sejajar pada lensa cekung" class="img-fluid d-block mx-auto">
+                            <img src="/img/Materi1/lensa2a.png" alt="Sinar sejajar pada lensa cekung" class="img-fluid d-block mx-auto" data-bs-toggle="modal"
+                            data-bs-target="#modalGambar"
+                            onclick="tampilkanGambar(this)">
                         </figure>
                     </td>
                 </tr>
@@ -105,7 +123,9 @@
                     <td>Sinar datang seolah-olah menuju titik fokus pasif (F) akan dibiaskan sejajar sumbu utama.</td>
                     <td>
                         <figure class="text-center">
-                            <img src="/img/Materi1/lensa2b.png" alt="Sinar menuju fokus cekung" class="img-fluid d-block mx-auto">
+                            <img src="/img/Materi1/lensa2b.png" alt="Sinar menuju fokus cekung" class="img-fluid d-block mx-auto" data-bs-toggle="modal"
+                            data-bs-target="#modalGambar"
+                            onclick="tampilkanGambar(this)">
                         </figure>
                     </td>
                 </tr>
@@ -113,7 +133,9 @@
                     <td>Sinar datang melalui pusat optik (O) akan diteruskan tanpa pembiasan.</td>
                     <td>
                         <figure class="text-center">
-                            <img src="/img/Materi1/lensa2c.png" alt="Sinar lurus lensa cekung" class="img-fluid d-block mx-auto">
+                            <img src="/img/Materi1/lensa2c.png" alt="Sinar lurus lensa cekung" class="img-fluid d-block mx-auto" data-bs-toggle="modal"
+                            data-bs-target="#modalGambar"
+                            onclick="tampilkanGambar(this)">
                         </figure>
                     </td>
                 </tr>
@@ -124,7 +146,9 @@
             Jika ketiga sinar istimewa yang berasal dari sebuah benda dilukiskan pada satu lensa, maka akan terbentuk bayangan benda
         </p>
         <figure class="text-center">
-            <img src="/img/Materi1/lensa6.png" alt="Pembentukan Bayangan oleh Lensa Cekung" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <img src="/img/Materi1/lensa6.png" alt="Pembentukan Bayangan oleh Lensa Cekung" class="img-fluid d-block mx-auto" style="max-width: 60%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption><em>Gambar 1.22 Pembentukan Bayangan oleh Lensa Cekung (Sumber: Kemdikbud. 2017)</em></figcaption>
         </figure>
         <p>
@@ -132,6 +156,17 @@
         </p>
     </div>
 </div>
+<!-- Modal Gambar -->
+<div class="modal fade" id="modalGambar" tabindex="-1" aria-labelledby="modalGambarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <img id="gambarModal" src="" alt="" class="img-fluid w-100">
+        </div>
+      </div>
+    </div>
+  </div>
+  
 <div class="card-custom">
     <h5>Aktivitas 1.3</h5>
     <div class="question-container">
@@ -175,82 +210,87 @@
 </div>
 
 <script>
-let currentSoal = 1;
-const totalSoal = 2;
+    let currentSoal = 1;
+    const totalSoal = 2;
 
-function showSoal(n) {
-    for (let i = 1; i <= totalSoal; i++) {
-        const soal = document.getElementById(`soal${i}`);
-        if (soal) soal.style.display = i === n ? "block" : "none";
+    function showSoal(n) {
+        for (let i = 1; i <= totalSoal; i++) {
+            const soal = document.getElementById(`soal${i}`);
+            if (soal) soal.style.display = i === n ? "block" : "none";
+        }
     }
-}
 
-function nextSoal() {
-    if (currentSoal < totalSoal) {
-        currentSoal++;
-        showSoal(currentSoal);
-    } else {
-        Swal.fire({
-            title: 'Latihan selesai!',
-            text: 'Apakah kamu yakin ingin melanjutkan ke materi selanjutnya?',
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonText: 'Ya, lanjut',
-            cancelButtonText: 'Kembali'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                fetch('/simpan-hasil-latihan', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                    },
-                    body: JSON.stringify({ latihan_ke: 3 })
-                })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data.message);
-                    Swal.fire({
-                        title: 'Berhasil!',
-                        text: 'Data latihan kamu telah disimpan.',
-                        icon: 'success',
-                        confirmButtonText: 'Lanjut ke Materi'
-                    }).then(() => {
-                        window.location.href = "/petunjuk/1";
+    function nextSoal() {
+        if (currentSoal < totalSoal) {
+            currentSoal++;
+            showSoal(currentSoal);
+        } else {
+            Swal.fire({
+                title: 'Latihan selesai!',
+                text: 'Apakah kamu yakin ingin melanjutkan ke materi selanjutnya?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, lanjut',
+                cancelButtonText: 'Kembali'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    fetch('/simpan-hasil-latihan', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                        },
+                        body: JSON.stringify({ latihan_ke: 3 })
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data.message);
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Data latihan kamu telah disimpan.',
+                            icon: 'success',
+                            confirmButtonText: 'Lanjut ke Materi'
+                        }).then(() => {
+                            window.location.href = "/petunjuk/1";
+                        });
+                    })
+                    .catch(err => {
+                        console.error('Gagal simpan hasil latihan:', err);
+                        Swal.fire('Error', 'Gagal menyimpan hasil latihan. Silakan coba lagi.', 'error');
                     });
-                })
-                .catch(err => {
-                    console.error('Gagal simpan hasil latihan:', err);
-                    Swal.fire('Error', 'Gagal menyimpan hasil latihan. Silakan coba lagi.', 'error');
-                });
-            }
-        });
+                }
+            });
+        }
     }
-}
 
-function cekCheckbox(name, kunci, hasilId, tombol) {
-    const hasil = document.getElementById(hasilId);
-    const btnLanjut = tombol.nextElementSibling;
-    const checkboxes = document.querySelectorAll(`input[name="${name}"]`);
-    const dipilih = Array.from(checkboxes).filter(c => c.checked).map(c => c.value);
+    function cekCheckbox(name, kunci, hasilId, tombol) {
+        const hasil = document.getElementById(hasilId);
+        const btnLanjut = tombol.nextElementSibling;
+        const checkboxes = document.querySelectorAll(`input[name="${name}"]`);
+        const dipilih = Array.from(checkboxes).filter(c => c.checked).map(c => c.value);
 
-    const benar = kunci.every(k => dipilih.includes(k)) && dipilih.every(d => kunci.includes(d));
+        const benar = kunci.every(k => dipilih.includes(k)) && dipilih.every(d => kunci.includes(d));
 
-    if (benar) {
-        hasil.innerHTML = "Jawaban Benar!";
-        hasil.style.color = "green";
-        hasil.dataset.answered = "true";
-        btnLanjut.classList.remove("disabled");
-        checkboxes.forEach(cb => cb.disabled = true);
-    } else {
-        hasil.innerHTML = `Jawaban Salah! Jawaban yang benar: ${kunci.join(", ")}`;
-        hasil.style.color = "red";
+        if (benar) {
+            hasil.innerHTML = "Jawaban Benar!";
+            hasil.style.color = "green";
+            hasil.dataset.answered = "true";
+            btnLanjut.classList.remove("disabled");
+            checkboxes.forEach(cb => cb.disabled = true);
+        } else {
+            hasil.innerHTML = `Jawaban Salah! Jawaban yang benar: ${kunci.join(", ")}`;
+            hasil.style.color = "red";
+        }
     }
-}
 
-document.addEventListener("DOMContentLoaded", () => {
-    showSoal(currentSoal);
-});
+    document.addEventListener("DOMContentLoaded", () => {
+        showSoal(currentSoal);
+    });
+    function tampilkanGambar(imgElement) {
+        const modalImg = document.getElementById('gambarModal');
+        modalImg.src = imgElement.src;
+        modalImg.alt = imgElement.alt;
+    }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection

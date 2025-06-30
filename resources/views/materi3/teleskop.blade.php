@@ -21,7 +21,9 @@
             Teleskop adalah alat optik yang membuat benda-benda jauh terlihat lebih dekat. Teleskop bias sederhana terdiri dari dua lensa cembung yang ada di dalam pipa. Lensa yang lebih besar disebut lensa objektif, sedangkan lensa yang lebih kecil adalah lensa okuler (lensa mata). Lensa objektif pertama-tama membentuk bayangan, kemudian bayangan itu diperbesar oleh lensa okuler. Lensa objektif pada teleskop bias lebih besar daripada diameter mata kita, jadi lebih banyak cahaya yang bisa masuk ke dalam lensa dan ke mata kita. Karena itu, bayangan yang terbentuk oleh teleskop akan lebih jelas dan objek yang terlihat jadi lebih detail dibandingkan dengan melihat langsung dengan mata.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi3/optik6.png" alt="Teleskop Bias" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+            <img src="/img/Materi3/optik6.png" alt="Teleskop Bias" class="img-fluid d-block mx-auto" style="max-width: 50%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption><em>Gambar 3.6 Teleskop Bias (Sumber: Kemdikbud. 2017)</em></figcaption>
         </figure>
         <p>
@@ -31,7 +33,9 @@
             Tapi, ada bedanya nih lensa di teleskop sama di kacamata. Kalau di kacamata, lensa membantu bikin objek yang elo lihat supaya nggak kelihatan buram lagi. Kalau di teleskop, lensa ini yang bikin elo bisa melihat objek yang jauh dengan lebih dekat. 
         </p>
         <figure class="text-center">
-            <img src="/img/Materi3/teleskop bias.png" alt="Cara Kerja Teleskop Bias dalam menangkap cahaya" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+            <img src="/img/Materi3/teleskop bias.png" alt="Cara Kerja Teleskop Bias dalam menangkap cahaya" class="img-fluid d-block mx-auto" style="max-width: 50%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption><em>Gambar 3.7 Cara Kerja Teleskop Bias dalam menangkap cahaya</em></figcaption>
         </figure>
 
@@ -40,7 +44,9 @@
             Pada teleskop pantul, lensa objektif digantikan dengan cermin cekung. Bayangan dari objek yang jauh terbentuk di dalam tabung teleskop ketika cahaya dipantulkan oleh cermin cekung. Cahaya dari objek yang jauh masuk ke salah satu ujung tabung dan dipantulkan oleh cermin lain di ujung satunya. Cahaya tersebut kemudian dipantulkan lagi dari cermin cekung ke cermin datar di dalam tabung. Cermin datar ini memantulkan cahaya ke lensa okuler, yang berfungsi untuk memperbesar gambar.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi3/optik7.png" alt="Teleskop Pantul" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+            <img src="/img/Materi3/optik7.png" alt="Teleskop Pantul" class="img-fluid d-block mx-auto" style="max-width: 50%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption><em>Gambar 3.8 Teleskop Pantul (Sumber: Kemdikbud. 2017)</em></figcaption>
         </figure>
         <p>
@@ -50,10 +56,22 @@
             Ini juga alasan mengapa lebih banyak teleskop yang menggunakan cermin saat ini, karena cara membuatnya juga nggak begitu sulit. Apalagi cermin juga lebih mudah dibersihkan dan dipoles daripada lensa.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi3/teleskop pantul.png" alt="Cara Kerja Teleskop Pantul dalam menangkap cahaya" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+            <img src="/img/Materi3/teleskop pantul.png" alt="Cara Kerja Teleskop Pantul dalam menangkap cahaya" class="img-fluid d-block mx-auto" style="max-width: 50%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption><em>Gambar 3.9 Cara Kerja Teleskop Pantul dalam menangkap cahaya (Sumber: Dokumen Penulis)</em></figcaption>
         </figure>
     </div>
+</div>
+<!-- Modal Gambar -->
+<div class="modal fade" id="modalGambar" tabindex="-1" aria-labelledby="modalGambarLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-body p-0">
+        <img id="gambarModal" src="" alt="" class="img-fluid w-100">
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="card-custom">
@@ -191,5 +209,11 @@
     document.addEventListener("DOMContentLoaded", () => {
       showSoal(currentSoal);
     });
+
+    function tampilkanGambar(imgElement) {
+        const modalImg = document.getElementById('gambarModal');
+        modalImg.src = imgElement.src;
+        modalImg.alt = imgElement.alt;
+    }
   </script>  
 @endsection

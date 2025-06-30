@@ -14,14 +14,18 @@
             Kaca pembesar  atau lup, adalah alat optik sederhana yang memiliki satu lensa cembung. Alat ini digunakan untuk memperbesar objek kecil supaya kita bisa melihat detailnya dengan lebih jelas. Ketika cahaya melewati lensa cembung, cahaya tersebut akan dibelokkan dan berkumpul di satu titik, sehingga bayangan objek menjadi lebih besar. Kaca pembesar sering digunakan untuk kegiatan sehari-hari, seperti membaca tulisan kecil atau melihat detail pada suatu benda.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi3/optik2.png" alt="Kaca Pembesar (Lup)" class="img-fluid d-block mx-auto">
+            <img src="/img/Materi3/optik2.png" alt="Kaca Pembesar (Lup)" class="img-fluid d-block mx-auto" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption><em>Gambar 3.2 Kaca Pembesar (Lup) (Sumber: Kemdikbud. 2017)</em></figcaption>
         </figure>        
         <p>
             Penggunaan kaca pembesar tidak terbatas pada kegiatan sehari-hari, tetapi juga digunakan dalam penelitian ilmiah untuk mengamati detail yang tidak terlihat oleh mata telanjang. Memahami cara kerja kaca pembesar membantu dalam berbagai aplikasi yang membutuhkan perbesaran.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi3/optik3.png" alt="(a) Pengamatan Menggunakan Lup dengan Mata Berakomodasi Maksimum, (b) Pengamatan Menggunakan Lup dengan Mata Tidak Berakomodasi" class="img-fluid d-block mx-auto" style="max-width: 40%;">
+            <img src="/img/Materi3/optik3.png" alt="(a) Pengamatan Menggunakan Lup dengan Mata Berakomodasi Maksimum, (b) Pengamatan Menggunakan Lup dengan Mata Tidak Berakomodasi" class="img-fluid d-block mx-auto" style="max-width: 40%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption><em>Gambar 3.3 (a) Pengamatan Menggunakan Lup dengan Mata Berakomodasi  Maksimum, (b) Pengamatan Menggunakan Lup dengan Mata Tidak Berakomodasi (Sumber: Kemdikbud. 2017)</em></figcaption>
         </figure>
         <p>
@@ -29,7 +33,17 @@
         </p>
     </div>
 </div>
-
+<!-- Modal Gambar -->
+<div class="modal fade" id="modalGambar" tabindex="-1" aria-labelledby="modalGambarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <img id="gambarModal" src="" alt="" class="img-fluid w-100">
+        </div>
+      </div>
+    </div>
+  </div>
+  
 <div class="card-custom">
     <h5>Aktivitas 3.2</h5>
     <div class="question-container">
@@ -166,5 +180,11 @@
     document.addEventListener("DOMContentLoaded", () => {
         showSoal(currentSoal);
     });
+
+    function tampilkanGambar(imgElement) {
+        const modalImg = document.getElementById('gambarModal');
+        modalImg.src = imgElement.src;
+        modalImg.alt = imgElement.alt;
+    }
 </script>
 @endsection

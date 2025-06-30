@@ -17,12 +17,24 @@
             Mata majemuk sangat bermanfaat untuk kelangsungan hidup serangga, terutama dalam mendeteksi predator atau mencari makanan. Sebagai contoh, lalat dapat merespons ancaman dalam hitungan milidetik berkat mata majemuknya. Selain itu, serangga seperti lebah mampu melihat cahaya ultraviolet, yang membantu mereka dalam mencari bunga.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi2/mata6.png" alt="Mata Majemuk pada Mata Lalat" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+            <img src="/img/Materi2/mata6.png" alt="Mata Majemuk pada Mata Lalat" class="img-fluid d-block mx-auto" style="max-width: 50%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption><em>Gambar 2.6 Mata Majemuk pada Mata Lalat (Sumber: Kemdikbud. 2017)</em></figcaption>
         </figure>        
     </div>
 </div>
-
+<!-- Modal Gambar -->
+<div class="modal fade" id="modalGambar" tabindex="-1" aria-labelledby="modalGambarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <img id="gambarModal" src="" alt="" class="img-fluid w-100">
+        </div>
+      </div>
+    </div>
+  </div>
+  
 <div class="card-custom">
     <h5>Aktivitas 2.2</h5>
     <div class="question-container">
@@ -248,5 +260,10 @@
         reset.classList.remove("disabled");
         reset.style.opacity = "1";
     });
+    function tampilkanGambar(imgElement) {
+        const modalImg = document.getElementById('gambarModal');
+        modalImg.src = imgElement.src;
+        modalImg.alt = imgElement.alt;
+    }
 </script>  
 @endsection

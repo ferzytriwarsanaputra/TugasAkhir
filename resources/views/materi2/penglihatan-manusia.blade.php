@@ -33,21 +33,39 @@
             Mata adalah organ penglihatan pada manusia yang berbentuk bulat dan terdiri atas beberapa bagian dengan fungsi masing-masing. Mata dilapisi oleh tiga jaringan berbeda. Lapisan terluar disebut sklera, yang membentuk kornea. Lapisan tengah adalah koroid, yang membentuk iris. Sementara itu, lapisan terdalam adalah retina.
         </p>
 
-        <div id="diagram-container">
-            <h5>🔍 Klik Bagian Mata untuk Melihat Fungsinya</h5>
-            <img src="/img/Materi2/mata1.png" width="500" alt="Diagram Mata">
+        <div id="diagram-container" class="position-relative my-3">
+            <h5>🔍 Arahkan kursor ke titik kuninb untuk membaca penjelasan bagian mata</h5>
+            <img src="/img/Materi2/mata1.png" width="500" alt="Diagram Mata" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption><em>Gambar 2.1 Bagian-bagian Mata (Sumber: Kemdikbud. 2017)</em></figcaption>
-            
-            <!-- Titik Interaktif -->
-            <div class="hotspot" style="top: 148px; left: 15px;" onclick="showInfo('kornea')"></div>
-            <div class="hotspot" style="top: 118px; left: 40px;" onclick="showInfo('iris')"></div>
-            <div class="hotspot" style="top: 180px; left: 20px;" onclick="showInfo('pupil')"></div>
-            <div class="hotspot" style="top: 250px; left: 55px;" onclick="showInfo('lensa')"></div>
-            <div class="hotspot" style="top: 128px; left: 365px;" onclick="showInfo('retina')"></div>
-            <div class="hotspot" style="top: 285px; left: 390px;" onclick="showInfo('saraf')"></div>
-        </div>
+          
+            <!-- Titik Interaktif dengan tooltip penjelasan lengkap -->
+            <div class="hotspot" style="top:173px; left:15px;"
+                 data-bs-toggle="tooltip"
+                 title="Kornea: Lapisan bening di bagian depan mata yang membantu memfokuskan cahaya."></div>
+          
+            <div class="hotspot" style="top:143px; left:40px;"
+                 data-bs-toggle="tooltip"
+                 title="Iris: Bagian berwarna dari mata yang mengatur besar kecilnya pupil."></div>
+          
+            <div class="hotspot" style="top:205px; left:20px;"
+                 data-bs-toggle="tooltip"
+                 title="Pupil: Lubang di tengah iris yang mengatur jumlah cahaya yang masuk ke mata."></div>
+          
+            <div class="hotspot" style="top:275px; left:55px;"
+                 data-bs-toggle="tooltip"
+                 title="Lensa: Membiaskan cahaya agar bayangan jatuh tepat di retina."></div>
+          
+            <div class="hotspot" style="top:153px; left:365px;"
+                 data-bs-toggle="tooltip"
+                 title="Retina: Lapisan di belakang mata tempat bayangan terbentuk dan diubah menjadi sinyal saraf."></div>
+          
+            <div class="hotspot" style="top:310px; left:390px;"
+                 data-bs-toggle="tooltip"
+                 title="Saraf Optik: Mengirimkan sinyal dari retina ke otak agar kita dapat melihat."></div>
+          </div>
 
-        <div id="info">Klik bagian mata untuk melihat penjelasannya.</div>
         <h6>1) Kornea</h6>
         <p>
             Mata memiliki bentuk menyerupai bola dengan diameter sekitar 2,5 cm. Bagian terluar mata dikenal sebagai sklera, yaitu lapisan putih yang menyatu dengan bagian bening di depan mata yang disebut kornea. Kornea adalah jalan masuk cahaya ke dalam mata. Lapisan luar kornea bersifat kuat dan transparan, berfungsi untuk melindungi area sensitif di belakangnya serta membantu memfokuskan cahaya pada retina.
@@ -61,7 +79,9 @@
             Cahaya yang telah melewati pupil kemudian bergerak ke lensa mata. Lensa mata berbentuk bikonveks (cembung di kedua sisi), mirip dengan lensa pada kaca pembesar. Lensa ini bersifat fleksibel dan kecembungannya dapat diubah dengan bantuan otot siliar, sehingga mempermudah proses pemfokusan cahaya.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi2/mata2.png" alt="Perubahan Kecembungan Lensa Mata" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <img src="/img/Materi2/mata2.png" alt="Perubahan Kecembungan Lensa Mata" class="img-fluid d-block mx-auto" style="max-width: 60%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption><em>Gambar 2.2 Perubahan Kecembungan Lensa Mata Ketika Melihat Benda Jauh dan Dekat (Sumber: Kemdikbud. 2017)</em></figcaption>
         </figure>
         <p>
@@ -72,7 +92,9 @@
             Cahaya yang melewati lensa akan menghasilkan bayangan yang ditangkap oleh retina. Retina adalah lapisan saraf di bagian belakang mata yang sangat sensitif terhadap cahaya (fotoreseptor). Retina memiliki dua jenis sel fotoreseptor, yaitu sel batang dan sel kerucut. Sel kerucut berfungsi untuk melihat warna, namun membutuhkan cahaya yang lebih terang dibandingkan sel batang. Sebaliknya, sel batang aktif di kondisi cahaya redup dan hanya dapat mendeteksi sinar tanpa warna. Jumlah sel batang di retina sekitar 125 juta, sedangkan sel kerucut, yang mampu menangkap cahaya terang dan warna, berjumlah sekitar 6,5 hingga 7 juta.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi2/mata3.png" alt="Sel Batang dan Kerucut" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+            <img src="/img/Materi2/mata3.png" alt="Sel Batang dan Kerucut" class="img-fluid d-block mx-auto" style="max-width: 50%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption><em>Gambar 2.3 Sel Batang dan Kerucut pada Retina (Sumber: Kemdikbud. 2017)</em></figcaption>
         </figure>
         <p>
@@ -84,7 +106,9 @@
             Penderita rabun dekat mengalami kesulitan melihat benda yang berada pada jarak dekat (sekitar 30 cm) dengan jelas. Hal ini terjadi karena bayangan benda jatuh di belakang retina, sehingga gambar yang terbentuk pada retina tampak kabur. Untuk mengatasi masalah ini, penderita dapat menggunakan kacamata berlensa positif. Lensa cembung pada kacamata membantu mengumpulkan cahaya sebelum masuk ke mata, memungkinkan kornea dan lensa mata membentuk bayangan yang tajam tepat di retina.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi2/mata4.png" alt="Rabun Dekat" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <img src="/img/Materi2/mata4.png" alt="Rabun Dekat" class="img-fluid d-block mx-auto" style="max-width: 60%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption><em>Gambar 2.4 Perubahan Fokus Sinar pada Rabun Dekat (Sumber: Kemdikbud. 2017)</em></figcaption>
         </figure>
         <h6>2) Rabun Jauh</h6>
@@ -92,7 +116,9 @@
             Penderita rabun jauh kesulitan melihat benda yang berada pada jarak jauh (tak terhingga) dengan jelas. Ini disebabkan oleh bayangan yang jatuh di depan retina, seperti yang terlihat pada gambar. Untuk membantu mengatasi masalah ini, penderita rabun jauh dapat menggunakan kacamata dengan lensa negatif. Lensa cekung pada kacamata akan menyebarkan cahaya sebelum cahaya masuk ke mata, sehingga bayangan yang jelas dapat terbentuk di retina.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi2/mata5.png" alt="Rabun Jauh" class="img-fluid d-block mx-auto" style="max-width: 60%;">
+            <img src="/img/Materi2/mata5.png" alt="Rabun Jauh" class="img-fluid d-block mx-auto" style="max-width: 60%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption><em>Gambar 2.5 Perubahan Fokus Sinar pada Rabun Jauh (Sumber: Kemdikbud. 2017)</em></figcaption>
         </figure>
         <h6>3) Buta Warna</h6>
@@ -109,7 +135,17 @@
         </p>
     </div>
 </div>
-
+<!-- Modal Gambar -->
+<div class="modal fade" id="modalGambar" tabindex="-1" aria-labelledby="modalGambarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <img id="gambarModal" src="" alt="" class="img-fluid w-100">
+        </div>
+      </div>
+    </div>
+  </div>
+  
 <div class="card-custom">
     <h5>Aktivitas 2.1</h5>
     <div class="question-container">
@@ -268,17 +304,17 @@
     document.addEventListener("DOMContentLoaded", () => {
         showSoal(currentSoal);
     });
-    
-    function showInfo(bagian) {
-        const penjelasan = {
-            kornea: "Kornea adalah bagian bening di depan mata yang merupakan jalan masuk cahaya. Lapisan ini kuat dan transparan, berfungsi melindungi bagian sensitif di belakangnya dan membantu memfokuskan cahaya ke retina.",
-            iris: "Iris atau selaput pelangi adalah bagian berwarna pada mata yang mengatur jumlah cahaya yang masuk ke mata dengan mengubah ukuran pupil.",
-            pupil: "Pupil adalah lubang di tengah iris tempat cahaya masuk ke dalam mata. Ukuran pupil berubah-ubah tergantung intensitas cahaya.",
-            lensa: "Lensa mata bersifat fleksibel dan berbentuk cembung di kedua sisi. Lensa ini membiaskan cahaya dan memfokuskan bayangan agar jatuh tepat di retina.",
-            retina: "Retina adalah lapisan saraf di bagian belakang mata yang sangat sensitif terhadap cahaya. Di dalamnya terdapat sel batang dan kerucut yang menangkap cahaya dan warna.",
-            saraf: "Saraf optik membawa impuls saraf dari retina ke otak, tempat gambar diproses dan dimaknai sebagai penglihatan."
-        };
-        document.getElementById("info").innerText = penjelasan[bagian];
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+            new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    });
+    function tampilkanGambar(imgElement) {
+        const modalImg = document.getElementById('gambarModal');
+        modalImg.src = imgElement.src;
+        modalImg.alt = imgElement.alt;
     }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

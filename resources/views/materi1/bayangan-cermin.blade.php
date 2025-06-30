@@ -18,7 +18,9 @@
           Cermin datar adalah jenis cermin yang paling sederhana. Bayangan yang terbentuk oleh cermin datar adalah tegak, sama besar dengan objek, dan bersifat maya, artinya bayangan terbentuk di belakang cermin. Bayangan ini tidak dapat ditangkap pada layar karena tidak nyata.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi1/bercermin.jpeg" alt="Melihat Bayangan di Cermin" class="img-fluid d-block mx-auto" style="max-width: 40%;">
+            <img src="/img/Materi1/bercermin.jpeg" alt="Melihat Bayangan di Cermin" class="img-fluid d-block mx-auto" style="max-width: 40%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption>Gambar 1.8 Bayangan dari Cermin datar (Sumber: haibunda.com)</figcaption>
         </figure>
         <p>
@@ -29,7 +31,9 @@
             <br>α= Besar sudut antar dua cermin
         </p>
         <figure class="text-center">
-            <img src="/img/Materi1/1.png" alt="Pembentukan Bayangan pada Cermin Datar" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+            <img src="/img/Materi1/1.png" alt="Pembentukan Bayangan pada Cermin Datar" class="img-fluid d-block mx-auto" style="max-width: 50%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption>Gambar 1.9 Pembentukan Bayangan pada Cermin Datar (Sumber: Kemdikbud. 2017)</figcaption>
         </figure>
         <p>
@@ -44,7 +48,9 @@
             Cermin cekung memiliki permukaan yang melengkung ke dalam dan bersifat konvergen, seperti bagian dalam mangkuk. Cermin cekung dapat membentuk bayangan nyata dan terbalik jika objek berada di luar titik fokus. Namun, jika objek berada di antara cermin dan titik fokus, bayangan yang terbentuk akan maya, tegak, dan diperbesar. Cermin cekung digunakan dalam aplikasi seperti reflektor pada lampu sorot atau senter dan cermin rias.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi1/senter.png" alt="Cermin cekung sebagai reflektor pada senter" class="img-fluid d-block mx-auto" style="max-width: 30%;">
+            <img src="/img/Materi1/senter.png" alt="Cermin cekung sebagai reflektor pada senter" class="img-fluid d-block mx-auto" style="max-width: 30%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption>Gambar 1.10 Cermin Cekung Sebagai Reflektor pada Senter (Sumber: kompas.com)</figcaption>
         </figure>
         <h6><br>1) Pemantulan sinar-sinar istimewa pada cermin cekung adalah sebagai berikut:</h6>
@@ -56,39 +62,53 @@
             </tr>
             <tr>
                 <td>a. Sinar datang sejajar sumbu utama akan dipantulkan melalui titik fokus.</td>
-                <td><img src="/img/Materi1/1a.png" alt="Sinar sejajar dipantulkan ke titik fokus" class="img-fluid d-block mx-auto"></td>
+                <td><img src="/img/Materi1/1a.png" alt="Sinar sejajar dipantulkan ke titik fokus" class="img-fluid d-block mx-auto" data-bs-toggle="modal"
+                  data-bs-target="#modalGambar"
+                  onclick="tampilkanGambar(this)"></td>
             </tr>
             <tr>
                 <td>b. Sinar datang melalui titik fokus akan dipantulkan sejajar sumbu utama.</td>
-                <td><img src="/img/Materi1/1b.png" alt="Sinar dari fokus dipantulkan sejajar" class="img-fluid d-block mx-auto"></td>
+                <td><img src="/img/Materi1/1b.png" alt="Sinar dari fokus dipantulkan sejajar" class="img-fluid d-block mx-auto" data-bs-toggle="modal"
+                  data-bs-target="#modalGambar"
+                  onclick="tampilkanGambar(this)"></td>
             </tr>
             <tr>
                 <td>c. Sinar datang melalui titik pusat kelengkungan cermin akan dipantulkan kembali melalui titik tersebut.</td>
-                <td><img src="/img/Materi1/1c.png" alt="Sinar ke pusat kelengkungan dipantulkan kembali ke asal" class="img-fluid d-block mx-auto"></td>
+                <td><img src="/img/Materi1/1c.png" alt="Sinar ke pusat kelengkungan dipantulkan kembali ke asal" class="img-fluid d-block mx-auto" data-bs-toggle="modal"
+                  data-bs-target="#modalGambar"
+                  onclick="tampilkanGambar(this)"></td>
             </tr>
         </table>
 
         <h6><br>2) Pembentukan Bayangan oleh Cermin Cekung</h6>
         <p>• Benda berada pada jarak lebih dari R</p>
         <figure class="text-center">
-            <img src="/img/Materi1/222.png" alt="Bayangan saat benda di luar R" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+            <img src="/img/Materi1/222.png" alt="Bayangan saat benda di luar R" class="img-fluid d-block mx-auto" style="max-width: 50%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption>Gambar 1.11 Pembentukan Bayangan jika Benda Berada pada Jarak Lebih dari R pada Cermin Cekung (Sumber: Kemdikbud. 2017)</figcaption>
         </figure>
         <p>Berdasarkan gambar tersebut, bayangan yang terbentuk bersifat nyata, terbalik, dan diperkecil.</p>
         <p>• Benda di titik fokus F</p>
         <figure class="text-center">
-            <img src="/img/Materi1/22.png" alt="Bayangan pada titik fokus" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+            <img src="/img/Materi1/22.png" alt="Bayangan pada titik fokus" class="img-fluid d-block mx-auto" style="max-width: 50%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption>Gambar 1.12 Pembentukan Bayangan jika Benda Berada pada Titik Fokus pada Cermin Cekung (Sumber: Kemdikbud. 2017)</figcaption>
         </figure>
         <p>Berdasarkan gambar tersebut, tidak terbentuk bayangan atau bayangan terletak di tempat yang jauh tak terhingga.</p>
         <p>• Benda di antara cermin dan F</p>
         <figure class="text-center">
-            <img src="/img/Materi1/23.png" alt="Bayangan maya, tegak, diperbesar" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+            <img src="/img/Materi1/23.png" alt="Bayangan maya, tegak, diperbesar" class="img-fluid d-block mx-auto" style="max-width: 50%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption>Gambar 1.13 Pembentukan Bayangan jika Benda Berada di Antara Titik Fokus dan Cermin Cekung (Sumber: Kemdikbud. 2017)</figcaption>
         </figure>
         <p>Berdasarkan gambar tersebut bayangan yang terbentuk bersifat maya, tegak, dan diperbesar. Selain penggunaan diagram sinar dan tiga sinar istimewa, agar lebih mudah memahami letak benda dan letak bayangan, kamu dapat memahami pembagian nomor ruang pada cermin lengkung (Dalil Esbach).</p>
         <figure class="text-center">
-            <img src="/img/Materi1/24.png" alt="Pembagian ruang menurut Dalil Esbach" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+            <img src="/img/Materi1/24.png" alt="Pembagian ruang menurut Dalil Esbach" class="img-fluid d-block mx-auto" style="max-width: 50%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption>Gambar 1.14 Pembagian Ruang pada Cermin Cekung menurut Dalil Esbach (Sumber: Kemdikbud. 2017)</figcaption>
         </figure>
         <p>Misalnya benda diletakkan pada jarak lebih dari M (ruang III), bayangan yang terbentuk akan berada pada jarak antara F dan M (ruang II). Hal ini disebabkan menurut dalil Esbach jumlah ruang benda dengan ruang bayangan adalah sama dengan 5 (R_benda+R_bayangan) = 5.</p>
@@ -97,7 +117,9 @@
             Cermin cembung memiliki permukaan yang melengkung keluar. Bayangan yang terbentuk oleh cermin cembung selalu maya, tegak, dan lebih kecil dari objek aslinya. Cermin ini sering digunakan sebagai kaca spion pada kendaraan karena memberikan pandangan yang lebih luas.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi1/spion.png" alt="Cermin cembung pada spion mobil" class="img-fluid d-block mx-auto" style="max-width: 40%;">
+            <img src="/img/Materi1/spion.png" alt="Cermin cembung pada spion mobil" class="img-fluid d-block mx-auto" style="max-width: 40%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption>Gambar 1.15 Cermin cembung pada spion mobil (Sumber: pinterest.com)</figcaption>
         </figure>
         <p>
@@ -111,25 +133,44 @@
             </tr>
             <tr>
                 <td>a. Sinar datang sejajar sumbu utama dipantulkan seolah-olah dari titik fokus (F).</td>
-                <td><img src="/img/Materi1/2a.png" alt="Sinar sejajar dipantulkan dari fokus maya" class="img-fluid d-block mx-auto"></td>
+                <td><img src="/img/Materi1/2a.png" alt="Sinar sejajar dipantulkan dari fokus maya" class="img-fluid d-block mx-auto" data-bs-toggle="modal"
+                  data-bs-target="#modalGambar"
+                  onclick="tampilkanGambar(this)"></td>
             </tr>
             <tr>
                 <td>b. Sinar yang datang menuju titik fokus (F) dipantulkan sejajar sumbu utama.</td>
-                <td><img src="/img/Materi1/2b.png" alt="Sinar ke fokus dipantulkan sejajar" class="img-fluid d-block mx-auto"></td>
+                <td><img src="/img/Materi1/2b.png" alt="Sinar ke fokus dipantulkan sejajar" class="img-fluid d-block mx-auto" data-bs-toggle="modal"
+                  data-bs-target="#modalGambar"
+                  onclick="tampilkanGambar(this)"></td>
             </tr>
             <tr>
                 <td>c. Sinar yang datang menuju titik pusat kelengkungan cermin seolah-olah dipantulkan berasal dari titik pusat kelengkungan tersebut.</td>
-                <td><img src="/img/Materi1/2c.png" alt="Sinar ke pusat kelengkungan maya" class="img-fluid d-block mx-auto"></td>
+                <td><img src="/img/Materi1/2c.png" alt="Sinar ke pusat kelengkungan maya" class="img-fluid d-block mx-auto" data-bs-toggle="modal"
+                  data-bs-target="#modalGambar"
+                  onclick="tampilkanGambar(this)"></td>
             </tr>
         </table>
         <p><br>Contoh lukisan pembentukan bayangan pada cermin cembung sebagai berikut.</p>
         <figure class="text-center">
-            <img src="/img/Materi1/333.png" alt="Bayangan maya, tegak, diperkecil oleh cermin cembung" class="img-fluid d-block mx-auto" style="max-width: 50%;">
+            <img src="/img/Materi1/333.png" alt="Bayangan maya, tegak, diperkecil oleh cermin cembung" class="img-fluid d-block mx-auto" style="max-width: 50%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption>Gambar 1.16 Pembentukan Bayangan pada Cermin Cembung, Bayangan yang Terbentuk Bersifat Maya dan Tegak (Sumber: Kemdikbud. 2017)</figcaption>
         </figure>
         <p>Jika benda diletakkan di depan cermin cembung, maka bayangan yang terbentuk akan bersifat maya, tegak, dan diperkecil.</p>
     </div>
 </div>
+<!-- Modal Gambar -->
+<div class="modal fade" id="modalGambar" tabindex="-1" aria-labelledby="modalGambarLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-body p-0">
+        <img id="gambarModal" src="" alt="" class="img-fluid w-100">
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="card-custom">
     <h5>Aktivitas 1.2</h5>
   
@@ -308,5 +349,11 @@
     }
     
     showSoal(currentSoal);
+
+    function tampilkanGambar(imgElement) {
+      const modalImg = document.getElementById('gambarModal');
+      modalImg.src = imgElement.src;
+      modalImg.alt = imgElement.alt;
+  }
 </script>
 @endsection

@@ -31,7 +31,13 @@
             Cahaya merambat lurus dalam ruang yang serba sama. Apabila mengenai suatu benda, cahaya dapat diteruskan, diserap atau dipantulkan. Misalkan saja, kamu menyalakan lilin di tempat gelap, maka kamu akan melihat bahwa daerah yang ada di sekitar lilin tersebut akan terang.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi1/Pengamat.png" alt="Set Percobaan Perambatan Cahaya" class="img-fluid d-block mx-auto" style="max-width: 80%;">
+            <img src="/img/Materi1/Pengamat.png" 
+                alt="Set Percobaan Perambatan Cahaya"
+                class="img-fluid d-block mx-auto"
+                style="max-width: 80%; cursor:pointer;"
+                data-bs-toggle="modal"
+                data-bs-target="#modalGambar"
+                onclick="tampilkanGambar(this)">
             <figcaption>Gambar 1.1 Set Percobaan Perambatan Cahaya</figcaption>
         </figure>        
         <h6>b. Cahaya dapat dipantulkan</h6>
@@ -39,7 +45,13 @@
             Agar dapat melihat bayanganmu di cermin, cahaya harus terpantul mengenai cermin dan dipantulkan kembali oleh cermin ke dalam mata kamu. Pemantulan cahaya terjadi ketika cahaya mengenai suatu benda dan dipantulkan oleh benda tersebut.
         </p>
         <figure class="text-center">
-            <img src="/img/Materi1/bercermin.jpeg" alt="Melihat Bayangan di Cermin" class="img-fluid d-block mx-auto" style="max-width: 40%;">
+            <img src="/img/Materi1/bercermin.jpeg"
+                alt="Melihat Bayangan di Cermin"
+                class="img-fluid d-block mx-auto"
+                style="max-width: 40%; cursor:pointer;"
+                data-bs-toggle="modal"
+                data-bs-target="#modalGambar"
+                onclick="tampilkanGambar(this)">
             <figcaption>Gambar 1.2 Melihat Bayangan di Cermin (Sumber: haibunda.com)</figcaption>
         </figure>        
         <p>
@@ -52,11 +64,15 @@
         </p>
         <div class="d-flex justify-content-center gap-4 flex-wrap">
             <figure style="max-width: 40%;">
-                <img src="/img/Materi1/pemantulan cahaya.png" alt="Proses Pemantulan Cahaya" class="img-fluid">
+                <img src="/img/Materi1/pemantulan cahaya.png" alt="Proses Pemantulan Cahaya" class="img-fluid" data-bs-toggle="modal"
+                data-bs-target="#modalGambar"
+                onclick="tampilkanGambar(this)">
                 <figcaption class="text-center">Gambar 1.3 Proses Pemantulan Cahaya pada Cermin Datar (Sumber: Kemdikbud. 2017)</figcaption>
             </figure>
             <figure style="max-width: 40%;">
-                <img src="/img/Materi1/2.png" alt="Ilustrasi Proses Pemantulan Cahaya" class="img-fluid">
+                <img src="/img/Materi1/2.png" alt="Ilustrasi Proses Pemantulan Cahaya" class="img-fluid" data-bs-toggle="modal"
+                data-bs-target="#modalGambar"
+                onclick="tampilkanGambar(this)">
                 <figcaption class="text-center">Gambar 1.4 Ilustrasi Pemantulan Cahaya pada Cermin Datar</figcaption>
             </figure>
         </div>        
@@ -69,11 +85,15 @@
         </p>
         <div class="d-flex justify-content-center gap-4 flex-wrap">
             <figure style="max-width: 40%;">
-                <img src="/img/Materi1/pembiasan.png" alt="Set Percobaan Pembiasan" class="img-fluid">
+                <img src="/img/Materi1/pembiasan.png" alt="Set Percobaan Pembiasan" class="img-fluid" data-bs-toggle="modal"
+                data-bs-target="#modalGambar"
+                onclick="tampilkanGambar(this)">
                 <figcaption class="text-center">Gambar 1.5 Set Percobaan Pembiasan (Sumber: Kemdikbud. 2017)</figcaption>
             </figure>
             <figure style="max-width: 40%;">
-                <img src="/img/Materi1/3.png" alt="Ilustrasi Pembelokkan Gelombang Cahaya" class="img-fluid">
+                <img src="/img/Materi1/3.png" alt="Ilustrasi Pembelokkan Gelombang Cahaya" class="img-fluid" data-bs-toggle="modal"
+                data-bs-target="#modalGambar"
+                onclick="tampilkanGambar(this)">
                 <figcaption class="text-center">Gambar 1.6 Ilustrasi Pembelokkan Gelombang Cahaya</figcaption>
             </figure>
         </div>        
@@ -92,11 +112,24 @@
             Bayangkan cahaya seperti gelombang di lautan, yang naik turun saat bergerak. Bedanya, gelombang cahaya terdiri dari dua bagian yang saling tegak lurus: satu bagian adalah medan listrik, dan yang lainnya medan magnet. Keduanya bergerak bersama-sama dengan sangat cepat—sekitar 300.000 km per detik di ruang hampa!
         </p>
         <figure class="text-center">
-            <img src="/img/Materi1/elektromagnetik.png" alt="Spektrum Elektromagnetik" class="img-fluid d-block mx-auto" style="max-width: 100%;">
+            <img src="/img/Materi1/elektromagnetik.png" alt="Spektrum Elektromagnetik" class="img-fluid d-block mx-auto" style="max-width: 100%;" data-bs-toggle="modal"
+            data-bs-target="#modalGambar"
+            onclick="tampilkanGambar(this)">
             <figcaption>Gambar 1.7 Spektrum Elektromagnetik (Sumber: Kemdikbud. 2017)</figcaption>
         </figure>        
     </div>
 </div>
+<!-- Modal Gambar -->
+<div class="modal fade" id="modalGambar" tabindex="-1" aria-labelledby="modalGambarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <img id="gambarModal" src="" alt="" class="img-fluid w-100">
+        </div>
+      </div>
+    </div>
+  </div>
+  
 <div class="card-custom">
     <h5>Aktivitas 1.1</h5>
     <div class="question-container">
@@ -269,6 +302,11 @@
             currentBtn.disabled = true;
             currentBtn.classList.add("disabled");
         }
+    }
+    function tampilkanGambar(imgElement) {
+        const modalImg = document.getElementById('gambarModal');
+        modalImg.src = imgElement.src;
+        modalImg.alt = imgElement.alt;
     }
 </script>
 @endsection
