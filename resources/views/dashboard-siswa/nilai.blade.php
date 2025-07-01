@@ -56,10 +56,13 @@
                         @elseif ($kuisId == 4)
                             <a href="/" class="btn btn-primary">Kembali ke Dashboard</a>
                         @endif
-            
-                        <a href="/kuis/{{ $kuisId }}" class="btn btn-outline-danger">Ulangi Kuis</a>
-                    </div>
-            
+                    
+                        @if ($kuisId == 4)
+                            <a href="/evaluasi" class="btn btn-outline-danger">Ulangi Evaluasi</a>
+                        @else
+                            <a href="/kuis/{{ $kuisId }}" class="btn btn-outline-danger">Ulangi Kuis</a>
+                        @endif
+                    </div>                   
                 @else
                     {{-- Skor di bawah KKM: tombol materi dan ulangi --}}
                     <div class="d-flex justify-content-center gap-2 flex-wrap">
@@ -70,8 +73,13 @@
                         @elseif ($kuisId == 3)
                             <a href="/materi3/kamera" class="btn btn-outline-primary">Pelajari Materi</a>
                         @endif
-                        <a href="/kuis/{{ $kuisId }}" class="btn btn-danger">Ulangi Kuis</a>
-                    </div>
+                    
+                        @if ($kuisId == 4)
+                            <a href="/evaluasi" class="btn btn-danger">Ulangi Evaluasi</a>
+                        @else
+                            <a href="/kuis/{{ $kuisId }}" class="btn btn-danger">Ulangi Kuis</a>
+                        @endif
+                    </div>                    
                 @endif
             </div>            
         </div>

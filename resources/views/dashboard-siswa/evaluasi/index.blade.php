@@ -65,11 +65,18 @@ if (savedAnswers) userAnswers = JSON.parse(savedAnswers);
 const savedCurrent = localStorage.getItem(currentKey);
 if (savedCurrent) currentQuestion = parseInt(savedCurrent);
 
-const navigationType = performance.getEntriesByType('navigation')[0].type;
-if (navigationType === 'navigate') {
+// Pastikan waktu mulai tersimpan
+if (!localStorage.getItem(timeKey)) {
     localStorage.setItem(timeKey, Date.now());
 }
+
 startTime = parseInt(localStorage.getItem(timeKey));
+
+// Jika nilainya NaN atau gagal parsing, gunakan waktu sekarang
+if (isNaN(startTime)) {
+    startTime = Date.now();
+    localStorage.setItem(timeKey, startTime);
+}
 
 function saveProgress() {
     localStorage.setItem(answerKey, JSON.stringify(userAnswers));
