@@ -49,20 +49,39 @@ button.next-button.disabled {
 
 <script>
 const questions = @json($kuis->soals);
-const quizKey = 'evaluasi_' + {{ $kuis->id }};
-let userAnswers = JSON.parse(localStorage.getItem(quizKey)) || new Array(questions.length).fill(null);
-let currentQuestion = parseInt(localStorage.getItem(quizKey + '_current')) || 0;
+const kuisId = {{ $kuis->id }};
+const answerKey = `evaluasiUserAnswers_${kuisId}`;
+const currentKey = `evaluasiCurrentQuestion_${kuisId}`;
+const timeKey = `evaluasiStartTime_${kuisId}`;
+let userAnswers = new Array(questions.length).fill(null);
+let currentQuestion = 0;
 let totalTime = 1800; // 30 menit
-let startTime = localStorage.getItem(quizKey + '_startTime') || Date.now();
-localStorage.setItem(quizKey + '_startTime', startTime);
+let startTime;
+
+// Ambil dari localStorage jika ada
+const savedAnswers = localStorage.getItem(answerKey);
+if (savedAnswers) userAnswers = JSON.parse(savedAnswers);
+
+const savedCurrent = localStorage.getItem(currentKey);
+if (savedCurrent) currentQuestion = parseInt(savedCurrent);
+
+const navigationType = performance.getEntriesByType('navigation')[0].type;
+if (navigationType === 'navigate') {
+    localStorage.setItem(timeKey, Date.now());
+}
+startTime = parseInt(localStorage.getItem(timeKey));
+
+function saveProgress() {
+    localStorage.setItem(answerKey, JSON.stringify(userAnswers));
+    localStorage.setItem(currentKey, currentQuestion);
+}
 
 function loadQuestion() {
     const qContainer = document.getElementById("question-container");
     const opts = JSON.parse(questions[currentQuestion].options);
-    const isEvaluasi = questions[currentQuestion].is_evaluasi;
 
     qContainer.innerHTML = `
-        <p><strong>Nomor ${currentQuestion + 1}</strong> ${isEvaluasi ? '<span class="evaluasi-tag">Evaluasi</span>' : ''}</p>
+        <p><strong>Nomor ${currentQuestion + 1}</strong></p>
         <p>${questions[currentQuestion].soal}</p>
         <ul class="options">
             ${opts.map((opt, i) => `
@@ -84,36 +103,48 @@ function loadQuestion() {
 
 function selectAnswer(index) {
     userAnswers[currentQuestion] = index;
-    localStorage.setItem(quizKey, JSON.stringify(userAnswers));
+    saveProgress();
     loadQuestion();
 }
 
 function nextQuestion() {
-    if (currentQuestion < questions.length - 1) currentQuestion++;
-    localStorage.setItem(quizKey + '_current', currentQuestion);
-    loadQuestion();
+    if (currentQuestion < questions.length - 1) {
+        currentQuestion++;
+        saveProgress();
+        loadQuestion();
+    }
 }
 
 function prevQuestion() {
-    if (currentQuestion > 0) currentQuestion--;
-    localStorage.setItem(quizKey + '_current', currentQuestion);
-    loadQuestion();
+    if (currentQuestion > 0) {
+        currentQuestion--;
+        saveProgress();
+        loadQuestion();
+    }
 }
 
 function jumpToQuestion(index) {
     currentQuestion = index;
-    localStorage.setItem(quizKey + '_current', currentQuestion);
+    saveProgress();
     loadQuestion();
+}
+
+function hitungSkor() {
+    let skor = 0;
+    questions.forEach((q, i) => {
+        if (userAnswers[i] === parseInt(q.jawaban_benar)) skor++;
+    });
+    return Math.round((skor / questions.length) * 100);
 }
 
 function submitQuiz() {
     Swal.fire({
-        title: 'Evaluasi Selesai',
-        text: 'Ini adalah evaluasi terakhir. Pastikan semua jawaban sudah benar sebelum dikirim.',
+        title: 'Selesaikan Evaluasi?',
+        text: "Jawaban kamu akan dikirim dan tidak bisa diubah.",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Ya, kirim!',
-        cancelButtonText: 'Batal',
+        confirmButtonText: 'Ya, Kirim',
+        cancelButtonText: 'Belum',
     }).then((result) => {
         if (result.isConfirmed) {
             const skor = hitungSkor();
@@ -123,32 +154,23 @@ function submitQuiz() {
             const menit = Math.floor(elapsed / 60);
             const detik = elapsed % 60;
             const waktuPengerjaan = `${menit < 10 ? '0' : ''}${menit}:${detik < 10 ? '0' : ''}${detik}`;
-
             document.getElementById("waktuInput").value = waktuPengerjaan;
 
             // Bersihkan localStorage
-            localStorage.removeItem(quizKey);
-            localStorage.removeItem(quizKey + '_startTime');
-            localStorage.removeItem(quizKey + '_current');
+            localStorage.removeItem(answerKey);
+            localStorage.removeItem(currentKey);
+            localStorage.removeItem(timeKey);
 
             document.getElementById("quizForm").submit();
         }
     });
 }
 
-function hitungSkor() {
-    let skor = 0;
-    questions.forEach((q, i) => {
-        if (userAnswers[i] === q.jawaban_benar) skor++;
-    });
-    return Math.round((skor / questions.length) * 100);
-}
-
 function startTimer() {
     const timerEl = document.getElementById("timer");
     const interval = setInterval(() => {
-        let elapsed = Math.floor((Date.now() - startTime) / 1000);
-        let timeLeft = totalTime - elapsed;
+        const elapsed = Math.floor((Date.now() - startTime) / 1000);
+        const timeLeft = totalTime - elapsed;
 
         if (timeLeft <= 0) {
             timerEl.textContent = "00:00";
@@ -157,9 +179,9 @@ function startTimer() {
             return;
         }
 
-        let min = Math.floor(timeLeft / 60);
-        let sec = timeLeft % 60;
-        timerEl.textContent = `${min}:${sec < 10 ? '0' : ''}${sec}`;
+        const min = Math.floor(timeLeft / 60);
+        const sec = timeLeft % 60;
+        timerEl.textContent = `${min < 10 ? '0' : ''}${min}:${sec < 10 ? '0' : ''}${sec}`;
     }, 1000);
 }
 
