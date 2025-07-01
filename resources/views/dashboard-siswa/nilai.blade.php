@@ -75,7 +75,7 @@
                         @endif
                     
                         @if ($kuisId == 4)
-                            <a href="/evaluasi" class="btn btn-danger">Ulangi Evaluasi</a>
+                            <a href="/evaluasi/mulai/4" class="btn btn-danger">Ulangi Evaluasi</a>
                         @else
                             <a href="/kuis/{{ $kuisId }}" class="btn btn-danger">Ulangi Kuis</a>
                         @endif
