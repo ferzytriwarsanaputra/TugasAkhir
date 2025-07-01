@@ -86,7 +86,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/materi2/{halaman}', [Materi2Controller::class, 'show']);
     Route::get('/materi3/{halaman}', [Materi3Controller::class, 'show']);
 
-    Route::get('/dashboard-siswa', [SiswaController::class, 'index'])->middleware('auth')->name('dashboard-siswa');
+    Route::get('/dashboard-siswa', function () {
+        $user = Auth::user();
+    
+        if ($user && $user->role === 'guru') {
+            return redirect('/materi1/sifat-cahaya'); // Guru langsung ke materi 1
+        }
+    
+        return app(\App\Http\Controllers\SiswaController::class)->index();
+    })->middleware('auth')->name('dashboard-siswa');
+    
     Route::get('/dashboard-siswa/evaluasi', function () {
         $title = 'Evaluasi';
         return view('dashboard-siswa.evaluasi.index', compact('title'));

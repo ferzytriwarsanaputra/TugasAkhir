@@ -11,10 +11,11 @@
             <strong>Yuk, kita pelajari!</strong>
         </p>
 
-        <div class="d-flex align-items-center mt-4">
+        <div class="d-flex align-items-center mt-4 gap-2 flex-wrap">
             @if(Auth::check())
                 @if(Auth::user()->role == 'guru')
                     <a href="{{ url('/dashboard-guru') }}" class="btn btn-secondary">Halaman Guru</a>
+                    <a href="{{ url('/dashboard-siswa') }}" class="btn btn-outline-primary">Halaman Materi</a>
                 @elseif(Auth::user()->role == 'siswa')
                     <a href="{{ url('/dashboard-siswa') }}" class="btn btn-primary">Mulai Belajar</a>
                 @endif

@@ -107,17 +107,24 @@ class KuisController extends Controller
 
     public function petunjuk($id)
     {
-        $userId = auth()->id();
+        $user = auth()->user();
+
+        // Guru langsung bypass semua pembatasan
+        if ($user->role === 'guru') {
+            $kuis = Kuis::with('soals')->findOrFail($id);
+            $title = 'Petunjuk Kuis';
+            return view('dashboard-siswa.petunjuk', compact('kuis', 'title'));
+        }
 
         // Cek apakah skor sudah 100, jika ya langsung redirect ke nilai
-        $hasil = HasilKuis::where('user_id', $userId)->where('kuis_id', $id)->first();
+        $hasil = HasilKuis::where('user_id', $user->id)->where('kuis_id', $id)->first();
         if ($hasil && $hasil->skor == 100) {
             return redirect()->route('dashboard-siswa.nilai', ['kuis_id' => $id]);
-        }        
+        }
 
         // Cek syarat latihan
         $latihanSelesai = DB::table('hasil_latihan')
-            ->where('siswa_id', $userId)
+            ->where('siswa_id', $user->id)
             ->pluck('latihan_ke')
             ->toArray();
 
@@ -140,17 +147,21 @@ class KuisController extends Controller
 
     public function kuis($id)
     {
-        $userId = auth()->id();
+        $user = auth()->user();
 
-        // Jika sudah skor 100, langsung redirect ke halaman nilai
-        $hasil = HasilKuis::where('user_id', $userId)->where('kuis_id', $id)->first();
+        if ($user->role === 'guru') {
+            $kuis = Kuis::with('soals')->findOrFail($id);
+            $title = 'Kuis';
+            return view('dashboard-siswa.kuis', compact('kuis', 'title'));
+        }
+
+        $hasil = HasilKuis::where('user_id', $user->id)->where('kuis_id', $id)->first();
         if ($hasil && $hasil->skor == 100) {
             return redirect()->route('dashboard-siswa.nilai', ['kuis_id' => $id]);
-        }        
+        }
 
-        // Cek syarat latihan
         $latihanSelesai = DB::table('hasil_latihan')
-            ->where('siswa_id', $userId)
+            ->where('siswa_id', $user->id)
             ->pluck('latihan_ke')
             ->toArray();
 
@@ -173,15 +184,20 @@ class KuisController extends Controller
 
     public function petunjukEvaluasi($id)
     {
-        $userId = auth()->id();
+        $user = auth()->user();
 
-        // Cek apakah skor sudah 100, jika ya langsung redirect ke nilai
-        $hasil = HasilKuis::where('user_id', $userId)->where('kuis_id', $id)->first();
+        if ($user->role === 'guru') {
+            $evaluasi = Kuis::with('soals')->findOrFail($id);
+            $title = 'Petunjuk Evaluasi';
+            return view('dashboard-siswa.evaluasi.petunjuk', compact('evaluasi', 'title'));
+        }
+
+        $hasil = HasilKuis::where('user_id', $user->id)->where('kuis_id', $id)->first();
         if ($hasil && $hasil->skor == 100) {
             return redirect()->route('dashboard-siswa.nilai', ['kuis_id' => $id]);
         }
 
-        $kuis3 = HasilKuis::where('user_id', $userId)->where('kuis_id', 3)->first();
+        $kuis3 = HasilKuis::where('user_id', $user->id)->where('kuis_id', 3)->first();
         if (!$kuis3) {
             abort(403, 'Selesaikan Kuis 3 terlebih dahulu sebelum mengakses Petunjuk Evaluasi.');
         }
@@ -193,9 +209,15 @@ class KuisController extends Controller
 
     public function evaluasi($id)
     {
-        $userId = auth()->id();
+        $user = auth()->user();
 
-        $kuis3 = HasilKuis::where('user_id', $userId)->where('kuis_id', 3)->first();
+        if ($user->role === 'guru') {
+            $kuis = Kuis::findOrFail($id);
+            $title = 'Evaluasi';
+            return view('dashboard-siswa.evaluasi.index', compact('kuis', 'title'));
+        }
+
+        $kuis3 = HasilKuis::where('user_id', $user->id)->where('kuis_id', 3)->first();
         if (!$kuis3) {
             abort(403, 'Selesaikan Kuis 3 terlebih dahulu sebelum mengakses Evaluasi.');
         }

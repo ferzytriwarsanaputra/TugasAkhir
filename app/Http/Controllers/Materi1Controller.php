@@ -42,10 +42,10 @@ class Materi1Controller extends Controller
             abort(404);
         }
 
-        // 🔒 Cek akses progres siswa
+        $user = auth()->user();
         $akses = app(\App\Http\Controllers\SiswaController::class)->cekProgress();
 
-        // Sesuaikan key akses dengan nama route/halaman
+        // Mapping halaman ke kunci akses
         $mapHalamanToKey = [
             'sifat-cahaya' => 'materi1.sifat-cahaya',
             'bayangan-cermin' => 'materi1.bayangan-cermin',
@@ -54,7 +54,9 @@ class Materi1Controller extends Controller
         ];
 
         $kunciAkses = $mapHalamanToKey[$halaman] ?? null;
-        if ($kunciAkses && !($akses[$kunciAkses] ?? false)) {
+
+        // ❗ Jika bukan guru dan akses tidak diizinkan, redirect
+        if ($user->role !== 'guru' && $kunciAkses && !($akses[$kunciAkses] ?? false)) {
             return redirect('/dashboard-siswa')->with('error', 'Akses ditolak. Selesaikan materi sebelumnya terlebih dahulu.');
         }
 
@@ -67,7 +69,7 @@ class Materi1Controller extends Controller
 
         return view('materi1.' . $halaman, [
             'title' => $titles[$halaman] ?? 'Materi',
-            'akses' => $akses, // ← ini ditambahkan
+            'akses' => $akses,
         ]);
     }
 
