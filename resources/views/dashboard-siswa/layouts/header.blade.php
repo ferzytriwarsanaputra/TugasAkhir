@@ -15,9 +15,9 @@
         Request::is('petunjuk-evaluasi/*') ||
         Request::is('evaluasi/mulai/*')
     )
-        <div class="navbar-logo ms-3">
-            <a href="/" class="fw-bold text-decoration-none text-primary fs-4">LightLensEdu</a>
-        </div>
+        <div class="navbar-logo ms-3 {{ $noSidebar ? 'non-interactive' : '' }}">
+          <a href="/" class="fw-bold text-decoration-none text-primary fs-4">LightLensEdu</a>
+        </div>        
     @else
         <button class="toggler-btn" type="button">
             <i class="bi bi-justify fs-4"></i>
@@ -38,10 +38,10 @@
   
         @auth
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle fw-bold d-flex align-items-center gap-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle fw-bold d-flex align-items-center gap-2 {{ $noSidebar ? 'non-interactive' : '' }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-person-circle fs-6"></i>
               {{ Auth::user()->nama ?? 'User' }}
-            </a>            
+            </a>
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="/">Beranda</a></li>
               <li>

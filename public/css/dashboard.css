@@ -651,3 +651,8 @@ button.next-button.disabled {
   cursor: pointer;
   border: 1px solid #333;
 }
+
+.non-interactive {
+  pointer-events: none;
+  opacity: 0.6; /* opsional: bikin kelihatan tidak aktif */
+}
