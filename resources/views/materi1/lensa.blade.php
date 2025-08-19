@@ -256,7 +256,7 @@
                         console.log(data.message);
                         Swal.fire({
                             title: 'Berhasil!',
-                            text: 'Data latihan kamu telah disimpan.',
+                            text: 'Yeay, kamu berhasil menyelesaikan aktivitas',
                             icon: 'success',
                             confirmButtonText: 'Lanjut ke Materi'
                         }).then(() => {
